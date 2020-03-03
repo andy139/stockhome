@@ -15,21 +15,23 @@
 # gem 'pg'
 #
 default: &default
+  host: localhost
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
 
 development:
   <<: *default
-  database: StockHome1_development
+  database: stockhome_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: StockHome1
+  #username: stockhome
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +59,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: StockHome1_test
+  database: stockhome_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: StockHome1_production
-  username: StockHome1
-  password: <%= ENV['STOCKHOME1_DATABASE_PASSWORD'] %>
+  database: stockhome_production
+  username: stockhome
+  password: <%= ENV['stockhome_DATABASE_PASSWORD'] %>
