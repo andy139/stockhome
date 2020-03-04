@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
-  window.testUser = {email: "andyyyy", password: "LOLOLOL", fname:"andy", lname: "tran"}
+  window.testUser = {email: "andy@gmail.com", password: "LOLOLOL", fname:"andy", lname: "tran"}
   window.login = login;
   window.signup = signup;
   window.logout = logout;

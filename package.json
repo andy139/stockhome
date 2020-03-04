@@ -5,7 +5,11 @@
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "babel-loader": "^8.0.4",
+    "node-sass": "^4.13.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.1.2",
@@ -38,5 +42,10 @@
   "bugs": {
     "url": "https://github.com/andy139/stockhome/issues"
   },
-  "homepage": "https://github.com/andy139/stockhome#readme"
+  "homepage": "https://github.com/andy139/stockhome#readme",
+  "devDependencies": {
+    "css-loader": "^3.4.2",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3"
+  }
 }
