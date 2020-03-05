@@ -13,7 +13,7 @@
   
 }
 
-.navbar-link{
+.navbar-right{
     display: flex;
     justify-content: space-between;
   
@@ -28,18 +28,10 @@
     text-decoration: none;
 }
 
-.logo-text{
-    padding-left: 6px;
-    padding-top: 5px;
-    color: #7990a0;
-    text-decoration: none;
-    
-}
-
 .nav-login-link{
     margin-right: 20px;
     font-size: 15px;
-    padding: 12px 16px;
+    padding: 15px;
     font-weight: 400;
     color: #7990a0;
     text-decoration: none;
@@ -56,11 +48,34 @@
     font-size: 14px;
     font-weight: bold;
     border-radius: 4px;
-    padding: 12px 16px;
+    padding: 10px;
+    height: 13px;
     margin-right: 50px;
+
     color: #1c74b8;
     text-decoration: none;
     border: 1px solid #1c74b8;
+}
+
+.nav-signup-link-bolded{
+    // background-color: #1c74b8;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 10px;
+    height: 13px;
+    margin-right: 50px;
+    background: #1c74b8;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #1c74b8;
+}
+
+
+
+#signup-fix {
+    padding-top: 15px;
+
 }
 
 .logo-img {
@@ -69,20 +84,110 @@
     
 }
 
-.buy-nav {
+.navbar-logged-in{
+    display: flex;
+    background-color: white;
+    width: 1380px;
+    justify-content: space-between;
+    min-height: 60px;
+    align-items: center;
+    font-family: Muli, sans-serif;
+}
 
+
+
+.navbar-buy-own-sell {
+    display: flex;
+    justify-content: space-between;
+    width: 165 px;
 
 
 }
 
-.own-nav {
-
-
-
-}
-
-.sell-nav {
-
+.left-nav-misc {
+    width: 20 px;
+    height: 60 px;
+    padding: 15px;
+    
 
 
 }
+
+.navbar-right {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+
+.navbar-left {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.navbar-container-loggedin {
+    display: flex;
+    justify-content: space-between;
+    width: 940px;
+
+    font-family: Muli, sans-serif;
+    color: white;
+
+}
+
+
+.navbar-container-loggedout {
+    display: flex;
+    justify-content: space-between;
+    width: 940px;
+
+    font-family: Muli, sans-serif;
+    color:grey;
+
+}
+
+.navbar-fullwidth-loggedin {
+    display:flex;
+    min-height: 60px;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    background-color:#DAA520
+}
+
+.navbar-fullwidth-loggedout {
+    display:flex;
+    min-height: 60px;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    
+
+}
+
+
+.logo-text{
+    padding-top: 8px;
+    color: #7990a0;
+    text-decoration: none;
+    font-size: 18px;
+    
+}
+
+
+.navbar-logo {
+    padding-top: 5px;
+    padding-right: 10px;
+
+}
+
+
+.right-nav-misc {
+    width: 20 px;
+    height: 60 px;
+    padding: 15px;
+
+}
+

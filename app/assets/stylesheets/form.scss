@@ -1,14 +1,39 @@
+// .login-form-container {
+//     position:absolute;
+//     top:15%;
+//     left:45%;
+//     margin-top:-50px; /* this is half the height of your div*/  
+//     margin-left:-100px; /*this is half of width of your div*/
+//     // text-align: center;
+//     text-align: left;
+//     padding: 5px;
+//     font-family: Muli, sans-serif;
+// }
+
 .login-form-container {
-    position:absolute;
-    top:15%;
-    left:45%;
-    margin-top:-50px; /* this is half the height of your div*/  
-    margin-left:-100px; /*this is half of width of your div*/
-    // text-align: center;
+    // position:absolute;
+    // top:15%;
+    // left:45%;
+    // margin-top:-50px; /* this is half the height of your div*/  
+    // margin-left:-100px; /*this is half of width of your div*/
+    // // text-align: center;
     text-align: left;
     padding: 5px;
+    padding-top: 60px;
     font-family: Muli, sans-serif;
+
+
 }
+
+.flex-center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+
 
 .login-form-box {
 
@@ -54,7 +79,18 @@
     cursor: pointer;
 
 
+
 }
+
+
+.session-error {
+    padding-top: 15px;
+    color: #FF4D4D;
+    font-size: 14px;
+
+}
+
+
 
 hr {
     display: block;
@@ -74,6 +110,7 @@ hr {
 .text-center-signup {
     text-align:center;
     font-size: 26px;
+    padding-top: 20px;
     padding-bottom: 38px;
     font-family: Muli, sans-serif;
 

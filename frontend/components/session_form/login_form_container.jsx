@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { login } from '../../actions/session_actions';
+import { login, clearErrors } from '../../actions/session_actions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
@@ -41,48 +41,57 @@ class Loginform extends React.Component {
     }
 
 
+    componentWillUnmount(){
+        this.props.clearErrors();
+
+
+    }
+
+
     render() {
         return(
 
-            <div className="login-form-container">
-                <div className="text-center">Log In</div>
-                <br/>
-                <FontAwesomeIcon icon={faHorseHead}  className="input-icons-demo"/>
-                <input className="login-demo" type="submit" value="Log in with Demo User" />
-                <hr/> 
+            <div className="flex-center-container">
+                <div className="login-form-container">
+                    <div className="text-center">Log In</div>
+                    <br/>
+                    <FontAwesomeIcon icon={faHorseHead}  className="input-icons-demo"/>
+                    <input className="login-demo" type="submit" value="Log in with Demo User" />
+                    <hr/> 
+                    
+                    <form onSubmit={this.handleSubmit} className="login-form-box">
                 
-                <form onSubmit={this.handleSubmit} className="login-form-box">
-             
-                    <br/>
+                        <br/>
+                            <div className="input-container">
+                                <FontAwesomeIcon icon={faUser}  className="input-icons"/>
+                                <input type="text"
+                                        value={this.state.email}
+                                        placeholder="Email"
+                                        onChange={this.update('email')}
+                                        className="login-input"
+                                />
+                            </div>
+                
+                        <br/>
                         <div className="input-container">
-                            <FontAwesomeIcon icon={faUser}  className="input-icons"/>
-                            <input type="text"
-                                    value={this.state.email}
-                                    placeholder="Email"
-                                    onChange={this.update('email')}
-                                    className="login-input"
-                            />
+                            <FontAwesomeIcon icon={faLock}  className="input-icons"/>
+                            <input type="password"
+                                value={this.state.password}
+                                placeholder="Password"
+                                onChange={this.update('password')}
+                                className="login-input"
+                            /> 
                         </div>
-                    {this.renderSessionErrors()}
+                    
+                        <div className="session-error">{this.renderSessionErrors()}</div>
+                        <br/>
+                        <input className="login-submit" type="submit" value="Log In" /> 
+                    </form>
+                    <div id= "login-padding"><Link to="/">Forgot password?</Link></div>
+                
                     <br/>
-                    <div className="input-container">
-                        <FontAwesomeIcon icon={faLock}  className="input-icons"/>
-                        <input type="password"
-                            value={this.state.password}
-                            placeholder="Password"
-                            onChange={this.update('password')}
-                            className="login-input"
-                        /> 
-                    </div>
-
-                    <br/>
-
-                    <input className="login-submit" type="submit" value="Log In" /> 
-                </form>
-                <div id= "login-padding"><Link to="/">Forgot password?</Link></div>
-               
-                <br/>
-                <span>Dont have an account?</span> <Link to="/signup">Sign Up</Link>
+                    <span>Dont have an account?</span> <Link to="/signup">Sign Up</Link>
+                </div>
             </div>
         )
     }
@@ -101,6 +110,7 @@ const mapStateToProps = ({ errors }) => {
 const mapDispatchToProps = dispatch => {
   return {
     processForm: (user) => dispatch(login(user)),
+    clearErrors: () => dispatch(clearErrors())
   };
 };
 

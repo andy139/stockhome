@@ -1,7 +1,9 @@
 import {connect} from 'react-redux';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {signup} from '../../actions/session_actions';
+import {signup, clearErrors} from '../../actions/session_actions';
+
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faLock } from '@fortawesome/free-solid-svg-icons'
@@ -19,9 +21,9 @@ class SigninForm extends React.Component {
             confirm_password: '',
             lname: '',
             fname: '',
-            phone: '',
-            interest:'',
-            misc: '',
+            phone_number: '',
+            interests:'',
+            referral: '',
 
 
 
@@ -43,16 +45,21 @@ class SigninForm extends React.Component {
         });
     }
 
-    renderSessionErrors() {
-        return(
-            <div>
-                {this.props.errors[0]}
-            </div>
-        )
+    renderSessionErrors(field) {
+
+        
+    }
+
+    componentWillUnmount(){
+        this.props.clearErrors();
+
+
     }
     
     
     render(){
+
+    
 
         return(
             <div> 
@@ -101,6 +108,8 @@ class SigninForm extends React.Component {
                                 </div>
                             </div>
 
+                            <div className>{this.props.errors.includes("Lname can't be blank") ? "Last name can't be blank" : null} </div>
+                            <div className>{this.props.errors.includes("Fname can't be blank") ? "Fname can't be blank" : null} </div>
                             <br/>
 
                             <div className="input-container">
@@ -112,6 +121,7 @@ class SigninForm extends React.Component {
                                     className="signup-input"
                                 />
                             </div>
+                            <div className="session-error">{this.props.errors.includes("Email can't be blank") ? "Email can't be blank" : null} </div>
                 
                             <br/>   
                             <div className="input-container">
@@ -123,6 +133,7 @@ class SigninForm extends React.Component {
                                     className="signup-input"
                                 />
                             </div>
+                            <div className="session-error">{this.props.errors.includes("Password is too short (minimum is 6 characters)") ? "Password is too short (minimum is 6 characters)" : null} </div>
                             <br/>   
                             <div className="input-container">
                                 <FontAwesomeIcon icon={faLock}  className="signup-icons"/>
@@ -135,7 +146,7 @@ class SigninForm extends React.Component {
                             </div>
                             <br/>
                             <div>
-                                <select onChange={this.update('interest')} id="signup-interest" >
+                                <select onChange={this.update('interests')} id="signup-interest" >
                                     <option>I am interested in:</option>
                                     <option value="Buying Properties">Buying Properties</option>
                                     <option value="Selling Properties">Selling Properties</option>
@@ -145,7 +156,7 @@ class SigninForm extends React.Component {
                             <br/>
 
                             <div>
-                                <select onChange={this.update('misc')} id="signup-interest" >
+                                <select onChange={this.update('referral')} id="signup-interest" >
                                     <option>How did you hear about us?</option>
                                     <option value="Friend">Friend</option>
                                     <option value="Taylor Swift">Taylor Swift</option>
@@ -209,7 +220,8 @@ const mapStateToProps = ({ errors} ) => {
 const mapDispatchToProps = dispatch => {
 
     return{
-        processForm: (user) => dispatch(signup(user))
+        processForm: (user) => dispatch(signup(user)),
+        clearErrors: () => dispatch(clearErrors()),
     }
 
 }

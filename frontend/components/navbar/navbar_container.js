@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Navbar from './Navbar';
+import { withRouter } from "react-router";
 
-const mapStateToProps = ({ session, entities: { users } }) => {
+const mapStateToProps = ({ session, entities: { users }}, ownProps) => {
     return {
       currentUser: users[session.id]
     };
@@ -13,5 +14,5 @@ const mapStateToProps = ({ session, entities: { users } }) => {
   });
 
 
-  export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
+  export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));
   
