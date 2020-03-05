@@ -29,8 +29,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --watch --mode=development"
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -47,5 +46,9 @@
     "css-loader": "^3.4.2",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.3"
+  },
+  "engines": {
+    "node": "12.5.0",
+    "npm": "6.9.0"
   }
 }
