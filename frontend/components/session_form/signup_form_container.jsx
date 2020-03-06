@@ -125,24 +125,24 @@ class SigninForm extends React.Component {
                 
                 <div className="topbox-signup-container">
                     <img src="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/illus/Tenant-Occupied-100x80@3x-a1953a95522aee8912cfbbaeb020531d.png" className="signup-images" />
-                    <div className="box-signup">
+                    <div className="box-signup limit">
     
                         Buy and sell tenant-occupied rental houses outside your local market
                     </div >
                     <img src="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/illus/Certified-100x80@3x-664c0c78e3ea43053e4a0a6139f16d31.png" className="signup-images" />
-                    <div className="box-signup">
+                    <div className="box-signup limit">
                         Properties on our marketplace are certified so you can invest with confidence
                     </div>
                     <img src="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/illus/Property-Manager-100x80@3x-fc2efcd67358fdb918c84c54a55728fc.png" className="signup-images" />
-                    <div className="box-signup">
+                    <div className="box-signup limit">
                         Select a trusted local property manager and own without the hassle
                     </div>          
                 </div>
 
 
                 <div id="session-side">
-                    <div className="signup-form-container">
-                        <form onSubmit={this.handleSubmit}>
+                    
+                        <form onSubmit={this.handleSubmit} className="signup-form-container">
                             <br/>
                             <div className="name-signup">
                                 
@@ -171,11 +171,9 @@ class SigninForm extends React.Component {
                             </div>
 
                             <div className = "error-fn-ln">
-                                <div className="session-error-new lname-fix">{this.state.fname_error} </div>
+                                <div className="session-error-new fname-fix">{this.state.fname_error} </div>
                                 <div className="session-error-new lname-fix">{this.state.lname_error} </div>
                             </div>
-
-                            <br/>
 
                             <div className="input-container">
                                 <FontAwesomeIcon icon={faEnvelope}  className="signup-icons"/>
@@ -189,7 +187,6 @@ class SigninForm extends React.Component {
                             </div>
                             <div className="session-error-new">{this.state.email_error} </div>
                 
-                            <br/>   
                             <div className="input-container">
                                 <FontAwesomeIcon icon={faLock}  className="signup-icons"/>
                                 <input type="password"
@@ -200,8 +197,7 @@ class SigninForm extends React.Component {
                                     className="signup-input input-fix"
                                 />
                             </div>
-                            <div className="session-error-new">{this.state.password_error} </div>
-                            <br/>   
+                            <div className="session-error-new">{this.state.password_error} </div> 
                             <div className="input-container">
                                 <FontAwesomeIcon icon={faLock}  className="signup-icons"/>
                                 <input type="password"
@@ -215,28 +211,27 @@ class SigninForm extends React.Component {
                             "Your confirm password does not match" : null}
                             
                             </div>
-                            <br/>
-                            <div>
-                                <select onChange={this.update('interests')} id="signup-interest" >
-                                    <option>I am interested in:</option>
-                                    <option value="Buying Properties">Buying Properties</option>
-                                    <option value="Selling Properties">Selling Properties</option>
-                                    <option value="Inviting Clients as a Broker or Agent">Inviting Clients as a Broker or Agent </option>
-                                </select>
-                            </div>
+                          
+                            <select onChange={this.update('interests')} id="signup-interest" >
+                                <option>I am interested in:</option>
+                                <option value="Buying Properties">Buying Properties</option>
+                                <option value="Selling Properties">Selling Properties</option>
+                                <option value="Inviting Clients as a Broker or Agent">Inviting Clients as a Broker or Agent </option>
+                            </select>
+                       
                             <br/>
 
-                            <div>
-                                <select onChange={this.update('referral')} id="signup-interest" >
-                                    <option>How did you hear about us?</option>
-                                    <option value="Friend">Friend</option>
-                                    <option value="Taylor Swift">Taylor Swift</option>
-                                    <option value="Google">Google </option>
-                                    <option value="Someone from App Academy">Someone from App Academy </option>
-                                    <option value="Erik">Erik</option>
-                                    <option value="Ryan Mapa">Ryan Mapa</option>
-                                </select>
-                            </div>
+                            
+                            <select onChange={this.update('referral')} id="signup-interest" >
+                                <option>How did you hear about us?</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Taylor Swift">Taylor Swift</option>
+                                <option value="Google">Google </option>
+                                <option value="Someone from App Academy">Someone from App Academy </option>
+                                <option value="Erik">Erik</option>
+                                <option value="Ryan Mapa">Ryan Mapa</option>
+                            </select>
+                            
 
                             <br/>
                             
@@ -245,13 +240,13 @@ class SigninForm extends React.Component {
                             <br/>
                             <input className="login-submit" type="submit" value="Sign Up" />  
                             <br/>
-        
+                            <span>Already a member? <Link to="/login">Sign In</Link> </span> 
                         </form>
                         <br/>
-                        <span>Already a member? <Link to="/login">Sign In</Link> </span> 
-                    </div>
+                        
+                   
 
-                    <div className="wrapper">
+                    <div className="wrapper limit_two">
                         <div className="line"></div>
                         <div className="wordwrapper">
                             <div className="word">or</div>                                        
@@ -259,7 +254,7 @@ class SigninForm extends React.Component {
                     </div>
                     
                     <div id="session-side-three">
-                        <div>
+                        <div className= "limit_two">
 
                             <FontAwesomeIcon icon={faHorseHead}  className="input-icons-demo"/>
                             <input className="signup-demo" type="submit" value="Log in with Demo User" />

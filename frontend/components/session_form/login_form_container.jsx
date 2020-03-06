@@ -106,7 +106,7 @@ class Loginform extends React.Component {
                     <br/>
                     <FontAwesomeIcon icon={faHorseHead}  className="input-icons-demo"/>
                     <input 
-                        className="login-demo" 
+                        className="signup-demo" 
                         type="submit" 
                         value="Log in with Demo User"
                         onClick={this.loginDemoUser}

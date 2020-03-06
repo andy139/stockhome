@@ -21,8 +21,8 @@ class Navbar extends React.Component {
         const signUpNotBolded = () => (
 
 
-            <div>
-                <Link className="nav-signup-link" to="/signup">Sign Up</Link>
+            <div className="nav-signup-link">
+                <Link className="signup-text-blue" to="/signup">Sign Up</Link>
             </div>
 
         )
@@ -30,8 +30,8 @@ class Navbar extends React.Component {
         const signUpBolded = () => (
 
 
-            <div>
-               <Link className="nav-signup-link-bolded" to="/signup">Sign Up</Link>
+            <div className="nav-signup-link-bolded">
+               <Link to="/signup" className="signup-text">Sign Up</Link>
             </div>
 
         )

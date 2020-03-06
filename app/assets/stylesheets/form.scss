@@ -21,6 +21,8 @@
     padding: 5px;
     padding-top: 60px;
     font-family: Muli, sans-serif;
+    font-size: 12px;
+    width: 270px;
 
 
 }
@@ -43,7 +45,7 @@
 
 .input-icons-demo {
     position: absolute;
-    padding: 13px;
+    padding: 15px;
     padding-top: 10px;
     color: rgb(206, 206, 206);
 }
@@ -55,7 +57,7 @@
 }
 .login-submit {
 
-    font-size: 14px;
+  
     border-radius: 4px;
     padding: 8px 95px;
     width: 100%;
@@ -68,7 +70,7 @@
 
 .login-demo {
 
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 4px;
     padding: 8px 95px;
     width: 100%;
@@ -92,16 +94,27 @@
 
 
 .session-error-new {
-    padding-top: 5px;
+    padding-top: 3px;
     color: #FF4D4D;
     font-size: 12px;
+    padding-bottom: 8px;
+    height: 10px;
 
 }
 
 .lname-fix {
- padding-right: 20px;
+    width: 150px;
+    padding-right: 5px;
 
 }
+
+.fname-fix {
+    padding-right: 20px;
+    width: 150px;
+
+}
+
+
 
 
 hr {
@@ -115,15 +128,15 @@ hr {
 
 .text-center {
     text-align:center;
-    font-size: 26px;
+    font-size: 18px;
 
 }
 
 .text-center-signup {
     text-align:center;
-    font-size: 26px;
+    font-size: 20px;
     padding-top: 20px;
-    padding-bottom: 38px;
+    padding-bottom: 20px;
     font-family: Muli, sans-serif;
 
 }
@@ -144,15 +157,16 @@ hr {
 }
 
 .box-signup {
-
+    flex-shrink: 3;
     width: 200px;
     height: 100px;
-    font-size:16px;
+    font-size:13px;
+    overflow:hidden;
 
 }
 
 #signup-interest {
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 4px;
     width: 100%;
     padding-left: 3px;
@@ -179,6 +193,7 @@ hr {
      align-items: center;
      font-family: Muli, sans-serif;
      justify-content: center;
+     font-size: 13px;
 
 }
 
@@ -192,9 +207,9 @@ hr {
 
 .login-input {
     // background-color: #1c74b8;
-    font-size: 14px;
+    font-size: 12px;
     width: 100%;
-    padding: 10px;
+    padding:7px;
     color:grey;
     text-decoration: none;
     border: 1px solid #1c74b8;
@@ -211,7 +226,7 @@ hr {
 
 .signup-input {
     // background-color: #1c74b8;
-    font-size: 14px;
+    font-size: 12px;
     width: 100%;
     padding-left: 7px;
     color:grey;
@@ -231,9 +246,9 @@ hr {
 
 .signup-input-lastname {
     // background-color: #1c74b8;
-    font-size: 14px;
+    font-size: 12px;
     width: 140px;
-    padding: 7px;
+    padding: 6.75px;
     color:grey;
     text-decoration: none;
     border: 1px solid #1c74b8;
@@ -265,8 +280,9 @@ hr {
 
 
 .tos {
+    flex-shrink: 2;
     text-align: center;
-    font-size: 18px;
+    font-size: 13px;
     padding-left: 10px;
 }
 
@@ -276,7 +292,7 @@ hr {
     border-radius: 4px;
     padding: 8px;
     text-align: center;
-    width: 282px;
+    width: 270px;
     color: white;
     text-decoration: none;
     background-color:#265099;
@@ -351,7 +367,7 @@ hr {
 
 
 .input-icons {
-    padding: 12px;
+    padding: 8px;
     color: rgb(206, 206, 206);
     text-align: center;
     min-width: 30px;
@@ -361,4 +377,17 @@ hr {
     border-bottom-right-radius: 0px;
     border-right: 0px;
 
+}
+
+@media only screen and (max-width : 633px){
+    .limit{
+        display:none;
+    }
+}
+
+
+@media only screen and (max-width : 674px){
+    .limit_two{
+        display:none;
+    }
 }
