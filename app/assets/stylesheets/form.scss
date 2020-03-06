@@ -241,6 +241,8 @@ hr {
     border-radius: 4px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+    outline: 0px;
+    
 }
 
 
@@ -262,9 +264,14 @@ hr {
 }
 
 
+.signup-input-lastname:focus-within {
+    border-color: #9ecaed;
+    box-shadow: 0 0 8px #9ecaed;
+}
+
 .signup-icons {
-    padding: 7px;
-    color: rgb(206, 206, 206);
+    padding: 7.5px;
+    color: #cecece;
     text-align: center;
     min-width: 30px;
     border: 1px solid #1c74b8;
@@ -372,10 +379,25 @@ hr {
 
 
 .input-container {
-
+    height: 30px;
     display: flex;
     width: 100%;
 
+}
+
+.input-container:focus-within {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 8px #9ecaed;
+}
+
+
+#focus-example > .extra {
+    display: none;
+  }
+  
+#focus-example:focus > .extra {
+    display: block;
 }
 
 
@@ -404,3 +426,5 @@ hr {
         display:none;
     }
 }
+
+

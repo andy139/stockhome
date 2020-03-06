@@ -114,8 +114,8 @@ class Loginform extends React.Component {
                                         value={this.state.email}
                                         placeholder="Email"
                                         onChange={this.update('email')}
-                                        className="login-input"
-                                />
+                                        className="signup-input"
+                                /> 
                             </div>
                 
                         <br/>
@@ -125,7 +125,7 @@ class Loginform extends React.Component {
                                 value={this.state.password}
                                 placeholder="Password"
                                 onChange={this.update('password')}
-                                className="login-input"
+                                className="signup-input"
                             /> 
                         </div>
                     
