@@ -84,12 +84,24 @@
 
 
 .session-error {
-    padding-top: 15px;
+    padding-top: 10px;
     color: #FF4D4D;
     font-size: 14px;
 
 }
 
+
+.session-error-new {
+    padding-top: 5px;
+    color: #FF4D4D;
+    font-size: 12px;
+
+}
+
+.lname-fix {
+ padding-right: 20px;
+
+}
 
 
 hr {
@@ -123,6 +135,12 @@ hr {
     justify-content: center;
     font-family: Muli, sans-serif;
    
+}
+
+.error-fn-ln {
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .box-signup {
@@ -195,7 +213,7 @@ hr {
     // background-color: #1c74b8;
     font-size: 14px;
     width: 100%;
-    padding: 7px;
+    padding-left: 7px;
     color:grey;
     text-decoration: none;
     border: 1px solid #1c74b8;
@@ -204,10 +222,12 @@ hr {
     border-bottom-left-radius: 0px;
 }
 
-.signup-input:focus {
 
-    border: 2px solid #4169e1;
-}
+
+// .signup-input:focus {
+
+//     border: 2px solid #4169e1;
+// }
 
 .signup-input-lastname {
     // background-color: #1c74b8;

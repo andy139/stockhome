@@ -16,6 +16,7 @@ class Loginform extends React.Component {
 
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.loginDemoUser = this.loginDemoUser.bind(this);
 
     }
 
@@ -29,6 +30,54 @@ class Loginform extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
+    }
+
+    handleEmail(email) {
+        let emailArr = email.split('');
+        setInterval(() => {
+          if (emailArr.length > 0) {
+            this.setState({
+              email: this.state.email + emailArr.shift()
+            })
+          }
+        }, 50)
+      }
+
+    
+      handlePass(pass) {
+        let passArr = pass.split('');
+        setInterval(() => {
+          if (passArr.length > 0) {
+            this.setState({
+              password: this.state.password + passArr.shift()
+            })
+          }
+        }, 50)
+      }
+
+
+    loginDemoUser(e) {
+        debugger
+        e.preventDefault();
+
+        this.setState({
+            email: "",
+            password: ""
+        })
+
+        let email = "JohnDoe@gmail.com";
+        let password ="password";
+
+        this.handleEmail(email);
+
+        setTimeout(() => {
+            this.handlePass(password);
+          }, 1000)
+        setTimeout(() => {
+            this.props.processForm(this.state)
+        }, 1500)
+
+
     }
 
 
@@ -56,7 +105,12 @@ class Loginform extends React.Component {
                     <div className="text-center">Log In</div>
                     <br/>
                     <FontAwesomeIcon icon={faHorseHead}  className="input-icons-demo"/>
-                    <input className="login-demo" type="submit" value="Log in with Demo User" />
+                    <input 
+                        className="login-demo" 
+                        type="submit" 
+                        value="Log in with Demo User"
+                        onClick={this.loginDemoUser}
+                         />
                     <hr/> 
                     
                     <form onSubmit={this.handleSubmit} className="login-form-box">

@@ -13,8 +13,13 @@ import { faHorseHead } from '@fortawesome/free-solid-svg-icons'
 
 
 class SigninForm extends React.Component {
+    
     constructor(props) {
         super(props);
+
+
+        
+      
         this.state = {
             email:'',
             password: '',
@@ -24,33 +29,87 @@ class SigninForm extends React.Component {
             phone_number: '',
             interests:'',
             referral: '',
+            fname_error: '',
+            lname_error: '',
+            email_error: '',
+            password_error: '',
+            confirm_password: '',
+
 
 
 
 
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.renderSessionErrors = this.renderSessionErrors.bind(this);
+        this.clearErrorsOnClick = this.clearErrorsOnClick.bind(this);
+        this.setErrors = this.setErrors.bind(this)
 
+    };
+
+    
+    // componentWillReceiveProps(nextProps) {
+    //     // Any time props.email changes, update state.
+    //     if (nextProps.errors !== this.props.errors) {
+    //         this.setState( {fname_error: this.props.errors.includes("Fname can't be blank") ? "First name can't be blank" : null})
+    //     }
+    //   }
+
+    
+
+    setErrors() {   
+         this.setState( {fname_error: this.props.errors.includes("Fname can't be blank") ? "First name can't be blank" : null,
+         lname_error: this.props.errors.includes("Lname can't be blank") ? "Last name can't be blank" : null,
+         email_error: this.props.errors.includes("Email can't be blank") ? "Email name can't be blank" : null,
+         password_error: this.props.errors.includes("Password is too short (minimum is 6 characters)") ? "Password is too short (minimum is 6 characters)" : null})
+    
     }
+
+    
+
 
     handleSubmit(e) {
+    
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
-    }
+        this.props.processForm(user)
+            .fail(() => this.setErrors());
+       
+    };
 
     update(field) {
         return e => this.setState({
           [field]: e.currentTarget.value
         });
-    }
-
-    renderSessionErrors(field) {
 
         
     }
 
+    renderSessionErrors(field, error) {
+        
+        this.setState({
+            [field] : error
+        })
+        
+    }
+
+    clearErrorsOnClick() {  
+        this.props.clearErrors()
+
+    }
+
+    clearError(field) {
+        
+        this.setState({
+            [field] : ''
+        })
+
+    }
+
+
+
     componentWillUnmount(){
+    
         this.props.clearErrors();
 
 
@@ -58,9 +117,8 @@ class SigninForm extends React.Component {
     
     
     render(){
-
     
-
+      
         return(
             <div> 
                 <div className="text-center-signup">Welcome to Stockhome</div>
@@ -87,13 +145,15 @@ class SigninForm extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <br/>
                             <div className="name-signup">
-
+                                
                                 <div className="input-container" >    
                                     <FontAwesomeIcon icon={faUser}  className="signup-icons"/>
                                     <input type="text"
                                             value={this.state.fname}
                                             placeholder="First Name"
                                             onChange={this.update('fname')}
+                                            
+                                            onClick={() => this.clearError('fname_error')}
                                             className="signup-input"
                                     />
                                 </div>
@@ -103,13 +163,18 @@ class SigninForm extends React.Component {
                                             value={this.state.lname}
                                             placeholder="Last Name"
                                             onChange={this.update('lname')}
+                                            onClick={() => this.clearError('lname_error')}
                                             className="signup-input-lastname"
+
                                     />
                                 </div>
                             </div>
 
-                            <div className>{this.props.errors.includes("Lname can't be blank") ? "Last name can't be blank" : null} </div>
-                            <div className>{this.props.errors.includes("Fname can't be blank") ? "Fname can't be blank" : null} </div>
+                            <div className = "error-fn-ln">
+                                <div className="session-error-new lname-fix">{this.state.fname_error} </div>
+                                <div className="session-error-new lname-fix">{this.state.lname_error} </div>
+                            </div>
+
                             <br/>
 
                             <div className="input-container">
@@ -118,10 +183,11 @@ class SigninForm extends React.Component {
                                     value={this.state.email}
                                     placeholder = "Email"
                                     onChange={this.update('email')}
+                                    onClick={() => this.clearError('email_error')}
                                     className="signup-input"
                                 />
                             </div>
-                            <div className="session-error">{this.props.errors.includes("Email can't be blank") ? "Email can't be blank" : null} </div>
+                            <div className="session-error-new">{this.state.email_error} </div>
                 
                             <br/>   
                             <div className="input-container">
@@ -130,10 +196,11 @@ class SigninForm extends React.Component {
                                     value={this.state.password}
                                     placeholder = "Password"
                                     onChange={this.update('password')}
-                                    className="signup-input"
+                                    onClick={() => this.clearError('password_error')}
+                                    className="signup-input input-fix"
                                 />
                             </div>
-                            <div className="session-error">{this.props.errors.includes("Password is too short (minimum is 6 characters)") ? "Password is too short (minimum is 6 characters)" : null} </div>
+                            <div className="session-error-new">{this.state.password_error} </div>
                             <br/>   
                             <div className="input-container">
                                 <FontAwesomeIcon icon={faLock}  className="signup-icons"/>
@@ -143,6 +210,10 @@ class SigninForm extends React.Component {
                                     onChange={this.update('confirm_password')}
                                     className="signup-input"
                                 />
+                            </div>
+                            <div className="session-error-new">{(this.state.confirm_password !== this.state.password) && this.state.confirm_password.length > 0 ? 
+                            "Your confirm password does not match" : null}
+                            
                             </div>
                             <br/>
                             <div>

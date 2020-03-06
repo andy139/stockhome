@@ -16,9 +16,6 @@ class Navbar extends React.Component {
 
     render(){
 
-   
-
-    
 
 
         const signUpNotBolded = () => (
@@ -64,8 +61,15 @@ class Navbar extends React.Component {
 
 
                         <div className="navbar-right">
-                            <div className="right-nav-misc">Learn Drop Down</div>
-                            <div className="right-nav-misc">Welcome Back, King</div>
+                            <div className="right-nav-misc">
+                            <input 
+                                type="submit" 
+                                value="Log Out"
+                                onClick={this.props.logout}
+                            />
+
+                            </div>
+                            <div className="right-nav-misc">Welcome Back, {this.props.currentUser.fname}</div>
                         </div>
                     </div>
                 </div>

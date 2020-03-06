@@ -8,7 +8,7 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-
+import {AuthRoute} from '../util/route_util'
 
 import NavbarContainer from './navbar/navbar_container';
 import LoginformContainer from './session_form/login_form_container';
@@ -20,10 +20,10 @@ const App = () => (
         <NavbarContainer/>
             
         </header>
-        <Switch>
-            <Route path="/login" component={LoginformContainer}/>
-            <Route path="/signup" component={SignupformContainer}/>
-        </Switch>
+      
+        <AuthRoute path="/login" component={LoginformContainer}/>
+        <AuthRoute path="/signup" component={SignupformContainer}/>
+  
 
     </div>
 )
