@@ -81,14 +81,6 @@ class Loginform extends React.Component {
     }
 
 
-    renderSessionErrors() {
-        return(
-            <div>
-                {this.props.errors[0]}
-            </div>
-        )
-    }
-
 
     componentWillUnmount(){
         this.props.clearErrors();
@@ -137,8 +129,7 @@ class Loginform extends React.Component {
                             /> 
                         </div>
                     
-                        <div className="session-error">{this.renderSessionErrors()}</div>
-                        <br/>
+                        <div className="session-error">{this.props.errors[0]}</div>
                         <input className="login-submit" type="submit" value="Log In" /> 
                     </form>
                     <div id= "login-padding"><Link to="/">Forgot password?</Link></div>

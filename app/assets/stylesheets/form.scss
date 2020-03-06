@@ -86,17 +86,19 @@
 
 
 .session-error {
-    padding-top: 10px;
+    padding-top: 3px;
+    height: 10px;
     color: #FF4D4D;
-    font-size: 14px;
+    padding-bottom: 4px;
+    font-size: 11px;
 
 }
 
 
 .session-error-new {
-    padding-top: 3px;
+    padding-top: 5px;
     color: #FF4D4D;
-    font-size: 12px;
+    font-size: 11px;
     padding-bottom: 8px;
     height: 10px;
 
@@ -109,7 +111,7 @@
 }
 
 .fname-fix {
-    padding-right: 20px;
+    padding-right: 41px;
     width: 150px;
 
 }
@@ -190,7 +192,6 @@ hr {
      width: 350px; 
      padding-left: 10px;
      flex-direction: column;
-     align-items: center;
      font-family: Muli, sans-serif;
      justify-content: center;
      font-size: 13px;
