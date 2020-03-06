@@ -28,16 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store} />, root);
 
 
-  // TESTING 
-  window.store = store;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-
-  window.testUser = {email: "andy@gmail.com", password: "LOLOLOL", fname:"andy", lname: "tran"}
-  window.login = login;
-  window.signup = signup;
-  window.logout = logout;
-  window.clearErrors = clearErrors;
+  if (process.env.NODE_ENV !== "production") {
+    window.store = store;
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
+  
+    window.testUser = {email: "andy@gmail.com", password: "LOLOLOL", fname:"andy", lname: "tran"}
+    window.login = login;
+    window.signup = signup;
+    window.logout = logout;
+    window.clearErrors = clearErrors;
+    
+  }
+  
 
  
 

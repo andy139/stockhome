@@ -58,9 +58,11 @@ class SigninForm extends React.Component {
     
 
     setErrors() {   
+
+    
          this.setState( {fname_error: this.props.errors.includes("Fname can't be blank") ? "First name can't be blank" : null,
          lname_error: this.props.errors.includes("Lname can't be blank") ? "Last name can't be blank" : null,
-         email_error: this.props.errors.includes("Email can't be blank") ? "Email name can't be blank" : null,
+         email_error: this.props.errors.includes("Email can't be blank") ? "Email name can't be blank" : this.props.errors.includes("Email has already been taken") ? "Email is already in use" : null,
          password_error: this.props.errors.includes("Password is too short (minimum is 6 characters)") ? "Password is too short (minimum is 6 characters)" : null})
     
     }
@@ -69,12 +71,13 @@ class SigninForm extends React.Component {
 
 
     handleSubmit(e) {
+        
     
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
             .fail(() => this.setErrors());
-       
+
     };
 
     update(field) {

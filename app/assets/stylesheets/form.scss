@@ -68,6 +68,11 @@
     cursor: pointer;
 }
 
+.login-submit:hover{
+    background-color: rgb(134, 128, 202);
+    cursor: pointer;
+}
+
 .login-demo {
 
     font-size: 12px;
@@ -298,9 +303,16 @@ hr {
     text-decoration: none;
     background-color:#265099;
     margin-bottom: 15px;
+    
     cursor: pointer;
 
 
+}
+
+.signup-demo:hover{
+-webkit-box-shadow: 1px 1px 1px 1px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+-moz-box-shadow:    1px 1px 1px 1px#ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:       1px 1px 1px 1px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
 
 #session-side {
