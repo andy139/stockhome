@@ -13,16 +13,22 @@ import {AuthRoute} from '../util/route_util'
 import NavbarContainer from './navbar/navbar_container';
 import LoginformContainer from './session_form/login_form_container';
 import SignupformContainer from './session_form/signup_form_container';
+import Splashpage from './splashpage/splashpage';
 
 const App = () => (
     <div>
         <header>
         <NavbarContainer/>
+        
             
         </header>
-      
-        <AuthRoute path="/login" component={LoginformContainer}/>
-        <AuthRoute path="/signup" component={SignupformContainer}/>
+        <Switch>
+
+            <AuthRoute path="/login" component={LoginformContainer}/>
+            <AuthRoute path="/signup" component={SignupformContainer}/>
+            <Route path="/" component={Splashpage}/>
+        </Switch>
+        
   
 
     </div>

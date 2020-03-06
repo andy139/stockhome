@@ -122,8 +122,8 @@ class SigninForm extends React.Component {
         return(
             <div> 
                 <div className="text-center-signup">Welcome to Stockhome</div>
-                
                 <div className="topbox-signup-container">
+                    
                     <img src="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/illus/Tenant-Occupied-100x80@3x-a1953a95522aee8912cfbbaeb020531d.png" className="signup-images" />
                     <div className="box-signup limit">
     

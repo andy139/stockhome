@@ -39,19 +39,19 @@ class Navbar extends React.Component {
 
         const loggedIn = () => (
             <div id="fade-effect">
-                <div className = "navbar-fullwidth-loggedin">
-                    <div className="navbar-container-loggedin">
+                <div className = "navbar-fullwidth-loggedin fixed-nav-bar">
+                    <div className="navbar-container-loggedin show_logo">
 
                         <div className="navbar-left" >
 
-                            <div className="navbar-logo">
+                            <div className="navbar-logo .u-text-align-center--palm-wide">
                                 <Link to="/" className="nav-main-link"> 
                                     <img src="https://cdn.freebiesupply.com/logos/large/2x/stockholm-sweden-logo-png-transparent.png" className="logo-img" />
                                     <p className="logo-text">stockhome</p>
                                 </Link>
                             </div>
 
-                            <div className="navbar-buy-own-sell">
+                            <div className="navbar-buy-own-sell limit_navbar">
                                 <div className="left-nav-misc">Buy</div>
                                 <div className="left-nav-misc">Own</div>
                                 <div className="left-nav-misc">Sell</div>
@@ -81,8 +81,8 @@ class Navbar extends React.Component {
 
         const notLoggedIn = () => (
            
-                <div className = "navbar-fullwidth-loggedout">
-                    <div className="navbar-container-loggedout">
+                <div className = "navbar-fullwidth-loggedout .fixed-nav-bar">
+                    <div className="navbar-container-loggedout show_logo">
 
                         <div className="navbar-left" >
 
@@ -93,7 +93,7 @@ class Navbar extends React.Component {
                                 </Link>
                             </div>
 
-                            <div className="navbar-buy-own-sell">
+                            <div className="navbar-buy-own-sell limit_navbar">
                                 <div className="left-nav-misc">Buy</div>
                                 <div className="left-nav-misc">Own</div>
                                 <div className="left-nav-misc">Sell</div>
@@ -103,9 +103,9 @@ class Navbar extends React.Component {
 
 
                         <div className="navbar-right">
-                            <div className="right-nav-misc">Learn Drop Down</div>
-                            <div className="right-nav-misc">About Us</div>
-                            <Link className="nav-login-link" to="/login">Log In</Link>
+                            <div className="right-nav-misc limit_navbar">Learn Drop Down</div>
+                            <div className="right-nav-misc limit_navbar">About Us</div>
+                            <Link className="nav-login-link limit_navbar" to="/login">Log In</Link>
                             <div id="signup-fix">
                                 { this.props.location.pathname === "/login" || this.props.location.pathname === "/signup" ? signUpBolded() : signUpNotBolded()}
                             </div>

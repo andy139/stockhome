@@ -30,7 +30,6 @@
 
 .nav-login-link{
     margin-right: 20px;
-    font-size: 15px;
     padding: 15px;
     font-weight: 400;
     color: #7990a0;
@@ -67,6 +66,7 @@
     justify-content: center;
     // background-color: #1c74b8;
     font-size: 14px;
+    touch-action: manipulation;
 
     border-radius: 4px;
     height: 30px;
@@ -76,6 +76,10 @@
     color: white;
     text-decoration: none;
     border: 1px solid #1c74b8;
+
+    -moz-box-shadow:    inset 0 0 1px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 2px #000000;
 }
 
 .signup-text {
@@ -150,6 +154,7 @@
     display: flex;
     justify-content: space-between;
     width: 940px;
+    font-size: 14px;
 
     font-family: Muli, sans-serif;
     color: white;
@@ -161,7 +166,7 @@
     display: flex;
     justify-content: space-between;
     width: 940px;
-
+    font-size: 14px;
     font-family: Muli, sans-serif;
     color:grey;
 
@@ -170,16 +175,16 @@
 .navbar-fullwidth-loggedin {
     display:flex;
     min-height: 60px;
-    width: auto;
+    width: 100%;
     align-items: center;
     justify-content: center;
-    background-color:#DAA520
+    background-color:#515151
 }
 
 .navbar-fullwidth-loggedout {
     display:flex;
     min-height: 60px;
-    width: auto;
+    width: 100%;
     align-items: center;
     justify-content: center;
     background-color: white;
@@ -208,6 +213,29 @@
     width: 20 px;
     height: 60 px;
     padding: 15px;
+    display: inline-block;
 
+}
+
+
+@media only screen and (max-width : 763px){
+    .limit_navbar{
+        display:none;
+    }
+}
+
+
+.fixed-nav-bar {
+    position: fixed;
+    z-index: 9999;
+    
+  }
+
+
+
+@media only screen and (max-width : 920px){
+    .show_logo{
+        justify-content: center;
+    }
 }
 
