@@ -10,10 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_230356) do
+ActiveRecord::Schema.define(version: 2020_03_06_211924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "properties", force: :cascade do |t|
+    t.string "address", null: false
+    t.float "lat", null: false
+    t.float "lng", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "zipcode", null: false
+    t.string "property_type", null: false
+    t.integer "year_built", null: false
+    t.integer "bedrooms", null: false
+    t.float "list_price", null: false
+    t.integer "bathrooms", null: false
+    t.float "rent", null: false
+    t.integer "sqft", null: false
+    t.boolean "minimal_repairs", null: false
+    t.boolean "open_house"
+    t.float "annualized_return", null: false
+    t.integer "cap_rate", null: false
+    t.float "gross_yield", null: false
+    t.float "cash_flow", null: false
+    t.float "appreciation", null: false
+    t.float "neighborhood_rating", null: false
+    t.float "average_school_rating", null: false
+    t.integer "amt_of_horses", null: false
+    t.string "type_of_occupancy", null: false
+    t.index ["address"], name: "index_properties_on_address", unique: true
+    t.index ["amt_of_horses"], name: "index_properties_on_amt_of_horses"
+    t.index ["annualized_return"], name: "index_properties_on_annualized_return"
+    t.index ["average_school_rating"], name: "index_properties_on_average_school_rating"
+    t.index ["bathrooms"], name: "index_properties_on_bathrooms"
+    t.index ["bedrooms"], name: "index_properties_on_bedrooms"
+    t.index ["cap_rate"], name: "index_properties_on_cap_rate"
+    t.index ["city"], name: "index_properties_on_city"
+    t.index ["gross_yield"], name: "index_properties_on_gross_yield"
+    t.index ["neighborhood_rating"], name: "index_properties_on_neighborhood_rating"
+    t.index ["rent"], name: "index_properties_on_rent"
+    t.index ["sqft"], name: "index_properties_on_sqft"
+    t.index ["state"], name: "index_properties_on_state"
+    t.index ["type_of_occupancy"], name: "index_properties_on_type_of_occupancy"
+    t.index ["year_built"], name: "index_properties_on_year_built"
+    t.index ["zipcode"], name: "index_properties_on_zipcode"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
