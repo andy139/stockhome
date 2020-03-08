@@ -45,7 +45,8 @@ p1 = Property.create(
     average_school_rating: 5,
     type_of_occupancy: "Empty",
     amt_of_horses: 0,
-    open_house: true
+    open_house: false,
+    total_return_5yrs: 15000
 )
 
 
@@ -74,7 +75,8 @@ p2 = Property.create(
     average_school_rating: 5,
     type_of_occupancy: "Empty",
     amt_of_horses: 0,
-    open_house: true
+    open_house: true,
+    total_return_5yrs: 18000
 )
 
 p3 = Property.create(
@@ -102,7 +104,8 @@ p3 = Property.create(
     average_school_rating: 4,
     type_of_occupancy: "Empty",
     amt_of_horses: 0,
-    open_house: true
+    open_house: false,
+    total_return_5yrs: 24123
 )
 
 
@@ -131,7 +134,8 @@ p4 = Property.create(
     average_school_rating: 5,
     type_of_occupancy: "Empty",
     amt_of_horses: 0,
-    open_house: true
+    open_house: true,
+    total_return_5yrs: 42320
 )
 
 p5 = Property.create(
@@ -159,7 +163,8 @@ p5 = Property.create(
     average_school_rating: 3,
     type_of_occupancy: "Empty",
     amt_of_horses: 0,
-    open_house: true
+    open_house: false,
+    total_return_5yrs: 30000
 )
 
 p6 = Property.create(
@@ -187,7 +192,8 @@ p6 = Property.create(
     average_school_rating: 3,
     type_of_occupancy: "Empty",
     amt_of_horses: 0,
-    open_house: true
+    open_house: true,
+    total_return_5yrs: 12000
 )
 
 

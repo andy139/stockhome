@@ -1,19 +1,5 @@
 
 
-.property-marketplace-container {
-    display: flex; 
-    justify-content: center;
-}
-
-
-.property-index-container {
-    display:flex;
-    // justify-content: space-between;
-    width: 1380px;
-    flex-wrap: wrap;
-    
-    
-}
 
 .property-item-container {
     display: flex;
@@ -22,7 +8,8 @@
     width: 390px;
     height: 560px;
     border-radius: 4px;
-    background-color: #f5f7f6
+    background-color: #f5f7f6;
+    color: #917036;
     
 
 }
@@ -37,33 +24,78 @@
 }
 
 .property-item-miscs-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 49%;
     width: 49%;
     border: 1px solid #999;
+   
 }
 
-.property-item-container img {
-    height: 50%;
-    width: 100%;
+.property-item-miscs-box div:nth-child(2) {
+    font-size: 26px; //every div tag that is secon child of its parent
 }
+
+// .property-image {
+//     height: 50%;
+//     position: relative;
+//     width: 100%;
+// }
 
 .property-address {
     display: flex;
     flex-direction: row;
-    
     text-align: center;
     justify-content: space-between;
+
+    height: 16%;
+    width: 100%;
 
 }
 
 .property-address div{
     width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 .property-icon {
     color: green;
+    padding-right: 5px;
 }
 
 
 
+.property-image {
+    display:flex;
+    justify-content: center;
+    position: relative;
+  
+    
+}
 
+.property-image::before {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    top: 70%;
+    background: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        );
+    content: '';
+}
+
+
+.background-child {
+    position:absolute;
+    bottom: 20%;
+    font-size: 25px;
+    color: white;
+
+}

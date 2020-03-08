@@ -52,7 +52,8 @@ class Navbar extends React.Component {
                             </div>
 
                             <div className="navbar-buy-own-sell limit_navbar">
-                                <div className="left-nav-misc">Buy</div>
+                            
+                                <div className="left-nav-misc"><Link to="/investment-property-marketplace">Buy</Link></div>
                                 <div className="left-nav-misc">Own</div>
                                 <div className="left-nav-misc">Sell</div>
                             </div>
@@ -81,7 +82,7 @@ class Navbar extends React.Component {
 
         const notLoggedIn = () => (
            
-                <div className = "navbar-fullwidth-loggedout .fixed-nav-bar">
+                <div className = "navbar-fullwidth-loggedout fixed-nav-bar">
                     <div className="navbar-container-loggedout show_logo">
 
                         <div className="navbar-left" >
@@ -94,7 +95,7 @@ class Navbar extends React.Component {
                             </div>
 
                             <div className="navbar-buy-own-sell limit_navbar">
-                                <div className="left-nav-misc">Buy</div>
+                                <div className="left-nav-misc"><Link to="/investment-property-marketplace">Buy</Link></div>
                                 <div className="left-nav-misc">Own</div>
                                 <div className="left-nav-misc">Sell</div>
                             </div>

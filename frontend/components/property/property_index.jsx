@@ -22,6 +22,14 @@ class PropertyIndex extends React.Component {
 
         return(
             <div className="property-marketplace-container">
+
+                <div className="submenu-container">
+                    SubMenu Navbar TBD
+                </div>
+
+                <div className="searchbar-container">
+                    Searchbar TBD
+                </div>
                 <div className= "property-index-container">
                     {properties}
                 </div>

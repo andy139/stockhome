@@ -28,10 +28,10 @@ const App = () => (
        
         <Switch>
 
-            {/* <AuthRoute path="/login" component={LoginformContainer}/>
+            <AuthRoute path="/login" component={LoginformContainer}/>
             <AuthRoute path="/signup" component={SignupformContainer}/>
-            <Route path="/" component={Splashpage}/> */}
-            <Route exact path="/" component={PropertyIndexContainer} />
+            <Route exact path="/" component={Splashpage}/>
+            <Route path="/investment-property-marketplace" component={PropertyIndexContainer} />
         </Switch>
         
   
