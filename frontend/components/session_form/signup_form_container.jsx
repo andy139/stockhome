@@ -243,7 +243,7 @@ class SigninForm extends React.Component {
                             <br/>
                             <input className="login-submit" type="submit" value="Sign Up" />  
                             <br/>
-                            <span>Already a member? <Link to="/login">Sign In</Link> </span> 
+                            <div className = "tos">Already a member? <Link to="/login">Sign In</Link> </div> 
                         </form>
                         <br/>
                         

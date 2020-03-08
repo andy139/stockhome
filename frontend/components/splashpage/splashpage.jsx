@@ -17,10 +17,32 @@ class Splashpage extends React.Component {
 
         return(
             <div>
-                <div className="background-container">
-                    <img src="https://www.10wallpaper.com/wallpaper/1366x768/1212/Stockholm_Sweden_landscape_photography_HD_wallpapers_1366x768.jpg" className="background-image"/>
 
+                <div className="background-container">
+        
+                    
+                    <div className="background-image hero">
+                        
+                        <div className="background-text clipped hero-2">
+                            
+                            <div className="header-1">Build wealth through real estate</div>
+                            <br/>
+                            <div className="header-2">Stockhome makes investing in properties and ranches radically simple.</div>
+
+                            <div className="view-properties-btn">VIEW PROPERTIES</div>
+
+                        </div>
+
+                        
+
+            
+
+                    </div>
                 </div>
+               
+
+
+
 
                 <div className="why-invest-container">
 

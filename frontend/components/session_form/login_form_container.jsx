@@ -57,7 +57,7 @@ class Loginform extends React.Component {
 
 
     loginDemoUser(e) {
-        debugger
+         
         e.preventDefault();
 
         this.setState({

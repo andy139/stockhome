@@ -1,4 +1,268 @@
-.background-image {
+.background-container {
     width: 100%;
     height: 600px;
+    display: flex;
+    justify-content: center;
+
 }
+// put this back later
+
+// .banner {
+//     background: 
+//     linear-gradient(
+//       rgba(0, 0, 0, 0.1),
+//       rgba(0, 0, 0, 0.1)
+//     ),
+//     url(https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Sweden-Stockholm-497344880-adisa-copy.jpg);
+
+//     background-position: 80% 70%;
+//     background-size: cover;
+//     height: 600px;
+//     width: 100%;
+// }
+
+.clipped {
+    padding: 20px;  
+    width: 70%;
+    height: 600px;
+    background: #ddd;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
+  }
+  
+  .clipped > * 
+  {
+    max-width: 90%;
+  }
+
+
+
+.background-text {
+   
+    // width: 40%;
+    padding-left: 30px;
+    box-sizing: border-box;
+ 
+    color:white;
+    background-color: #233754;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.header-1{
+    font-size: 45px;
+
+}
+
+.header-2{
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+.background-image {
+    background: 
+      linear-gradient(
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.1)
+      ),
+      url(https://www.worldtravelguide.net/wp-content/uploads/2017/04/Think-Sweden-Stockholm-497344880-adisa-copy.jpg);
+    background-size: cover;
+
+    height: 100%;
+    width: 100%;
+    background-position: 100%;
+    background-size:50%;
+  }
+
+
+
+.view-properties-btn{
+    display: flex;
+    text-align:center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin-top: 50px;
+
+    // background-color: #1c74b8;
+    font-size: 14px;
+    touch-action: manipulation;
+
+    border-radius: 4px;
+    height: 50px;
+    width: 160px;
+    margin-right: 50px;
+    background: #1c74b8;
+    color: white;
+    text-decoration: none;
+    border: 2px solid #1c74b8;
+
+
+}
+
+
+.view-properties-btn:hover{
+    background-color: rgb(134, 128, 202);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width : 2090px){
+    .hero{
+        background-size:55%;
+        
+    }
+}
+
+
+@media only screen and (max-width : 1880px){
+    .hero{
+        background-size:60%;
+        
+    }
+}
+
+@media only screen and (max-width : 1746px){
+    .hero{
+        background-size:70%;
+        
+    }
+
+    .hero-2{
+        background-size:70%;
+        width: 60%;
+    }
+}
+
+
+@media only screen and (max-width : 1680px){
+    .hero{
+        background-size:70%;
+        
+    }
+
+    .hero-2{
+        background-size:70%;
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width : 1614px){
+    .hero{
+        background-size:70%;
+        
+    }
+
+    .hero-2{
+        background-size:70%;
+        width: 50%
+    }
+}
+
+
+
+@media only screen and (max-width : 1562px){
+    .hero{
+        background-size:70%;
+        
+    }
+
+    .hero-2{
+        background-size:70%;
+        width: 50%;
+    }
+}
+
+
+@media only screen and (max-width : 1514px){
+    .hero{
+        background-size:75%;
+        
+    }
+
+    .hero-2{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width : 1500px){
+    .hero{
+        background-size:80%;
+        
+    }
+
+    .hero-2{
+        width: 50%;
+    }
+}
+
+
+
+
+@media only screen and (max-width : 1307px){
+    .hero{
+        background-size:85%;
+        
+    }
+    .hero-2{
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width : 1228px){
+    .hero{
+        background-size:100%;
+        
+    }
+
+    .hero-2{
+        width: 70%;
+    }
+}
+
+
+@media only screen and (max-width : 1228px){
+    .hero{
+        background-size:110%;
+        
+    }
+
+    .hero-2{
+        width: 80%;
+    }
+}
+
+
+@media only screen and (max-width : 1020px){
+    .hero{
+        background-size:200%;
+        
+    }
+
+    .hero-2{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width : 984px){
+
+    .hero-2{
+        width: 100%;
+        padding-left: 30px;
+        box-sizing: border-box;
+        font-size: 54px;
+        color:white;
+        background-color: #233754;
+        -webkit-clip-path: polygon(0);
+        clip-path: polygon(0);
+    }
+}
+
+

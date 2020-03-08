@@ -48,6 +48,7 @@
     padding: 15px;
     padding-top: 10px;
     color: rgb(206, 206, 206);
+    font-size: 14px;
 }
 
 #login-padding {
@@ -111,7 +112,7 @@
 
 .lname-fix {
     width: 150px;
-    padding-right: 5px;
+    padding-right: 14px;
 
 }
 
@@ -194,7 +195,7 @@ hr {
 .signup-form-container {
 
      display: flex;
-     width: 350px; 
+     width: 320px; 
      padding-left: 10px;
      flex-direction: column;
      font-family: Muli, sans-serif;
@@ -206,8 +207,8 @@ hr {
 .name-signup {
     display: flex;
     flex-direction: row;
-    width: 350px;
-    text-align: center
+    width: 100%;
+    text-align: center;
 
 }
 
@@ -230,44 +231,43 @@ hr {
 }
 
 
-.signup-input {
-    // background-color: #1c74b8;
-    font-size: 12px;
-    width: 100%;
-    padding-left: 7px;
-    color:grey;
-    text-decoration: none;
-    border: 1px solid #1c74b8;
-    border-radius: 4px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    outline: 0px;
-    
-}
 
 
 
-// .signup-input:focus {
-
-//     border: 2px solid #4169e1;
-// }
 
 .signup-input-lastname {
     // background-color: #1c74b8;
     font-size: 12px;
-    width: 140px;
-    padding: 6.75px;
+    width: 130px;
+    padding: 7.68px;
     color:grey;
     text-decoration: none;
     border: 1px solid #1c74b8;
     border-radius: 4px;
+    outline: 0px;
+    border-color: #ACACAC;
+ 
 }
 
 
-.signup-input-lastname:focus-within {
-    border-color: #9ecaed;
-    box-shadow: 0 0 8px #9ecaed;
+
+.signup-input-lastname:focus {
+    // border-color: #1c74b8;
+    box-shadow: 0 0 5px #9ecaed;    
+    // box-shadow: 0 0 8px #9ecaed;
 }
+
+.lastname {
+   
+    padding-left: 10px;
+}
+
+// .lastname:focus-within {
+//     border-color: #9ecaed;
+//     box-shadow: 0 0 8px #9ecaed;
+
+// }
+
 
 .signup-icons {
     padding: 7.5px;
@@ -279,12 +279,8 @@ hr {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-right: 0px;
+    border-color: #ACACAC;
 
-}
-
-.lastname {
-
-    padding-left: 10px;
 }
 
 .firstname {
@@ -382,14 +378,33 @@ hr {
     height: 30px;
     display: flex;
     width: 100%;
+    text-decoration: none;
+    border: 0.5px solid #1c74b8;
+    border-radius: 4px;
+    outline: 0px;
+    border-color: #ACACAC;
 
 }
 
 .input-container:focus-within {
-    outline: none;
-    border-color: #9ecaed;
-    box-shadow: 0 0 8px #9ecaed;
+    // border: 1px solid #1c74b8;
+    box-shadow: 0 0 4px #9ecaed;
 }
+
+.signup-input {
+    // background-color: #1c74b8;
+    font-size: 12px;
+    width: 100%;
+    padding-left: 7px;
+    height: 26px;
+    border-radius: 4px;
+    border: 1px solid #ACACAC;
+    text-decoration: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    outline: none;
+}
+
 
 
 #focus-example > .extra {
@@ -406,7 +421,7 @@ hr {
     color: rgb(206, 206, 206);
     text-align: center;
     min-width: 30px;
-    border: 1px solid #1c74b8;
+    border: 1px solid #ACACAC;
     border-radius: 4px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
