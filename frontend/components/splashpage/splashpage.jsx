@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
 import FeaturedIndexContainer from "../featured_properties/featured_index_container"
 import featured_index_container from '../featured_properties/featured_index_container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 class Splashpage extends React.Component {
     constructor(props){
@@ -28,7 +32,8 @@ class Splashpage extends React.Component {
                             <br/>
                             <div className="header-2">Stockhome makes investing in properties and ranches radically simple.</div>
 
-                            <div className="view-properties-btn">VIEW PROPERTIES</div>
+                            <Link to="/investment-property-marketplace" className="view-properties-btn"> VIEW PROPERTIES</Link>
+                        
 
                         </div>
                     </div>
@@ -83,17 +88,78 @@ class Splashpage extends React.Component {
                 <div className="featured-properties-container">
                     <div className="featured-properties-text">Featured Properties</div>
                     <FeaturedIndexContainer/>
+                    <Link to="/investment-property-marketplace" className="view-properties-btn-feature">VIEW ALL PROPERTIES</Link>
                 </div>
 
                 <div className="why-rentals-container">
 
+                    <div className="why-rentals-sub-container ">
+                        <div className="sfr-text">
+                            Why invest in a property in Stockholm?
+                            <div className="sfr-text-2">
+                            It's in Sweden, and has cooling looking houses.
+                            </div>
+                        </div>
 
+                    
+
+
+                        <div className="flex-box-3">
+                            <div>
+                                <img src="assets/three-trillion.png" className="lazy-img" ></img>
+                                <div className="flex-box-3-text">
+                                    That's alot of money $$$
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <img src="assets/16M.png" className="lazy-img"></img>
+                                    <img src="assets/house_icon.png" className="lazy-img"></img>
+                                </div>
+                                
+                                <div className="flex-box-3-text"> 
+                                    That's alot of houses ^_^
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <img src="assets/thirteen-M.png" className="lazy-img"></img>
+                                    <img src="assets/house_icon.png" className="lazy-img"></img>
+                                    <img src="assets/Arrow_green.png" className="lazy-img"></img>
+                                </div>
+                                <div className="flex-box-3-text">
+                                    Wow, much increase
+                                </div>
+                            </div>
+                        </div>
+
+      
+                                <a href="http://justfunfacts.com/interesting-facts-about-stockholm/" className="learn-more-not-bolded outline-fix">LEARN MORE</a>
+                
+                       
+
+                 
+                    </div>
+            
                 </div>
 
-                <div className="my-information-container">
+                    <div className="my-information-container">
+                        <div className="flex-container-5">
 
+                            <div className="meet-creator">Meet the creator</div>
 
-                </div>
+                        </div>
+
+        
+                        <div className="img-profile-words"> 
+                                <img className="img-profile"></img> 
+                                <div className="github-linkedin">
+                                    <FontAwesomeIcon icon={faGithub}  className="signup-icons"/>
+                                    
+                                </div>
+                        </div>
+
+                    </div>
 
             </div>
 

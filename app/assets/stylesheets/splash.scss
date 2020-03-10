@@ -330,16 +330,18 @@
     flex-direction: column;
     margin: 20px;
     width: 390px;
-    height: 500px;
+    height: 450px;
     border-radius: 4px;
     background-color: #f5f7f6;
     color: #917036;
     font-family: Muli, sans-serif;
+    margin-bottom: 75px;
 
 }
 
 .featured-item-container > * {
-    padding: 5px;
+    padding:9px;
+    font-size: 17px;
 }
 
 .padding-fix-1 {
@@ -356,5 +358,148 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+
+}
+
+
+
+
+.view-properties-btn-feature{
+    display: flex;
+    text-align:center;
+    justify-content: center;
+    flex-direction: column;
+ 
+    // background-color: #1c74b8;
+    font-size: 20px;
+    touch-action: manipulation;
+
+    border-radius: 4px;
+    height: 60px;
+    width: 280px;
+    padding: 5px;
+    background: #1c74b8;
+    color: white;
+    text-decoration: none;
+    border: 2px solid #1c74b8;
+    font-family: Muli, sans serif;
+
+
+}
+
+
+.view-properties-btn-feature:hover{
+    background-color: rgb(134, 128, 202);
+    cursor: pointer;
+}
+
+
+.sfr-text {
+
+    font-size: 35px;
+    text-align: center;
+    width: 100%;
+    font-family: Muli, sans-serif;
+    padding: 10px;
+}
+
+.sfr-text-2 {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 26px;
+    width: 100%;
+    font-family: Muli, sans-serif;
+}
+
+.flex-box-3 {
+    display: flex;
+    justify-content: space-between;
+    width: 1340px;
+
+}
+
+.flex-box-3 > * {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.lazy-img {
+    height: 60px;
+
+}
+
+
+.why-rentals-sub-container {
+
+    height: 80%;
+    width: 1380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    
+}
+
+.flex-box-3-text {
+    padding: 5px;
+    font-family: Muli, sans-serif;
+    font-size: 18px;
+
+}
+
+.learn-more-not-bolded {
+
+    display: flex;
+    text-align:center;
+    flex-direction: column;
+    justify-content: center;
+    // background-color: #1c74b8;
+    font-size: 18px;
+
+    border-radius: 4px;
+    height: 60px;
+    width: 240px;
+    color: #1c74b8;
+    text-decoration: none;
+    border: 1px solid #1c74b8;
+    padding: 5px;
+}
+
+.outline-fix {
+    text-decoration: none;
+}
+
+.meet-creator {
+
+    font-size: 40px;
+    font-family: Muli, sans-serif;
+}
+
+.flex-container-5 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+}
+
+
+.img-profile {
+    height: 270px;
+    width: 513px;
+
+}
+
+.img-profile-words {
+    width: 1380 px;
+}
+
+.github-linkedin {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+
 
 }

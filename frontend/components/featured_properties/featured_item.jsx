@@ -55,9 +55,10 @@ class FeaturedItem extends React.Component {
                 
                     onClick={this.handleClick}
                 > 
-                    <div className="background-child">${this.addCommas(list_price)}</div>
+                    {/* <div className="background-child">${this.addCommas(list_price)}</div> */}
                     
                 </div>
+                
                 <div>
                     {city}, {municipality}
                 </div>
