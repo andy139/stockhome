@@ -6,10 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# https://gyazo.com/7b4e94adadf44ac140e359c9426e429d list of counties
+require 'open-uri'
+
 User.delete_all
 Property.delete_all
 
-#Type of properties =
+
 
 u1 = User.create(
     email: "JohnDoe@gmail.com",
@@ -19,14 +22,15 @@ u1 = User.create(
 
 )
 
+
+
 p1 = Property.create(
 
     lat: 59.332263,
     lng: 18.064424,
-    address: "Karlavägen 81, Stockholm, Stockholm, 11459
-    Sweden",
+    address: "Karlavägen 81",
     city: "Stockholm",
-    state: "Sweden",
+    municipality: "Djursholm",
     zipcode: 11459,
     property_type: "house",
     year_built: 1964,
@@ -49,14 +53,30 @@ p1 = Property.create(
     total_return_5yrs: 15000
 )
 
+f1 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2.jpg')
+p1.photo.attach(io: f1, filename: 'house_2.jpg')
+
+
+f2 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2_2.jpg')
+f3 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2_3.jpg')
+f4 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2_4.jpg')
+f5 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2_5.jpg')
+f6 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2_6.jpg')
+f7 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2_7.jpg')
+
+[f2,f3,f4,f5,f6,f7].each_with_index do |attachment,i|
+    p1.photos.attach(io: attachment, filename: "house_2_#{i}.png")
+end
+
+
 
 p2 = Property.create(
 
     lat: 59.402394,
     lng: 18.053589,
-    address: "SIGURDVÄGEN 12, Djursholm, Stockholm, 18254 Sweden",
+    address: "Linnégatan 67",
     city: "Stockholm",
-    state: "Sweden",
+    municipality: "Djursholm",
     zipcode: 18254,
     property_type: "house",
     year_built: 2005,
@@ -83,9 +103,9 @@ p3 = Property.create(
 
     lat: 59.340488,
     lng: 18.084369,
-    address: "ELFVIK LIDINGÖ Lidingo, Stockholm, 181 90 Sweden",
+    address: "Karlsuddsvagen 63A",
     city: "Stockholm",
-    state: "Sweden",
+    municipality: "Lidingo",
     zipcode: 18190,
     property_type: "house",
     year_built: 2005,
@@ -113,9 +133,9 @@ p4 = Property.create(
 
     lat: 59.342336,
     lng: 18.081142,
-    address: "BUSKUDDSVÄGEN 28, Vaxholm, Stockholm, 185 95 Sweden",
+    address: "Järpstigen 9",
     city: "Stockholm",
-    state: "Sweden",
+    municipality: "Vaxholm",
     zipcode: 11438,
     property_type: "house",
     year_built: 1996,
@@ -142,9 +162,9 @@ p5 = Property.create(
 
     lat: 59.402394,
     lng: 18.053589,
-    address: "Grev Turegatan 82, 114 38 Stockholm, Sweden",
+    address: "Wittensdalsvägen 26",
     city: "Stockholm",
-    state: "Sweden",
+    municipality: "Botkyrka",
     zipcode: 18254,
     property_type: "house",
     year_built: 2005,
@@ -171,9 +191,9 @@ p6 = Property.create(
 
     lat: 59.342768,
     lng: 18.083297,
-    address: "Valhallavägen 117, 115 31 Stockholm, Sweden",
+    address: "Valhallavägen 117",
     city: "Stockholm",
-    state: "Sweden",
+    municipality: "Bromma",
     zipcode: 11531,
     property_type: "house",
     year_built: 1993,

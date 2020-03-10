@@ -1,0 +1,57 @@
+.splashpage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+    width: 100%;
+}
+
+.why-invest-container {
+    padding-top: 30px;
+    background: #f8f8f8;
+    height: 540px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+
+.featured-properties-container {
+    height: 700px;
+    width: 1340px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.featured-properties-text {
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    font-family: Muli, sans-serif;
+    padding-bottom: 20px;
+    
+
+}
+
+
+
+.why-rentals-container {
+        background:#f8f8f8;
+        height: 400px;
+        width: 100%
+ }
+
+.my-information-container {
+    height: 600px;
+    width: 100%;
+    background: yellow;
+}
+
+
+

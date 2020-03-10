@@ -4,7 +4,7 @@ import {login, signup, logout, clearErrors} from '../frontend/actions/session_ac
 // import {signup, logout, login} from './util/session_api_util';
 import configureStore from './store/store';
 import Root from './components/root';
-import {fetchProperties} from './actions/property_actions'
+import {fetchProperties, fetchProperty} from './actions/property_actions'
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.clearErrors = clearErrors;
 
     window.fetchProperties = fetchProperties
-
+    window.fetchProperty = fetchProperty
     
     
   }

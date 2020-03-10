@@ -30,6 +30,7 @@ class Api::PropertiesController < ApplicationController
             :year_built,
             :bedrooms,
             :bathrooms,
+            photos: []
         )
 
     end

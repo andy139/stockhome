@@ -1,4 +1,3 @@
-json.property do
-    json.partial! '/api/properties/property', property: @property
-
+json.set! @property.id do
+    json.partial! 'property', property: @property
 end

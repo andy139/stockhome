@@ -10,17 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_074048) do
+ActiveRecord::Schema.define(version: 2020_03_10_045258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "properties", force: :cascade do |t|
     t.string "address", null: false
     t.float "lat", null: false
     t.float "lng", null: false
     t.string "city", null: false
-    t.string "state", null: false
     t.string "zipcode", null: false
     t.string "property_type", null: false
     t.integer "year_built", null: false
@@ -41,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_03_08_074048) do
     t.integer "amt_of_horses", null: false
     t.string "type_of_occupancy", null: false
     t.float "total_return_5yrs"
+    t.string "municipality"
     t.index ["address"], name: "index_properties_on_address", unique: true
     t.index ["amt_of_horses"], name: "index_properties_on_amt_of_horses"
     t.index ["annualized_return"], name: "index_properties_on_annualized_return"
@@ -50,10 +71,10 @@ ActiveRecord::Schema.define(version: 2020_03_08_074048) do
     t.index ["cap_rate"], name: "index_properties_on_cap_rate"
     t.index ["city"], name: "index_properties_on_city"
     t.index ["gross_yield"], name: "index_properties_on_gross_yield"
+    t.index ["municipality"], name: "index_properties_on_municipality"
     t.index ["neighborhood_rating"], name: "index_properties_on_neighborhood_rating"
     t.index ["rent"], name: "index_properties_on_rent"
     t.index ["sqft"], name: "index_properties_on_sqft"
-    t.index ["state"], name: "index_properties_on_state"
     t.index ["type_of_occupancy"], name: "index_properties_on_type_of_occupancy"
     t.index ["year_built"], name: "index_properties_on_year_built"
     t.index ["zipcode"], name: "index_properties_on_zipcode"
@@ -76,4 +97,5 @@ ActiveRecord::Schema.define(version: 2020_03_08_074048) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 end

@@ -46,7 +46,7 @@ class Navbar extends React.Component {
 
                             <div className="navbar-logo .u-text-align-center--palm-wide">
                                 <Link to="/" className="nav-main-link"> 
-                                    <img src="https://cdn.freebiesupply.com/logos/large/2x/stockholm-sweden-logo-png-transparent.png" className="logo-img" />
+                                    <img src="/assets/logo.png" className="logo-img" />
                                     <p className="logo-text">stockhome</p>
                                 </Link>
                             </div>
@@ -89,7 +89,7 @@ class Navbar extends React.Component {
 
                             <div className="navbar-logo">
                                 <Link to="/" className="nav-main-link"> 
-                                    <img src="https://cdn.freebiesupply.com/logos/large/2x/stockholm-sweden-logo-png-transparent.png" className="logo-img" />
+                                    <img src="/assets/logo.png" className="logo-img" />
                                     <p className="logo-text">stockhome</p>
                                 </Link>
                             </div>

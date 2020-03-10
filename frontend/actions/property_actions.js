@@ -12,7 +12,7 @@ export const receiveProperties = properties => ({
 });
 
 
-export const receiveProperty = property => ({
+export const receiveProperty = (property) => ({
     type: RECEIVE_PROPERTY,
     property
 

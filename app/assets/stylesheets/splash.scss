@@ -34,7 +34,7 @@
 .background-text {
    
     // width: 40%;
-    padding-left: 30px;
+    padding-left: 300px;
     box-sizing: border-box;
  
     color:white;
@@ -42,6 +42,7 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
+    font-family: Muli, sans-serif;
 
 }
 
@@ -133,6 +134,7 @@
     .hero-2{
         background-size:70%;
         width: 60%;
+        padding-left: 30px;
     }
 }
 
@@ -260,4 +262,99 @@
     }
 }
 
+.why-invest-words{
+ 
+    font-size: 35px;
+    font-weight: 500;
+    font-family: Muli, sans-serif
+}
 
+.message-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+.message {
+    font-family: Muli, sans-serif;
+    padding: 5px;
+    font-size: 16px;
+    // margin-left: 50px;
+
+
+
+}
+
+.title-fix {
+
+    font-size: 22px;
+}
+
+
+
+
+
+#flex-box-gurantees {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 1340px;
+}
+
+#flex-box-gurantees > * {
+    // width: 30%;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.img-splash-sizing {
+    max-height: 50%;
+    max-width: 60%;
+
+}
+
+
+
+.featured-item-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    width: 390px;
+    height: 500px;
+    border-radius: 4px;
+    background-color: #f5f7f6;
+    color: #917036;
+    font-family: Muli, sans-serif;
+
+}
+
+.featured-item-container > * {
+    padding: 5px;
+}
+
+.padding-fix-1 {
+    padding: 0px;
+}
+
+.bold-fix-splash {
+    font-weight: bold;
+
+}
+
+.featured_index {
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+}

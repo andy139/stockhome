@@ -6,7 +6,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons'
 class PropertyItem extends React.Component {
     constructor(props) {
         super(props);
-
+        this.handleClick = this.handleClick.bind(this);
         this.openHouse = this.openHouse.bind(this);
     }
 
@@ -33,18 +33,23 @@ class PropertyItem extends React.Component {
         }
         return x1 + x2;
        }
+
+    handleClick(){
+        const propertyId = this.props.property.id;
+        this.props.history.push(`/property/${propertyId}`)
+    }
     
 
   
     render(){
 
-        
+      
 
         //destrcture
         const { rent, cap_rate, 
             annualized_return, sqft, year_built,
             neighborhood_rating, address, list_price,
-            bedrooms, bathrooms, open_house, total_return_5yrs} = this.props.property
+            bedrooms, bathrooms, open_house, total_return_5yrs, main_photo_url} = this.props.property
 
           
          
@@ -57,8 +62,10 @@ class PropertyItem extends React.Component {
 
             <div className="property-image"
                 style={{
-                "background-image" : "url(https://img.gtsstatic.net/reno/imagereader.aspx?imageurl=http%3A%2F%2Fm.sothebysrealty.com%2F1103i215%2Fkevphfby46ghmmt8gf54ez6ms1i215&option=N&w=1024&permitphotoenlargement=false&fallbackimageurl=https%3A%2F%2Fstatic-sothebys-production-0.gtsstatic.net%2Fresources%2F_responsive%2Fimages%2Fcommon%2Fnophoto%2Fdefault.jpg)"
-                , "width": "100%", "height": "50%", "background-size" : "cover"}}
+                backgroundImage : `url(${main_photo_url})`,
+                 "width": "100%", "height": "50%", "background-size" : "cover"}}
+            
+                onClick={this.handleClick}
             > 
 
                 <div className="background-child">${this.addCommas(list_price)}</div>
@@ -78,7 +85,7 @@ class PropertyItem extends React.Component {
                     </div>
                     <div className="property-item-miscs-box">
                         <div>Total Return </div>
-                        <div> {total_return_5yrs} </div>
+                        <div> {this.addCommas(total_return_5yrs)} </div>
                     </div>
                     <div className="property-item-miscs-box">
                         <div>Neighborhood</div>

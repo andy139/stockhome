@@ -48,11 +48,11 @@
     flex-direction: column;
     justify-content: center;
     // background-color: #1c74b8;
-    font-size: 14px;
+    font-size: 18px;
 
     border-radius: 4px;
-    height: 30px;
-    width: 70px;
+    height: 45px;
+    width: 95px;
     margin-right: 50px;
     color: white;
     text-decoration: none;
@@ -65,12 +65,12 @@
     flex-direction: column;
     justify-content: center;
     // background-color: #1c74b8;
-    font-size: 14px;
+    font-size: 18px;
     touch-action: manipulation;
 
     border-radius: 4px;
-    height: 30px;
-    width: 70px;
+    height: 45px;
+    width: 95px;
     margin-right: 50px;
     background: #1c74b8;
     color: white;
@@ -96,11 +96,6 @@
 }
 
 
-
-#signup-fix {
-    padding-top: 8px;
-
-}
 
 .logo-img {
     max-width: 40px;
@@ -154,7 +149,7 @@
     display: flex;
     justify-content: space-between;
     width: 1380px;
-    font-size: 14px;
+    font-size: 18px;
 
     font-family: Muli, sans-serif;
     color: white;
@@ -167,7 +162,7 @@
     display: flex;
     justify-content: space-between;
     width: 1380px;
-    font-size: 14px;
+    font-size: 18px;
     font-family: Muli, sans-serif;
     color:grey;
     border-radius: 4px;
@@ -175,7 +170,7 @@
 
 .navbar-fullwidth-loggedin {
     display:flex;
-    min-height: 60px;
+    min-height: 70px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -185,7 +180,7 @@
 
 .navbar-fullwidth-loggedout {
     display:flex;
-    min-height: 60px;
+    min-height: 70px;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -200,7 +195,7 @@
     padding-top: 8px;
     color: #7990a0;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 19px;
     
 }
 
@@ -241,4 +236,5 @@
         justify-content: center;
     }
 }
+
 
