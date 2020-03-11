@@ -53,9 +53,9 @@ class Navbar extends React.Component {
 
                             <div className="navbar-buy-own-sell limit_navbar">
                             
-                                <div className="left-nav-misc"><Link to="/investment-property-marketplace">Buy</Link></div>
-                                <div className="left-nav-misc">Own</div>
-                                <div className="left-nav-misc">Sell</div>
+                                <div className="left-nav-misc hvr-overline-reveal"><Link to="/investment-property-marketplace" className="remove-decoration">Buy</Link></div>
+                                <div className="left-nav-misc hvr-overline-reveal">Own</div>
+                                <div className="left-nav-misc hvr-overline-reveal">Sell</div>
                             </div>
                     
                         </div>
@@ -63,14 +63,19 @@ class Navbar extends React.Component {
 
                         <div className="navbar-right">
                             <div className="right-nav-misc">
-                            <input 
-                                type="submit" 
-                                value="Log Out"
-                                onClick={this.props.logout}
-                            />
+                                <a href="https://www.linkedin.com/in/andy139/" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-linkedin-in"></i> LinkedIn</a>
+                                <a href="https://www.github.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-github"></i> Github</a>
+                                <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a>
+                                <input 
+                                    type="submit" 
+                                    value="Log Out"
+                                    onClick={this.props.logout}
+                                />
+
+                                <div className="right-nav-misc">Welcome Back, {this.props.currentUser.fname}</div>
 
                             </div>
-                            <div className="right-nav-misc">Welcome Back, {this.props.currentUser.fname}</div>
+                            
                         </div>
                     </div>
                 </div>
@@ -87,29 +92,35 @@ class Navbar extends React.Component {
 
                         <div className="navbar-left" >
 
-                            <div className="navbar-logo">
-                                <Link to="/" className="nav-main-link"> 
-                                    <img src="/assets/logo.png" className="logo-img" />
-                                    <p className="logo-text">stockhome</p>
-                                </Link>
-                            </div>
+                                <div className="navbar-logo">
+                                    <Link to="/" className="nav-main-link"> 
+                                        <img src="/assets/logo.png" className="logo-img" />
+                                        <p className="logo-text">stockhome</p>
+                                    </Link>
+                                </div>
 
-                            <div className="navbar-buy-own-sell limit_navbar">
-                                <div className="left-nav-misc"><Link to="/investment-property-marketplace">Buy</Link></div>
-                                <div className="left-nav-misc">Own</div>
-                                <div className="left-nav-misc">Sell</div>
-                            </div>
-                    
+                                <div className="navbar-buy-own-sell limit_navbar">
+                                    <div className="left-nav-misc hvr-overline-reveal"><Link to="/investment-property-marketplace" className="remove-decoration">Buy</Link></div>
+                                    <div className="left-nav-misc hvr-overline-reveal">Own</div>
+                                    <div className="left-nav-misc hvr-overline-reveal">Sell</div>
+                                    
+                                </div>
+                        </div>    
+
+
+                  
+
+                            
+                        <div className ="navbar-right">
+
+                                <a href="https://www.linkedin.com/in/andy139/" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-linkedin-in"></i> LinkedIn</a>
+                                <a href="https://www.github.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-github"></i> Github</a>
+                                <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a>
+                                <Link className="nav-login-link hvr-overline-reveal" to="/login">Log In</Link>
+                                <div id="signup-fix">
+                                    { this.props.location.pathname === "/login" || this.props.location.pathname === "/signup" ? signUpBolded() : signUpNotBolded()}
                         </div>
-
-
-                        <div className="navbar-right">
-                            <div className="right-nav-misc limit_navbar">Learn Drop Down</div>
-                            <div className="right-nav-misc limit_navbar">About Us</div>
-                            <Link className="nav-login-link limit_navbar" to="/login">Log In</Link>
-                            <div id="signup-fix">
-                                { this.props.location.pathname === "/login" || this.props.location.pathname === "/signup" ? signUpBolded() : signUpNotBolded()}
-                            </div>
+                        
                         </div>
                     </div>
                 </div>

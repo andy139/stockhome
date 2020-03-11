@@ -53,7 +53,7 @@
     border-radius: 4px;
     height: 45px;
     width: 95px;
-    margin-right: 50px;
+  
     color: white;
     text-decoration: none;
     border: 1px solid #1c74b8;
@@ -98,8 +98,8 @@
 
 
 .logo-img {
-    max-width: 40px;
-    max-height: 40px;
+    max-width: 60px;
+    max-height: 60px;
     
 }
 
@@ -118,6 +118,7 @@
 .navbar-buy-own-sell {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 165 px;
 
 
@@ -150,7 +151,7 @@
     justify-content: space-between;
     width: 1380px;
     font-size: 18px;
-
+    align-items: center;
     font-family: Muli, sans-serif;
     color: white;
     border-radius: 4px;
@@ -161,6 +162,7 @@
 .navbar-container-loggedout {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 1380px;
     font-size: 18px;
     font-family: Muli, sans-serif;
@@ -174,7 +176,7 @@
     width: 100%;
     align-items: center;
     justify-content: center;
-    background-color:#515151;
+    background-color:white;
     border-radius: 4px;
 }
 
@@ -192,7 +194,7 @@
 
 
 .logo-text{
-    padding-top: 8px;
+    padding-top: 17px;
     color: #7990a0;
     text-decoration: none;
     font-size: 19px;
@@ -201,8 +203,12 @@
 
 
 .navbar-logo {
+    display:flex;
+    align-items: center;
+    justify-content: center;
     padding-top: 5px;
     padding-right: 10px;
+
 
 }
 
@@ -210,8 +216,9 @@
 .right-nav-misc {
     width: 20 px;
     height: 60 px;
-    padding: 15px;
+    padding: 13px;
     display: inline-block;
+    color: #515151;
 
 }
 
@@ -238,3 +245,90 @@
 }
 
 
+
+.remove-decoration {
+    text-decoration: none;
+    color: #515151
+}
+/* Overline Reveal */
+.hvr-overline-reveal {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: #515151
+  }
+  .hvr-overline-reveal:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: #2098D1;
+    height: 4px;
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .hvr-overline-reveal:hover:before, .hvr-overline-reveal:focus:before, .hvr-overline-reveal:active:before {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  
+
+
+
+  /* Dropdown Button */
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}

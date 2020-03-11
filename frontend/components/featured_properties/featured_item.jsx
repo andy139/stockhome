@@ -2,6 +2,9 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
+import StarRatings from 'react-star-ratings';
+
+
 
 class FeaturedItem extends React.Component {
     constructor(props) {
@@ -37,7 +40,7 @@ class FeaturedItem extends React.Component {
         const { rent, cap_rate, address, city, municipality,
             annualized_return, sqft, year_built, gross_yield,
             neighborhood_rating, list_price, total_return_5yrs,
-            bedrooms, bathrooms, open_house, main_photo_url} = this.props.property
+            bedrooms, bathrooms, open_house, main_photo_url, photo_urls} = this.props.property
 
           
          
@@ -50,7 +53,7 @@ class FeaturedItem extends React.Component {
 
                 <div className="padding-fix-1"
                     style={{
-                    backgroundImage : `url(${main_photo_url})`,
+                    backgroundImage : `url(${photo_urls[0]})`,
                     "width": "100%", "height": "60%", backgroundSize : "cover"}}
                 
                     onClick={this.handleClick}
@@ -75,7 +78,12 @@ class FeaturedItem extends React.Component {
                     Total Return <span className="bold-fix-splash" >${this.addCommas(total_return_5yrs)}</span>/5-yr
                 </div>
                 <div>
-                    Neighborhood Rating {neighborhood_rating}
+                    Neighborhood Rating <StarRatings
+                                rating={neighborhood_rating}
+                                starDimension="15px"
+                                starSpacing="1px"
+                                starRatedColor="rgb(65, 105, 225)"
+                            />
                 </div>
               
     

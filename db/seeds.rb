@@ -24,7 +24,7 @@ u1 = User.create(
 
 
 
-p1 = Property.create(
+p2 = Property.create(
 
     lat: 59.332263,
     lng: 18.064424,
@@ -54,7 +54,7 @@ p1 = Property.create(
 )
 
 f1 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2.jpg')
-p1.photo.attach(io: f1, filename: 'house_2.jpg')
+p2.photos.attach(io: f1, filename: 'house_2.jpg')
 
 
 f2 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2_2.jpg')
@@ -65,12 +65,12 @@ f6 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2_6.jpg'
 f7 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_2_7.jpg')
 
 [f2,f3,f4,f5,f6,f7].each_with_index do |attachment,i|
-    p1.photos.attach(io: attachment, filename: "house_2_#{i}.png")
+    p2.photos.attach(io: attachment, filename: "house_2_#{i}.png")
 end
 
 
 
-p2 = Property.create(
+p3 = Property.create(
 
     lat: 59.402394,
     lng: 18.053589,
@@ -99,7 +99,22 @@ p2 = Property.create(
     total_return_5yrs: 18000
 )
 
-p3 = Property.create(
+
+f1 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_3_0.jpg')
+p3.photos.attach(io: f1, filename: 'house_3_0.jpg')
+
+
+f2 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_3_1.jpg')
+f3 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_3_2.jpg')
+f4 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_3_3.jpg')
+f5 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_3_4.jpg')
+f6 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_3_5.jpg')
+
+[f2,f3,f4,f5,f6].each_with_index do |attachment,i|
+    p3.photos.attach(io: attachment, filename: "house_3_#{i}.png")
+end
+
+p4 = Property.create(
 
     lat: 59.340488,
     lng: 18.084369,
@@ -129,7 +144,23 @@ p3 = Property.create(
 )
 
 
-p4 = Property.create(
+
+f1 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_0.jpg')
+p4.photos.attach(io: f1, filename: 'house_4_0.jpg')
+
+
+f2 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_1.jpg')
+f3 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_2.jpg')
+f4 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_3.jpg')
+f5 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_4.jpg')
+f6 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_5.jpg')
+
+[f2,f3,f4,f5,f6].each_with_index do |attachment,i|
+    p4.photos.attach(io: attachment, filename: "house_4_#{i}.png")
+end
+
+
+p5 = Property.create(
 
     lat: 59.342336,
     lng: 18.081142,
@@ -158,7 +189,7 @@ p4 = Property.create(
     total_return_5yrs: 42320
 )
 
-p5 = Property.create(
+p6 = Property.create(
 
     lat: 59.402394,
     lng: 18.053589,
@@ -187,7 +218,7 @@ p5 = Property.create(
     total_return_5yrs: 30000
 )
 
-p6 = Property.create(
+p7 = Property.create(
 
     lat: 59.342768,
     lng: 18.083297,

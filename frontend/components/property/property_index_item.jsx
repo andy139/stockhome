@@ -2,7 +2,8 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
-
+import StarRatings from 'react-star-ratings';
+ 
 class PropertyItem extends React.Component {
     constructor(props) {
         super(props);
@@ -49,7 +50,7 @@ class PropertyItem extends React.Component {
         const { rent, cap_rate, 
             annualized_return, sqft, year_built,
             neighborhood_rating, address, list_price,
-            bedrooms, bathrooms, open_house, total_return_5yrs, main_photo_url} = this.props.property
+            bedrooms, bathrooms, open_house, total_return_5yrs, main_photo_url, photo_urls} = this.props.property
 
           
          
@@ -62,7 +63,7 @@ class PropertyItem extends React.Component {
 
             <div className="property-image"
                 style={{
-                backgroundImage : `url(${main_photo_url})`,
+                backgroundImage : `url(${photo_urls[0]})`,
                  "width": "100%", "height": "50%", "background-size" : "cover"}}
             
                 onClick={this.handleClick}
@@ -89,7 +90,17 @@ class PropertyItem extends React.Component {
                     </div>
                     <div className="property-item-miscs-box">
                         <div>Neighborhood</div>
-                        <div>{neighborhood_rating} stars</div>
+                        <div>
+
+                            <StarRatings
+                                rating={neighborhood_rating}
+                                starDimension="20px"
+                                starSpacing="1px"
+                                starRatedColor="rgb(65, 105, 225)"
+                            />
+                        
+                        
+                        </div>
                     </div>
                </div>
 

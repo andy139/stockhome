@@ -1,6 +1,8 @@
 import React from 'react';
 import PropertyIndexItem from './property_index_item'
+import {Link} from 'react-router-dom';
 
+import Submenu from '../submenu/submenu'
 
 class PropertyIndex extends React.Component {
     constructor(props) {
@@ -22,9 +24,9 @@ class PropertyIndex extends React.Component {
 
         return(
             <div className="property-marketplace-container">
-
-                <div className="submenu-container">
-                    SubMenu Navbar TBD
+                <div className ="submenu-full-length">
+                   
+                    <Submenu></Submenu>
                 </div>
 
                 <div className="searchbar-container">

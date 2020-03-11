@@ -4,9 +4,7 @@ import { withRouter } from "react-router";
 import FeaturedIndexContainer from "../featured_properties/featured_index_container"
 import featured_index_container from '../featured_properties/featured_index_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-solid-svg-icons'
-import { faLinkedin } from '@fortawesome/free-solid-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
 
 class Splashpage extends React.Component {
     constructor(props){
@@ -152,9 +150,12 @@ class Splashpage extends React.Component {
 
         
                         <div className="img-profile-words"> 
-                                <img className="img-profile"></img> 
+
+        
                                 <div className="github-linkedin">
-                                    <FontAwesomeIcon icon={faGithub}  className="signup-icons"/>
+                                    <img src="assets/fishing_lol.jpg" className="img-profile"></img> 
+                                    <img src="assets/github-brands.svg" className="padding-logos"></img>
+                                    <img src="assets/linkedin-brands.svg" className="padding-logos"></img>
                                     
                                 </div>
                         </div>
