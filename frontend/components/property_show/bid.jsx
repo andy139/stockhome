@@ -54,7 +54,7 @@ class Bid extends React.Component {
                         </div>
                         <br/>
                         <div>
-                            {this.props.price}
+                            {this.addCommas(this.props.price)}
                         </div>
                 
                     </div>
