@@ -65,7 +65,7 @@ class Navbar extends React.Component {
                             <div className="right-nav-misc">
                                 <a href="https://www.linkedin.com/in/andy139/" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-linkedin-in"></i> LinkedIn</a>
                                 <a href="https://www.github.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-github"></i> Github</a>
-                                <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a>
+                                {/* <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a> */}
                                 <input 
                                     type="submit" 
                                     value="Log Out"
@@ -115,7 +115,7 @@ class Navbar extends React.Component {
 
                                 <a href="https://www.linkedin.com/in/andy139/" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-linkedin-in"></i> LinkedIn</a>
                                 <a href="https://www.github.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-github"></i> Github</a>
-                                <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a>
+                                {/* <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a> */}
                                 <Link className="nav-login-link hvr-overline-reveal" to="/login">Log In</Link>
                                 <div id="signup-fix">
                                     { this.props.location.pathname === "/login" || this.props.location.pathname === "/signup" ? signUpBolded() : signUpNotBolded()}

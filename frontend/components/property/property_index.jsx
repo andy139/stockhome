@@ -30,7 +30,7 @@ class PropertyIndex extends React.Component {
                 </div>
 
                 <div className="searchbar-container">
-                    Searchbar TBD
+                   
                 </div>
                 <div className= "property-index-container">
                     {properties}

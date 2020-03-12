@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>stockhome</title>
+    <title>Stockhome</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag 'logo.png' %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ__a4fVU_-8AXvfaTyOU_S7vU3l27byk"%>
+    <%= stylesheet_link_tag 'application', media: 'all' %> <%= csrf_meta_tags %>
     <%= javascript_include_tag 'application' %>
+
+  
   </head>
 
   <body>

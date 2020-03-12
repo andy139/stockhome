@@ -64,7 +64,7 @@ class PropertyItem extends React.Component {
             <div className="property-image"
                 style={{
                 backgroundImage : `url(${photo_urls[0]})`,
-                 "width": "100%", "height": "50%", "background-size" : "cover"}}
+                 "width": "100%", "height": "50%", backgroundSize : `cover`}}
             
                 onClick={this.handleClick}
             > 
