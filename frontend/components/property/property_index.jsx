@@ -20,7 +20,7 @@ class PropertyIndex extends React.Component {
     render(){
 
 
-        debugger
+         
         if (!this.props.properties) return null;
 
         const properties = this.props.properties.map( property => (

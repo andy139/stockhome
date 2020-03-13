@@ -9,14 +9,30 @@ class SearchMap extends React.Component {
         super(props);
     }
 
-    handleMarkerClick(properties) {
+    handleMarkerClick(property) {
+        debugger
         this.props.history.push(`/property/${property.id}`)
     }
 
 
     componentDidMount() {
 
-        
+        this.renderMap()
+
+
+
+    }
+
+    componentDidUpdate(prevProps) {
+         
+        this.MarkerManager.updateMarkers(this.props.properties);
+        if (prevProps.properties !== this.props.properties) {
+            this.renderMap();
+        }
+    }
+
+
+    renderMap() {
 
         const mapOptions = {
             center: {
@@ -29,26 +45,24 @@ class SearchMap extends React.Component {
 
 
         this.map = new google.maps.Map(this.mapNode, mapOptions)
-        this.MarkerManager = new MarkerManager(this.map);
+        
 
         const marker = new google.maps.Marker({
             position: {lat: 59.3293, lng: 18.0686},
             map: this.map,
         });
 
-        // this.markerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-        // this.markerManager.updateMarkers(this.props.properties);
-        
-        // debugger 
-
+        this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
+        this.MarkerManager.updateMarkers(this.props.properties);
 
 
     }
 
-
+   
     
 
     render() {
+         
         return (
         
           <div id="search-map-container" ref={ map => this.mapNode = map }> // this ref gives us access to the map dom node

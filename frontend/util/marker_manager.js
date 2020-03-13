@@ -5,23 +5,14 @@ class MarkerManager {
     this.markers = {};
   }
 
-  updateMarkers(properties){
-
-    console.log("time to update");
-
-      const propertiesObj = {};
-
-      properties.forEach(property => propertiesObj[property.id] = property);
-
-      properties
-        .filter(property => !this.markers[property.id])
-        .forEach(newProperty => this.createMarkerFromProperty(newProperty, this.handleClick))
-
-      Object.keys(this.markers)
-        .filter(propertyId => !propertyObj[propertyId])
-        .forEach((propertyId) => this.removeMarker(this.markers[propertyId]))
-    
+  updateMarkers(properties) {
+    properties.forEach( property => {
+        if (!this.markers[property.id]) {
+            this.createMarkerFromProperty(property);
+        }
+    })
   }
+
 
 
   createMarkerFromProperty(property) {
@@ -37,6 +28,7 @@ class MarkerManager {
 
     marker.addListener('click', () => this.handleClick(property));
     this.markers[marker.propertyId] = marker;
+    marker.setMap(this.map);
   }
 
 }
