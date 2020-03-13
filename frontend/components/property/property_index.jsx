@@ -1,15 +1,16 @@
 import React from 'react';
-import PropertyIndexItem from './property_index_item'
+import PropertyIndexItem from './property_index_item';
 import {Link} from 'react-router-dom';
-import Footer from '../footer/footer'
-import Submenu from '../submenu/submenu'
-import SearchFooter from '../search/search_footer'
-
+import Footer from '../footer/footer';
+import Submenu from '../submenu/submenu';
+import SearchFooter from '../search/search_footer';
+import SearchMap from '../search/search_map';
 class PropertyIndex extends React.Component {
     constructor(props) {
         super(props);
 
     }
+
 
     componentDidMount() {
          
@@ -17,6 +18,9 @@ class PropertyIndex extends React.Component {
     }
 
     render(){
+
+
+        debugger
         if (!this.props.properties) return null;
 
         const properties = this.props.properties.map( property => (
@@ -28,10 +32,11 @@ class PropertyIndex extends React.Component {
                 <div className ="submenu-full-length">
                    
                     <Submenu></Submenu>
+                    
                 </div>
 
-                <div className="searchbar-container">
-                   
+                <div className="searchmap-container">
+                   <SearchMap properties={this.props.properties}/>
                 </div>
                
 

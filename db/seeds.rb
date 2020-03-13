@@ -116,8 +116,8 @@ end
 
 p4 = Property.create(
 
-    lat: 59.340488,
-    lng: 18.084369,
+    lat: 59.329382,
+    lng: 18.068548,
     address: "Karlsuddsvagen 63A",
     city: "Stockholm",
     municipality: "Lidingo",
@@ -135,7 +135,7 @@ p4 = Property.create(
     gross_yield: 12,
     cash_flow: 14,
     appreciation: 10,
-    neighborhood_rating: 3,
+    neighborhood_rating: 3.5,
     average_school_rating: 4,
     type_of_occupancy: "Empty",
     amt_of_horses: 0,
@@ -144,26 +144,26 @@ p4 = Property.create(
 )
 
 
-
-f1 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_0.jpg')
+f1 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4_0.jpg')
 p4.photos.attach(io: f1, filename: 'house_4_0.jpg')
 
 
-f2 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_1.jpg')
-f3 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_2.jpg')
-f4 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_3.jpg')
-f5 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_4.jpg')
-f6 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4/house_4_5.jpg')
+f2 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4_1.jpg')
+f3 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4_2.jpg')
+f4 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4_3.jpg')
+f5 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4_4.jpg')
+f6 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_4_5.jpg')
 
 [f2,f3,f4,f5,f6].each_with_index do |attachment,i|
-    p4.photos.attach(io: attachment, filename: "house_4_#{i}.png")
+    p4.photos.attach(io: attachment, filename: "house_4_#{i}.jpg")
 end
+
 
 
 p5 = Property.create(
 
-    lat: 59.342336,
-    lng: 18.081142,
+    lat: 59.330074,
+    lng: 18.068162,
     address: "Järpstigen 9",
     city: "Stockholm",
     municipality: "Vaxholm",
@@ -189,10 +189,25 @@ p5 = Property.create(
     total_return_5yrs: 42320
 )
 
+
+f1 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_5_1.png')
+p5.photos.attach(io: f1, filename: 'house_5_1.png')
+
+
+f2 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_5_0.jpg')
+f3 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_5_2.jpg')
+f4 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_5_3.jpg')
+f5 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_5_4.jpg')
+f6 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_5_5.jpg')
+
+[f2,f3,f4,f5,f6].each_with_index do |attachment,i|
+    p5.photos.attach(io: attachment, filename: "house_5_#{i}.jpg")
+end
+
 p6 = Property.create(
 
-    lat: 59.402394,
-    lng: 18.053589,
+    lat: 59.333074,
+    lng: 18.168162,
     address: "Wittensdalsvägen 26",
     city: "Stockholm",
     municipality: "Botkyrka",
@@ -218,10 +233,25 @@ p6 = Property.create(
     total_return_5yrs: 30000
 )
 
+
+f1 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_6_0.jpg')
+p6.photos.attach(io: f1, filename: 'house_6_0.jpg')
+f2 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_6_1.png')
+p6.photos.attach(io: f2, filename: 'house_6_8.png')
+
+f3 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_6_2.jpg')
+f4 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_6_3.jpg')
+f5 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_6_4.jpg')
+f6 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_6_5.jpg')
+
+[f3,f4,f5,f6].each_with_index do |attachment,i|
+    p5.photos.attach(io: attachment, filename: "house_6_#{i}.jpg")
+end
+
 p7 = Property.create(
 
-    lat: 59.342768,
-    lng: 18.083297,
+    lat: 59.323074,
+    lng: 18.198162,
     address: "Valhallavägen 117",
     city: "Stockholm",
     municipality: "Bromma",
@@ -231,7 +261,7 @@ p7 = Property.create(
     list_price: 1000000,
     bathrooms: 7,
     rent: 4000,
-    sqft: 500,
+    sqft: 1600,
     bedrooms: 3,
     minimal_repairs: false,
     annualized_return: 10.2,
@@ -249,5 +279,20 @@ p7 = Property.create(
 
 
 
+
+f1 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_7_0.jpg')
+p7.photos.attach(io: f1, filename: 'house_7_0.jpg')
+
+
+f2 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_7_1.jpg')
+f3 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_7_2.jpg')
+f4 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_7_3.jpg')
+f5 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_7_4.jpg')
+f6 = open('https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/house_7_5.jpg')
+
+
+[f2,f3,f4,f5,f6].each_with_index do |attachment,i|
+    p7.photos.attach(io: attachment, filename: "house_7_#{i}.jpg")
+end
 
 

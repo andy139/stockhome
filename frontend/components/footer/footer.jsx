@@ -10,7 +10,7 @@ function Footer() {
         <div className= "footer-2">
 
 
-            Footer From Component
+      
         </div>
     
     )
