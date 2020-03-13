@@ -1,8 +1,9 @@
 import React from 'react';
 import PropertyIndexItem from './property_index_item'
 import {Link} from 'react-router-dom';
-
+import Footer from '../footer/footer'
 import Submenu from '../submenu/submenu'
+import SearchFooter from '../search/search_footer'
 
 class PropertyIndex extends React.Component {
     constructor(props) {
@@ -32,9 +33,19 @@ class PropertyIndex extends React.Component {
                 <div className="searchbar-container">
                    
                 </div>
+               
+
                 <div className= "property-index-container">
+                    
                     {properties}
+
+    
                 </div>
+
+              
+              
+                <SearchFooter/>
+                <Footer/>
 
             </div>
         )

@@ -59,14 +59,14 @@ class Bid extends React.Component {
                 
                     </div>
                     <div className="bid-button-container">
-                        <div className="input-container">
+                        <div className="input-container-bid">
                             <FontAwesomeIcon icon={faDollarSign}  className="signup-icons"/>
                             
                             <input type="text"
                                 value={this.state.bid}
-                                placeholder = {this.props.price}
+                                placeholder = {this.props.currSliderBid}
                                 onChange={this.update('bid')}
-                                className="signup-input"
+                                className="signup-input-bid"
                             />
                         </div>
                         <br/>

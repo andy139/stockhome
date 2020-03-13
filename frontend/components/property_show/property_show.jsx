@@ -6,8 +6,8 @@ import Submenu from '../submenu/submenu'
 import ShowMisc from './show_misc';
 import Tabs from './tabs'
 import ShowMap from '../map/show_map'
-
-
+import SearchFooter from '../search/search_footer'
+import Footer from '../footer/footer'
 
 class PropertyShow extends React.Component {
 
@@ -131,6 +131,9 @@ class PropertyShow extends React.Component {
                         <Tabs key={this.props.property.id} panes={panes} neighborhood_rating={neighborhood_rating} average_school_rating={average_school_rating}/>
                     </div>
                 </div>
+
+                <SearchFooter/>
+                <Footer/>
             </div>
          
         )
