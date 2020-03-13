@@ -23,6 +23,7 @@ class PropertyShow extends React.Component {
     componentDidMount(){
          
         this.props.fetchProperty(this.props.propertyId)
+        window.scrollTo(0,0)
 
     }
 
