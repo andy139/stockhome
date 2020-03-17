@@ -24,7 +24,7 @@ StockHome, a RoofStock clone, is an online marketplace that allows users to brow
 
 
 ## Show
- ![show](/app/assets/images/show.gif)
+ ![show](/app/assets/images/show .gif)
 
 ## Carousel
  ![carousel](/app/assets/images/carousel.gif)
