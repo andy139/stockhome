@@ -29,9 +29,10 @@
 
     
     display: flex;
-    max-width: 1380px;
-    justify-content: center;
+    max-width: 1430px;
     flex-wrap: wrap;
+    justify-content: center;
+    // grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
 
 }
 

@@ -5,6 +5,7 @@ import Footer from '../footer/footer';
 import Submenu from '../submenu/submenu';
 import SearchFooter from '../search/search_footer';
 import SearchMap from '../search/search_map';
+import Search from '../search/search';
 class PropertyIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +21,6 @@ class PropertyIndex extends React.Component {
     render(){
 
 
-         
         if (!this.props.properties) return null;
 
         const properties = this.props.properties.map( property => (
@@ -33,6 +33,9 @@ class PropertyIndex extends React.Component {
                    
                     <Submenu></Submenu>
                     
+                </div>
+                <div className="search-container">
+                    <Search/>
                 </div>
 
                 <div className="searchmap-container">

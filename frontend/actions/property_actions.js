@@ -25,8 +25,8 @@ export const fetchProperty = id => dispatch => (
     ))
 )
 
-export const fetchProperties = () => dispatch => (
-    APIUtil.fetchProperties().then(properties =>(
+export const fetchProperties = (filters) => dispatch => (
+    APIUtil.fetchProperties(filters).then(properties =>(
         dispatch(receiveProperties(properties))
     ))
 
