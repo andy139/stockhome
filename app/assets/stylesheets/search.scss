@@ -1,5 +1,5 @@
 .search-1 {
-    background-color: lightpink;
+
     display: flex;
     width: 1380px;
     height: 20px;
@@ -62,12 +62,14 @@
 
 .dropdown-click {
     margin-top: 4px;
-    
+    position: absolute;
+    z-index: 99999;
     border-radius: 3px;
     display: flex;
     height: 125px;
-    width: 320px;
+    width: 355px;
     border: 1px solid #e0e0e0;
+    background-color: white;
 
 
 
@@ -75,6 +77,60 @@
 
 .dropdrown-container {
     display: flex;
+   
+    
 
 
 }
+
+.amount-title {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+   
+    
+
+
+}
+
+.apply-clear {
+    margin-top: 15px;
+    border-top: 1px solid lightgrey;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.cursorp {
+    cursor:pointer;
+    pointer-events: auto;
+    
+}
+
+
+.dropdown-click-loc {
+    margin-top: 4px;
+    position: absolute;
+    z-index: 99999;
+    border-radius: 3px;
+    display: flex;
+    height: 320px;
+    width: 280px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+
+
+}
+
+.checkbox-container {
+    overflow-y:auto;
+    margin: 20px;
+}
+
+.checkbox-item {
+    padding-top: 5px;
+}
+
+

@@ -180,6 +180,28 @@
     border-radius: 4px;
 }
 
+.navbar-fullwidth-loggedin-buy {
+    display:flex;
+    min-height: 70px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(23, 41, 72);
+    border-radius: 4px;
+}
+
+.navbar-container-loggedin-buy {
+    display: flex;
+    justify-content: space-between;
+    width: 1380px;
+    font-size: 18px;
+    align-items: center;
+    font-family: Muli, sans-serif;
+    border-radius: 4px;
+
+}
+
+
 .navbar-fullwidth-loggedout {
     display:flex;
     min-height: 70px;
@@ -222,6 +244,16 @@
 
 }
 
+.right-nav-misc-buy {
+    width: 20 px;
+    height: 60 px;
+    padding: 13px;
+    display: inline-block;
+    color: white;
+
+}
+
+
 
 @media only screen and (max-width : 763px){
     .limit_navbar{
@@ -250,8 +282,15 @@
     text-decoration: none;
     color: #515151
 }
+
+
+.remove-decoration-buy {
+    text-decoration: none;
+    color: white;
+}
 /* Overline Reveal */
 .hvr-overline-reveal {
+    cursor:pointer;
     display: inline-block;
     vertical-align: middle;
     // -webkit-transform: perspective(1px) translateZ(0);
@@ -262,15 +301,34 @@
     overflow: hidden;
     text-decoration: none;
     color: #515151;
-    border-top: 3px solid white;
+    border-top: 4.5px solid white;
 
   }
 
   .hvr-overline-reveal:hover{
-    border-top: 3px solid #2098D1;
+    border-top: 4.5px solid #2098D1;
   }
 
 
+.hvr-overline-reveal-buy {
+    cursor:pointer;
+    display: inline-block;
+    vertical-align: middle;
+    // -webkit-transform: perspective(1px) translateZ(0);
+    // transform: perspective(1px) translateZ(0);
+    // box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    // border-top: 1px solid #2098D1;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    border-top: 4.5px solid rgb(23, 41, 72);
+
+  }
+   .hvr-overline-reveal-buy:hover{
+    border-top: 4.5px solid #2098D1;
+
+  }
 
 
 
@@ -291,7 +349,7 @@
     vertical-align: middle;
     position: relative;
    
-    border-top: 3px solid white;
+    border-top: 4.5px solid white;
   }
   
   /* Dropdown Content (Hidden by Default) */
@@ -329,8 +387,14 @@
   }
   
   .dropdown:hover {
-    border-top: 3px solid #2098D1;
+    border-top: 4.5px solid #2098D1;
   }
+
+  
+   .dropdown-buy:hover {
+    border-top: 4.5px solid #2098D1;
+  }
+
 
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {
