@@ -13,6 +13,6 @@ export const changeFilter = (filter, value) => ({
 // for ui screen
 export const updateFilter = (filter, value) => (dispatch, getState) => {
     dispatch(changeFilter(filter, value));
-    dispatch(fetchBenches(getState().entities.filters));
+    dispatch(fetchProperties(getState().entities.filters));
 
 };

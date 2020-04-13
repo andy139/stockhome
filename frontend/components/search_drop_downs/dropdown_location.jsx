@@ -5,6 +5,37 @@ import "!style-loader!css-loader!rc-checkbox/assets/index.css";
 import $ from "jquery";
 
 
+const allCounties = [
+  "Botkyrka", 
+    "Danderyd", 
+    "Ekerö", 
+    "Haninge", 
+    "Huddinge", 
+    "Järfälla", 
+    "Lidingö", 
+    "Nacka", 
+    "Norrtälje", 
+    "Nykvarn", 
+    "Nynäshamn", 
+    "Salem", 
+    "Sigtuna", 
+    "Sollentuna", 
+    "Solna", 
+    "Stockholm", 
+    "Sundbyberg", 
+    "Södertälje", 
+    "Tyresö", 
+    "Täby", 
+    "Upplands-Bro", 
+    "Upplands", 
+    "Väsby", 
+    "Vallentuna", 
+    "Vaxholm", 
+    "Värmdö", 
+    "Österåker",
+];
+
+
 
 class DropdownLocation extends React.Component {
   constructor() {
@@ -14,29 +45,18 @@ class DropdownLocation extends React.Component {
       counties: [],
       showMenu: false,
       disabled: false,
+      all: false,
     };
 
     this.showMenu = this.showMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
-    this.toggle = this.toggle.bind(this);
     this.onChange = this.onChange.bind(this);
     this.handleClear = this.handleClear.bind(this);
   }
 
-  toggle() {
-    this.setState((state) => ({
-      disabled: !state.disabled,
-    }));
-  }
 
   handleClear() {
-    document
-      .querySelectorAll("input[type=checkbox]")
-      .forEach((el) => (el.checked = false));
-
-    this.setState({ checked: false });
-
-    debugger
+ 
     this.setState({
      counties: [],
     });
@@ -60,26 +80,32 @@ class DropdownLocation extends React.Component {
   }
 
   onChange(e, county) {
-    console.log("Checkbox checked", (e.target.checked));
 
     e.stopPropagation();
+
+    if (!this.state.counties.includes(county)) {
+      let counties = [...this.state.counties];
+      let joinedCounties = counties.concat(county);
+      this.setState({ counties: joinedCounties });
+    } else {
+      //delete county
+      let counties = [...this.state.counties];
+      let joinedCounties = counties.filter((ele) => ele !== county);
+      this.setState({ counties: joinedCounties });
+    }
+
+
+    if(county === "All"){
+        this.setState({disabled: true});
+        this.setState({all: true})
+        this.handleClear();
+
+    } else {
+        this.setState({disabled: false});
+        this.setState({ all: false });
+    }
     
 
-    if (!this.state.counties.includes(county)){
-        let counties = [...this.state.counties];
-        let joinedCounties = counties.concat(county);
-        this.setState({ counties: joinedCounties });
-        console.log(joinedCounties);
-    } else {
-        //delete county
-        let counties = [...this.state.counties];
-        let joinedCounties = counties.filter(
-        (ele) =>  ele !== county
-        );
-        this.setState({ counties: joinedCounties });
-        console.log(joinedCounties);
-
-    }
 
   }
 
@@ -87,46 +113,60 @@ class DropdownLocation extends React.Component {
    
 
     let counties = this.state.counties
-    debugger;
+
+    let mappedCheckboxes = allCounties.map(county => {
+      return(
+        <p className="checkbox-items">
+          <label>
+            <Checkbox
+              name="my-checkbox"
+              checked={counties.includes(county) ? 1 : 0}
+              onChange={(e) => {
+                this.onChange(e, county);
+              }}
+            />
+                &nbsp; {county}
+              </label>
+        </p>
+        
+      )
+
+    })
+
+
     return (
       <div className="hover-1">
         <div className="dropdown-search" onClick={this.showMenu}>
-          <div>Location</div>
+          <div>{ this.state.counties.length > 1 ? this.state.counties.length :
+          this.state.counties.length === 1 ? this.state.counties[0] : 
+          "Location"}</div>
           <i class="fas fa-chevron-down"></i>
         </div>
 
         {this.state.showMenu ? (
           <div className="dropdown-click-loc">
             <div className="checkbox-container">
-              <p>
+              <p className="checkbox-items">
                 <label>
                   <Checkbox
                     name="my-checkbox"
-                    checked={counties.includes("Danderyd") ? 1 : 0}
-                    onClick={(e) => {
-                      this.onChange(e, "Danderyd");
-                    }}
-                  />
-                  &nbsp; Danderyd
-                </label>
-              </p>
-              <p>
-                <label className="checkbox-item">
-                  <Checkbox
-                    name="my-checkbox"
-                    checked={counties.includes("Botkyrka") ? 1 : 0}
+                    disabled={this.state.disabled}
+                    checked={this.state.all}
                     onChange={(e) => {
-                      this.onChange(e, "Botkyrka");
+                      this.onChange(e, "All");
                     }}
                   />
-                  &nbsp; Botkyrka
+                  &nbsp; All Markets
                 </label>
-                &nbsp;&nbsp;
               </p>
+
+              {mappedCheckboxes}
+
+              
             </div>
 
-            <div className="apply-clear">
-              <div className="cursorp" onClick={this.handleClear}>
+            <div className="apply-clear-loc">
+              <div className="cursorp clear" onClick={this.handleClear}>
                 Clear
               </div>
               <div className="cursorp" onClick={this.handleApply}>

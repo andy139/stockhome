@@ -9,13 +9,11 @@ import Search from './search';
 const mapStateToProps = state => ({
     properties: asArray(state.entities),
 
-
-
 })
 
 
 const mapDispatchToProps = dispatch => ({
-    updateFilter: (filter, value) => dispatch(updateFilter(filter,value))
+    updateFilter: (value) => dispatch(updateFilter("primary_filter",value))
 
 });
 

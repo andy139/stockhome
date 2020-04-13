@@ -2,6 +2,7 @@ import React from "react";
 import onClickOutside from "react-onclickoutside";
 import DoubleBarSlider from "./doublebar_slider";
 import Slider, { Range } from "rc-slider";
+import {connect} from "react-redux";
 
 class DropdownRent extends React.Component {
   constructor() {
@@ -85,6 +86,15 @@ class DropdownRent extends React.Component {
                 defaultValue={rentValues}
                 // tipFormatter={(value) => `${value}K`}
               />
+
+               <div className="apply-clear">
+                  <div className="cursorp clear" onClick={this.handleClear}>
+                    Clear
+                  </div>
+                  <div className="cursorp" onClick={this.handleApply}>
+                    Apply
+                  </div>
+              </div>
            
             </div>
           </div>

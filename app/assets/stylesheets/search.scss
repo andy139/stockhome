@@ -20,14 +20,36 @@
     align-items: center;
     background-color: #eff7fa;
     cursor:pointer;
+    transition: 0.3s;
     // #86c5da
     
 
 }
 
+
 .search-button:hover{
     color: white;
     background-color: #1c74b8;
+    cursor:pointer;
+    // #86c5da
+    
+
+}
+
+.search-button-bolded{
+    color: white;
+    font-size: 0.8125rem;
+    border-radius: 4px;
+    // width: 130px;
+    height:20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+    background-color: #1c74b8;
+    transition: 0.3s;
 
 
 }
@@ -94,9 +116,10 @@
 }
 
 .apply-clear {
+    width: 100%;
     margin-top: 15px;
     border-top: 1px solid lightgrey;
-    padding-top: 10px;
+    padding-top: 15px;
     display: flex;
     justify-content: space-between;
 
@@ -106,7 +129,20 @@
 .cursorp {
     cursor:pointer;
     pointer-events: auto;
-    
+    color: #6259C3;
+}
+
+
+
+
+
+.apply-clear-loc {
+    border-top: 1px solid lightgrey;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+
+
 }
 
 
@@ -120,17 +156,26 @@
     width: 280px;
     border: 1px solid #e0e0e0;
     background-color: white;
+    flex-direction:column;
 
 
 }
 
 .checkbox-container {
+    font-size: 1.5vh;
     overflow-y:auto;
-    margin: 20px;
+    padding: 10px;
 }
 
 .checkbox-item {
     padding-top: 5px;
 }
 
+.checkbox-items {
 
+    padding: 5px;
+}
+
+.clear {
+    color:grey;
+}

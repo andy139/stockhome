@@ -106,7 +106,7 @@ class SearchDropdown extends React.Component {
                 // tipFormatter={(value) => `${value}K`}
               />
               <div className="apply-clear">
-                <div className="cursorp" onClick={this.handleClear}>
+                <div className="cursorp clear" onClick={this.handleClear}>
                   Clear
                 </div>
                 <div className="cursorp" onClick={this.handleApply}>
