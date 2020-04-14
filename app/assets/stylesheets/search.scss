@@ -167,6 +167,12 @@
     padding: 10px;
 }
 
+.checkbox-container2 {
+    font-size: 1.5vh;
+    overflow-y:auto;
+}
+
+
 .checkbox-item {
     padding-top: 5px;
 }
@@ -178,4 +184,146 @@
 
 .clear {
     color:grey;
+}
+
+.multi-grid-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 470px;
+    margin-top: 5px;
+
+
+
+}
+
+.searchbar-3 {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 1380px;
+
+
+}
+
+.grid-box-1 {
+    cursor:pointer;
+    margin-top: 3px;
+    display: flex;
+    height: 20px;
+    width: 200px;
+    justify-content: space-between;
+    font-size: 1.3vh;
+}
+.hover-2 {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+
+.dropdown-click-search{
+    font-family: "Muli", sans-serif;
+    margin-top: 40px;
+    position: absolute;
+    z-index: 99999;
+    border-radius: 3px;
+    display: flex;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    flex-direction:column;
+
+}
+
+.search-label-2 {
+    cursor:pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    transition: 0.1s;
+    
+
+}
+
+.search-label-2-bolded {
+    cursor:pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    transition: 0.1s;
+    background-color: #ffcd00 ;
+    color:white;
+    
+
+}
+
+.search-label-2:hover {
+    background-color:lightgray; 
+
+}
+
+.fourboxes {
+    display: flex;
+    align-items: center;
+}
+
+.gridboxes {
+    cursor:pointer;
+    font-size: 26px;
+    padding: 8px;
+    border-radius: 3px;
+     border: 1px solid #e0e0e0;
+
+}
+
+
+.gridboxes-bolded {
+    cursor:pointer;
+    color: white;
+    border: 1px solid #e0e0e0;
+    font-size: 26px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: rgb(65, 105, 225);
+
+}
+
+.barboxes {
+    cursor:pointer;
+    border: 1px solid #e0e0e0;
+    font-size: 26px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.barboxes-bolded {
+    cursor:pointer;
+    color: white;
+    border: 1px solid #e0e0e0;
+    font-size: 26px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: rgb(65, 105, 225);
+}
+
+.map-button {
+    cursor:pointer;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    height: 20px;
+    width: 35px;
+    padding: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content:center;
+
+
+}
+
+.map-button:hover {
+    color:rgb(65, 105, 225);
 }

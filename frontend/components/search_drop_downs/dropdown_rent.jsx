@@ -22,7 +22,21 @@ class DropdownRent extends React.Component {
     this.handleClear = this.handleClear.bind(this);
   }
 
-  componentDidMount() {}
+  componentDidUpdate(prevProps, prevState) {
+
+    if (prevProps.filters != this.props.filters) {
+      if (this.props.toggle) {
+        this.setState({ rentValues: [0, 30000] });
+        this.setState({ applyValues: "Monthly Rent" });
+
+      }
+    }
+
+
+
+  }
+
+
 
   showMenu(event) {
     event.preventDefault();
@@ -46,16 +60,26 @@ class DropdownRent extends React.Component {
   handleClear() {
     this.setState({ rentValues: [0, 30000] });
     this.setState({ applyValues: "Monthly Rent" });
+
+    this.props.updateFilter("rent_range", [])
   }
 
   handleApply() {
+   
     this.setState({
       applyValues: "$" + `${this.state.rentValues[0]}` + " +",
     });
+    this.props.clearPrimary();
+    this.props.updateFilter("rent_range", this.state.rentValues);
+
+    this.props.setToggle(false);
     this.closeMenu();
+    
   }
 
   render() {
+
+   
     const Handle = Slider.Handle;
     const wrapperStyle = { width: 320, margin: 20 };
     const { rentValues } = this.state;

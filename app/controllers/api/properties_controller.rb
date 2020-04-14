@@ -21,7 +21,43 @@ class Api::PropertiesController < ApplicationController
             property = Property.all
         end
 
-        # debugger
+
+        
+        if (params[:price_range])
+
+            price_range = params[:price_range]
+            lower = price_range[0].to_i * 1000
+            upper = price_range[1].to_i * 1000
+            property = property.where('list_price BETWEEN ? AND ?', lower, upper)
+            # debugger
+
+        end
+
+        if (params[:rent_range])
+            rent_range = params[:rent_range]
+            lower = rent_range[0].to_i
+            upper = rent_range[1].to_i
+            property = property.where('rent BETWEEN ? AND ?', lower, upper)
+
+            
+        
+        end
+
+
+        if (params[:locations])
+            locations = params[:locations]
+            if (locations.empty?)
+                property = property.all
+            else
+                property = property.where(municipality: locations) 
+            end
+
+            
+        
+        end
+        
+        
+
 
 
         @properties = property

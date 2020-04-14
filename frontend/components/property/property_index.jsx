@@ -6,6 +6,9 @@ import Submenu from '../submenu/submenu';
 import SearchFooter from '../search/search_footer';
 import SearchMap from '../search/search_map';
 import Search from '../search/search_container';
+
+//https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-1s-177px.gif
+
 class PropertyIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +21,21 @@ class PropertyIndex extends React.Component {
         this.props.fetchProperties();
     }
 
+
+
     render(){
+
+
+        const loadingScreen = (
+            <div>
+
+                <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-1s-407px.gif"></img>
+
+            </div>
+
+
+
+        )
 
 
         if (!this.props.properties) return null;
@@ -38,13 +55,11 @@ class PropertyIndex extends React.Component {
                     <Search/>
                 </div>
 
-                <div className="searchmap-container">
-                   <SearchMap properties={this.props.properties}/>
-                </div>
-               
+
+                
 
                 <div className= "property-index-container">
-                    
+                    {loadingScreen}
                     {properties}
 
     

@@ -52,6 +52,7 @@ class DropdownLocation extends React.Component {
     this.closeMenu = this.closeMenu.bind(this);
     this.onChange = this.onChange.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    this.handleApply = this.handleApply.bind(this);
   }
 
 
@@ -60,9 +61,23 @@ class DropdownLocation extends React.Component {
     this.setState({
      counties: [],
     });
+
+    this.props.updateFilter("locations", [])
   }
 
-  componentDidMount() {}
+
+  componentDidUpdate(prevProps, prevState) {
+
+    if (prevProps.filters != this.props.filters) {
+      if (this.props.toggle) {
+        this.setState({
+          counties: [],
+        });
+
+      }
+    }
+
+  }
 
   showMenu(event) {
     event.preventDefault();
@@ -73,6 +88,14 @@ class DropdownLocation extends React.Component {
 
   closeMenu() {
     this.setState({ showMenu: false });
+  }
+
+  handleApply(){
+    this.props.updateFilter("locations", this.state.counties);
+    this.props.clearPrimary();
+    this.props.setToggle(false);
+    this.closeMenu();
+
   }
 
   handleClickOutside() {

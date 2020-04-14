@@ -1,119 +1,158 @@
-import React from 'react';
+import React from "react";
 import onClickOutside from "react-onclickoutside";
-import DoubleBarSlider from './doublebar_slider';
-// import "!style-loader!css-loader!rc-slider/assets/index.css"; 
-import Slider, {Range} from "rc-slider";
+import Checkbox from "rc-checkbox";
+import "!style-loader!css-loader!rc-checkbox/assets/index.css";
+import $ from "jquery";
+
+
+const allCriteria = [
+  "Default",
+  "Price",
+  "Rent",
+  "Gross Yield",
+  "Cap Rate",
+  "5Y Total Return",
+  "Annualized Return",
+  "Year Built"
+  
+];
 
 
 
-class SearchDropdown extends React.Component {
+class DropdownLocation extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      whichMenu: null,
+      counties: [],
       showMenu: false,
-      priceValues: [0, 5000],
-      applyValues: "List Price",
+      disabled: false,
+      all: false,
+      selected: "Default",
     };
 
-    this.handleChange = this.handleChange.bind(this);
     this.showMenu = this.showMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
-    this.handleApply = this.handleApply.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.handleClear = this.handleClear.bind(this);
-  
-  
-
+    this.handleApply = this.handleApply.bind(this);
   }
 
-  componentDidMount() {}
+
+  handleClear() {
+
+    this.setState({
+      counties: [],
+    });
+
+    this.props.updateFilter("locations", [])
+  }
+
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.filters != this.props.filters) {
+        if (this.props.filters.primary_filter === prevProps.filters.primary_filter){
+        } else {
+          this.setState({
+            selected: "Default",
+          });
+
+        }
+      
+    }
+
+  }
 
   showMenu(event) {
     event.preventDefault();
 
-      if (!this.state.showMenu) this.setState({ showMenu: true });
-      if (this.state.showMenu) this.closeMenu();
+    if (!this.state.showMenu) this.setState({ showMenu: true });
+    if (this.state.showMenu) this.closeMenu();
   }
 
   closeMenu() {
     this.setState({ showMenu: false });
   }
 
+  handleApply(criteria) {
+    this.setState({ selected: criteria })
+    this.props.updateSortFilter("sort", criteria); // need new dispatch function, sort filter
+    this.closeMenu();
+
+  }
+
   handleClickOutside() {
     this.closeMenu();
   }
 
-  handleChange(priceValues){
-    this.setState({ priceValues });
-  };
+  onChange(e, county) {
 
-  handleClear(){
-    this.setState({ priceValues: [0, 5000] });
-    this.setState({applyValues: "List Price"})
+    e.stopPropagation();
+
+    if (!this.state.counties.includes(county)) {
+      let counties = [...this.state.counties];
+      let joinedCounties = counties.concat(county);
+      this.setState({ counties: joinedCounties });
+    } else {
+      //delete county
+      let counties = [...this.state.counties];
+      let joinedCounties = counties.filter((ele) => ele !== county);
+      this.setState({ counties: joinedCounties });
+    }
+
+
+    if (county === "All") {
+      this.setState({ disabled: true });
+      this.setState({ all: true })
+      this.handleClear();
+
+    } else {
+      this.setState({ disabled: false });
+      this.setState({ all: false });
+    }
+
+
+
   }
-
-  handleApply(){
-    this.setState({applyValues: "$" + `${this.state.priceValues[0]}` + " K+"})
-    this.closeMenu();
-
- 
-
-  }
-
-
-
-  
 
   render() {
 
-    const Handle = Slider.Handle;
 
+    let mappedCriteria = allCriteria.map(criteria => {
+      return (
+        <p className="checkbox-items">
+          <div className= {this.state.selected === criteria ? "search-label-2-bolded" : "search-label-2"} onClick={() => this.handleApply(criteria)}>
+                &nbsp; {criteria}
+          </div>
+        </p>
+
+      )
+
+    })
     
-    const priceDiv = <div>List Price</div>;
-    const applyDiv = <div>${this.state.applyValues}K</div>
-
-    const wrapperStyle = { width: 320, margin: 20 };
 
 
-    
-
-    const { priceValues } = this.state;
     return (
-      <div className="hover-1">
-        <div className="dropdown-search" onClick={this.showMenu}>
-          <div>{this.state.applyValues}</div>
-          <i class="fas fa-chevron-down"></i>
+      <div className="hover-2">
+        <div>
+          <div>
+            Sort By
+          </div>
+          <div className="grid-box-1" onClick={this.showMenu}>
+            <div>{
+              this.state.selected}</div>  &nbsp; &nbsp;
+              {this.state.showMenu ? <i class="fas fa-chevron-up"></i> : <i class="fas fa-chevron-down"></i>}
+          </div>
         </div>
 
         {this.state.showMenu ? (
-          <div className="dropdown-click">
-            <div style={wrapperStyle}>
-              <div className="amount-title">
-                <div>List Price</div>
-                <div>
-                  ${priceValues[0]}K - ${priceValues[1]}K
-                </div>
-              </div>
+          <div className="dropdown-click-search">
+            <div className="checkbox-container2">
 
-              <Range
-                value={this.state.priceValues}
-                min={0}
-                max={5000}
-                onChange={this.handleChange}
-                pushable={true}
-                defaultValue={priceValues}
-                // tipFormatter={(value) => `${value}K`}
-              />
-              <div className="apply-clear">
-                <div className="cursorp clear" onClick={this.handleClear}>
-                  Clear
-                </div>
-                <div className="cursorp" onClick={this.handleApply}>
-                  Apply
-                </div>
-              </div>
+              {mappedCriteria}
             </div>
+
+
           </div>
         ) : null}
       </div>
@@ -121,6 +160,4 @@ class SearchDropdown extends React.Component {
   }
 }
 
-
-export default onClickOutside(SearchDropdown);
-
+export default onClickOutside(DropdownLocation);

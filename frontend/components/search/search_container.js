@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import {updateFilter} from '../../actions/filter_actions';
+import {updateSortFilter, updateFilter} from '../../actions/filter_actions';
 import {asArray} from '../../reducers/selectors';
 
 import Search from './search';
@@ -8,12 +8,16 @@ import Search from './search';
 
 const mapStateToProps = state => ({
     properties: asArray(state.entities),
+    filters: state.entities.filters,
 
 })
 
 
 const mapDispatchToProps = dispatch => ({
-    updateFilter: (value) => dispatch(updateFilter("primary_filter",value))
+    primaryFilter: (value) => dispatch(updateFilter("primary_filter",value)),
+    updateFilter: (filter,value) => dispatch(updateFilter(filter, value)),
+    updateSortFilter: (filter,value) => dispatch(updateSortFilter(filter, value)),
+
 
 });
 

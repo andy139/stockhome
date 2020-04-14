@@ -1,4 +1,4 @@
-import { UPDATE_FILTER } from '../actions/filter_actions';
+import { UPDATE_FILTER, SORT_FILTER } from '../actions/filter_actions';
 
 const defaultFilters = Object.freeze({
 
@@ -16,16 +16,28 @@ const filtersReducer = (state = defaultFilters, action) => {
 
         case UPDATE_FILTER:
 
-            let oldState = Object.freeze(state);
-
-            if (oldState.filter){}
-
-            debugger
-            const newFilter ={
-                [action.filter] : action.value
+            const newFilter = {
+                [action.filter]: action.value
             };
-            return Object.assign({}, state, newFilter);
-        
+
+
+            if (action.filter === "primary_filter"){
+                return newFilter
+            }  else {
+
+                let newState = Object.assign({}, state, newFilter);
+                newState.primary_filter = 0;
+                debugger
+                return newState;
+            }
+        case SORT_FILTER:
+
+            const sortFilter = {
+                [action.filter]: action.value
+            };
+
+            return Object.assign({}, state, sortFilter)
+
         default:
             return state;
     }

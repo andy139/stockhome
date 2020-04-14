@@ -3,8 +3,12 @@ import {useState} from 'react';
 import SearchDropdown from '../search_drop_downs/search_dropdowns';
 import DropdownRent from '../search_drop_downs/dropdown_rent';
 import DropdownLocation from "../search_drop_downs/dropdown_location";
+import DropdownPrice from "../search_drop_downs/dropdown_price";
+import SearchMap from '../search/search_map';
 
+// #004b87 swedish blue
 
+// #ffcd00 tangerine yellow
 
 
 const handleClick = (filter, updateFilter) => e => (
@@ -16,38 +20,47 @@ const filters = ["All", "Minimal Repairs", "Higher Yield", "1% Rule", "Best Scho
 
 function Search(props){
 
-    const [button, setButton] = useState(null)
-    const [stateFilter, setFilter] = useState(null)
+    const [button, setButton] = useState(null);
+    const [stateFilter, setFilter] = useState(null);
+    const [toggle, setToggle] = useState(false);
+
+    const [mapToggle, setMapToggle] = useState(false);
 
 
 
     const handleSearch = (filter) => {
       switch (filter) {
         case "All":
-          props.updateFilter("all")
+          props.primaryFilter("all")
           break;
         case "Minimal Repairs":
-          props.updateFilter("minimal_repairs")
+          props.primaryFilter("minimal_repairs")
           break;
         case "Higher Yield":
-          props.updateFilter("higher_yield")
+          props.primaryFilter("higher_yield")
           break;
         case "1% Rule":
-          props.updateFilter("1_rule")
+          props.primaryFilter("1_rule")
           break;
         case "Best Schools":
-          props.updateFilter("best_schools")
+          props.primaryFilter("best_schools")
           break;
         case "Best Neighborhood":
-          props.updateFilter("best_neighborhood")
+          props.primaryFilter("best_neighborhood")
           break;
         case "Higher Appreciation":
-          props.updateFilter("higher_appreciation")
+          props.primaryFilter("higher_appreciation")
           break;
         default:
-          props.updateFilter("all")
+          props.primaryFilter("all")
           break;
       }
+
+    }
+
+    const clearPrimary = () => {
+      setFilter(null)
+
 
     }
 
@@ -58,16 +71,18 @@ function Search(props){
       setFilter(filter)
 
       // do search
-
       handleSearch(filter)
-
-    
-
+      setToggle(true)
     }
 
 
+    
 
+ 
     return (
+
+      
+      
       <div className="search-box">
         <div className="search-1">
 
@@ -88,12 +103,44 @@ function Search(props){
 
         <div className="search-2">
             
-          <SearchDropdown />
-          <DropdownRent/>
-          <DropdownLocation/>
+          <DropdownPrice updateFilter={props.updateFilter} clearPrimary={clearPrimary} stateFilter={stateFilter} toggle={toggle} setToggle={setToggle} filters={props.filters}/>
+          <DropdownRent updateFilter={props.updateFilter} clearPrimary={clearPrimary} stateFilter={stateFilter} toggle={toggle} setToggle={setToggle}  filters={props.filters}/>
+          <DropdownLocation updateFilter={props.updateFilter} clearPrimary={clearPrimary} stateFilter={stateFilter} toggle={toggle} setToggle={setToggle} filters={props.filters} />
+
 
         </div>
 
+        <div className="searchbar-3">
+
+          <div>
+
+            Showing 1 - {props.properties.length < 25 ? props.properties.length : 25} of {props.properties.length} properties
+          </div>
+
+          <div className="multi-grid-item">
+
+           
+      
+            <SearchDropdown updateSortFilter={props.updateSortFilter} clearPrimary={clearPrimary} stateFilter={stateFilter} toggle={toggle} setToggle={setToggle} filters={props.filters} />
+          
+
+            <div className="fourboxes">
+              <div className="gridboxes"><i class="fas fa-th-large"></i></div>
+              <div className="barboxes"><i class="fas fa-bars"></i></div>
+            </div>
+
+
+            <div className="map-button" onClick={() => setMapToggle(!mapToggle)}>
+              Map
+            </div>
+          </div>
+
+        </div>
+
+
+        {mapToggle ? <div className="searchmap-container">
+          <SearchMap properties={props.properties} />
+        </div> : null}
 
       </div>
     );
