@@ -60,6 +60,18 @@ class PropertyShow extends React.Component {
 
     render(){
 
+        const loadingScreen = (
+
+            
+            <div className="loading-screen">
+
+                <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-0.7s-244px.gif"></img>
+
+            </div>
+
+        )
+
+
     
         if (!this.props.property) return null;
 
@@ -94,6 +106,9 @@ class PropertyShow extends React.Component {
                 
                     <div className="border-bottom"><Submenu key={this.props.property.id}></Submenu></div>
                 </div>
+
+                {this.props.loading.detailLoading ? loadingScreen : null}
+                
                 <div className="showpage-container">
                 
                     <div className="main-show-container">

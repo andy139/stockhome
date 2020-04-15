@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
       session[:session_token] = nil
       true
     end
+
+
+
+
 end

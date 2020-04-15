@@ -206,7 +206,7 @@ class Navbar extends React.Component {
 
         
 
-        if ((this.props.location.pathname.includes("property")) && this.props.currentUser ) {
+        if (( this.props.location.pathname.includes("roofs") || (this.props.location.pathname.includes("property"))) && this.props.currentUser ) {
             return loggedInBuy()
         } else if (this.props.currentUser) {
                 return loggedIn();

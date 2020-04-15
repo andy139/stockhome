@@ -16,7 +16,8 @@ const mSTP = (state, {match}) => {
      
     return {
         propertyId,
-        property
+        property,
+        loading: state.ui.loading,
 
     };
 }

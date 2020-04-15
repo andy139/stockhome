@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_10_045258) do
+ActiveRecord::Schema.define(version: 2020_04_15_003652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,24 @@ ActiveRecord::Schema.define(version: 2020_03_10_045258) do
     t.index ["type_of_occupancy"], name: "index_properties_on_type_of_occupancy"
     t.index ["year_built"], name: "index_properties_on_year_built"
     t.index ["zipcode"], name: "index_properties_on_zipcode"
+  end
+
+  create_table "saved_properties", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "property_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_saved_properties_on_property_id"
+    t.index ["user_id"], name: "index_saved_properties_on_user_id"
+  end
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "property_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_shopping_carts_on_property_id"
+    t.index ["user_id"], name: "index_shopping_carts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

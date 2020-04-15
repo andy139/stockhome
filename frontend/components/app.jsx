@@ -16,6 +16,7 @@ import SignupformContainer from './session_form/signup_form_container';
 import Splashpage from './splashpage/splashpage';
 import PropertyIndexContainer from './property/property_index_container'
 import PropertyShowContainer from './property_show/property_show_container'
+import Saved from './saved/saved';
 const App = () => (
 
 
@@ -31,6 +32,7 @@ const App = () => (
             <AuthRoute path="/login" component={LoginformContainer}/>
             <AuthRoute path="/signup" component={SignupformContainer}/>
             <Route exact path="/" component={Splashpage}/>
+            <Route exact path="/saved-roofs" component={Saved} />
             <Route path="/investment-property-marketplace" component={PropertyIndexContainer} />
             <Route path="/property/:propertyId" component={PropertyShowContainer} />
         </Switch>

@@ -4,8 +4,8 @@ import { fetchProperties } from '../../actions/property_actions'
 import PropertyIndex from './property_index'
 
 const mSTP = state => ({
-    properties: asArray(state.entities)
-
+    properties: asArray(state.entities),
+    loading: state.ui.loading,
 })
 
 const mDTP = dispatch => {

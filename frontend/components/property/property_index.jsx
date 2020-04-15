@@ -9,6 +9,8 @@ import Search from '../search/search_container';
 
 //https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-1s-177px.gif
 
+//https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-1s-407px.gif
+
 class PropertyIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -26,14 +28,14 @@ class PropertyIndex extends React.Component {
     render(){
 
 
-        const loadingScreen = (
-            <div>
+        let {indexLoading} = this.props.loading
 
-                <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-1s-407px.gif"></img>
+        const loadingScreen = (
+            <div className="loading-screen">
+
+                <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-0.7s-244px.gif"></img>
 
             </div>
-
-
 
         )
 
@@ -57,12 +59,13 @@ class PropertyIndex extends React.Component {
 
 
                 
+               
 
                 <div className= "property-index-container">
-                    {loadingScreen}
-                    {properties}
 
-    
+                
+                    {indexLoading ? loadingScreen : properties}
+
                 </div>
 
               
