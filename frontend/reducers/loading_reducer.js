@@ -6,6 +6,10 @@ import {
 
 } from '../actions/property_actions'
 
+import {
+    RECEIVE_SAVES,
+} from '../actions/save_actions'
+
 
 
 const initialState = {
@@ -22,10 +26,16 @@ const loadingReducer = (state = initialState, action) => {
             return Object.assign({}, state, { indexLoading: false });
         case RECEIVE_PROPERTY:
             return Object.assign({}, state, { detailLoading: false });
+        case RECEIVE_SAVES:
+            return Object.assign({}, state, { indexLoading: false });
+            
         case START_LOADING_PROPERTIES:
             return Object.assign({}, state, { indexLoading: true });
+            
         case START_LOADING_PROPERTY:
             return Object.assign({}, state, { detailLoading: true });
+
+        
         default:
             return state;
     }

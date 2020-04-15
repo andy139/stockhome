@@ -16,8 +16,8 @@ export const addSave = propertyId => (
 
     $.ajax({
         method: 'POST',
-        url: `api/saved_properties/${propertyId}`,
-        data
+        url: `api/saved_properties`,
+        data: {propertyId}
 
     })
 

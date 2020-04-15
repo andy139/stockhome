@@ -1,13 +1,20 @@
 class Api::SavedPropertiesController < ApplicationController
 
     def index
-        saved_properties = current_user.saved_properties
+
+        # debugger
+        @saved_properties = current_user.saved_properties
+        render :index
+
     end
 
     def create
-        saved_property = SavedProperty.new(saved_property_params)
 
-        if saved_property.save
+        property_id = params[:propertyId].to_i
+        @saved_property = SavedProperty.new(user_id: current_user.id, property_id: property_id)
+        if @saved_property.save
+
+            @property = @saved_property.property
             render :show
         else
             render json: ["Could not save that property into saves"], status:422
@@ -15,16 +22,20 @@ class Api::SavedPropertiesController < ApplicationController
     end
 
     def destroy
-        saved_property = SavedProperty.find(params[:id])
-        saved_property.destroy
-        render :show
+        property_id = params[:id].to_i
+        @unsave_property = SavedProperty.find_by(user_id: current_user.id, property_id: property_id)
+
+        if @unsave_property
+            @unsave_property.destroy
+            render :destroy
+        else
+            render json:["That property does not exist in your saves"], status:422
+        end
     end
 
     private
 
-    def saved_property_params
-        params.require(:saved_property).permit(:property_id, :user_id)
-    end
+ 
 
 
 end

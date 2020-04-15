@@ -33,7 +33,7 @@ class PropertyIndex extends React.Component {
         const loadingScreen = (
             <div className="loading-screen">
 
-                <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-0.7s-244px.gif"></img>
+                <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Spinner-1s-200px+(4).gif"></img>
 
             </div>
 

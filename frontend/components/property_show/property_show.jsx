@@ -65,7 +65,7 @@ class PropertyShow extends React.Component {
             
             <div className="loading-screen">
 
-                <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-0.7s-244px.gif"></img>
+                <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Spinner-1s-200px+(4).gif"></img>
 
             </div>
 
@@ -98,6 +98,48 @@ class PropertyShow extends React.Component {
                 )
         })
 
+        const showPage = (
+            <div className="showpage-container">
+
+                <div className="main-show-container">
+                    <div className="carousel-container">
+                        <div className="carousel-words-space">
+                            <div id="subbox-ontop-of-carousel">
+                                <div className="topbox">{address}</div>
+                                <div className="topbox">{city}, {municipility} {zipcode} </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        Stockhome
+                                        </div>
+                                    <div>
+                                        <FontAwesomeIcon icon={faKey} className="key-resizing" /> Exclusive
+                                        </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <Carousel className="carousel" key={this.props.property.id} bedrooms={bedrooms} bathrooms={bathrooms}
+                            sqft={this.addCommas(sqft)} year_built={year_built}>
+
+                            {allImages}
+
+                        </Carousel>
+                    </div>
+
+                    <ShowMisc key={this.props.property.id} props={this.props.property} />
+
+                </div>
+
+                <div className="tabs-fullwidth">
+                    <Tabs key={this.props.property.id} panes={panes} neighborhood_rating={neighborhood_rating} average_school_rating={average_school_rating} />
+                </div>
+            </div>
+            
+        )
+
          
 
         return(
@@ -107,46 +149,9 @@ class PropertyShow extends React.Component {
                     <div className="border-bottom"><Submenu key={this.props.property.id}></Submenu></div>
                 </div>
 
-                {this.props.loading.detailLoading ? loadingScreen : null}
+                {this.props.loading.detailLoading ? loadingScreen : showPage}
                 
-                <div className="showpage-container">
                 
-                    <div className="main-show-container">
-                        <div className="carousel-container">
-                            <div className = "carousel-words-space">
-                            <div id="subbox-ontop-of-carousel">
-                                    <div className="topbox">{address}</div>  
-                                    <div className="topbox">{city}, {municipility} {zipcode} </div>
-                            </div> 
-                            <div>
-                                    <div>
-                                        <div>
-                                        Stockhome
-                                        </div>
-                                        <div>
-                                        <FontAwesomeIcon icon={faKey} className="key-resizing"/> Exclusive
-                                        </div>
-                                    </div>
-                            </div>
-                            
-                            </div>
-
-                            <Carousel className="carousel" key={this.props.property.id} bedrooms = {bedrooms} bathrooms ={bathrooms} 
-                            sqft ={this.addCommas(sqft)} year_built={year_built}>
-                                    
-                                    {allImages}
-
-                            </Carousel>
-                        </div>
-    
-                        <ShowMisc key={this.props.property.id} props={this.props.property}/>
-
-                    </div>
-
-                    <div className="tabs-fullwidth">
-                        <Tabs key={this.props.property.id} panes={panes} neighborhood_rating={neighborhood_rating} average_school_rating={average_school_rating}/>
-                    </div>
-                </div>
 
                 <SearchFooter/>
                 <Footer/>

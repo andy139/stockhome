@@ -111,7 +111,7 @@ class PropertyItem extends React.Component {
                 <div className="property-address">
                     <div className="property-address-box">
                         <div>{address} </div> 
-                        <div>{municipality}, Stockholm {zipcode}</div>
+                        <div>{municipality}, Sweden {zipcode}</div>
                     </div>  
                     <div className="property-address-box">{this.openHouse()}</div>
                     

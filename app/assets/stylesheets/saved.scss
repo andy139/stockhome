@@ -10,6 +10,7 @@
     display: flex;
     justify-content:space-between;
     width: 1380px;
+    padding: 15px;
 }
 
 .full-saved-page {
@@ -18,4 +19,138 @@
     justify-content: center;
     align-items: center;
 
+}
+
+.saved-container {
+
+    margin-top: 130px;
+
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.saved-search {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    width: 1380px;
+}
+
+.loading-screen-save {
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.saved-pic {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    padding-right: 50px;
+}
+
+.saved-price-item {
+    width: 100px;
+    padding-right: 20px;
+    padding-left: 10px;
+
+}
+
+.saved-photo {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+
+.saved-pic-header {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    padding-left: 20px;
+    padding-right: 50px;
+}
+
+.save-space {
+    width: 100px;
+}
+
+.save-space-2 {
+    width:90px;
+}
+
+.save-space-3 {
+    width:90px;
+    
+}
+
+
+.save-space-4{
+    width:90px;
+    padding-left: 30px;
+    
+}
+
+
+.save-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+
+    border-bottom: solid 1px #d3d3d3;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1320px;
+
+
+}
+
+.save-address{
+    width: 135px;
+}
+
+.address-saved {
+    padding-left: 27px;
+    
+}
+
+#green-dollar {
+    color: green;
+
+}
+
+.favorites-container {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 1380px;
+}
+
+.title-item {
+    display: flex;
+    justify-content: space-between;
+    width: 1380px;
+    border-top: solid 1px #d3d3d3;
+    border-bottom: solid 1px #d3d3d3;
+    height: 60px;
+    align-items: center;
+
+}
+
+
+.title-item:hover {
+
+    background-color: #f9f9f9
 }

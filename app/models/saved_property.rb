@@ -14,7 +14,9 @@
 #  index_saved_properties_on_user_id      (user_id)
 #
 class SavedProperty < ApplicationRecord
-    validates :user_id, :property_id, presence: true
+
+    validates_uniqueness_of :user_id, scope: :property_id
+  
 
     belongs_to :user,
     foreign_key: :user_id,

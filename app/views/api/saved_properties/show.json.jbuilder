@@ -1,2 +1,3 @@
-json.extract! saved_property, :id, :user_id, :property_id
-
+json.set! @property.id do
+    json.partial! 'saved_property', saved_property: @property
+end

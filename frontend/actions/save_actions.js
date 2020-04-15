@@ -1,5 +1,7 @@
 import * as SaveAPIUtil from '../util/saved_api_util';
 
+import {startLoadingProperties} from './property_actions'
+
 
 export const RECEIVE_SAVES = "RECEIVE_SAVES";
 export const ADD_SAVE = "ADD_SAVE";
@@ -27,10 +29,11 @@ const removeSave = (property) => ({
 });
 
 
-export const fetchSaves = () => dispatch => (
+export const fetchSaves = () => dispatch => {
+    dispatch(startLoadingProperties());
     SaveAPIUtil.fetchSaves()
         .then(properties => dispatch(receiveSaves(properties)))
-);
+};
 
 
 export const createSave = (propertyId) => dispatch => (
@@ -42,6 +45,6 @@ export const createSave = (propertyId) => dispatch => (
 
 export const deleteSave = (propertyId) => dispatch => (
     SaveAPIUtil.removeSave(propertyId)
-        .then(property => dispatch(removeSave(property)))
+        .then(propertyRecord => dispatch(removeSave(propertyRecord)))
 
 );

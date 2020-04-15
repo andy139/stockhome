@@ -1,7 +1,43 @@
 import React from 'react';
+import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {fetchSaves, createSave, deleteSave} from '../../actions/save_actions';
 
-function Submenu(){
+const mSTP = state => {
+
+    return {
+        saved: state.ui.saved,
+
+    }
+
+
+
+}
+
+
+const mDTP = dispatch => {
+    
+    return {
+
+        deleteSave: (propertyId) => dispatch(deleteSave(propertyId)),
+        fetchSaves: () => dispatch(fetchSaves()),
+        createSave: (propertyId) => dispatch(createSave(propertyId))
+
+
+    }
+
+}
+
+
+
+
+function Submenu(props){
+
+
+
+    let [toggleBold, setToggleBold] = useState(null)
+
 
     return(
         <div className="submenu-container">
@@ -11,7 +47,7 @@ function Submenu(){
             </div>
 
             <div className="right-submenu">
-                <div className="hvr-underline-reveal text-decoration"><i className="far fa-heart"></i> Saved</div>
+                <Link to="/saved-roofs" className="hvr-underline-reveal text-decoration"><i className="far fa-heart"></i> Saved</Link>
                 <div  className="hvr-underline-reveal text-decoration"><i className="fas fa-shopping-cart"></i> Cart</div>
 
             </div>
@@ -20,6 +56,6 @@ function Submenu(){
     )
 }
 
-export default Submenu;
+export default connect(mSTP, mDTP)(Submenu);
 
 
