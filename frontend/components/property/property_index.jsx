@@ -29,7 +29,7 @@ class PropertyIndex extends React.Component {
 
 
         let {indexLoading} = this.props.loading
- 
+
 
         const loadingScreen = (
             <div className="loading-screen">
@@ -64,11 +64,9 @@ class PropertyIndex extends React.Component {
 
 
                 
-               
-
                 <div className= "property-index-container">
 
-                
+        
                     {indexLoading ? loadingScreen : properties}
 
                 </div>
