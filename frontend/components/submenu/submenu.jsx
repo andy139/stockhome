@@ -3,11 +3,17 @@ import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchSaves, createSave, deleteSave} from '../../actions/save_actions';
+import { withRouter } from 'react-router-dom';
+
+
+const saveArray = (properties) => {
+    return Object.keys(properties).map(key => properties[key])
+}
 
 const mSTP = state => {
 
     return {
-        saved: state.ui.saved,
+        saved: saveArray(state.ui.saved),
 
     }
 
@@ -38,6 +44,8 @@ function Submenu(props){
 
     let [toggleBold, setToggleBold] = useState(null)
 
+    debugger
+
 
     return(
         <div className="submenu-container">
@@ -47,8 +55,21 @@ function Submenu(props){
             </div>
 
             <div className="right-submenu">
-                <Link to="/saved-roofs" className="hvr-underline-reveal text-decoration"><i className="far fa-heart"></i> Saved</Link>
-                <div  className="hvr-underline-reveal text-decoration"><i className="fas fa-shopping-cart"></i> Cart</div>
+
+                {props.location.pathname === "/saved-roofs" ? 
+                
+                    <Link to="/saved-roofs" className="saves-bolded">
+                        <i className="far fa-heart"></i> &nbsp; {props.saved.length > 0 ? props.saved.length : null}
+                    </Link> : 
+                    
+                    <Link to="/saved-roofs" className="hvr-underline-reveal text-decoration">
+                        <i className="far fa-heart"></i> &nbsp; {props.saved.length > 0 ? props.saved.length : null}
+                    </Link>
+                    
+                    
+                    }
+    
+                <div  className="hvr-underline-reveal text-decoration"><i className="fas fa-shopping-cart"></i> </div>
 
             </div>
         </div>
@@ -56,6 +77,6 @@ function Submenu(props){
     )
 }
 
-export default connect(mSTP, mDTP)(Submenu);
+export default withRouter(connect(mSTP, mDTP)(Submenu));
 
 

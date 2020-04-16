@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    font-size: 1.5vh;
 
 }
 
@@ -20,6 +21,24 @@
     display: flex; 
     justify-content: center;
 
+}
+
+.saves-bolded {
+  cursor:pointer;
+  padding-bottom: 10px;
+  color: #ffcd00;
+  text-decoration: none;
+  border-bottom: 3px solid #ffcd00;
+
+}
+
+.header-saved {
+  font-size: 1.9vh;
+
+}
+
+.fa-info-circle{
+  cursor: pointer;
 }
 
 
@@ -69,7 +88,7 @@
     overflow: hidden;
   }
   .hvr-underline-reveal:hover {
-    border-bottom: 3px solid #2098D1;
+    border-bottom: 3px solid #FFCD00;
   }
 
 

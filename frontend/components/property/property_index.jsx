@@ -19,7 +19,7 @@ class PropertyIndex extends React.Component {
 
 
     componentDidMount() {
-         
+        this.props.fetchSaves();
         this.props.fetchProperties();
     }
 
@@ -29,6 +29,7 @@ class PropertyIndex extends React.Component {
 
 
         let {indexLoading} = this.props.loading
+ 
 
         const loadingScreen = (
             <div className="loading-screen">
@@ -42,9 +43,13 @@ class PropertyIndex extends React.Component {
 
         if (!this.props.properties) return null;
 
-        const properties = this.props.properties.map( property => (
-            <PropertyIndexItem key={property.id} property={property}/>
-        ))
+        const properties = this.props.properties.map( property => {
+
+
+            let isFavorited = Object.keys(this.props.saved).map(Number).includes(property.id)
+            
+            return <PropertyIndexItem key={property.id} property={property} isFavorited={isFavorited} addSave={this.props.addSave} deleteSave={this.props.deleteSave}/>
+        })
 
         return(
             <div className="property-marketplace-container">

@@ -153,7 +153,7 @@ class Splashpage extends React.Component {
 
         
                                 <div className="github-linkedin">
-                                    <img src="assets/fishing_lol.jpg" className="img-profile"></img> 
+                                    {/* <img src="assets/fishing_lol.jpg" className="img-profile"></img>  */}
                                     <img src="assets/github-brands.svg" className="padding-logos"></img>
                                     <img src="assets/linkedin-brands.svg" className="padding-logos"></img>
                                     

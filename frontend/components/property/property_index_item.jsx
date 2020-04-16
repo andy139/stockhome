@@ -3,12 +3,33 @@ import {withRouter} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import StarRatings from 'react-star-ratings';
+import {connect} from 'react-redux';
+
+
+
+
+
  
 class PropertyItem extends React.Component {
     constructor(props) {
+
+        
         super(props);
+
+        // let saved = this.props.saved;
+        // let propertyId = this.props.property.id;
+        // let isFavorited = Object.keys(saved).includes(propertyId);
+
+
+    
+
+
+        this.state = {
+            isFavorited: this.props.isFavorited,
+        }
         this.handleClick = this.handleClick.bind(this);
         this.openHouse = this.openHouse.bind(this);
+        this.handleSave = this.handleSave.bind(this);
     }
 
 
@@ -43,11 +64,24 @@ class PropertyItem extends React.Component {
         const propertyId = this.props.property.id;
         this.props.history.push(`/property/${propertyId}`)
     }
-    
+
+
+    handleSave(){
+        let propertyId = this.props.property.id;
+        if (this.props.isFavorited){
+            this.props.deleteSave(propertyId)
+        } else {
+            this.props.addSave(propertyId)
+        }
+
+    }
+
+
 
   
     render(){
 
+  
       
 
         //destrcture
@@ -70,8 +104,20 @@ class PropertyItem extends React.Component {
                     backgroundImage : `url(${photo_urls[0]})`,
                         "width": "100%", "height": "50%", "border-radius": "4.5px", "cursor" : "pointer", backgroundSize : `cover`}}
                 
-                    onClick={this.handleClick}
+                    // onClick={this.handleClick}
                 > 
+
+                    <div className="item-save-heart">
+
+                      
+                        <span className="fa-stack" id="padding-save" onClick={() => this.handleSave()}>
+
+                            {this.props.isFavorited ? <i className="fas fa-heart fa-stack-1x" id="blue-heart"></i> : <i className="fas fa-heart fa-stack-1x" id="opacity-heart"></i>}
+                            <i className="far fa-heart fa-stack-1x"></i>
+                        </span>
+
+                    </div>
+
 
                     <div className="background-child">${this.addCommas(list_price)}</div>
                     

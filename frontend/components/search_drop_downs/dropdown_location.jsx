@@ -2,7 +2,7 @@ import React from "react";
 import onClickOutside from "react-onclickoutside";
 import Checkbox from "rc-checkbox";
 import "!style-loader!css-loader!rc-checkbox/assets/index.css"; 
-import $ from "jquery";
+
 
 
 const allCounties = [

@@ -1,8 +1,9 @@
 import React from 'react';
-import {useEffect} from 'react';
+import {useEffect, useState, useCallback} from 'react';
 import Submenu from '../submenu/submenu';
 import {connect} from 'react-redux';
 import { fetchSaves, createSave, deleteSave } from '../../actions/save_actions';
+import DropdownSearch from './saved_search';
 
 
 const addCommas = (nStr) => {
@@ -49,7 +50,47 @@ const mDTP = dispatch => {
 
 
 
+
 function Saved(props) {
+
+    debugger
+
+
+
+
+    const [savedProperties, setProperties] = useState(props.saved)
+
+
+    const savedSearch = useCallback(
+
+        (searchParams) => {
+
+            let saved = props.saved;
+
+            let searchedSave;
+
+
+            if (searchParams === "All Markets") {
+                searchedSave = saved
+            } else {
+                searchedSave = saved.filter(property => {
+                    return property.municipality === searchParams
+                })
+
+            }
+
+
+            setProperties(searchedSave);
+
+
+        },
+        [savedProperties],
+
+
+
+    )
+
+
 
 
     useEffect(() => {
@@ -57,7 +98,10 @@ function Saved(props) {
     },[]);
 
 
-    let saved = props.saved;
+   
+
+
+   
 
 
     const itemHeader = (
@@ -66,7 +110,7 @@ function Saved(props) {
 
             <div className="saved-pic-header">
                 <label>&nbsp;</label>
-                <label>Che</label>
+                <label></label>
                 <label>&nbsp;</label>
 
             </div>
@@ -153,6 +197,9 @@ function Saved(props) {
 
     )
 
+
+    let saved = savedProperties.length > 0 ? savedProperties : props.saved;
+
     const savesScreen = (
 
         <div>
@@ -163,11 +210,20 @@ function Saved(props) {
             <div className="saved-container">
 
                 <div className="saved-header">
-                    <div>Saved Roofs</div> <div>Subscribed</div>
+                    <div className="header-saved">Saved Roofs</div> 
+                    <div> 
+                        <i class="fas fa-envelope"></i> &nbsp;Subscribed&nbsp;
+                   
+                            <i className="fas fa-info-circle tooltip"  >
+                                <span class="tooltiptext">You are subscribed to Stockhome and will receive updates through your email!</span>
+                            </i>
+                      
+         
+                    </div>
                 </div>
 
                 <div className="saved-search" >
-                    Search
+                    <DropdownSearch saved = {props.saved} savedSearch={savedSearch} />
 
                 </div>
 
@@ -181,7 +237,7 @@ function Saved(props) {
 
                                 <div className="saved-pic">
                                     <label>{i + 1}</label>
-                                    <label>che</label>
+                                    <label></label>
                                     <label onClick={() => props.history.push(`/property/${property.id}`)}><img className="saved-photo" src={property.photo_urls[0]}></img></label>
 
                                 </div>
@@ -213,7 +269,7 @@ function Saved(props) {
 
                                 <label className="save-space-2">For Sale</label>
 
-                                <label className="save-space-2" onClick={() => props.deleteSave(property.id)}><i class="fas fa-heart"></i></label>
+                                <label className="save-space-2" id="heart-saved" onClick={() => props.deleteSave(property.id)}><i class="fas fa-heart"></i></label>
 
                             </div>
 
@@ -224,8 +280,6 @@ function Saved(props) {
 
                     })}
 
-                    <button onClick={() => props.createSave(178)}>Create Property</button>
-                    <button onClick={() => props.deleteSave(178)}>Delete Property</button>
                 </div>
 
             </div>
