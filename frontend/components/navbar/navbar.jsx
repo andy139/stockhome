@@ -178,10 +178,10 @@ class Navbar extends React.Component {
                                 {/* <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a> */}
 
 
-                                <div className="dropdown">
-                                    <button className="dropbtn">Welcome Back, {this.props.currentUser.fname} <i className="fas fa-angle-down"></i></button>
+                                <div className="dropdown-blacked">
+                                    <button className="dropbtn-blacked">Welcome Back, {this.props.currentUser.fname} <i className="fas fa-angle-down"></i></button>
 
-                                    <div class="dropdown-content">
+                                    <div class="dropdown-content blacked">
                                         <input
                                             className="dropdown-content"
                                             type="submit"
