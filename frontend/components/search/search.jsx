@@ -17,6 +17,20 @@ const handleClick = (filter, updateFilter) => e => (
 
 const filters = ["All", "Minimal Repairs", "Higher Yield", "1% Rule", "Best Schools", "Best Neighborhood", "Higher Appreciation"]
 
+const descriptions = { "All": null ,
+  "Minimal Repairs": "Minimal Repairs filter shows homes with less than $1,000,000 in immediate estimated repairs.",
+  "Higher Yield": "Higher Yield filter shows properties with gross yield of 11 % or higher.",
+  "1% Rule": "1 % Rule filter shows properties where monthly rent is at least 1 % of the list price.",
+  "Best Schools": "Best Schools filter shows homes where the assigned schools all have a score of 4 or higher.",
+   "Best Neighborhood": "Best Neighborhood filter shows homes where neighborhoods all have a score of 4 or higher",
+  "Higher Appreciation": "Higher Appreciation filter shows properties where the annual appreciation is projected to be 3% or higher."}
+
+
+
+
+
+
+
 
 function Search(props){
 
@@ -114,7 +128,8 @@ function Search(props){
 
           <div>
 
-            Showing 1 - {props.properties.length < 25 ? props.properties.length : 25} of {props.properties.length} properties
+            <div>Showing 1 - {props.properties.length < 25 ? props.properties.length : 25} of {props.properties.length} properties</div>
+            <div className="desc-padding">{descriptions[stateFilter] ? descriptions[stateFilter]  : null}</div>
           </div>
 
           <div className="multi-grid-item">
