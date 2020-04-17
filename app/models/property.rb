@@ -10,7 +10,7 @@
 #  average_school_rating :float            not null
 #  bathrooms             :integer          not null
 #  bedrooms              :integer          not null
-#  cap_rate              :integer          not null
+#  cap_rate              :float            not null
 #  cash_flow             :float            not null
 #  city                  :string           not null
 #  gross_yield           :float            not null

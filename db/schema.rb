@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_003652) do
+ActiveRecord::Schema.define(version: 2020_04_17_053707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_003652) do
     t.boolean "minimal_repairs", null: false
     t.boolean "open_house"
     t.float "annualized_return", null: false
-    t.integer "cap_rate", null: false
+    t.float "cap_rate", null: false
     t.float "gross_yield", null: false
     t.float "cash_flow", null: false
     t.float "appreciation", null: false
