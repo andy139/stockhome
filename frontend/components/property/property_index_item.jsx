@@ -41,7 +41,7 @@ class PropertyItem extends React.Component {
         } else {
             return(
                 <div className="exclusive">
-                   <i class="fas fa-dollar-sign"></i> Cash Only <i class="fas fa-dollar-sign"></i>
+                  Cash Only 
                 </div>
             )
         }
@@ -92,80 +92,110 @@ class PropertyItem extends React.Component {
             neighborhood_rating, address, list_price,
             bedrooms, bathrooms, open_house, total_return_5yrs, main_photo_url, photo_urls} = this.props.property
 
+        
           
          
-        return(
+        return (
+          <div className="property-item-container">
+            <div
+              className="property-image"
+              style={{
+                backgroundImage: `url(${photo_urls[0]})`,
+                width: "100%",
+                height: "50%",
+                "border-radius": "4.5px",
+                cursor: "pointer",
+                backgroundSize: `cover`,
+              }}
+              onClick={this.handleClick}
+            >
+              <div className="item-save-heart">
+                <span
+                  className="fa-stack"
+                  id="padding-save"
+                  onClick={this.handleSave}
+                >
+                  {this.props.isFavorited ? (
+                    <i className="fas fa-heart fa-stack-1x" id="blue-heart"></i>
+                  ) : (
+                    <i
+                      className="fas fa-heart fa-stack-1x"
+                      id="opacity-heart"
+                    ></i>
+                  )}
+                  <i className="far fa-heart fa-stack-1x"></i>
+                </span>
+              </div>
 
-
-            <div className="property-item-container">
-
-               
-
-                <div className="property-image"
-                    style={{
-                    backgroundImage : `url(${photo_urls[0]})`,
-                        "width": "100%", "height": "50%", "border-radius": "4.5px", "cursor" : "pointer", backgroundSize : `cover`}}
-                
-                    onClick={this.handleClick}
-                > 
-
-                    <div className="item-save-heart">
-                        <span className="fa-stack" id="padding-save" onClick={this.handleSave}>
-
-                            {this.props.isFavorited ? <i className="fas fa-heart fa-stack-1x" id="blue-heart"></i> : <i className="fas fa-heart fa-stack-1x" id="opacity-heart"></i>}
-                            <i className="far fa-heart fa-stack-1x"></i>
-                        </span>
-                    </div>
-
-
-                    <div className="background-child">${this.addCommas(list_price)}</div>
-                    
+              <div className="background-child">
+                <div>${this.addCommas(list_price)}</div>
+                <div className="bg-address">
+                  {" "}
+                  {bedrooms}bedrooms, {bathrooms}ba | {sqft}sqft | Built in{" "}
+                  {year_built}
                 </div>
-                
-                
-                
-                <div className="property-item-miscs">
-                        <div className="property-item-miscs-box item-1">
-                            <div>Current Rent</div>
-                            <div><img src="assets/icon-rent-growth.png"></img> ${this.addCommas(rent)}</div>
-                        </div>
-                        <div className="property-item-miscs-box item-2">
-                            <div>Cap Rate </div>
-                            <div>{cap_rate}%</div>
-                        </div>
-                        <div className="property-item-miscs-box item-3">
-                            <div>Total Return </div>
-                            <div> {this.addCommas(total_return_5yrs)}/5 yr </div>
-                        </div>
-                        <div className="property-item-miscs-box item-4">
-                            <div>Neighborhood</div>
-                            <div>
-
-                                <StarRatings
-                                    rating={neighborhood_rating}
-                                    starDimension="20px"
-                                    starSpacing="1px"
-                                    starRatedColor="rgb(65, 105, 225)"
-                                />
-                            
-                            
-                            </div>
-                        </div>
-                </div>
-
-                <div className="property-address">
-                    <div className="property-address-box">
-                        <div>{address} </div> 
-                        <div>{municipality}, Sweden {zipcode}</div>
-                    </div>  
-                    <div className="property-address-box">{this.openHouse()}</div>
-                    
-                </div>
-
-
+              </div>
             </div>
 
-        )
+            <div className="property-item-miscs">
+              <div className="property-item-miscs-box item-1">
+                <div>Current Rent</div>
+                <div className="second-property-box">
+                  {" "}
+                  ${this.addCommas(rent)}
+                </div>
+              </div>
+
+              <div className="property-item-miscs-box item-2">
+                <div>Cap Rate </div>
+                <div className="second-property-box">
+                  {cap_rate.toFixed(2)}%
+                </div>
+              </div>
+              <div className="property-item-miscs-box item-3">
+                <div>Total Return </div>
+                <div className="second-property-box">
+                  {" "}
+                  {this.addCommas(total_return_5yrs)}/5yr{" "}
+                </div>
+              </div>
+              <div className="property-item-miscs-box item-4">
+                <div id="neighborfix">Neighborhood</div>
+
+                <div id="neighborfix">
+                  <StarRatings
+                    rating={neighborhood_rating}
+                    starDimension="20px"
+                    starSpacing="1px"
+                    starRatedColor="rgb(65, 105, 225)"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {this.props.property.open_house ? (
+              <div className="property-address">
+                <div className="property-address-box">
+                  <div className="second-property-box-2">{address} </div>
+                  <div className="second-property-box-2">
+                    {municipality}, Sweden {zipcode}
+                  </div>
+                </div>
+
+                <div className="property-address-box">{this.openHouse()}</div>
+              </div>
+            ) : (
+              <div className="property-address">
+                <div className="property-address-box-100">
+                  <div className="second-property-box-3">{address} </div>
+                  <div className="second-property-box-3">
+                    {municipality}, Sweden {zipcode}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        );
     }
 }
 

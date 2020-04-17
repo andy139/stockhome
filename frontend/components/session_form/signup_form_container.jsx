@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {signup, clearErrors} from '../../actions/session_actions';
+import {signup, clearErrors, login} from '../../actions/session_actions';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -127,16 +127,16 @@ class SigninForm extends React.Component {
                 <div className="text-center-signup">Welcome to Stockhome</div>
                 <div className="topbox-signup-container">
                     
-                    <img src="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/illus/Tenant-Occupied-100x80@3x-a1953a95522aee8912cfbbaeb020531d.png" className="signup-images" />
+                    <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Tenant-Occupied-100x80%403x-a1953a95522aee8912cfbbaeb020531d.png" className="signup-images" />
                     <div className="box-signup limit">
     
                         Buy and sell tenant-occupied rental houses outside your local market
                     </div >
-                    <img src="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/illus/Certified-100x80@3x-664c0c78e3ea43053e4a0a6139f16d31.png" className="signup-images" />
+                    <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Certified-100x80%403x-664c0c78e3ea43053e4a0a6139f16d31.png" className="signup-images" />
                     <div className="box-signup limit">
                         Properties on our marketplace are certified so you can invest with confidence
                     </div>
-                    <img src="https://roofstock-cdn3.azureedge.net/rs-apps/assets/images/illus/Property-Manager-100x80@3x-fc2efcd67358fdb918c84c54a55728fc.png" className="signup-images" />
+                    <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Property-Manager-100x80%403x-fc2efcd67358fdb918c84c54a55728fc.png" className="signup-images" />
                     <div className="box-signup limit">
                         Select a trusted local property manager and own without the hassle
                     </div>          
@@ -260,7 +260,7 @@ class SigninForm extends React.Component {
                         <div className= "limit_two">
 
                             <FontAwesomeIcon icon={faHorseHead}  className="input-icons-demo"/>
-                            <input className="signup-demo" type="submit" value="Log in with Demo User" />
+                            <input className="signup-demo" type="submit" value="Log in with Demo User" onClick={ () => this.props.login({ email: "JohnDoe@gmail.com", password: "password"}) }/>
                         </div>
                     </div>
                 </div>
@@ -289,6 +289,7 @@ const mapStateToProps = ({ errors} ) => {
 const mapDispatchToProps = dispatch => {
 
     return{
+        login: (user) => dispatch(login(user)),
         processForm: (user) => dispatch(signup(user)),
         clearErrors: () => dispatch(clearErrors()),
     }

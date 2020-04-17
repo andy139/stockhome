@@ -165,7 +165,7 @@
 }
 
 .item-save-heart {
-    font-size: 3.0vh;
+    font-size: 40px;
     color: white;
     width: 100%;
     display: flex;
@@ -179,9 +179,16 @@
 
 }
 
-#blue-heart {
+.fa-stack-1x {
+    margin-left: 23px;
+    line-height: 1.3 !important;
+}
 
- color: #ffcd00;
+#blue-heart {
+    // margin-left: 20px;
+    // margin-bottom: 40px;
+    // padding-bottom: 20px
+    color: #ffcd00;
 
 }
 

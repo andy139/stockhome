@@ -1,6 +1,38 @@
 import React from 'react';
 
 
+
+const allCounties = [
+  "Botkyrka",
+  "Danderyd",
+  "Ekerö",
+  "Haninge",
+  "Huddinge",
+  "Järfälla",
+  "Lidingö",
+  "Nacka",
+  "Norrtälje",
+  "Nykvarn",
+  "Nynäshamn",
+  "Salem",
+  "Sigtuna",
+  "Sollentuna",
+  "Solna",
+  "Stockholm",
+  "Sundbyberg",
+  "Södertälje",
+  "Tyresö",
+  "Täby",
+  "Upplands-Bro",
+  "Upplands",
+  "Väsby",
+  "Vallentuna",
+  "Vaxholm",
+  "Värmdö",
+  "Österåker",
+];
+
+
 class SearchFooter extends React.Component {
     
 

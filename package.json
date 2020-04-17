@@ -13,6 +13,7 @@
     "jquery": "^3.5.0",
     "node-sass": "^4.13.1",
     "nouislider": "^14.2.0",
+    "nuka-carousel": "^4.6.6",
     "prop-types": "^15.7.2",
     "rc-checkbox": "^2.2.0",
     "rc-slider": "^9.2.4",

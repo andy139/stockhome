@@ -55,9 +55,8 @@ class Navbar extends React.Component {
                                 
                             </div>
 
-                            <div className="navbar-buy-own-sell limit_navbar">
-                                
-                                <div className="left-nav-misc hvr-overline-reveal"><Link to="/investment-property-marketplace" className="remove-decoration">Buy</Link></div>
+                            <div className="left-nav-misc" onClick={() => this.props.push.history("/investment-property-marketplace")}>
+                                <Link to="/investment-property-marketplace" className="remove-decoration left-nav-misc hvr-overline-reveal">Buy</Link>
                                 <div className="left-nav-misc hvr-overline-reveal">Own</div>
                                 <div className="left-nav-misc hvr-overline-reveal">Sell</div>
                             </div>
@@ -75,16 +74,10 @@ class Navbar extends React.Component {
                                 <div className="dropdown">
                                     <button className="dropbtn">Welcome Back, {this.props.currentUser.fname} <i className="fas fa-angle-down"></i></button>
                                         
-                                    <div class="dropdown-content">
-                                        <input 
-                                            className="dropdown-content"
-                                            type="submit" 
-                                            value="Log Out"
-                                            onClick={this.props.logout}
-                                            />
+                                   
+                                    <div className="dropdown-content" onClick={this.props.logout}>
+                                        <i class="fas fa-sign-out-alt"></i> Log out
                                     </div>
-                                        
-                                       
                                 
                                 </div>
                                 
@@ -114,11 +107,10 @@ class Navbar extends React.Component {
                                     </Link>
                                 </div>
 
-                                <div className="navbar-buy-own-sell limit_navbar">
-                                    <div className="left-nav-misc hvr-overline-reveal"><Link to="/investment-property-marketplace" className="remove-decoration">Buy</Link></div>
+                                <div className="left-nav-misc" onClick={() => this.props.push.history("/investment-property-marketplace")}>
+                                    <Link to="/investment-property-marketplace" className="remove-decoration left-nav-misc hvr-overline-reveal">Buy</Link>
                                     <div className="left-nav-misc hvr-overline-reveal">Own</div>
                                     <div className="left-nav-misc hvr-overline-reveal">Sell</div>
-                                    
                                 </div>
                         </div>    
 
@@ -177,7 +169,17 @@ class Navbar extends React.Component {
                                 <a href="https://www.github.com/andy139" className="right-nav-misc-buy limit_navbar hvr-overline-reveal-buy"><i className="fab fa-github"></i> Github</a>
                                 {/* <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a> */}
 
+                                <div className="dropdown dark-mode">
+                                    <button className="dropbtn-blacked">Welcome Back, {this.props.currentUser.fname} <i className="fas fa-angle-down"></i></button>
 
+
+                                    <div className="dropdown-content" onClick={this.props.logout}>
+                                        <i class="fas fa-sign-out-alt"></i> Log out
+                                    </div>
+
+                                </div>
+
+{/* 
                                 <div className="dropdown-blacked">
                                     <button className="dropbtn-blacked">Welcome Back, {this.props.currentUser.fname} <i className="fas fa-angle-down"></i></button>
 
@@ -190,9 +192,7 @@ class Navbar extends React.Component {
                                         />
                                     </div>
 
-
-
-                                </div>
+                                </div> */}
 
 
                             </div>

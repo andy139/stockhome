@@ -1,11 +1,13 @@
 import React from 'react';
 import PropertyIndexItem from './property_index_item';
+import PropertyIndexItem2 from './property_index_item_v2';
 import {Link} from 'react-router-dom';
 import Footer from '../footer/footer';
 import Submenu from '../submenu/submenu';
 import SearchFooter from '../search/search_footer';
 import SearchMap from '../search/search_map';
 import Search from '../search/search_container';
+
 
 //https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-1s-177px.gif
 
@@ -14,6 +16,15 @@ import Search from '../search/search_container';
 class PropertyIndex extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            gridSelection: false,
+
+            
+
+
+        }
+
+        this.switch = this.switch.bind(this);
 
     }
 
@@ -23,9 +34,73 @@ class PropertyIndex extends React.Component {
         this.props.fetchProperties();
     }
 
+    switch(type){
+
+        if (type === "default") {
+             this.setState({ gridSelection: false });
+        } else {
+             this.setState({ gridSelection: true });
+        }
+       
+    }
+
 
 
     render(){
+
+        
+    const itemHeader = (
+      <div className="title-item">
+        <div className="saved-pic-header">
+          <label>&nbsp;</label>
+          <label></label>
+          <label>&nbsp;</label>
+        </div>
+
+        <div className="save-address">
+          <div>Address</div>
+        </div>
+
+        <div className="save-space">
+          <div>Price</div>
+        </div>
+
+        <div className="save-space-2">
+          <div>Current</div>
+          <div>Rent</div>
+        </div>
+
+        <div className="save-space-2">
+          <div>Gross</div>
+          <div>Yield</div>
+        </div>
+
+        <div className="save-space-2">
+          <div>Cap</div>
+          <div>Rate</div>
+        </div>
+
+        <div className="save-space-2">
+          <div>5Y Total</div>
+          <div>Return</div>
+        </div>
+
+        <div className="save-space-2">
+          <div>Annualized</div>
+
+          <div>Return</div>
+        </div>
+
+        <div className="save-space-2">
+          <div>Year</div>
+          <div>Built</div>
+        </div>
+
+        <div className="save-space-2">Status</div>
+
+        <div className="save-space-2">&nbsp;</div>
+      </div>
+    );
 
 
         let {indexLoading} = this.props.loading
@@ -43,13 +118,51 @@ class PropertyIndex extends React.Component {
 
         if (!this.props.properties) return null;
 
-        const properties = this.props.properties.map( property => {
+        const defProperties = this.props.properties.map( (property, i) => {
 
 
             let isFavorited = Object.keys(this.props.saved).map(Number).includes(property.id)
             
             return <PropertyIndexItem key={property.id} property={property} isFavorited={isFavorited} addSave={this.props.addSave} deleteSave={this.props.deleteSave}/>
         })
+
+
+        const gridProperties = ( 
+        
+        
+        <div>
+
+            {itemHeader}
+            {
+                    this.props.properties.map((property, i) => {
+                    let isFavorited = Object.keys(this.props.saved)
+                        .map(Number)
+                        .includes(property.id);
+
+                    return (
+                        <PropertyIndexItem2
+                        i={i}
+                        key={property.id}
+                        property={property}
+                        isFavorited={isFavorited}
+                        addSave={this.props.addSave}
+                        deleteSave={this.props.deleteSave}
+                        />
+                    );
+                    })
+            }
+
+
+
+        </div>
+        
+        
+        )
+        
+        
+        
+      
+
 
         return(
             <div className="property-marketplace-container">
@@ -59,16 +172,15 @@ class PropertyIndex extends React.Component {
                     
                 </div>
                 <div className="search-container">
-                    <Search/>
+                    <Search switch={this.switch} gridSelection={this.state.gridSelection}/>
                 </div>
 
-
-                
+            
+                <div>&nbsp;</div>                
                 <div className= "property-index-container">
-
+                    {this.state.gridSelection ? (indexLoading ? loadingScreen: gridProperties): ( indexLoading ? loadingScreen : defProperties)}
         
-                    {indexLoading ? loadingScreen : properties}
-
+                
                 </div>
 
               

@@ -202,6 +202,7 @@
     justify-content:space-between;
     align-items: center;
     width: 1380px;
+    padding-bottom: 20px;
 
 
 }
@@ -278,6 +279,8 @@
     cursor:pointer;
     font-size: 26px;
     padding: 8px;
+    padding-left: 13px;
+    padding-right: 13px;
     border-radius: 3px;
      border: 1px solid #e0e0e0;
 
@@ -292,6 +295,8 @@
     padding: 8px;
     border-radius: 5px;
     background-color: rgb(65, 105, 225);
+       padding-left: 13px;
+    padding-right: 13px;
 
 }
 
@@ -301,6 +306,8 @@
     font-size: 26px;
     padding: 8px;
     border-radius: 5px;
+    padding-left: 13px;
+    padding-right: 13px;
 }
 
 .barboxes-bolded {
@@ -311,6 +318,8 @@
     padding: 8px;
     border-radius: 5px;
     background-color: rgb(65, 105, 225);
+     padding-left: 13px;
+    padding-right: 13px;
 }
 
 .map-button {
@@ -330,4 +339,12 @@
 
 .map-button:hover {
     color:rgb(65, 105, 225);
+}
+
+.shadow {
+     color:rgb(65, 59, 225);
+    background-color:	#C0C0C0;
+
+
+
 }

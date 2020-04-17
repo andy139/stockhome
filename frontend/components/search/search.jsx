@@ -94,69 +94,137 @@ function Search(props){
 
  
     return (
-
-      
-      
       <div className="search-box">
         <div className="search-1">
-
-
-          {filters.map(filter => {
+          {filters.map((filter) => {
             return (
-
               <span className="search-label">
-                <div className={stateFilter  === filter ? "search-button-bolded" : "search-button"} onClick={() => handleClick(filter)}>{filter}</div>
+                <div
+                  className={
+                    stateFilter === filter
+                      ? "search-button-bolded"
+                      : "search-button"
+                  }
+                  onClick={() => handleClick(filter)}
+                >
+                  {filter}
+                </div>
               </span>
-
-            )
-
+            );
           })}
-      
-         
         </div>
 
         <div className="search-2">
-            
-          <DropdownPrice updateFilter={props.updateFilter} clearPrimary={clearPrimary} stateFilter={stateFilter} toggle={toggle} setToggle={setToggle} filters={props.filters}/>
-          <DropdownRent updateFilter={props.updateFilter} clearPrimary={clearPrimary} stateFilter={stateFilter} toggle={toggle} setToggle={setToggle}  filters={props.filters}/>
-          <DropdownLocation updateFilter={props.updateFilter} clearPrimary={clearPrimary} stateFilter={stateFilter} toggle={toggle} setToggle={setToggle} filters={props.filters} />
-
-
+          <DropdownPrice
+            updateFilter={props.updateFilter}
+            clearPrimary={clearPrimary}
+            stateFilter={stateFilter}
+            toggle={toggle}
+            setToggle={setToggle}
+            filters={props.filters}
+          />
+          <DropdownRent
+            updateFilter={props.updateFilter}
+            clearPrimary={clearPrimary}
+            stateFilter={stateFilter}
+            toggle={toggle}
+            setToggle={setToggle}
+            filters={props.filters}
+          />
+          <DropdownLocation
+            updateFilter={props.updateFilter}
+            clearPrimary={clearPrimary}
+            stateFilter={stateFilter}
+            toggle={toggle}
+            setToggle={setToggle}
+            filters={props.filters}
+          />
         </div>
 
         <div className="searchbar-3">
-
           <div>
-
-            <div>Showing 1 - {props.properties.length < 25 ? props.properties.length : 25} of {props.properties.length} properties</div>
-            <div className="desc-padding">{descriptions[stateFilter] ? descriptions[stateFilter]  : null}</div>
+            <div>
+              Showing 1 -{" "}
+              {props.properties.length < 25 ? props.properties.length : 25} of{" "}
+              {props.properties.length} properties
+            </div>
+            <div className="desc-padding">
+              {descriptions[stateFilter] ? descriptions[stateFilter] : null}
+            </div>
           </div>
 
           <div className="multi-grid-item">
-
-           
-      
-            <SearchDropdown updateSortFilter={props.updateSortFilter} clearPrimary={clearPrimary} stateFilter={stateFilter} toggle={toggle} setToggle={setToggle} filters={props.filters} />
-          
+            <SearchDropdown
+              updateSortFilter={props.updateSortFilter}
+              clearPrimary={clearPrimary}
+              stateFilter={stateFilter}
+              toggle={toggle}
+              setToggle={setToggle}
+              filters={props.filters}
+            />
 
             <div className="fourboxes">
-              <div className="gridboxes"><i class="fas fa-th-large"></i></div>
-              <div className="barboxes"><i class="fas fa-bars"></i></div>
+              {props.gridSelection ? (
+                <div
+                  className="gridboxes"
+                  onClick={() => {
+                    props.switch("default");
+
+                    console.log("click");
+                  }}
+                >
+                  <i class="fas fa-th-large"></i>
+                </div>
+              ) : (
+                <div
+                  className="gridboxes-bolded"
+                  onClick={() => {
+                    props.switch("default");
+
+                    console.log("click");
+                  }}
+                >
+                  <i class="fas fa-th-large"></i>
+                </div>
+              )}
+
+              {props.gridSelection ? (
+                <div
+                  className="barboxes-bolded"
+                  onClick={() => props.switch("grid")}
+                >
+                  <i class="fas fa-bars"></i>
+                </div>
+              ) : (
+                <div className="barboxes" onClick={() => props.switch("grid")}>
+                  <i class="fas fa-bars"></i>
+                </div>
+              )}
             </div>
 
-
-            <div className="map-button" onClick={() => setMapToggle(!mapToggle)}>
-              Map
-            </div>
+            {mapToggle ? (
+              <div
+                className="map-button shadow"
+                onClick={() => setMapToggle(!mapToggle)}
+              >
+                Map
+              </div>
+            ) : (
+              <div
+                className="map-button"
+                onClick={() => setMapToggle(!mapToggle)}
+              >
+                Map
+              </div>
+            )}
           </div>
-
         </div>
 
-
-        {mapToggle ? <div className="searchmap-container">
-          <SearchMap properties={props.properties} />
-        </div> : null}
-
+        {mapToggle ? (
+          <div className="searchmap-container">
+            <SearchMap properties={props.properties} />
+          </div>
+        ) : null}
       </div>
     );
 
