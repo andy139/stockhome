@@ -7,7 +7,7 @@ import Submenu from '../submenu/submenu';
 import SearchFooter from '../search/search_footer';
 import SearchMap from '../search/search_map';
 import Search from '../search/search_container';
-
+import SearchPage from '../search/search_page';
 
 //https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-1s-177px.gif
 
@@ -182,6 +182,8 @@ class PropertyIndex extends React.Component {
         
                 
                 </div>
+
+                <SearchPage/>
 
               
               

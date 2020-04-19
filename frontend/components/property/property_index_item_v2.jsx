@@ -71,6 +71,7 @@ class PropertyItem2 extends React.Component {
       neighborhood_rating,
       address,
       list_price,
+      cash_only,
       bedrooms,
       bathrooms,
       open_house,
@@ -85,14 +86,14 @@ class PropertyItem2 extends React.Component {
       <div className="save-item">
         <div className="saved-pic">
           <label>{this.props.i + 1}</label>
-          <label
+          <div
             className="details-index effect6"
             onClick={() => this.props.history.push(`/property/${id}`)}
-          >
+          > 
             See Details
-          </label>
+          </div>
           <label onClick={() => this.props.history.push(`/property/${id}`)}>
-            <img className="saved-photo" src={photo_urls[0]}></img>
+            <img className="saved-photo" src={main_photo_url}></img>
           </label>
         </div>
 
@@ -107,7 +108,7 @@ class PropertyItem2 extends React.Component {
         <div className="saved-price-item">
           <div>$ {this.addCommas(list_price)}</div>
           <div>
-            {!open_house ? (
+            {cash_only ? (
               <div>
                 <i class="fas fa-money-bill-wave" id="green-dollar"></i> Cash
                 Only
@@ -116,7 +117,7 @@ class PropertyItem2 extends React.Component {
           </div>
         </div>
 
-        <label className="save-space-2">${rent}</label>
+        <label className="save-space-2">${this.addCommas(rent)}</label>
 
         <label className="save-space-2">{gross_yield.toFixed(1)}%</label>
 

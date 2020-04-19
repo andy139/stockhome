@@ -1,36 +1,37 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { updateSortFilter, updateFilter } from '../../actions/filter_actions';
+import { asArray } from '../../reducers/selectors';
+
+const mapStateToProps = state => ({
+    properties: asArray(state.entities),
+    filters: state.entities.filters,
+    propertyAmount: state.entities.properties.amount_of_properties
+
+
+})
+
+
+const mapDispatchToProps = dispatch => ({
+    primaryFilter: (value) => dispatch(updateFilter("primary_filter", value)),
+    updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
+    updateSortFilter: (filter, value) => dispatch(updateSortFilter(filter, value)),
+
+
+});
+
 
 
 
 const allCounties = [
-  "Botkyrka",
-  "Danderyd",
-  "Ekerö",
-  "Haninge",
-  "Huddinge",
-  "Järfälla",
-  "Lidingö",
-  "Nacka",
-  "Norrtälje",
-  "Nykvarn",
-  "Nynäshamn",
-  "Salem",
-  "Sigtuna",
-  "Sollentuna",
-  "Solna",
-  "Stockholm",
-  "Sundbyberg",
-  "Södertälje",
-  "Tyresö",
-  "Täby",
-  "Upplands-Bro",
-  "Upplands",
-  "Väsby",
-  "Vallentuna",
-  "Vaxholm",
-  "Värmdö",
-  "Österåker",
-];
+    "Stockholm",
+    "Danderyd",
+    "Lidingö",
+    "Sundbyberg",
+    "Solna",
+
+]
 
 
 class SearchFooter extends React.Component {
@@ -38,6 +39,12 @@ class SearchFooter extends React.Component {
 
     constructor(props){
         super(props)
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(location){
+        this.props.updateFilter("locations",location) ;
+
     }
 
     render(){
@@ -50,13 +57,16 @@ class SearchFooter extends React.Component {
 
                
                     <div className="stockhome-markets">Stockhome Markets</div>
-                    <p className="lineheight">
-                        Botkyrka | Danderyd | Ekerö | Haninge | Huddinge | Järfälla | Lidingö |
-                        Nacka | Norrtälje | Nykvarn | Nynäshamn | Salem | Sigtuna | Sollentuna | Solna | Stockholm | Sundbyberg |
-                        Södertälje | Tyresö | Täby | Upplands-Bro | Upplands | Väsby | Vallentuna | Vaxholm | Värmdö | Österåker	
+                    <div className="lineheight">
 
-                     </p>
-                    <div></div>
+                        {allCounties.map((county, i) => {
+                            if (i === allCounties.length - 1) return <span className="footer-click" onClick={()=>{this.handleClick(county)}}>{county}&nbsp;</span>
+
+                            return <span className="footer-click" onClick={() => { this.handleClick(county) }}>{county} |&nbsp;</span>
+                        })}
+            
+                     </div>
+            
 
                 </div>
 
@@ -70,4 +80,7 @@ class SearchFooter extends React.Component {
 
 }
 
-export default SearchFooter;
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(SearchFooter);

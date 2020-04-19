@@ -1,7 +1,7 @@
 import * as SaveAPIUtil from '../util/saved_api_util';
 
-import {startLoadingProperties} from './property_actions'
-
+import {startLoadingProperties} from './property_actions';
+import {openModal, closeModal} from './modal_actions';
 
 export const RECEIVE_SAVES = "RECEIVE_SAVES";
 export const ADD_SAVE = "ADD_SAVE";
@@ -29,21 +29,30 @@ const removeSave = (property) => ({
 });
 
 
-export const fetchSaves = () => dispatch => {
+export const fetchSaves = () => (dispatch, getState) => {
     dispatch(startLoadingProperties());
     SaveAPIUtil.fetchSaves()
         .then(properties => dispatch(receiveSaves(properties)))
 };
 
 
-export const createSave = (propertyId) => dispatch => (
-    SaveAPIUtil.addSave(propertyId)
-        .then(property => dispatch(addSave(property)))
+export const createSave = (propertyId) => (dispatch, getState) => {
 
-);
+    debugger
+    if (Object.keys(getState().session).length  === 0) {
+
+        debugger
+        dispatch(openModal("loginModal", null))
+    } else {
+        SaveAPIUtil.addSave(propertyId)
+            .then(property => dispatch(addSave(property)))
+
+    }
+
+};
 
 
-export const deleteSave = (propertyId) => dispatch => (
+export const deleteSave = (propertyId) => (dispatch, getState) => (
     SaveAPIUtil.removeSave(propertyId)
         .then(propertyRecord => dispatch(removeSave(propertyRecord)))
 

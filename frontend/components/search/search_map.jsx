@@ -1,16 +1,21 @@
 import React from 'react';
 import MarkerManager from "../../util/marker_manager"
-import {withRouter} from "react-router-dom";
+import {withRouter, Link} from "react-router-dom";
+import PropertyIndexItem from "../property/property_index_item"
 
 class SearchMap extends React.Component {
     
   
     constructor(props){
         super(props);
+
+        this.bounds = new google.maps.LatLngBounds();
+        this.renderMap = this.renderMap.bind(this);
+        this.handleMarkerClick = this.handleMarkerClick.bind(this);
     }
 
     handleMarkerClick(property) {
-        debugger
+         
         this.props.history.push(`/property/${property.id}`)
     }
 
@@ -25,35 +30,69 @@ class SearchMap extends React.Component {
 
     componentDidUpdate(prevProps) {
          
-        this.MarkerManager.updateMarkers(this.props.properties);
-        if (prevProps.properties !== this.props.properties) {
-            this.renderMap();
-        }
+        // this.MarkerManager.updateMarkers(this.props.properties);
+        // if (prevProps.properties !== this.props.properties) {
+        //     this.renderMap();
+        // }
+
+        this.renderMap();
     }
 
 
     renderMap() {
+
+        let infowindow = new google.maps.InfoWindow();
+        let bounds = new google.maps.LatLngBounds();
+
 
         const mapOptions = {
             center: {
                 lat: 59.3293,
                 lng: 18.0686, //Stockholm Coordinates
             },
-            zoom: 13,
+            zoom: 13.2,
         }
 
 
+        let locations = this.props.properties
+
 
         this.map = new google.maps.Map(this.mapNode, mapOptions)
+        // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this), this.bounds);
+        // this.MarkerManager.updateMarkers(this.props.properties);
+
+        let i = 0;
+        for (i = 0; i < locations.length; i++) {
+
+            let property = locations[i];
+            let marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+                map: this.map,
+                animation: google.maps.Animation.DROP,
+                // icon: "https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/placeholder.png"
+            });
+
+            //extend the bounds to include each marker's position
+            bounds.extend(marker.position);
+            marker.addListener('click', ()=> this.handleMarkerClick(property))
+
+            // google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            //     return function () {
+            //          
+            //         this.props.history.push(`/property/${property.id}`)
+            //         // infowindow.setContent(`${content}`);
+            //         // infowindow.open(this.map, marker);
+            //     }
+            // })(marker, i));
+
+         
+        }
+
+
+        this.map.fitBounds(bounds);
+
+
         
-
-        const marker = new google.maps.Marker({
-            position: {lat: 59.3293, lng: 18.0686},
-            map: this.map,
-        });
-
-        this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-        this.MarkerManager.updateMarkers(this.props.properties);
 
 
     }

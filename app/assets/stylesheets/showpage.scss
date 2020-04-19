@@ -267,6 +267,7 @@
     font-size: 13px;
     word-spacing: 3px;
     color:  #515151;
+    width: 100%;
 }
 
 .footer-2 {
@@ -275,4 +276,8 @@
     border-top: 1px solid #ededed;
     text-align: center;
 
+}
+
+.footer-click {
+    cursor:pointer;
 }

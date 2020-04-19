@@ -34,15 +34,16 @@ class PropertyItem extends React.Component {
 
 
     openHouse(){
-        if (this.props.property.open_house) {
+        if (this.props.property.cash_only) {
             return(
-                <div className="property-icon"><FontAwesomeIcon icon={faHome}  className="property-icon"/> Open House</div>
+              <div className="exclusive">
+                Cash Only
+              </div>
             )
         } else {
             return(
-                <div className="exclusive">
-                  Cash Only 
-                </div>
+           
+              <div className="property-icon"><FontAwesomeIcon icon={faHome} className="property-icon" /> Open House</div>
             )
         }
 
@@ -100,7 +101,7 @@ class PropertyItem extends React.Component {
             <div
               className="property-image"
               style={{
-                backgroundImage: `url(${photo_urls[0]})`,
+                backgroundImage: `url(${main_photo_url})`,
                 width: "100%",
                 height: "50%",
                 "border-radius": "4.5px",
@@ -176,8 +177,8 @@ class PropertyItem extends React.Component {
             {this.props.property.open_house ? (
               <div className="property-address">
                 <div className="property-address-box">
-                  <div className="second-property-box-2">{address} </div>
-                  <div className="second-property-box-2">
+                  <div className="second-property-box-3">{address} </div>
+                  <div className="second-property-box-3">
                     {municipality}, Sweden {zipcode}
                   </div>
                 </div>

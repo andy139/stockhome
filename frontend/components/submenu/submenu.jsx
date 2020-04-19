@@ -1,9 +1,11 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useCallback} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchSaves, createSave, deleteSave} from '../../actions/save_actions';
 import { withRouter } from 'react-router-dom';
+
+import { closeModal, openModal } from "../../actions/modal_actions";
 
 
 const saveArray = (properties) => {
@@ -12,8 +14,12 @@ const saveArray = (properties) => {
 
 const mSTP = state => {
 
+    debugger
+
     return {
+       
         saved: saveArray(state.ui.saved),
+        isLoggedIn: Object.keys(state.session).length !== 0,
 
     }
 
@@ -26,6 +32,8 @@ const mDTP = dispatch => {
     
     return {
 
+        closeModal: () => dispatch(closeModal()),
+        openModal: (type, data) => dispatch(openModal(type, data)),
         deleteSave: (propertyId) => dispatch(deleteSave(propertyId)),
         fetchSaves: () => dispatch(fetchSaves()),
         createSave: (propertyId) => dispatch(createSave(propertyId))
@@ -44,7 +52,19 @@ function Submenu(props){
 
     let [toggleBold, setToggleBold] = useState(null)
 
-    debugger
+
+    const handleClick = useCallback (
+        () => {
+
+            debugger
+            props.isLoggedIn ? props.history.push("/saved-roofs") : props.openModal("loginModal", null)
+           
+        },
+        [],
+ 
+    )
+
+     
 
 
     return(
@@ -58,13 +78,13 @@ function Submenu(props){
 
                 {props.location.pathname === "/saved-roofs" ? 
                 
-                    <Link to="/saved-roofs" className="saves-bolded">
+                    <div onClick={handleClick} className="saves-bolded">
                         <i className="far fa-heart"></i> &nbsp; {props.saved.length > 0 ? props.saved.length : null}
-                    </Link> : 
+                    </div> : 
                     
-                    <Link to="/saved-roofs" className="hvr-underline-reveal text-decoration">
+                    <div  onClick={handleClick} className="hvr-underline-reveal text-decoration">
                         <i className="far fa-heart"></i> &nbsp; {props.saved.length > 0 ? props.saved.length : null}
-                    </Link>
+                    </div>
                     
                     
                     }

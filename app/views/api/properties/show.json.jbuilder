@@ -1,3 +1,8 @@
+
+
+
 json.set! @property.id do
-    json.partial! 'property', property: @property
+    json.partial! 'show', property: @property
 end
+
+

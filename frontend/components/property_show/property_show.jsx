@@ -21,10 +21,21 @@ class PropertyShow extends React.Component {
     }
 
     componentDidMount(){
+
+         
          
         this.props.fetchProperty(this.props.propertyId)
         window.scrollTo(0,0)
 
+    }
+
+    componentWillReceiveProps(nextProps) {
+         
+        if (nextProps.location !== this.props.location) {
+             
+            this.props.fetchProperty(this.props.propertyId)
+            window.scrollTo(0, 0)
+        }
     }
 
 
@@ -70,10 +81,11 @@ class PropertyShow extends React.Component {
             </div>
 
         )
-
+             
 
     
         if (!this.props.property) return null;
+        if(!this.props.property.photo_urls) return null;
 
         const { rent, cap_rate, municipility, city, gross_yield, appreciation, cash_flow,
             annualized_return, sqft, year_built, zipcode, lat, lng,

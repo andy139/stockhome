@@ -3,37 +3,44 @@ import onClickOutside from "react-onclickoutside";
 import Checkbox from "rc-checkbox";
 import "!style-loader!css-loader!rc-checkbox/assets/index.css"; 
 
-
-
 const allCounties = [
-  "Botkyrka", 
-    "Danderyd", 
-    "Ekerö", 
-    "Haninge", 
-    "Huddinge", 
-    "Järfälla", 
-    "Lidingö", 
-    "Nacka", 
-    "Norrtälje", 
-    "Nykvarn", 
-    "Nynäshamn", 
-    "Salem", 
-    "Sigtuna", 
-    "Sollentuna", 
-    "Solna", 
-    "Stockholm", 
-    "Sundbyberg", 
-    "Södertälje", 
-    "Tyresö", 
-    "Täby", 
-    "Upplands-Bro", 
-    "Upplands", 
-    "Väsby", 
-    "Vallentuna", 
-    "Vaxholm", 
-    "Värmdö", 
-    "Österåker",
-];
+  "Stockholm",
+  "Danderyd",
+  "Lidingö",
+  "Sundbyberg",
+  "Solna",
+
+]
+
+// const allCounties = [
+//   "Botkyrka", 
+//     "Danderyd", 
+//     "Ekerö", 
+//     "Haninge", 
+//     "Huddinge", 
+//     "Järfälla", 
+//     "Lidingö", 
+//     "Nacka", 
+//     "Norrtälje", 
+//     "Nykvarn", 
+//     "Nynäshamn", 
+//     "Salem", 
+//     "Sigtuna", 
+//     "Sollentuna", 
+//     "Solna", 
+//     "Stockholm", 
+//     "Sundbyberg", 
+//     "Södertälje", 
+//     "Tyresö", 
+//     "Täby", 
+//     "Upplands-Bro", 
+//     "Upplands", 
+//     "Väsby", 
+//     "Vallentuna", 
+//     "Vaxholm", 
+//     "Värmdö", 
+//     "Österåker",
+// ];
 
 
 
@@ -69,10 +76,14 @@ class DropdownLocation extends React.Component {
   componentDidUpdate(prevProps, prevState) {
 
     if (prevProps.filters != this.props.filters) {
+
+      this.setState({counties:[this.props.filters.locations]})
+      
       if (this.props.toggle) {
         this.setState({
           counties: [],
         });
+
 
       }
     }

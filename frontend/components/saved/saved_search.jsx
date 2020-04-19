@@ -113,6 +113,7 @@ class DropdownSearch extends React.Component {
     render() {
 
         
+        
 
         let counties = this.props.saved.map(property => {
 
@@ -121,10 +122,12 @@ class DropdownSearch extends React.Component {
 
         let distinctCounties = ["All Markets"].concat(Array.from(counties))
 
+        let unique = [...new Set(distinctCounties)]
 
 
 
-        let mappedCriteria = distinctCounties.map(counties => {
+
+        let mappedCriteria = unique.map(counties => {
             return (
                 <p className="checkbox-items save-search-width ">
                     <div className={this.state.selected === counties ? "search-label-2-bolded" : "search-label-3"} onClick={() => this.handleApply(counties)}>

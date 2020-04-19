@@ -2,7 +2,7 @@ class Api::SavedPropertiesController < ApplicationController
 
     def index
 
-        # debugger
+        #  
         @saved_properties = current_user.saved_properties
         render :index
 
@@ -10,15 +10,26 @@ class Api::SavedPropertiesController < ApplicationController
 
     def create
 
-        property_id = params[:propertyId].to_i
-        @saved_property = SavedProperty.new(user_id: current_user.id, property_id: property_id)
-        if @saved_property.save
+       
 
-            @property = @saved_property.property
-            render :show
+
+        if !current_user 
+            render json: ["User not logged in"]
         else
-            render json: ["Could not save that property into saves"], status:422
+
+            property_id = params[:propertyId].to_i
+            @saved_property = SavedProperty.new(user_id: current_user.id, property_id: property_id)
+            if @saved_property.save
+
+                @property = @saved_property.property
+                render :show
+            else
+                render json: ["Could not save that property into saves"], status:422
+            end
+
         end
+
+       
     end
 
     def destroy
@@ -33,7 +44,7 @@ class Api::SavedPropertiesController < ApplicationController
         end
     end
 
-    private
+
 
  
 

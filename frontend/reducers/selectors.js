@@ -1,6 +1,12 @@
-export const asArray = ({ properties }) => (
-    Object.keys(properties).map(key => properties[key])
-  );
+export const asArray = ({ properties }) => {
+
+
+
+  let propertyArr =  Object.keys(properties).map(key => 
+      properties[key])
+
+  return propertyArr.filter(property => property.id )
+  };
   
 
 export const selectProperty = ( propertyState, propertyId) => {

@@ -13,6 +13,7 @@ const mSTP = state => ({
     loading: state.ui.loading,
     // saved: saveArray(state.ui.saved),
     saved: state.ui.saved,
+    propertyAmount: state.entities.properties.amount_of_properties
 
 })
 

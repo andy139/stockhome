@@ -51,6 +51,7 @@ export const fetchProperties = (filters) => dispatch => {
 
     return APIUtil.fetchProperties(filters).then(properties =>{
 
+
        dispatch(receiveProperties(properties))
         
     })

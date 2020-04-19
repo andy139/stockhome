@@ -53,7 +53,7 @@ class FeaturedItem extends React.Component {
 
                 <div className="padding-fix-1"
                     style={{
-                    backgroundImage : `url(${photo_urls[0]})`,
+                    backgroundImage : `url(${main_photo_url})`,
                     "width": "100%", "height": "60%", backgroundSize : "cover"}}
                 
                     onClick={this.handleClick}

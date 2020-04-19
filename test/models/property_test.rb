@@ -12,6 +12,7 @@
 #  bedrooms              :integer          not null
 #  cap_rate              :float            not null
 #  cash_flow             :float            not null
+#  cash_only             :boolean
 #  city                  :string           not null
 #  gross_yield           :float            not null
 #  lat                   :float            not null

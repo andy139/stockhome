@@ -3,3 +3,6 @@
         json.partial! 'property', property: property
     end
 end
+
+
+json.amount_of_properties @amount_of_properties

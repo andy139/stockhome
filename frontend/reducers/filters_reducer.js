@@ -27,7 +27,7 @@ const filtersReducer = (state = defaultFilters, action) => {
 
                 let newState = Object.assign({}, state, newFilter);
                 newState.primary_filter = 0;
-                debugger
+                 
                 return newState;
             }
         case SORT_FILTER:

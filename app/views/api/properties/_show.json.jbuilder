@@ -9,6 +9,4 @@ if (property.photo.attached?)
     json.main_photo_url url_for(property.photo)
 end
 
-
-
-# json.photo_urls property.photos.map { |file| url_for(file) }
+json.photo_urls property.photos.map { |file| url_for(file) }

@@ -9,6 +9,8 @@ import Search from './search';
 const mapStateToProps = state => ({
     properties: asArray(state.entities),
     filters: state.entities.filters,
+    propertyAmount: state.entities.properties.amount_of_properties
+
 
 })
 

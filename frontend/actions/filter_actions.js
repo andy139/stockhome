@@ -31,22 +31,12 @@ export const updateSortFilter = (filter, value) => (dispatch, getState) => {
 
     let filters = getState().entities.filters;
     let properties = getState().entities.properties;
+
+
+    // Only need to sort properties in store, no need to grab from backend
     let propertiesArr = Object.keys(properties).map(key => properties[key])
-
-
-
     let sortedProperties = sort(propertiesArr, filters.sort)
- 
-
-
     dispatch(receiveProperties(sortedProperties))
-
-
-
-
-    debugger
-
-
 
 
 }

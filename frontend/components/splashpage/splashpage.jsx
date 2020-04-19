@@ -106,7 +106,7 @@ class Splashpage extends React.Component {
                             <div>
                                 <img src="assets/three-trillion.png" className="lazy-img" ></img>
                                 <div className="flex-box-3-text">
-                                    That's alot of money $$$
+                                    That's alot of money 
                                 </div>
                             </div>
                             <div>
@@ -116,7 +116,7 @@ class Splashpage extends React.Component {
                                 </div>
                                 
                                 <div className="flex-box-3-text"> 
-                                    That's alot of houses ^_^
+                                    That's alot of houses 
                                 </div>
                             </div>
                             <div>
@@ -126,7 +126,7 @@ class Splashpage extends React.Component {
                                     <img src="assets/Arrow_green.png" className="lazy-img"></img>
                                 </div>
                                 <div className="flex-box-3-text">
-                                    Wow, much increase
+                                    Alot of increase!
                                 </div>
                             </div>
                         </div>

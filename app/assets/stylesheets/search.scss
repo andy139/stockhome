@@ -152,7 +152,6 @@
     z-index: 99999;
     border-radius: 3px;
     display: flex;
-    height: 320px;
     width: 280px;
     border: 1px solid #e0e0e0;
     background-color: white;
@@ -348,3 +347,35 @@
 
 
 }
+
+
+.page-misc {
+    padding-top: 10px;
+        font-size: 1.6vh;
+    
+
+}
+
+.page-nums {
+    color:  #004b87;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid #004b87;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: 2px;
+}
+
+.page-nums-bolded {
+    color:  #004b87;
+    background-color: #e8f4f8;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid #004b87;
+    padding: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: 2px;
+}
+

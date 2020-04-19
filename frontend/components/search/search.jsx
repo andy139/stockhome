@@ -6,6 +6,7 @@ import DropdownLocation from "../search_drop_downs/dropdown_location";
 import DropdownPrice from "../search_drop_downs/dropdown_price";
 import SearchMap from '../search/search_map';
 
+
 // #004b87 swedish blue
 
 // #ffcd00 tangerine yellow
@@ -91,7 +92,7 @@ function Search(props){
 
 
     
-
+     
  
     return (
       <div className="search-box">
@@ -144,9 +145,8 @@ function Search(props){
         <div className="searchbar-3">
           <div>
             <div>
-              Showing 1 -{" "}
-              {props.properties.length < 25 ? props.properties.length : 25} of{" "}
-              {props.properties.length} properties
+              Showing {props.filters.page_filter ? (20 * props.filters.page_filter - 19) : 1} - {props.filters.page_filter ? ((props.filters.page_filter * 20 - 20) + props.properties.length) : props.properties.length < 20 ? props.properties.length : 20} of {props.propertyAmount} properties
+             
             </div>
             <div className="desc-padding">
               {descriptions[stateFilter] ? descriptions[stateFilter] : null}
