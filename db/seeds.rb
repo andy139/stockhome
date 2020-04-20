@@ -11,7 +11,7 @@ require 'open-uri'
 require 'random-location'
 
 User.delete_all
-# Property.delete_all
+Property.delete_all
 
 
 
@@ -136,8 +136,8 @@ allCounties2 = [
 
 # SEEDS AT A TIME!
 
-Danderyd Seeds
-Photo nums
+# Danderyd Seeds
+# Photo nums
 (8..14).each do |house_num|
 
 
