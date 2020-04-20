@@ -136,97 +136,97 @@ allCounties2 = [
 
 # SEEDS AT A TIME!
 
-# Danderyd Seeds
-# Photo nums
-# (8..14).each do |house_num|
+Danderyd Seeds
+Photo nums
+(8..14).each do |house_num|
 
 
 
-#     near_dand = RandomLocation.near_by(59.4059, 18.0258, 1500.2)
-#     random_address = randomstreets[rand(randomstreets.length-1)]
-#     random_zipcode = rand 11531...11931
-#     year_built = rand 1960...2020
-#     list_price = (rand 1000000...5000000)/1000 * 1000
+    near_dand = RandomLocation.near_by(59.4059, 18.0258, 1500.2)
+    random_address = randomstreets[rand(randomstreets.length-1)]
+    random_zipcode = rand 11531...11931
+    year_built = rand 1960...2020
+    list_price = (rand 1000000...5000000)/1000 * 1000
     
-#     rent = (list_price * (rand(0..0.03))).round(0)
-#     sqft = rand 3000...8000
-#     bedrooms = rand 6...20
-#     bathrooms = bedrooms / 2 + rand(2)
-#     minimal_repairs =  [true, false][rand(2)]
-#     annualized_return = rand(6.0...22.0).round(2) 
-#     cap_rate = rand(2.9...15.1).round(2)
-#     gross_yield = rand(6.0...21.0).round(2)
-#     cash_flow = rand(6.0...16.1).round(2)
-#     appreciation = rand(0...6.0).round(2)
-#     cash_only = [true, false][rand(2)]
-#     ratings =  [2.5,3,3.5,4.0,4.5,5.0]
+    rent = (list_price * (rand(0..0.03))).round(0)
+    sqft = rand 3000...8000
+    bedrooms = rand 6...20
+    bathrooms = bedrooms / 2 + rand(2)
+    minimal_repairs =  [true, false][rand(2)]
+    annualized_return = rand(6.0...22.0).round(2) 
+    cap_rate = rand(2.9...15.1).round(2)
+    gross_yield = rand(6.0...21.0).round(2)
+    cash_flow = rand(6.0...16.1).round(2)
+    appreciation = rand(0...6.0).round(2)
+    cash_only = [true, false][rand(2)]
+    ratings =  [2.5,3,3.5,4.0,4.5,5.0]
   
-#     avg_school = [2.5,3,3.5,4.0,4.5,5.0][rand(0..5)]
-#     neighborhood_rating = [2.5,3,3.5,4.0,4.5,5.0][rand(0..5)]
-#     open_house = [true, false][rand(2)]
-#     total_return_5yrs = rand 30000..200000
-#     # cash_only = [true, false][rand(2)]
+    avg_school = [2.5,3,3.5,4.0,4.5,5.0][rand(0..5)]
+    neighborhood_rating = [2.5,3,3.5,4.0,4.5,5.0][rand(0..5)]
+    open_house = [true, false][rand(2)]
+    total_return_5yrs = rand 30000..200000
+    # cash_only = [true, false][rand(2)]
 
-#     danderyd = Property.create(
+    danderyd = Property.create(
 
-#             lat: near_dand[0],
-#             lng: near_dand[1],
-#             address: random_address + " " + "#{rand(1000)}",
-#             city: "Stockholm",
-#             municipality: "Danderyd",
-#             zipcode: random_zipcode,
-#             property_type: "house",
-#             year_built: year_built,
-#             list_price: list_price,
-#             bathrooms: bathrooms,
-#             rent: rent,
-#             sqft: sqft,
-#             bedrooms: bedrooms,
-#             minimal_repairs: minimal_repairs,
-#             annualized_return: annualized_return,
-#             cap_rate: cap_rate,
-#             gross_yield: gross_yield,
-#             cash_flow: cash_flow,
-#             appreciation: appreciation,
-#             neighborhood_rating: neighborhood_rating,
-#             average_school_rating: avg_school,
-#             type_of_occupancy: "Empty",
-#             amt_of_horses: 0,
-#             cash_only: cash_only,
-#             open_house: open_house,
-#             total_return_5yrs: total_return_5yrs
-#     )
+            lat: near_dand[0],
+            lng: near_dand[1],
+            address: random_address + " " + "#{rand(1000)}",
+            city: "Stockholm",
+            municipality: "Danderyd",
+            zipcode: random_zipcode,
+            property_type: "house",
+            year_built: year_built,
+            list_price: list_price,
+            bathrooms: bathrooms,
+            rent: rent,
+            sqft: sqft,
+            bedrooms: bedrooms,
+            minimal_repairs: minimal_repairs,
+            annualized_return: annualized_return,
+            cap_rate: cap_rate,
+            gross_yield: gross_yield,
+            cash_flow: cash_flow,
+            appreciation: appreciation,
+            neighborhood_rating: neighborhood_rating,
+            average_school_rating: avg_school,
+            type_of_occupancy: "Empty",
+            amt_of_horses: 0,
+            cash_only: cash_only,
+            open_house: open_house,
+            total_return_5yrs: total_return_5yrs
+    )
     
-#     main_photo = open("https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/houses_dump_2/#{house_num}-0.jpg")
-#     danderyd.photo.attach(io: main_photo, filename: "#{house_num}_0.jpg")
+    main_photo = open("https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/houses_dump_2/#{house_num}-0.jpg")
+    danderyd.photo.attach(io: main_photo, filename: "#{house_num}_0.jpg")
 
 
 
-#       (0..5).each do |pic_num|
-#             begin
-#                 puts 'This is Before Exception Arise!'
-#                 f1 = open("https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/houses_dump_2/#{house_num}-#{pic_num}.jpg")
-#                 # using raise to create an exception   
-#             rescue OpenURI::HTTPError => error
-#                 response = error.io
-#                 response.status
-#                 # => ["403", "Service Unavailable"] 
-#                 response.string
-#             end
+      (0..5).each do |pic_num|
+            begin
+                puts 'This is Before Exception Arise!'
+                f1 = open("https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/houses_dump_2/#{house_num}-#{pic_num}.jpg")
+                # using raise to create an exception   
+            rescue OpenURI::HTTPError => error
+                response = error.io
+                response.status
+                # => ["403", "Service Unavailable"] 
+                response.string
+            end
 
-#             if (pic_num === 0)
+            if (pic_num === 0)
 
-#                 danderyd.photos.attach(io: f1, filename: "#{house_num}_#{pic_num}.jpg")
-#             else
-#                 if !f1.nil?
-#                     danderyd.photos.attach(io: f1, filename: "#{house_num}_#{pic_num}.jpg")
-#                 end
-#             end
-#         end
+                danderyd.photos.attach(io: f1, filename: "#{house_num}_#{pic_num}.jpg")
+            else
+                if !f1.nil?
+                    danderyd.photos.attach(io: f1, filename: "#{house_num}_#{pic_num}.jpg")
+                end
+            end
+        end
 
 
 
-# end
+end
 
 
 
