@@ -594,6 +594,8 @@ end
 
 
 
+    main_photo = open("https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/houses_dump_2/#{house_num}-0.jpg")
+    danderyd.photo.attach(io: main_photo, filename: "#{house_num}_0.jpg")
 
         (0..5).each do |pic_num|
             begin
@@ -608,7 +610,6 @@ end
             end
 
             if (pic_num === 0)
-                danderyd.photo.attach(io: f1, filename: "#{house_num}_#{pic_num}.jpg")
                 danderyd.photos.attach(io: f1, filename: "#{house_num}_#{pic_num}.jpg")
             else
                 if !f1.nil?
