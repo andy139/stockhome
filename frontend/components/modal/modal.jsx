@@ -41,6 +41,7 @@ function Modal(props){
     debugger
     const signupModal = (
         <div className="signup-modal" onClick={(e) => e.stopPropagation()}>
+            <div id="xmodal-2">  <span className="xmodal-click" onClick={() => props.closeModal()}><i class="fas fa-times"></i></span> </div>
 
             <Signup/>
 
@@ -51,7 +52,7 @@ function Modal(props){
 
     const loginModal = (
         <div className="login-modal" onClick={(e) => e.stopPropagation()}>
-            <div id="xmodal">  <span onClick={() => props.closeModal()}><i class="fas fa-times"></i></span> </div>
+            <div id="xmodal">  <span className="xmodal-click" onClick={() => props.closeModal()}><i class="fas fa-times"></i></span> </div>
 
             <Login/>
         

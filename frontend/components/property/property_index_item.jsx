@@ -21,9 +21,6 @@ class PropertyItem extends React.Component {
         // let isFavorited = Object.keys(saved).includes(propertyId);
 
 
-    
-
-
         this.state = {
             isFavorited: this.props.isFavorited,
         }

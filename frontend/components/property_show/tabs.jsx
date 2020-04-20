@@ -1,5 +1,32 @@
 import React from 'react';
 import StarRatings from 'react-star-ratings';
+import {connect} from 'react-redux';
+import PropertyIndexItem from './property_related';
+
+
+import { updateSortFilter, updateFilter, relatedFilter } from '../../actions/filter_actions';
+import { asArray, asArraySimilar } from '../../reducers/selectors';
+
+
+
+const mapStateToProps = state => ({
+  properties: asArray(state.entities),
+  filters: state.entities.filters,
+  propertyAmount: state.entities.properties.amount_of_properties,
+  similar: asArraySimilar(state.entities),
+
+
+})
+
+
+const mapDispatchToProps = dispatch => ({
+  primaryFilter: (value) => dispatch(updateFilter("primary_filter", value)),
+  updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
+  updateSortFilter: (filter, value) => dispatch(updateSortFilter(filter, value)),
+  relatedFilter: (filter, value) => dispatch(relatedFilter(filter, value)),
+
+
+});
 
 
 class Headers extends React.Component {
@@ -43,6 +70,11 @@ class Tabs extends React.Component {
     selectTab(num) {
       this.setState({selectedPane: num});
       
+    }
+
+    componentDidMount(){
+      this.props.relatedFilter("locations", this.props.county)
+
     }
 
 
@@ -95,6 +127,23 @@ class Tabs extends React.Component {
       const pane = this.props.panes[this.state.selectedPane];
 
 
+      const summary = (
+        <div className = "map-box">
+            {pane.content} {this.ratings()}
+        </div>
+      )
+
+      const similar = (
+        <div className="similar-box">
+          {this.props.similar.map(property => {
+            return <PropertyIndexItem key={property.id} property={property}></PropertyIndexItem>
+
+          })}
+        </div>
+
+      )
+
+
 
       return (
         <div>
@@ -106,9 +155,8 @@ class Tabs extends React.Component {
             </Headers>
             <div className='tab-content'>
 
-                <div className= "map-box">
-                    {pane.content} {this.ratings()}
-                </div>
+                {pane.title === "Summary" ? summary : similar}
+
           
             </div>
           </div>
@@ -119,4 +167,4 @@ class Tabs extends React.Component {
   
 
 
-export default Tabs;
+export default connect(mapStateToProps,mapDispatchToProps)(Tabs);

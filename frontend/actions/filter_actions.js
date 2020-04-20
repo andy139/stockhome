@@ -1,4 +1,4 @@
-import { fetchProperties, receiveProperties } from './property_actions';
+import { fetchProperties, receiveProperties, fetchSimilar } from './property_actions';
 import { asArray } from '../reducers/selectors'
 import {sort} from '../util/sort_util'
 
@@ -46,5 +46,12 @@ export const updateSortFilter = (filter, value) => (dispatch, getState) => {
 export const updateFilter = (filter, value) => (dispatch, getState) => {
     dispatch(changeFilter(filter, value));
     dispatch(fetchProperties(getState().entities.filters));
+
+};
+
+
+export const relatedFilter = (filter, value) => (dispatch, getState) => {
+    dispatch(changeFilter(filter, value));
+    dispatch(fetchSimilar(getState().entities.filters));
 
 };

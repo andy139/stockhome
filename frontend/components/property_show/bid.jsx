@@ -71,7 +71,7 @@ class Bid extends React.Component {
                         </div>
                         <br/>
                         <div> 
-                            <input className="login-submit" type="submit" value="Review Bid" />  
+                            <input className="bid-submit" type="submit" value="Review Bid" />  
 
                         </div>
 

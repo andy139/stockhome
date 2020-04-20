@@ -67,7 +67,7 @@ class DropdownRent extends React.Component {
   handleApply() {
    
     this.setState({
-      applyValues: "$" + `${this.state.rentValues[0]}` + " +",
+      applyValues: "$" + `${this.state.rentValues[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` + " +",
     });
     this.props.clearPrimary();
     this.props.updateFilter("rent_range", this.state.rentValues);
@@ -96,7 +96,7 @@ class DropdownRent extends React.Component {
               <div className="amount-title">
                 <div>Monthly Rent</div>
                 <div>
-                  ${rentValues[0]} - ${rentValues[1]}
+                  ${rentValues[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} - ${rentValues[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </div>
               </div>
 

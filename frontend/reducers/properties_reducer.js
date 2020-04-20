@@ -13,6 +13,7 @@ const propertiesReducer = (state = {}, action) => {
 
      
     switch (action.type) {
+        
         case RECEIVE_PROPERTIES:
             return action.properties
         case RECEIVE_PROPERTY:

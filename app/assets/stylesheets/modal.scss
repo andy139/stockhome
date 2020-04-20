@@ -15,8 +15,35 @@
     cursor:pointer;
     
 }
+.xmodal-click {
+    cursor:pointer;
+}
 
-#xmodal {
+#xmodal{
+
+    display: flex;
+    color: lightgray;
+    padding-left: 600px;
+    padding-top: 20px;
+    justify-content: right;
+
+    // display: flex;
+    // justify-content: left;
+    // width: 100px;
+    // padding-bottom: 100px;
+    // padding-bottom: 85px;
+    // padding-top: 2px;
+    // padding-left: 900px;
+
+}
+
+#xmodal-2 {
+
+    display: flex;
+    color: lightgray;
+    padding-left: 820px;
+    padding-top: 20px;
+    justify-content: right;
 
     // display: flex;
     // justify-content: left;
@@ -31,7 +58,7 @@
 
 .signup-modal {
     // flex-flow: column nowrap;
-    max-height: 700px;
+    height: 700px;
     justify-content: center;
     margin: auto;
     position: relative;
@@ -39,7 +66,15 @@
     align-items: center;
     background-color: white;
     border: 2px solid #EBEBEB;
-    border-radius: 5px;
+    border-radius: 8px;
+
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
 
@@ -47,15 +82,15 @@
     display: flex;
 
     flex-flow: column nowrap;
-    height: 600px;
     justify-content: center;
     margin: auto;
     position: relative;
-    width: 850px;
+    width: 720px;
     align-items: center;
     background-color: white;
     border: 1px solid #EBEBEB;
     border-radius: 8px;
+    max-height: 800px;
 
     box-shadow:
     0 2.8px 2.2px rgba(0, 0, 0, 0.034),

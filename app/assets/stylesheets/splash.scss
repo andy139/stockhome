@@ -512,6 +512,31 @@
 }
 
 .padding-logos {
-
+    cursor: pointer;
     padding: 20px;
+    height: 100px;
+      
+}
+
+.padding-logos-splash {
+    cursor: pointer;
+    padding: 20px;
+      
+}
+
+.footer-2 {
+ 
+
+    width: 1380px;
+    border-top: 1px solid #ededed;
+    text-align: right;
+
+}
+
+.footer3{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }

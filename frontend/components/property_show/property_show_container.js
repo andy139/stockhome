@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { fetchProperty } from '../../actions/property_actions';
 import PropertyShow from './property_show.jsx';
 import {selectProperty} from '../../reducers/selectors'
+import { createSave, deleteSave, fetchSaves } from '../../actions/save_actions'
+import { closeModal, openModal } from "../../actions/modal_actions";
 
 const mSTP = (state, {match}) => {
 
@@ -25,7 +27,13 @@ const mSTP = (state, {match}) => {
 const mDTP = dispatch => {
      
     return {
-    fetchProperty: id => dispatch(fetchProperty(id))
+        fetchProperty: id => dispatch(fetchProperty(id)),
+        closeModal: () => dispatch(closeModal()),
+        openModal: (type, data) => dispatch(openModal(type, data)),
+        deleteSave: (propertyId) => dispatch(deleteSave(propertyId)),
+        fetchSaves: () => dispatch(fetchSaves()),
+        createSave: (propertyId) => dispatch(createSave(propertyId))
+    
     }
 
 };

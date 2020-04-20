@@ -61,36 +61,40 @@ class SearchMap extends React.Component {
         // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this), this.bounds);
         // this.MarkerManager.updateMarkers(this.props.properties);
 
-        let i = 0;
-        for (i = 0; i < locations.length; i++) {
+        if(locations.length > 0){
+            let i = 0;
+            for (i = 0; i < locations.length; i++) {
 
-            let property = locations[i];
-            let marker = new google.maps.Marker({
-                position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-                map: this.map,
-                animation: google.maps.Animation.DROP,
-                // icon: "https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/placeholder.png"
-            });
+                let property = locations[i];
+                let marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+                    map: this.map,
+                    animation: google.maps.Animation.DROP,
+                    // icon: "https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/placeholder.png"
+                });
 
-            //extend the bounds to include each marker's position
-            bounds.extend(marker.position);
-            marker.addListener('click', ()=> this.handleMarkerClick(property))
+                //extend the bounds to include each marker's position
+                bounds.extend(marker.position);
+                marker.addListener('click', () => this.handleMarkerClick(property))
 
-            // google.maps.event.addListener(marker, 'click', (function (marker, i) {
-            //     return function () {
-            //          
-            //         this.props.history.push(`/property/${property.id}`)
-            //         // infowindow.setContent(`${content}`);
-            //         // infowindow.open(this.map, marker);
-            //     }
-            // })(marker, i));
+                // google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                //     return function () {
+                //          
+                //         this.props.history.push(`/property/${property.id}`)
+                //         // infowindow.setContent(`${content}`);
+                //         // infowindow.open(this.map, marker);
+                //     }
+                // })(marker, i));
 
-         
+
+            }
+
+
+            this.map.fitBounds(bounds);
+
+
         }
-
-
-        this.map.fitBounds(bounds);
-
+       
 
         
 

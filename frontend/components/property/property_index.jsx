@@ -118,7 +118,11 @@ class PropertyIndex extends React.Component {
 
         if (!this.props.properties) return null;
 
-        const defProperties = this.props.properties.map( (property, i) => {
+        const defProperties = (
+          
+          
+          
+          this.props.properties.map( (property, i) => {
 
 
             let isFavorited = Object.keys(this.props.saved).map(Number).includes(property.id)
@@ -126,13 +130,15 @@ class PropertyIndex extends React.Component {
             return <PropertyIndexItem key={property.id} property={property} isFavorited={isFavorited} addSave={this.props.addSave} deleteSave={this.props.deleteSave}/>
         })
 
+        )
+
 
         const gridProperties = ( 
         
         
         <div>
 
-            {itemHeader}
+            { this.props.propertyAmount > 0 ? itemHeader : null}
             {
                     this.props.properties.map((property, i) => {
                     let isFavorited = Object.keys(this.props.saved)
@@ -162,7 +168,21 @@ class PropertyIndex extends React.Component {
         
         
       
+            const retry = (
+            
+              <div className="display-retry">
+                <div>
+                  No results found - Please update your filter and try again!
+                </div>
+                &nbsp;
+                <div className="retry-photo">
+                  <img src="assets/noresults.svg"></img>
+                </div>
 
+
+
+              </div>
+            )
 
         return(
             <div className="property-marketplace-container">
@@ -179,8 +199,8 @@ class PropertyIndex extends React.Component {
                 <div>&nbsp;</div>                
                 <div className= "property-index-container">
                     {this.state.gridSelection ? (indexLoading ? loadingScreen: gridProperties): ( indexLoading ? loadingScreen : defProperties)}
-        
-                
+                     {this.props.propertyAmount === 0 ? retry : null}
+                   
                 </div>
 
                 <SearchPage/>

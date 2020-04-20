@@ -7,6 +7,17 @@ export const asArray = ({ properties }) => {
 
   return propertyArr.filter(property => property.id )
   };
+
+
+export const asArraySimilar = ({ similar }) => {
+
+
+
+  let propertyArr = Object.keys(similar).map(key =>
+    similar[key])
+
+  return propertyArr.filter(property => property.id)
+}; 
   
 
 export const selectProperty = ( propertyState, propertyId) => {

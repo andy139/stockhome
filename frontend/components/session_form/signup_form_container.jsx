@@ -274,7 +274,7 @@ class SigninForm extends React.Component {
 
         const signupModal = (
             <div>
-                <div className="text-center-signup-modal">Welcome to Stockhome</div>
+                <div className="text-center-signup-modal">Sign up now and start building wealth! </div>
                 <div className="topbox-signup-container">
 
                     <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Tenant-Occupied-100x80%403x-a1953a95522aee8912cfbbaeb020531d.png" className="signup-images" />

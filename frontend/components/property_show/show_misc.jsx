@@ -1,6 +1,45 @@
 import React from 'react';
 import Bid from  './bid'
 import HouseCalculator from './house_calculator'
+import {connect} from 'react-redux';
+import { createSave, deleteSave, fetchSaves } from '../../actions/save_actions'
+
+
+const saveArray = (properties) => {
+    return Object.keys(properties).map(key => properties[key])
+}
+
+const mSTP = state => {
+
+    debugger
+
+    return {
+
+        saved: state.ui.saved,
+        isLoggedIn: Object.keys(state.session).length !== 0,
+
+    }
+
+
+
+}
+
+
+const mDTP = dispatch => {
+
+    return {
+
+        closeModal: () => dispatch(closeModal()),
+        openModal: (type, data) => dispatch(openModal(type, data)),
+        deleteSave: (propertyId) => dispatch(deleteSave(propertyId)),
+        fetchSaves: () => dispatch(fetchSaves()),
+        createSave: (propertyId) => dispatch(createSave(propertyId))
+
+
+    }
+
+}
+
 
 
 class ShowMisc extends React.Component {
@@ -9,11 +48,24 @@ class ShowMisc extends React.Component {
         this.state = {
             currSliderBid: this.props.props.list_price,
             currDownPayment: 100,
+            totalReturn: this.props.props.total_return_5yrs,
         }
 
         this.handleChange = this.handleChange.bind(this)
 
         this.handleDownPayment = this.handleDownPayment.bind(this)
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(event, isFavorited){
+
+        event.stopPropagation();
+        let propertyId = this.props.property.id;
+        if (isFavorited) {
+            this.props.deleteSave(propertyId)
+        } else {
+            this.props.addSave(propertyId)
+        }
     }
     
     handleChange(event) {
@@ -22,6 +74,9 @@ class ShowMisc extends React.Component {
 
     handleDownPayment(event) {
         this.setState({currDownPayment: event.target.value});
+        debugger
+        let newReturn = this.props.props.total_return_5yrs * (event.target.value / 100)
+        this.setState({ totalReturn: newReturn.toFixed(0) });
     }
 
     addDecimals(num) {
@@ -40,14 +95,24 @@ class ShowMisc extends React.Component {
         }
         return x1 + x2;
     };
+
+    componentDidMount(){
+
+        this.setState({totalReturn: this.props.props.total_return_5yrs})
+    }
     
     render(){
         
-        const { rent, cap_rate, municipility, city, gross_yield, appreciation, cash_flow,
+        const { rent, cap_rate, municipility, city, gross_yield, appreciation, cash_flow, id,
             annualized_return, sqft, year_built, zipcode,
             neighborhood_rating, address, list_price,
             bedrooms, bathrooms, open_house, total_return_5yrs, main_photo_url, photo_urls} = this.props.props
         
+   
+     
+        let isFavorited = Object.keys(this.props.saved).map(Number).includes(id);
+
+ 
         
         return(
 
@@ -57,9 +122,41 @@ class ShowMisc extends React.Component {
                     
                     <div className="flexbox-7">
                         <div className="indicator"> <i className="fas fa-circle color-green"></i> For Sale</div>
-                        <div>Share <i className="fas fa-share"></i></div>
-                        <div>Add To Cart <i className="fas fa-shopping-cart"></i></div>
-                        <div>Save <i className="far fa-heart"></i></div>
+                        {/* <div>Share <i className="fas fa-share"></i></div> */}
+
+                        <div className="showmisc-right">
+                            <div>Add To Cart <i className="fas fa-shopping-cart"></i></div>
+
+                            {isFavorited ? 
+                            <div className="saves-bolded-2" 
+                            
+                            onClick={() => {
+                            
+                                let propertyId = id;
+                                if (isFavorited) {
+                                    this.props.deleteSave(propertyId)
+                                } else {
+                                    this.props.addSave(propertyId)
+                                }
+                            
+                            
+                            }}>
+                                Saved <i className="fas fa-heart"></i>
+                            </div> : <div className=""
+                                    onClick={() => {
+                                    
+                                    this.props.createSave(id)
+                                    
+
+                                    }}>
+                                    Save <i class="far fa-heart"></i>
+                                </div> }
+
+                            {/* <div className="saves-bolded">
+                                Save <i className="far fa-heart"></i>
+                            </div>  */}
+                        </div>
+                     
                     </div>
     
                     <Bid price = {list_price} currSliderBid={this.state.currSliderBid}/>
@@ -71,10 +168,24 @@ class ShowMisc extends React.Component {
                     <div className="slider-container">
                         <div>
                             <div className="purchase-box-1">
-                                <div>Purchase Price <i className="fas fa-info-circle"></i></div>
-                                <div className="flex-right">${this.addCommas(this.state.currSliderBid)}</div>
+                                <div className="flex-between-2">
+                                    <div>
+                                        Purchase Price &nbsp;
+                                         
+                                        <i className="fas fa-info-circle tooltip" >
+                                                <span class="tooltiptext">Adjust the proposed purchase price to see impact on the financial metrics.</span>
+                                        </i>
+                                    </div>
+                                    <span>
+                                        ${this.addCommas(this.state.currSliderBid)}
+                                    </span>
+                                    
+    
+                                </div>
+                                <div className="flex-right"></div>
+                                
                             </div>
-                            `<div className="slidecontainer">
+                            <div className="slidecontainer">
                                 <input 
                                     id="myRange" 
                                     class="slider"
@@ -87,16 +198,28 @@ class ShowMisc extends React.Component {
                         </div>
                         <div>
                             <div className="purchase-box-1">
-                                <div>Down Payment <i className="fas fa-info-circle"></i> {this.state.currDownPayment}%</div>
+                                <div className="flex-between-2">
+                                    <div>Down Payment &nbsp;
+                                        <i className="fas fa-info-circle tooltip"  >
+                                            <span class="tooltiptext">The down payment is the cash portion of the property price at the time of purchase when using leverage, or full purchase price when buy all cash. This amount is used to calculate your initial investment, and projected returns.</span>
+                                        </i>
+                                    </div>
+                                    <div>
+                                        {this.state.currDownPayment}%
+                                    </div>
+
+
+                                </div>
         
                             </div>
 
                             <div className="slidecontainer">
                                 <input 
+                                    
                                     id="myRange" 
                                     class="slider"
                                     type="range" 
-                                    min="0" max= "100" 
+                                    min="20" max= "100" 
                                     value={this.state.currDownPayment} 
                                     onChange={this.handleDownPayment}
                                     step={5}/>
@@ -106,22 +229,64 @@ class ShowMisc extends React.Component {
 
                     <div className="house-financials-container">
                         <div>
-                            <div>Total Return <i className="fas fa-info-circle"></i></div> <div>${this.addCommas(total_return_5yrs)}</div>
+                            <div>Total Return 
+                                &nbsp;<i className="fas fa-info-circle tooltip"  >
+                                    <span class="tooltiptext">Total Return is your cash profit calculated as the sum of your estimated (i) annual net operating cash flows over 5 years, plus (ii) property net sale proceeds minus your initial investment and outstanding loan balance.</span>
+                                </i>   
+                                
+                            </div> 
+                            
+                            <div>${this.addCommas(this.state.totalReturn)}</div>
                         </div>
                         <div>
-                            <div>Annualized Return <i className="fas fa-info-circle"></i></div> <div>{this.addDecimals(annualized_return)}%</div> 
+                            <div>Annualized Return 
+                                   &nbsp;<i className="fas fa-info-circle tooltip"  >
+                                    <span class="tooltiptext">Annualized Return, also known as Internal Rate of Return, is a measure of annualized net return on an equity investment. It equals the discount rate at which the sum of the present value of all cash flows is zero. Calculation is based on actual and budgeted values.</span>
+                                </i>
+                            </div> 
+                            
+                            <div>{this.addDecimals(annualized_return)}%</div> 
                         </div>
                         <div> 
-                            <div>Cap Rate <i className="fas fa-info-circle"></i></div> <div>{this.addDecimals(cap_rate)}%</div>
+                            <div>Cap Rate 
+                             
+                               &nbsp;<i className="fas fa-info-circle tooltip"  >
+                                    <span class="tooltiptext">Cap rate is the percentage return calculated by dividing net operating income in Year 1 by the property purchase price. Your net operating cash flow excludes your loan costs.</span>
+                                </i>    
+                                
+                            </div> 
+                            
+                            <div>{this.addDecimals(cap_rate)}%</div>
                         </div>
                         <div>
-                            <div>Gross Yield <i className="fas fa-info-circle"></i></div> <div>{this.addDecimals(gross_yield)}%</div>
+                            <div>Gross Yield 
+                             
+                                &nbsp;<i className="fas fa-info-circle tooltip"  >
+                                    <span class="tooltiptext">Gross yield is the annual income generated by an asset before any expenses, divided by its purchase price. Monthly rent x 12 months, divided by purchase price.</span>
+                                </i>
+                            </div> 
+                            
+                            <div>{this.addDecimals(gross_yield)}%</div>
                         </div>
                         <div>
-                            <div>Cap Rate <i className="fas fa-info-circle"></i></div> <div>{this.addDecimals(cap_rate)}%</div>
+                            <div>Cash Flow
+                                   &nbsp;<i className="fas fa-info-circle tooltip"  >
+                                    <span class="tooltiptext">First year net cash flow is the estimated dollar amount received after payment for property taxes, property management, reserves for R&M, capital expenditures, and loan payments. Assuming 5% vacancy and loan payments based on the lending assumptions selected.</span>
+                                </i>
+                                
+                            </div> 
+                            
+                            <div>${this.addCommas(cash_flow*1000)}</div>
                         </div>
                         <div>
-                            <div>Appreciation <i className="fas fa-info-circle"></i></div> <div>{this.addDecimals(appreciation)}%</div>
+                            <div>Appreciation
+                                &nbsp;<i className="fas fa-info-circle tooltip"  >
+                                    <span class="tooltiptext">The home price appreciation forecast is using either one of the metrics below to estimate estimate property value for the first 5 years, then drops to 3% for the remainder of the holding period.</span>
+                                </i>
+                                
+                            </div> 
+                            
+                            <div>{this.addDecimals(appreciation)}%</div>
                         </div>
                     </div>
                 </div>
@@ -140,4 +305,4 @@ class ShowMisc extends React.Component {
 
 }
 
-export default ShowMisc;
+export default connect(mSTP,mDTP)(ShowMisc);

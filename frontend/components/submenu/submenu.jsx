@@ -57,7 +57,7 @@ function Submenu(props){
         () => {
 
             debugger
-            props.isLoggedIn ? props.history.push("/saved-roofs") : props.openModal("loginModal", null)
+            props.isLoggedIn ? props.history.push("/saved-roofs") : props.openModal("signupModal", null)
            
         },
         [],
@@ -71,7 +71,7 @@ function Submenu(props){
         <div className="submenu-container">
             <div className="left-submenu">
                 <Link to="/investment-property-marketplace" className="text-decoration hvr-underline-reveal">PROPERTIES</Link>   
-                <Link to="/" className="text-decoration hvr-underline-reveal">RANCHES</Link>
+                {/* <Link to="/" className="text-decoration hvr-underline-reveal">RANCHES</Link> */}
             </div>
 
             <div className="right-submenu">
@@ -82,7 +82,7 @@ function Submenu(props){
                         <i className="far fa-heart"></i> &nbsp; {props.saved.length > 0 ? props.saved.length : null}
                     </div> : 
                     
-                    <div  onClick={handleClick} className="hvr-underline-reveal text-decoration">
+                    <div  onClick={handleClick} className="hvr-underline-reveal text-decoration saves-click">
                         <i className="far fa-heart"></i> &nbsp; {props.saved.length > 0 ? props.saved.length : null}
                     </div>
                     

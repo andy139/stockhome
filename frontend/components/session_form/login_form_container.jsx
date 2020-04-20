@@ -19,6 +19,7 @@ class Loginform extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.loginDemoUser = this.loginDemoUser.bind(this);
+      this.loginDemoUserModal = this.loginDemoUserModal.bind(this);
 
     }
 
@@ -83,6 +84,32 @@ class Loginform extends React.Component {
     }
 
 
+  loginDemoUserModal(e) {
+
+    e.preventDefault();
+
+    this.setState({
+      email: "",
+      password: ""
+    })
+
+    let email = "JohnDoe@gmail.com";
+    let password = "password";
+
+    this.handleEmail(email);
+
+    setTimeout(() => {
+      this.handlePass(password);
+    }, 1000)
+    setTimeout(() => {
+      this.props.processForm(this.state)
+      this.props.closeModal()
+    }, 1500)
+
+
+  }
+
+
 
     componentWillUnmount(){
         this.props.clearErrors();
@@ -110,7 +137,7 @@ class Loginform extends React.Component {
               className="signup-demo"
               type="submit"
               value="Log in with Demo User"
-              onClick={this.loginDemoUser}
+              onClick={this.loginDemoUserModal}
             />
             <hr />
 

@@ -77,7 +77,7 @@ class DropdownLocation extends React.Component {
 
     if (prevProps.filters != this.props.filters) {
 
-      this.setState({counties:[this.props.filters.locations]})
+      // this.setState({counties:[this.props.filters.locations]})
       
       if (this.props.toggle) {
         this.setState({

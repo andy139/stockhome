@@ -69,7 +69,7 @@ class DropdownPrice extends React.Component {
     }
 
     handleApply() {
-        this.setState({ applyValues: "$" + `${this.state.priceValues[0]}` + " K+" })
+        this.setState({ applyValues: "$" + `${this.state.priceValues[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` + " K+" })
         this.props.setToggle(false);
         this.props.updateFilter("price_range", this.state.priceValues);
         this.props.clearPrimary();
@@ -109,7 +109,7 @@ class DropdownPrice extends React.Component {
                             <div className="amount-title">
                                 <div>List Price</div>
                                 <div>
-                                    ${priceValues[0]}K - ${priceValues[1]}K
+                                    ${priceValues[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}K - ${priceValues[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}K
                 </div>
                             </div>
 

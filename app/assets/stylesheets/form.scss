@@ -97,6 +97,19 @@
     cursor: pointer;
 }
 
+.bid-submit {
+
+    height: 46px;
+    border-radius: 4px;
+    padding: 8px 95px;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    border: 1px solid;
+    background-color: #6259C3;
+    cursor: pointer;
+}
+
 .login-submit:hover{
     background-color: rgb(134, 128, 202);
     cursor: pointer;
@@ -297,6 +310,10 @@ hr {
 .lastname {
    
     padding-left: 10px;
+}
+
+.saves-click {
+    cursor:pointer;
 }
 
 // .lastname:focus-within {

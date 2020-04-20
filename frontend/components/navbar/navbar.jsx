@@ -57,8 +57,8 @@ class Navbar extends React.Component {
 
                             <div className="left-nav-misc" onClick={() => this.props.push.history("/investment-property-marketplace")}>
                                 <Link to="/investment-property-marketplace" className="remove-decoration left-nav-misc hvr-overline-reveal">Buy</Link>
-                                <div className="left-nav-misc hvr-overline-reveal">Own</div>
-                                <div className="left-nav-misc hvr-overline-reveal">Sell</div>
+                                {/* <div className="left-nav-misc hvr-overline-reveal">Own</div>
+                                <div className="left-nav-misc hvr-overline-reveal">Sell</div> */}
                             </div>
                     
                         </div>
@@ -109,8 +109,8 @@ class Navbar extends React.Component {
 
                                 <div className="left-nav-misc" onClick={() => this.props.push.history("/investment-property-marketplace")}>
                                     <Link to="/investment-property-marketplace" className="remove-decoration left-nav-misc hvr-overline-reveal">Buy</Link>
-                                    <div className="left-nav-misc hvr-overline-reveal">Own</div>
-                                    <div className="left-nav-misc hvr-overline-reveal">Sell</div>
+                                    {/* <div className="left-nav-misc hvr-overline-reveal">Own</div>
+                                    <div className="left-nav-misc hvr-overline-reveal">Sell</div> */}
                                 </div>
                         </div>    
 
@@ -156,8 +156,8 @@ class Navbar extends React.Component {
                             <div className="navbar-buy-own-sell limit_navbar">
 
                                 <div className="left-nav-misc hvr-overline-reveal-buy"><Link to="/investment-property-marketplace" className="remove-decoration-buy">Buy</Link></div>
-                                <div className="left-nav-misc hvr-overline-reveal-buy">Own</div>
-                                <div className="left-nav-misc hvr-overline-reveal-buy">Sell</div>
+                                {/* <div className="left-nav-misc hvr-overline-reveal-buy">Own</div>
+                                <div className="left-nav-misc hvr-overline-reveal-buy">Sell</div> */}
                             </div>
 
                         </div>

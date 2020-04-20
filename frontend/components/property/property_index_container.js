@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { asArray } from '../../reducers/selectors';
 import { fetchProperties } from '../../actions/property_actions'
 import { createSave, deleteSave, fetchSaves } from '../../actions/save_actions'
+import { closeModal, openModal } from "../../actions/modal_actions";
 import PropertyIndex from './property_index'
 
 const saveArray = (properties) => {

@@ -270,14 +270,28 @@
     width: 100%;
 }
 
-.footer-2 {
-    height: 250px;
-    width: 100%;
-    border-top: 1px solid #ededed;
-    text-align: center;
 
-}
 
 .footer-click {
     cursor:pointer;
+}
+
+.similar-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    width: 1400px;
+
+}
+
+.display-retry {
+    display: flex;
+    height: 800px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.retry-photo {
+    
 }
