@@ -13,6 +13,10 @@
     display: flex; 
     justify-content: center;
 
+    position: fixed;
+    z-index: 90;
+    // background-color: white;
+
 }
 
 
@@ -53,9 +57,9 @@
 
 
 .submenu-container {
-    padding-top: 90px;
+    margin-top: 76px;
     width: 1380px;
-    height: 55px;
+    height: 70px;
     display: flex; 
     justify-content: space-between;
     align-items: center;
@@ -64,6 +68,9 @@
     font-size: 16px;
     padding-left: 15px;
     padding-right: 15px;
+    background-color: white;
+ 
+    
 
 }
 
@@ -116,5 +123,12 @@
     width: 100%;
     height: 100%;
     margin-bottom: 20px;
+     
+    background: white url(http://google-web-toolkit.googlecode.com/svn-history/r8457/trunk/user/src/com/google/gwt/cell/client/loading.gif) no-repeat 50% 50%;
 
+  }
+  
+  .show-page-container2 {
+
+    
   }

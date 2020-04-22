@@ -69,11 +69,24 @@ class DropdownPrice extends React.Component {
     }
 
     handleApply() {
-        this.setState({ applyValues: "$" + `${this.state.priceValues[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}` + " K+" })
+        this.setState({ applyValues: "$" + `${this.makeMillions(this.state.priceValues[0])}` })
         this.props.setToggle(false);
         this.props.updateFilter("price_range", this.state.priceValues);
         this.props.clearPrimary();
         this.closeMenu();
+
+
+    }
+
+    makeMillions(num){
+        if (num > 1000){ 
+
+            let newNum = num / 1000
+            return (Math.round(10 * newNum) / 10).toString() + "M"
+
+        } else {
+           return (Math.ceil(num/100) * 100 ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "K";
+        }
 
 
     }
@@ -88,7 +101,7 @@ class DropdownPrice extends React.Component {
 
 
         const priceDiv = <div>List Price</div>;
-        const applyDiv = <div>${this.state.applyValues}K</div>
+        const applyDiv = <div>${this.makeMillions(this.state.applyValues)}K</div>
 
         const wrapperStyle = { width: 320, margin: 20 };
 
@@ -109,7 +122,7 @@ class DropdownPrice extends React.Component {
                             <div className="amount-title">
                                 <div>List Price</div>
                                 <div>
-                                    ${priceValues[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}K - ${priceValues[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}K
+                                    ${this.makeMillions(this.state.priceValues[0])} - ${this.makeMillions(this.state.priceValues[1])}
                 </div>
                             </div>
 

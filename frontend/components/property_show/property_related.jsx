@@ -62,9 +62,13 @@ class PropertyItem extends React.Component {
     }
 
     handleClick(event) {
+        debugger
         event.stopPropagation();
         const propertyId = this.props.property.id;
+    
+        
         this.props.history.push(`/property/${propertyId}`)
+       this.props.fetchProperty(propertyId);
     }
 
 
@@ -112,7 +116,7 @@ class PropertyItem extends React.Component {
                 >
                 
 
-                    <div className="background-child">
+                    <div className="background-child-related">
                         <div>${this.addCommas(list_price)}</div>
                         <div className="bg-address">
                             {" "}
@@ -161,8 +165,8 @@ class PropertyItem extends React.Component {
                 {this.props.property.open_house ? (
                     <div className="property-address">
                         <div className="property-address-box">
-                            <div className="second-property-box-3">{address} </div>
-                            <div className="second-property-box-3">
+                            <div className="second-property-box-4">{address} </div>
+                            <div className="second-property-box-4">
                                 {municipality}, Sweden {zipcode}
                             </div>
                         </div>
@@ -172,8 +176,8 @@ class PropertyItem extends React.Component {
                 ) : (
                         <div className="property-address">
                             <div className="property-address-box-100">
-                                <div className="second-property-box-3">{address} </div>
-                                <div className="second-property-box-3">
+                                <div className="second-property-box-4">{address} </div>
+                                <div className="second-property-box-4">
                                     {municipality}, Sweden {zipcode}
                                 </div>
                             </div>

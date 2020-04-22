@@ -4,9 +4,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 150px;
     width: 100%;
     font: 600 14px/22px Muli,sans-serif;
+    
   
 }
 
@@ -250,7 +251,7 @@
 
 .stockhome-markets{
     width: 1380px;
-    padding: 5px;
+    padding-bottom: 10px;
 }
 
 .footer-1 {
@@ -263,7 +264,7 @@
 }
 
 .lineheight {
-    line-height: 2.0;
+    line-height: 2.5;
     font-size: 13px;
     word-spacing: 3px;
     color:  #515151;
@@ -274,6 +275,19 @@
 
 .footer-click {
     cursor:pointer;
+}
+
+.footer-click-bolded {
+    font-weight: 500;
+    cursor:pointer;
+}
+
+
+.footer-click-unbolded {
+    font-weight: 100;
+    color: 	#C0C0C0;
+    cursor:pointer;
+  
 }
 
 .similar-box {

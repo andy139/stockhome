@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import  { withRouter } from "react-router";
 import { updateSortFilter, updateFilter } from '../../actions/filter_actions';
 import { asArray } from '../../reducers/selectors';
 
@@ -29,7 +29,29 @@ const allCounties = [
     "Danderyd",
     "Lidingö",
     "Sundbyberg",
-    "Solna",
+    "Solna", // up to here
+    "Botkyrka",
+    "Ekerö",
+    "Haninge",
+    "Huddinge",
+    "Järfälla",
+    "Nacka",
+    "Norrtälje",
+    "Nykvarn",
+    "Nynäshamn",
+    "Salem",
+    "Sigtuna",
+    "Sollentuna",
+    "Södertälje",
+    "Tyresö",
+    "Täby",
+    "Upplands-Bro",
+    "Upplands",
+    "Väsby",
+    "Vallentuna",
+    "Vaxholm",
+    "Värmdö",
+    "Österåker",
 
 ]
 
@@ -43,6 +65,10 @@ class SearchFooter extends React.Component {
     }
 
     handleClick(location){
+        if (this.props.location !== "/investment-property-marketplace"){
+            this.props.history.push("/investment-property-marketplace");
+            this.props.updateFilter("locations", location);
+        }
         this.props.updateFilter("locations",location) ;
 
     }
@@ -60,9 +86,26 @@ class SearchFooter extends React.Component {
                     <div className="lineheight">
 
                         {allCounties.map((county, i) => {
-                            if (i === allCounties.length - 1) return <span className="footer-click" onClick={()=>{this.handleClick(county)}}>{county}&nbsp;</span>
 
-                            return <span className="footer-click" onClick={() => { this.handleClick(county) }}>{county} |&nbsp;</span>
+                            if (i < 5){
+                                if (i === allCounties.length - 1) return <span className="footer-click" onClick={() => { this.handleClick(county) }}>{county}&nbsp;</span>
+
+                                return <span><span className="footer-click-bolded" onClick={() => { this.handleClick(county) }}>{county} </span> <span>|&nbsp;</span></span>
+
+
+                            } else {
+                                
+                                return <span>
+                                    <span className="footer-click-unbolded tooltiptop">{county} 
+                                        <span className="tooltiptexttop">Unavailable</span>&nbsp;
+                                    </span>
+                                    { allCounties.length -1 !== i ? 
+                                    <span>|&nbsp;</span> : null}
+                                
+                                </span>
+                            
+                            }
+
                         })}
             
                      </div>
@@ -80,7 +123,7 @@ class SearchFooter extends React.Component {
 
 }
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(SearchFooter);
+)(SearchFooter));

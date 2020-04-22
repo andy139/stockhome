@@ -7,6 +7,10 @@
 
 }
 
+.cursor {
+    cursor: pointer;
+}
+
 .search-button{
     color:#A3A2A2;
     font-size: 0.8125rem;
@@ -365,6 +369,7 @@
     padding-left: 8px;
     padding-right: 8px;
     margin: 2px;
+    cursor:pointer;
 }
 
 .page-nums-bolded {
@@ -377,5 +382,6 @@
     padding-left: 8px;
     padding-right: 8px;
     margin: 2px;
+    cursor:pointer;
 }
 

@@ -18,31 +18,42 @@ import PropertyIndexContainer from './property/property_index_container'
 import PropertyShowContainer from './property_show/property_show_container'
 import Modal  from './modal/modal'
 import Saved from './saved/saved';
+import SearchFooter from './search/search_footer';
+import Footer from './footer/footer';
+import Submenu from './submenu/submenu';
+import {withRouter} from 'react-router-dom'
 const App = () => (
+  <div className="app-height">
+    <header>
+      <NavbarContainer />
+
+      <Modal></Modal>
+    </header>
+
+    <Route
+      
+      path={[
+        "/saved-roofs",
+        "/investment-property-marketplace",
+        "/property/:propertyId",
+      ]}
+      component={Submenu}
+    />
+
+    <Switch>
+      <AuthRoute path="/login" component={LoginformContainer} />
+      <AuthRoute path="/signup" component={SignupformContainer} />
+      <Route exact path="/" component={Splashpage} />
+      <ProtectedRoute exact path="/saved-roofs" component={Saved} />
+
+      <Route
+        path="/investment-property-marketplace"
+        component={PropertyIndexContainer}
+      />
+      <Route path="/property/:propertyId" component={PropertyShowContainer} />
+    </Switch>
+  </div>
+);
 
 
- 
-    <div>
-
-        <header>
-            <NavbarContainer/>
-            <Modal></Modal>
-        </header>
-       
-        <Switch>
-
-            <AuthRoute path="/login" component={LoginformContainer}/>
-            <AuthRoute path="/signup" component={SignupformContainer}/>
-            <Route exact path="/" component={Splashpage}/>
-            <ProtectedRoute exact path="/saved-roofs" component={Saved} />
-            <Route path="/investment-property-marketplace" component={PropertyIndexContainer} />
-            <Route path="/property/:propertyId" component={PropertyShowContainer} />
-        </Switch>
-        
-  
-
-    </div>
-)
-
-
-export default App;
+export default withRouter(App);

@@ -18,6 +18,7 @@
     "rc-checkbox": "^2.2.0",
     "rc-slider": "^9.2.4",
     "react": "^16.9.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-compound-slider": "^0.16.3",
     "react-dom": "^16.9.0",
     "react-dual-range-slider": "^1.0.4",

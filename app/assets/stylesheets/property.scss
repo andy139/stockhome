@@ -26,7 +26,8 @@
     height: 400px;
     border-radius: 4px;
     color: #917036;
-    border: 1px solid #e0e0e0
+    border: 1px solid #e0e0e0;
+    font-weight: 400;
     
 }
 .property-item-miscs {
@@ -226,6 +227,24 @@
 
 }
 
+.background-child-related {
+    position:absolute;
+    bottom: 5%;
+
+    font-size: 1.58vh;
+    color: white;
+
+}
+
+.second-property-box-4 {
+    text-align: left;
+
+
+    padding-bottom: 3px;
+    font-size: 0.95vh; //every div tag that is secon child of its parent
+}
+
+
 .bg-address {
     font-size: 1.1vh;
 
@@ -277,4 +296,12 @@
 .flex-between-2 {
     display: flex;
     justify-content: space-between;
+}
+
+.margin-left-item {
+    margin-left: 10px;
+}
+
+.searchfooter-favs {
+
 }

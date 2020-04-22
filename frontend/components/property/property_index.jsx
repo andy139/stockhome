@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 import Footer from '../footer/footer';
 import Submenu from '../submenu/submenu';
 import SearchFooter from '../search/search_footer';
-import SearchMap from '../search/search_map';
+import SearchMap from '../search/search_map'
 import Search from '../search/search_container';
 import SearchPage from '../search/search_page';
 
@@ -150,6 +150,7 @@ class PropertyIndex extends React.Component {
                         i={i}
                         key={property.id}
                         property={property}
+  
                         isFavorited={isFavorited}
                         addSave={this.props.addSave}
                         deleteSave={this.props.deleteSave}
@@ -184,34 +185,35 @@ class PropertyIndex extends React.Component {
               </div>
             )
 
-        return(
-            <div className="property-marketplace-container">
-                <div className ="submenu-full-length">
-                   
-                    <Submenu></Submenu>
-                    
-                </div>
-                <div className="search-container">
-                    <Search switch={this.switch} gridSelection={this.state.gridSelection}/>
-                </div>
-
-            
-                <div>&nbsp;</div>                
-                <div className= "property-index-container">
-                    {this.state.gridSelection ? (indexLoading ? loadingScreen: gridProperties): ( indexLoading ? loadingScreen : defProperties)}
-                     {this.props.propertyAmount === 0 ? retry : null}
-                   
-                </div>
-
-                <SearchPage/>
-
-              
-              
-                <SearchFooter/>
-                <Footer/>
-
+        return (
+          <div className="property-marketplace-container">
+       
+            <div className="search-container">
+              <Search
+                switch={this.switch}
+                gridSelection={this.state.gridSelection}
+              />
             </div>
-        )
+
+            <div>&nbsp;</div>
+            <div className="property-index-container">
+              {this.state.gridSelection
+                ? indexLoading
+                  ? loadingScreen
+                  : gridProperties
+                : indexLoading
+                ? loadingScreen
+                : defProperties}
+              {this.props.propertyAmount === 0 ? retry : null}
+            </div>
+
+            <div id="footer-saved">
+              <SearchPage />
+              <SearchFooter />
+              <Footer />
+            </div>
+          </div>
+        );
     }
 
 }

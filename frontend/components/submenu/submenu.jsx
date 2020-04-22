@@ -67,34 +67,42 @@ function Submenu(props){
      
 
 
-    return(
+    return (
+      <div className="submenu-full-length">
         <div className="submenu-container">
-            <div className="left-submenu">
-                <Link to="/investment-property-marketplace" className="text-decoration hvr-underline-reveal">PROPERTIES</Link>   
-                {/* <Link to="/" className="text-decoration hvr-underline-reveal">RANCHES</Link> */}
+          <div className="left-submenu">
+            <Link
+              to="/investment-property-marketplace"
+              className="text-decoration hvr-underline-reveal"
+            >
+              PROPERTIES
+            </Link>
+            {/* <Link to="/" className="text-decoration hvr-underline-reveal">RANCHES</Link> */}
+          </div>
+
+          <div className="right-submenu">
+            {props.location.pathname === "/saved-roofs" ? (
+              <div onClick={handleClick} className="saves-bolded">
+                <i className="far fa-heart"></i> &nbsp;{" "}
+                {props.saved.length > 0 ? props.saved.length : null}
+              </div>
+            ) : (
+              <div
+                onClick={handleClick}
+                className="hvr-underline-reveal text-decoration saves-click"
+              >
+                <i className="far fa-heart"></i> &nbsp;{" "}
+                {props.saved.length > 0 ? props.saved.length : null}
+              </div>
+            )}
+
+            <div className="hvr-underline-reveal text-decoration">
+              <i className="fas fa-shopping-cart"></i>{" "}
             </div>
-
-            <div className="right-submenu">
-
-                {props.location.pathname === "/saved-roofs" ? 
-                
-                    <div onClick={handleClick} className="saves-bolded">
-                        <i className="far fa-heart"></i> &nbsp; {props.saved.length > 0 ? props.saved.length : null}
-                    </div> : 
-                    
-                    <div  onClick={handleClick} className="hvr-underline-reveal text-decoration saves-click">
-                        <i className="far fa-heart"></i> &nbsp; {props.saved.length > 0 ? props.saved.length : null}
-                    </div>
-                    
-                    
-                    }
-    
-                <div  className="hvr-underline-reveal text-decoration"><i className="fas fa-shopping-cart"></i> </div>
-
-            </div>
+          </div>
         </div>
-
-    )
+      </div>
+    );
 }
 
 export default withRouter(connect(mSTP, mDTP)(Submenu));

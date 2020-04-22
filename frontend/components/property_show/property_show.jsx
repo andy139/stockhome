@@ -156,7 +156,7 @@ class PropertyShow extends React.Component {
                 </div>
 
                 <div className="tabs-fullwidth">
-                    <Tabs key={this.props.property.id} panes={panes} county={municipality} neighborhood_rating={neighborhood_rating} average_school_rating={average_school_rating} />
+                    <Tabs key={this.props.property.id} panes={panes} county={municipality} neighborhood_rating={neighborhood_rating} fetchProperty={this.props.fetchProperty} average_school_rating={average_school_rating} />
                 </div>
             </div>
             
@@ -165,17 +165,14 @@ class PropertyShow extends React.Component {
          
 
         return(
-            <div>
-                <div className ="submenu-full-length">
-                
-                    <div className="border-bottom"><Submenu key={this.props.property.id}></Submenu></div>
-                </div>
+            <div className="show-page-container2">
+         
 
                 {this.props.loading.detailLoading ? loadingScreen : showPage}
                 
                 
 
-                <SearchFooter/>
+                <SearchFooter />
                 <div className="footer3">
                     <Footer/>
 

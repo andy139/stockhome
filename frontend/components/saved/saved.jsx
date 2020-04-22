@@ -1,9 +1,13 @@
 import React from 'react';
-import {useEffect, useState, useCallback} from 'react';
+import { useEffect, useState, useCallback, useRef} from 'react';
 import Submenu from '../submenu/submenu';
 import {connect} from 'react-redux';
 import { fetchSaves, createSave, deleteSave } from '../../actions/save_actions';
 import DropdownSearch from './saved_search';
+import Footer from '../footer/footer';
+import SearchFooter from '../search/search_footer';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import SaveTransition from './save_transition';
 
 
 const addCommas = (nStr) => {
@@ -90,11 +94,20 @@ function Saved(props) {
 
     )
 
-
-
+    const mounted = useRef();
+    
 
     useEffect(() => {
-        props.fetchSaves()
+        props.fetchSaves();
+
+        if (!mounted.current) {
+            mounted.current = true;
+        } else {
+            debugger
+            setProperties(props.saved)
+        }
+        
+     
     },[]);
 
 
@@ -197,114 +210,133 @@ function Saved(props) {
 
     )
 
+    let saved = props.saved;
 
-    let saved = savedProperties.length > 0 ? savedProperties : props.saved;
+    const savedList = saved.map((property,i) => {
+
+        return (
+          <div className="save-item" key={property.id}>
+            <div className="saved-pic">
+              <label>{i + 1}</label>
+              <label></label>
+              <label
+                onClick={() => props.history.push(`/property/${property.id}`)}
+              >
+                <img className="saved-photo" src={property.photo_urls[0]}></img>
+              </label>
+            </div>
+
+            <div className="save-address">
+              <div>{property.address}</div>
+              <div>
+                {property.municipality}, {property.zipcode}
+              </div>
+              <div>Sweden</div>
+            </div>
+
+            <div className="saved-price-item">
+              <div>$ {addCommas(property.list_price)}</div>
+              <div>
+                {!property.open_house ? (
+                  <div>
+                    <i class="fas fa-money-bill-wave" id="green-dollar"></i>{" "}
+                    Cash Only
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            <label className="save-space-2">${property.rent}</label>
+
+            <label className="save-space-2">
+              {property.gross_yield.toFixed(1)}%
+            </label>
+
+            <label className="save-space-2">
+              {property.cap_rate.toFixed(1)}%
+            </label>
+
+            <label className="save-space-3">
+              ${addCommas(property.total_return_5yrs)}
+            </label>
+
+            <label className="save-space-4">
+              {property.annualized_return.toFixed(1)}%
+            </label>
+
+            <label className="save-space-2">{property.year_built}</label>
+
+            <label className="save-space-2">For Sale</label>
+
+            <label
+              className="save-space-2"
+              id="heart-saved"
+              onClick={() => props.deleteSave(property.id)}
+            >
+              <i class="fas fa-heart"></i>
+            </label>
+          </div>
+        );
+
+
+    })
+
+
+   
 
     const savesScreen = (
+      <div className="flex-grows">
+      
 
-        <div>
-            <div className="submenu-full-length">
-                <Submenu></Submenu>
+        {/* <SaveTransition /> */}
+
+        <div className="saved-container">
+          <div className="saved-header">
+            <div className="header-saved">Saved Roofs</div>
+            <div>
+              <i class="fas fa-envelope"></i> &nbsp;Subscribed&nbsp;
+              <i className="fas fa-info-circle tooltip">
+                <span class="tooltiptext">
+                  You are subscribed to Stockhome and will receive updates
+                  through your email!
+                </span>
+              </i>
             </div>
+          </div>
 
-            <div className="saved-container">
+          <div className="saved-search">
+            <DropdownSearch saved={props.saved} savedSearch={savedSearch} />
+          </div>
 
-                <div className="saved-header">
-                    <div className="header-saved">Saved Roofs</div> 
-                    <div> 
-                        <i class="fas fa-envelope"></i> &nbsp;Subscribed&nbsp;
-                   
-                            <i className="fas fa-info-circle tooltip"  >
-                                <span class="tooltiptext">You are subscribed to Stockhome and will receive updates through your email!</span>
-                            </i>
-                      
-         
-                    </div>
-                </div>
+          <div className="favorites-container">
+            {itemHeader}
 
-                <div className="saved-search" >
-                    <DropdownSearch saved = {props.saved} savedSearch={savedSearch} />
-
-                </div>
-
-
-                <div className="favorites-container">
-                    {itemHeader}
-                    {saved.map((property, i) => {
-
-                        return (
-                            <div className="save-item">
-
-                                <div className="saved-pic">
-                                    <label>{i + 1}</label>
-                                    <label></label>
-                                    <label onClick={() => props.history.push(`/property/${property.id}`)}><img className="saved-photo" src={property.photo_urls[0]}></img></label>
-
-                                </div>
-
-                                <div className="save-address">
-                                    <div>{property.address}</div>
-                                    <div>{property.municipality}, {property.zipcode}</div>
-                                    <div>Sweden</div>
-                                </div>
-
-                                <div className="saved-price-item">
-                                    <div>$ {addCommas(property.list_price)}</div>
-                                    <div>
-                                        {!property.open_house ? <div><i class="fas fa-money-bill-wave" id="green-dollar"></i> Cash Only</div> : null}
-                                    </div>
-                                </div>
-
-                                <label className="save-space-2">${property.rent}</label>
-
-                                <label className="save-space-2">{property.gross_yield.toFixed(1)}%</label>
-
-                                <label className="save-space-2">{property.cap_rate.toFixed(1)}%</label>
-
-                                <label className="save-space-3">${addCommas(property.total_return_5yrs)}</label>
-
-                                <label className="save-space-4">{property.annualized_return.toFixed(1)}%</label>
-
-                                <label className="save-space-2">{property.year_built}</label>
-
-                                <label className="save-space-2">For Sale</label>
-
-                                <label className="save-space-2" id="heart-saved" onClick={() => props.deleteSave(property.id)}><i class="fas fa-heart"></i></label>
-
-                            </div>
-
-
-
-                        )
-
-
-                    })}
-
-                </div>
-
-            </div>
-
+            <ReactCSSTransitionGroup
+              className="cafe-list"
+              transitionName="fade"
+              transitionEnterTimeout={500}
+              transitionLeaveTimeout={300}
+            >
+              {savedList}
+            </ReactCSSTransitionGroup>
+          </div>
         </div>
-        
+      </div>
+    );
 
 
 
 
-    )
+    return (
+      <div className="full-saved-page">
+        {props.loading.indexLoading ? loadingScreen : savesScreen}
 
-
-
-
-    return(
-
-        
-        <div className="full-saved-page">
-
-            {props.loading.indexLoading ? loadingScreen : savesScreen}
-
-            
+        <div id="footer-saved">
+          <SearchFooter />
         </div>
-    )
+        <Footer />
+      </div>
+    );
 
 
 }

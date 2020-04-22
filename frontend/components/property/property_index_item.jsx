@@ -126,12 +126,15 @@ class PropertyItem extends React.Component {
               </div>
 
               <div className="background-child">
-                <div>${this.addCommas(list_price)}</div>
-                <div className="bg-address">
-                  {" "}
-                  {bedrooms}bedrooms, {bathrooms}ba | {sqft}sqft | Built in{" "}
-                  {year_built}
+                <div className="margin-left-item">
+                  <div>${this.addCommas(list_price)}</div>
+                  <div className="bg-address">
+                    {" "}
+                    {bedrooms}bedrooms, {bathrooms}ba | {sqft}sqft | Built in{" "}
+                    {year_built}
+                  </div>
                 </div>
+           
               </div>
             </div>
 

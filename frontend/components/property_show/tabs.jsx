@@ -136,7 +136,7 @@ class Tabs extends React.Component {
       const similar = (
         <div className="similar-box">
           {this.props.similar.map(property => {
-            return <PropertyIndexItem key={property.id} property={property}></PropertyIndexItem>
+            return <PropertyIndexItem key={property.id} fetchProperty={this.props.fetchProperty} property={property}></PropertyIndexItem>
 
           })}
         </div>

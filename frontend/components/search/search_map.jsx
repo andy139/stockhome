@@ -1,7 +1,28 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import MarkerManager from "../../util/marker_manager"
 import {withRouter, Link} from "react-router-dom";
 import PropertyIndexItem from "../property/property_index_item"
+import $ from 'jquery';
+import { asArray } from '../../reducers/selectors';
+
+
+const mSTP = (state) => {
+    return {
+  
+        filters: state.entities.filters,
+        properties: asArray(state.entities),
+    }
+
+}
+
+const mDTP = (dispatch) => {
+    return {
+
+
+    }
+
+}
 
 class SearchMap extends React.Component {
     
@@ -31,11 +52,10 @@ class SearchMap extends React.Component {
     componentDidUpdate(prevProps) {
          
         // this.MarkerManager.updateMarkers(this.props.properties);
-        // if (prevProps.properties !== this.props.properties) {
-        //     this.renderMap();
-        // }
-
-        this.renderMap();
+        if (prevProps.filters !== this.props.filters) {
+            debugger
+            this.renderMap();
+        }
     }
 
 
@@ -60,7 +80,8 @@ class SearchMap extends React.Component {
         this.map = new google.maps.Map(this.mapNode, mapOptions)
         // this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this), this.bounds);
         // this.MarkerManager.updateMarkers(this.props.properties);
-
+     
+        
         if(locations.length > 0){
             let i = 0;
             for (i = 0; i < locations.length; i++) {
@@ -69,7 +90,8 @@ class SearchMap extends React.Component {
                 let marker = new google.maps.Marker({
                     position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
                     map: this.map,
-                    animation: google.maps.Animation.DROP,
+                    // animation: google.maps.Animation.DROP,
+                    mapTypeId: google.maps.MapTypeId.TERRAIN,
                     // icon: "https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/placeholder.png"
                 });
 
@@ -107,14 +129,19 @@ class SearchMap extends React.Component {
     render() {
          
         return (
-        
-          <div id="search-map-container" ref={ map => this.mapNode = map }> // this ref gives us access to the map dom node
+  
+                <div id="search-map-container" ref={map => this.mapNode = map}> // this ref gives us access to the map dom node
+
+                </div>
+
+    
+       
+
            
-          </div>
         )
       }
 
 }
 
 
-export default withRouter(SearchMap);
+export default connect(mSTP, mDTP)(withRouter(SearchMap));

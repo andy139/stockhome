@@ -222,7 +222,7 @@ function Search(props){
 
         {mapToggle ? (
           <div className="searchmap-container">
-            <SearchMap properties={props.properties} />
+            <SearchMap/>
           </div>
         ) : null}
       </div>

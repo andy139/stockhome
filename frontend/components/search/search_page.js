@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { updateSortFilter, updateFilter } from '../../actions/filter_actions';
 import { asArray } from '../../reducers/selectors';
-import {useState, useCallback} from 'react';
+import {useState, useCallback, useEffect} from 'react';
 
 
 
@@ -44,16 +44,24 @@ function SearchPage(props) {
 
     const [currPage, setPage] = useState(1)
 
+    const [numPage, setPages] = useState(numPages)
 
+    useEffect(() => {
+        debugger
+        // Update the document title using the browser API
+        setPages(Math.ceil(props.propertyAmount / 20))
+    });
      
 
     const handleBack = useCallback(
-        () => {
+        (currPage) => {
+
             if (currPage === 1){
                 setPage(1)
             } else {
-                setPage(currPage+1)
-                props.amountFilter(currPage+1)
+      
+                setPage(currPage - 1)
+                props.amountFilter(currPage - 1)
             }
        
 
@@ -62,10 +70,12 @@ function SearchPage(props) {
     );
 
     const handleFront = useCallback(
-        () => {
+        (pages, currPage) => {
+
+
     
-            if (currPage === pageNumArr[-1]) {
-                setPage(currPage)
+            if (currPage === pages) {
+                // setPage(currPage)
             } else {
                 props.amountFilter(currPage + 1 )
                 setPage(currPage + 1)
@@ -86,8 +96,8 @@ function SearchPage(props) {
     return(
         <div className="page-misc">
 
-            <span className="page-nums"
-                onClick={() => handleBack()
+            <span className="page-nums cursor"
+                onClick={() => handleBack(currPage)
                 }
             
             
@@ -96,20 +106,30 @@ function SearchPage(props) {
                     pageNumArr.map((page) => {
 
                         return  currPage === page ? <span onClick={() => {
-                            props.amountFilter(page)
-                            setPage(page)
+                            if (currPage !== page){
+                                props.amountFilter(page)
+                                setPage(page)
+                            }
+                         
+                          
                         
                         }} className="page-nums-bolded">{page}</span> :<span onClick={() => {
-                            props.amountFilter(page)
-                            setPage(page)
+
+                            debugger
+                            if (currPage !== page) {
+                                props.amountFilter(page)
+                                setPage(page)
+
+                            }
+                     
                         
-                        }} className="page-nums">{page}</span>
+                            }} className="page-nums cursor">{page}</span>
                     })
                 }
     
-            <span className="page-nums" onClick={() => 
+            <span className="page-nums cursor" onClick={() => 
                 
-                handleFront()
+                handleFront(Math.ceil(props.propertyAmount / 20), currPage)
             
             }
                 
