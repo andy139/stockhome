@@ -82,7 +82,10 @@ function Submenu(props){
 
           <div className="right-submenu">
             {props.location.pathname === "/saved-roofs" ? (
-              <div onClick={handleClick} className="saves-bolded">
+              <div
+                onClick={handleClick}
+                className="hvr-underline-reveal text-decoration-bolded saves-bolded"
+              >
                 <i className="far fa-heart"></i> &nbsp;{" "}
                 {props.saved.length > 0 ? props.saved.length : null}
               </div>

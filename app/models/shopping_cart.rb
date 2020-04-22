@@ -3,6 +3,7 @@
 # Table name: shopping_carts
 #
 #  id          :bigint           not null, primary key
+#  bid         :float
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  property_id :integer          not null
@@ -15,10 +16,17 @@
 #
 class ShoppingCart < ApplicationRecord
 
-    validates :user_id, uniqueness: true
+    validates_uniqueness_of :user_id, scope: :property_id
+  
 
-    belongs_to :user
-    has_many :properties
+    belongs_to :user,
+    foreign_key: :user_id,
+    class_name: :User
+
+    belongs_to :property,
+    foreign_key: :property_id,
+    class_name: :Property
+    
     
 
 end

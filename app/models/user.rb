@@ -69,6 +69,16 @@ class User < ApplicationRecord
   has_many :saved_properties,
   through: :saved_property,
   source: :property
+
+
+  has_one :cart,
+  class_name: :ShoppingCart,
+  primary_key: :id,
+  foreign_key: :user_id
+
+  has_many :cart_properties,
+  through: :cart,
+  source: :property
   
 
 

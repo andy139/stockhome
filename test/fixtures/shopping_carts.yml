@@ -3,6 +3,7 @@
 # Table name: shopping_carts
 #
 #  id          :bigint           not null, primary key
+#  bid         :float
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  property_id :integer          not null

@@ -1,11 +1,4 @@
-.full-saved-page {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-     height: 100vh;
 
-}
 
 .saved-header {
     display: flex;
@@ -23,14 +16,12 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // align-items: center;
-    height: 100vh;
+    align-items: center;
+
+        padding-top: 150px;
 
 }
 
-.content {
-    
-}
 
 .flex-grows {
     flex: 1 0 auto;
@@ -42,6 +33,7 @@ html {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    padding-top: 30px;
     width:100%;
 }
 
@@ -62,7 +54,6 @@ html {
 
 .saved-container {
 
-    padding-top: 150px;
 
     width: 100%;
     display: flex; 
@@ -256,6 +247,23 @@ html {
 
 }
 
+
+
 .app-height {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+.content {
+    flex: 1 0 auto;
+}
+
+
+.footer {
+  flex-shrink: 0;
+  
+
+  align-items: center;
 }

@@ -172,11 +172,7 @@ class PropertyShow extends React.Component {
                 
                 
 
-                <SearchFooter />
-                <div className="footer3">
-                    <Footer/>
-
-                </div>
+        
                 
             </div>
          

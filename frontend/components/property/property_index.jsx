@@ -209,8 +209,6 @@ class PropertyIndex extends React.Component {
 
             <div id="footer-saved">
               <SearchPage />
-              <SearchFooter />
-              <Footer />
             </div>
           </div>
         );

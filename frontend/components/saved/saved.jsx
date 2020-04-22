@@ -98,9 +98,14 @@ function Saved(props) {
     
 
     useEffect(() => {
-        props.fetchSaves();
+
+  
+        
+
+        setProperties(props.saved);
 
         if (!mounted.current) {
+            props.fetchSaves();
             mounted.current = true;
         } else {
             debugger
@@ -108,7 +113,7 @@ function Saved(props) {
         }
         
      
-    },[]);
+    },[props.saved]);
 
 
    
@@ -212,7 +217,7 @@ function Saved(props) {
 
     let saved = props.saved;
 
-    const savedList = saved.map((property,i) => {
+    const savedList = savedProperties.map((property,i) => {
 
         return (
           <div className="save-item" key={property.id}>
@@ -331,10 +336,7 @@ function Saved(props) {
       <div className="full-saved-page">
         {props.loading.indexLoading ? loadingScreen : savesScreen}
 
-        <div id="footer-saved">
-          <SearchFooter />
-        </div>
-        <Footer />
+   
       </div>
     );
 

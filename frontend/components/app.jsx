@@ -30,28 +30,49 @@ const App = () => (
       <Modal></Modal>
     </header>
 
-    <Route
-      
-      path={[
-        "/saved-roofs",
-        "/investment-property-marketplace",
-        "/property/:propertyId",
-      ]}
-      component={Submenu}
-    />
+    <div className="content">
+      <Route
+        path={[
+          "/saved-roofs",
+          "/investment-property-marketplace",
+          "/property/:propertyId",
+        ]}
+        component={Submenu}
+      />
 
-    <Switch>
-      <AuthRoute path="/login" component={LoginformContainer} />
-      <AuthRoute path="/signup" component={SignupformContainer} />
-      <Route exact path="/" component={Splashpage} />
-      <ProtectedRoute exact path="/saved-roofs" component={Saved} />
+      <Switch>
+        <AuthRoute path="/login" component={LoginformContainer} />
+        <AuthRoute path="/signup" component={SignupformContainer} />
+        <Route exact path="/" component={Splashpage} />
+        <ProtectedRoute exact path="/saved-roofs" component={Saved} />
+
+        <Route
+          path="/investment-property-marketplace"
+          component={PropertyIndexContainer}
+        />
+        <Route path="/property/:propertyId" component={PropertyShowContainer} />
+      </Switch>
+    </div>
+
+    <footer className="footer">
+      <Route
+        path={[
+          "/saved-roofs",
+          "/investment-property-marketplace",
+          "/property/:propertyId",
+        ]}
+        component={SearchFooter}
+      />
 
       <Route
-        path="/investment-property-marketplace"
-        component={PropertyIndexContainer}
+        path={[
+          "/saved-roofs",
+          "/investment-property-marketplace",
+          "/property/:propertyId",
+        ]}
+        component={Footer}
       />
-      <Route path="/property/:propertyId" component={PropertyShowContainer} />
-    </Switch>
+    </footer>
   </div>
 );
 

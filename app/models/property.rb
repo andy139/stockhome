@@ -62,6 +62,13 @@ class Property < ApplicationRecord
     foreign_key: :property_id,
     class_name: :SavedProperty
 
+    has_many :carts,
+    primary_key: :id,
+    foreign_key: :property_id,
+    class_name: :ShoppingCart
+    
+
+
     has_one :user,
     through: :saved_properties,
     source: :user
