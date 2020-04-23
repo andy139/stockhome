@@ -6,6 +6,7 @@ import PropertyShow from './property_show.jsx';
 import {selectProperty} from '../../reducers/selectors'
 import { createSave, deleteSave, fetchSaves } from '../../actions/save_actions'
 import { closeModal, openModal } from "../../actions/modal_actions";
+import { fetchCart } from "../../actions/cart_actions"
 
 const mSTP = (state, {match}) => {
 
@@ -32,7 +33,8 @@ const mDTP = dispatch => {
         openModal: (type, data) => dispatch(openModal(type, data)),
         deleteSave: (propertyId) => dispatch(deleteSave(propertyId)),
         fetchSaves: () => dispatch(fetchSaves()),
-        createSave: (propertyId) => dispatch(createSave(propertyId))
+        createSave: (propertyId) => dispatch(createSave(propertyId)),
+        fetchCart: () => dispatch(fetchCart())
     
     }
 

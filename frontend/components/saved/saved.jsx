@@ -1,11 +1,9 @@
 import React from 'react';
 import { useEffect, useState, useCallback, useRef} from 'react';
-import Submenu from '../submenu/submenu';
+
 import {connect} from 'react-redux';
 import { fetchSaves, createSave, deleteSave } from '../../actions/save_actions';
 import DropdownSearch from './saved_search';
-import Footer from '../footer/footer';
-import SearchFooter from '../search/search_footer';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import SaveTransition from './save_transition';
 
@@ -227,7 +225,7 @@ function Saved(props) {
               <label
                 onClick={() => props.history.push(`/property/${property.id}`)}
               >
-                <img className="saved-photo" src={property.photo_urls[0]}></img>
+                <img className="saved-photo" src={property.main_photo_url}></img>
               </label>
             </div>
 

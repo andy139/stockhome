@@ -9,4 +9,4 @@ if (saved_property.photo.attached?)
     json.main_photo_url url_for(saved_property.photo)
 end
 
-json.photo_urls saved_property.photos.map { |file| url_for(file) }
+# json.photo_urls saved_property.photos.map { |file| url_for(file) }

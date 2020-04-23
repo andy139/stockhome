@@ -38,8 +38,20 @@
     align-items: center;
     margin-bottom: 10px;
 
-  
 
+
+}
+
+.cart-bolded {
+    cursor:pointer;
+
+    text-decoration: none;
+    color:green;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 
 
 
@@ -97,7 +109,7 @@
 .right-submenu {
     width: 150px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     height: 100%;
 
@@ -126,7 +138,7 @@
     align-items: center;
     margin-bottom: 10px;
     border-bottom: 3px solid #FFCD00;
-
+    margin: 5px;
   }
 
   .text-decoration {
@@ -137,8 +149,11 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+    margin: 5px;
 
   }
+
+
 
   #search-map-container {
     width: 100%;

@@ -1,6 +1,25 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
+import {connect} from 'react-redux';
+import { addProperty, submitBid } from '../../actions/cart_actions'
+
+const mDTP = (dispatch) => {
+
+    return{
+        bid: (id, bid) => dispatch(submitBid(id, bid)),
+    }
+
+
+}
+
+const mSTP = (state) => {
+    return {
+        cart: state.ui.cart,
+    }
+
+
+}
 
 
 class Bid extends React.Component {
@@ -11,16 +30,29 @@ class Bid extends React.Component {
             bid :'',
         }
 
+
+        this.update = this.update.bind(this);
+   
+
+    }
+
+    componentDidUpdate(prevProps){
+        debugger
+        if (this.props.currSliderBid !== prevProps.currSliderBid){
+            debugger
+            this.setState({bid: this.props.currSliderBid})
+        }
+
     }
 
 
     
     update(field) {
-        return e => this.setState({
-          [field]: e.currentTarget.value
-        });
 
-        
+        debugger
+
+        this.setState({bid: field})
+
     }
 
     addDecimals (num) {
@@ -44,7 +76,8 @@ class Bid extends React.Component {
 
 
     render() {
-         
+        
+
 
         return(
             <div className="price-show-container">    
@@ -54,24 +87,26 @@ class Bid extends React.Component {
                         </div>
                         <br/>
                         <div>
-                            {this.addCommas(this.props.price)}
+                            ${this.addCommas(this.props.price)}
                         </div>
                 
                     </div>
                     <div className="bid-button-container">
                         <div className="input-container-bid">
-                            <FontAwesomeIcon icon={faDollarSign}  className="signup-icons"/>
+                            <FontAwesomeIcon icon={faDollarSign}  className="signup-icons-bid"/>
                             
                             <input type="text"
                                 value={this.state.bid}
                                 placeholder = {this.props.currSliderBid}
-                                onChange={this.update('bid')}
+                                onChange={ e => this.update(e.target.value)}
                                 className="signup-input-bid"
                             />
                         </div>
                         <br/>
                         <div> 
-                            <input className="bid-submit" type="submit" value="Review Bid" />  
+                            <div className="bid-submit" onClick={() => this.props.bid(this.props.id, this.state.bid) }>
+                                Review Bid
+                            </div>  
 
                         </div>
 
@@ -85,6 +120,6 @@ class Bid extends React.Component {
 }
 
 
-export default Bid;
+export default connect(mSTP,mDTP)(Bid);
 
 

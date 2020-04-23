@@ -3,8 +3,8 @@ import Bid from  './bid'
 import HouseCalculator from './house_calculator'
 import {connect} from 'react-redux';
 import { createSave, deleteSave, fetchSaves } from '../../actions/save_actions'
-
-
+import  {fetchCart, addProperty, deleteProperty, addBid } from '../../actions/cart_actions';
+import {withRouter} from 'react-router-dom';
 const saveArray = (properties) => {
     return Object.keys(properties).map(key => properties[key])
 }
@@ -14,6 +14,8 @@ const mSTP = state => {
     debugger
 
     return {
+
+        cart: state.ui.cart,
 
         saved: state.ui.saved,
         isLoggedIn: Object.keys(state.session).length !== 0,
@@ -33,7 +35,10 @@ const mDTP = dispatch => {
         openModal: (type, data) => dispatch(openModal(type, data)),
         deleteSave: (propertyId) => dispatch(deleteSave(propertyId)),
         fetchSaves: () => dispatch(fetchSaves()),
-        createSave: (propertyId) => dispatch(createSave(propertyId))
+        createSave: (propertyId) => dispatch(createSave(propertyId)),
+        addItem: (propertyId, bid) => dispatch(addProperty(propertyId,bid)),
+        deleteItem: (propertyId, bid) => dispatch(deleteProperty(propertyId)),
+        addBid: (propertyId, bid) => dispatch(addBid(propertyId,bid)),
 
 
     }
@@ -111,8 +116,9 @@ class ShowMisc extends React.Component {
    
      
         let isFavorited = Object.keys(this.props.saved).map(Number).includes(id);
+        let isCart = Object.keys(this.props.cart).map(Number).includes(id);
 
- 
+
         
         return(
 
@@ -122,10 +128,24 @@ class ShowMisc extends React.Component {
                     
                     <div className="flexbox-7">
                         <div className="indicator"> <i className="fas fa-circle color-green"></i> For Sale</div>
-                        {/* <div>Share <i className="fas fa-share"></i></div> */}
 
                         <div className="showmisc-right">
-                            <div>Add To Cart <i className="fas fa-shopping-cart"></i></div>
+
+                            {isCart ? <div className="bolded3" onClick={() => {
+                                this.props.history.push("/cart")
+                            }}>In Cart <i className="fas fa-shopping-cart"></i></div>
+                            
+                                : <div className="" onClick={() => {
+
+                                    this.props.addItem(id)
+
+                                }} >
+                                    Add To Cart <i className="fas fa-shopping-cart cart3"></i>
+                                </div>
+                            }
+
+
+                           
 
                             {isFavorited ? 
                             <div className="saves-bolded-2" 
@@ -152,14 +172,12 @@ class ShowMisc extends React.Component {
                                     Save <i class="far fa-heart"></i>
                                 </div> }
 
-                            {/* <div className="saves-bolded">
-                                Save <i className="far fa-heart"></i>
-                            </div>  */}
+
                         </div>
                      
                     </div>
     
-                    <Bid price = {list_price} currSliderBid={this.state.currSliderBid}/>
+                    <Bid price = {list_price} id={id} currSliderBid={this.state.currSliderBid}/>
                 
                 </div>
 
@@ -305,4 +323,4 @@ class ShowMisc extends React.Component {
 
 }
 
-export default connect(mSTP,mDTP)(ShowMisc);
+export default withRouter(connect(mSTP,mDTP)(ShowMisc));

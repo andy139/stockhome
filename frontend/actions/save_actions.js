@@ -38,7 +38,7 @@ export const fetchSaves = () => (dispatch, getState) => {
 
 export const createSave = (propertyId) => (dispatch, getState) => {
 
-    debugger
+
     if (Object.keys(getState().session).length  === 0) {
 
         debugger

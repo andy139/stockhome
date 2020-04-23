@@ -1,10 +1,11 @@
 class Api::ShoppingCartsController < ApplicationController
      def index
 
-    
+  
         @shopping_cart = current_user.cart_properties
         render :index
 
+  
     end
 
     def create
@@ -31,8 +32,31 @@ class Api::ShoppingCartsController < ApplicationController
             end
 
         end
+    end
 
-       
+
+    def update
+
+        ## if cart time do exist
+        property_id = params[:propertyId].to_i
+        bid_amount = params[:bid].to_i
+        @cart_item = ShoppingCart.find_by(user_id:current_user.id, property_id: property_id)
+        if @cart_item.update_attributes(bid: bid_amount)
+            render :update
+        else
+            render json: @cart_item.errors.full_messages, status: 422
+        end
+
+        ## If cart item dont exist
+        if !@cart_item
+             @cart_item = ShoppingCart.new(user_id: current_user.id, property_id: property_id, bid: bid_amount)
+             if @cart_item.save
+                render :update
+             else
+                render json: @cart_item.errors.full_messages, status: 422
+             end
+        end
+
     end
 
     def destroy

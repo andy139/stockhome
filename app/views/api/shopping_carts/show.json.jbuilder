@@ -1,3 +1,3 @@
-# json.set! @property.id do
-#     json.partial! 'saved_property', saved_property: @property
-# end
+json.set! @property.id do
+    json.partial! 'cart_property', cart_property: @property
+end

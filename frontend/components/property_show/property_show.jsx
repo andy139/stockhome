@@ -1,13 +1,11 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faKey } from '@fortawesome/free-solid-svg-icons';
+
 import Carousel from '../carousel/carousel';
-import Submenu from '../submenu/submenu'
+
 import ShowMisc from './show_misc';
 import Tabs from './tabs'
 import ShowMap from '../map/show_map'
-import SearchFooter from '../search/search_footer'
-import Footer from '../footer/footer'
+
 
 
 class PropertyShow extends React.Component {
@@ -26,6 +24,7 @@ class PropertyShow extends React.Component {
          
          
         this.props.fetchProperty(this.props.propertyId);
+        this.props.fetchCart();
         this.props.fetchSaves();
         window.scrollTo(0,0)
 
