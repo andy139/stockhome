@@ -81,10 +81,8 @@
     flex-direction: column;
 
     margin-top: 50px;
-
     // background-color: #1c74b8;
     font-size: 14px;
-    touch-action: manipulation;
 
     border-radius: 4px;
     height: 50px;
@@ -93,14 +91,16 @@
     background: #1c74b8;
     color: white;
     text-decoration: none;
-    border: 2px solid #1c74b8;
+        -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 
 
 }
 
 
 .view-properties-btn:hover{
-    background-color: rgb(134, 128, 202);
+    opacity: 0.8;
     cursor: pointer;
 }
 
@@ -374,7 +374,6 @@
  
     // background-color: #1c74b8;
     font-size: 20px;
-    touch-action: manipulation;
 
     border-radius: 4px;
     height: 60px;
@@ -383,15 +382,17 @@
     background: #1c74b8;
     color: white;
     text-decoration: none;
-    border: 2px solid #1c74b8;
     font-family: Muli, sans serif;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 
 
 }
 
 
 .view-properties-btn-feature:hover{
-    background-color: rgb(134, 128, 202);
+    opacity: 0.6;
     cursor: pointer;
 }
 
@@ -417,6 +418,7 @@
     display: flex;
     justify-content: space-between;
     width: 1340px;
+    padding-bottom: 150px;
 
 }
 
@@ -528,11 +530,20 @@
 
 .footer-2 {
  
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 1380px;
-    border-top: 1px solid #ededed;
-    text-align: right;
+    // border-top: 1px solid #ededed;
+    font-size: 50px;
+    height: 150px;
 
+}
+
+.footerflex-left {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
 }
 
 .footer3{
@@ -541,4 +552,18 @@
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+.footer-flex {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.cursors {
+    cursor: pointer;
+}
+
+.cursors:hover {
+    opacity: 0.6;
 }

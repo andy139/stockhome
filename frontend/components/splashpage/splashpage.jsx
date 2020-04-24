@@ -95,7 +95,7 @@ class Splashpage extends React.Component {
                         <div className="sfr-text">
                             Why invest in a property in Stockholm?
                             <div className="sfr-text-2">
-                            It's in Sweden, and has cooling looking houses.
+                            It's in Sweden, and it's awesome looking houses!
                             </div>
                         </div>
 
@@ -132,7 +132,7 @@ class Splashpage extends React.Component {
                         </div>
 
       
-                                <a href="http://justfunfacts.com/interesting-facts-about-stockholm/" className="learn-more-not-bolded outline-fix">LEARN MORE</a>
+                               
                 
                        
 
@@ -141,34 +141,7 @@ class Splashpage extends React.Component {
             
                 </div>
 
-                    <div className="my-information-container">
-                        <div className="flex-container-5">
-
-                            <div className="meet-creator">Meet the creator</div>
-
-                        </div>
-
-        
-                        <div className="img-profile-words"> 
-
-        
-                                <div className="github-linkedin">
-                                    {/* <img src="assets/fishing_lol.jpg" className="img-profile"></img>  */}
-
-                            <a href="https://github.com/andy139" target="_blank">
-                                        <img src="assets/github-brands.svg" className="padding-logos-splash"></img>
-                                    </a>
-
-                            <a href="https://www.linkedin.com/in/andy139/" target="_blank">
-                                        <img src="assets/linkedin-brands.svg" className="padding-logos-splash"></img>
-                                    </a>
-                                    
-                                    
-                                
-                                </div>
-                        </div>
-
-                    </div>
+                    
 
             </div>
 

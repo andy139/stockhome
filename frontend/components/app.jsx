@@ -86,6 +86,7 @@ const App = () => (
           "/investment-property-marketplace",
           "/property/:propertyId",
           "/cart",
+
         ]}
         component={SearchFooter}
       />
@@ -97,6 +98,7 @@ const App = () => (
           "/property/:propertyId",
           "/cart",
           "/make-offer/:propertyId",
+          "/"
         ]}
         component={Footer}
       />

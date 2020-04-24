@@ -86,7 +86,7 @@ class Navbar extends React.Component {
                     >
                       <i className="fab fa-github"></i> Github
                     </a>
-                    {/* <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a> */}
+                    <a href="https://angel.co/u/andy-tran-32"  target="_blank"className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a>
 
                     <div className="dropdown">
                       <button className="dropbtn">
@@ -153,7 +153,7 @@ class Navbar extends React.Component {
                 >
                   <i className="fab fa-github"></i> Github
                 </a>
-                {/* <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a> */}
+                <a href="https://angel.co/u/andy-tran-32"  target="_blank" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a>
                 <Link
                   className="nav-login-link hvr-overline-reveal"
                   to="/login"
@@ -215,7 +215,12 @@ class Navbar extends React.Component {
                     >
                       <i className="fab fa-github"></i> Github
                     </a>
-                    {/* <a href="https://www.angellist.com/andy139" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a> */}
+                    <a
+                      href="https://angel.co/u/andy-tran-32"
+ target="_blank"                      className="right-nav-misc limit_navbar hvr-overline-reveal"
+                    >
+                      <i className="fab fa-angellist"></i> AngelList
+                    </a>
 
                     <div className="dropdown dark-mode">
                       <button className="dropbtn-blacked">
