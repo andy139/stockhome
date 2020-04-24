@@ -53,11 +53,6 @@ class Navbar extends React.Component {
 
                   <div
                     className="left-nav-misc"
-                    onClick={() =>
-                      this.props.push.history(
-                        "/investment-property-marketplace"
-                      )
-                    }
                   >
                     <Link
                       to="/investment-property-marketplace"

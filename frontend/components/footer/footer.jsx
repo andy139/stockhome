@@ -6,7 +6,7 @@ function Footer() {
 
 
     return (
-      <div className="show-footer-2-full-length">
+    <div className="footer-splash">
         <div className="footer-2">
 
             <div className="footerflex-left">

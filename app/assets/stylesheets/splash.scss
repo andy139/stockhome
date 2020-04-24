@@ -531,10 +531,10 @@
 .footer-2 {
  
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     width: 1380px;
-    // border-top: 1px solid #ededed;
+    color: black;
     font-size: 50px;
     height: 150px;
 
@@ -562,8 +562,17 @@
 
 .cursors {
     cursor: pointer;
+        color: black;
 }
 
 .cursors:hover {
     opacity: 0.6;
+}
+
+.footer-splash {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #d3d3d3;
+    width: 100%;
+    color: black;
 }

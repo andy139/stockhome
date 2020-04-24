@@ -2,8 +2,11 @@ class Api::SavedPropertiesController < ApplicationController
 
     def index
 
+
+        # debugger
+
         if !current_user 
-            render :nothing => true, :status => 204
+            render :json => {}
         else
             @saved_properties = current_user.saved_properties
             render :index

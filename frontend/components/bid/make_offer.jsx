@@ -291,9 +291,11 @@ function MakeOffer(props) {
             <div className="dollar-amounts">$1</div>
           </div>
           <div>
-            <div className="signup-form-container">
-              
-              
+            <div className="bid-last-container">
+              <div>This ones on us. Enjoy your property.</div>
+              <br/>
+              <div>Press next to confirm your offer!</div>
+     
             </div>
             
           </div>

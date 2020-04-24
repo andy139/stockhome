@@ -2,25 +2,28 @@ class Api::ShoppingCartsController < ApplicationController
      def index
 
         if !current_user
-            render :nothing => true, :status => 204
+            render :json => {}
         else
             @shopping_cart = current_user.cart_properties
             render :index
         end
 
-  
 
-  
     end
 
     ## fetch bid
 
     def show
-        property_id = params[:id].to_i
-        @bid = ShoppingCart.find_by(user_id:current_user.id, property_id: property_id)
-        render :show
 
+        if !current_user
+            render :json => {}
+        else
+            property_id = params[:id].to_i
+            @bid = ShoppingCart.find_by(user_id:current_user.id, property_id: property_id)
+            render :show
+        end
 
+       
     end
 
     def create

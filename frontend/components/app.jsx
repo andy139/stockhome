@@ -67,7 +67,7 @@ const App = () => (
           component={PropertyIndexContainer}
         />
         <Route path="/property/:propertyId" component={PropertyShowContainer} />
-        <Route path="/make-offer/:propertyId" component={MakeOffer} />
+        <ProtectedRoute path="/make-offer/:propertyId" component={MakeOffer} />
       </Switch>
       <Modal></Modal>
     </div>
@@ -98,7 +98,6 @@ const App = () => (
           "/property/:propertyId",
           "/cart",
           "/make-offer/:propertyId",
-          "/"
         ]}
         component={Footer}
       />

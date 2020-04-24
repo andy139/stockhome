@@ -4,6 +4,7 @@ import { withRouter } from "react-router";
 import FeaturedIndexContainer from "../featured_properties/featured_index_container"
 import featured_index_container from '../featured_properties/featured_index_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Footer from '../footer/footer';
 
 
 class Splashpage extends React.Component {
@@ -140,6 +141,10 @@ class Splashpage extends React.Component {
                     </div>
             
                 </div>
+              
+                    <Footer />
+            
+                
 
                     
 

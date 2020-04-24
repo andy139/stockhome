@@ -203,9 +203,8 @@ function Cart(props) {
           <div className="cart-description">
             <div className="fontweight2">
               <b>
-                Get started by either clicking "Make an offer" on a single
-                property, or if you want to acquire all the properties in your
-                Cart, click "Checkout All Properties".
+                Get started by clicking "Make an offer" on a single
+                property.
               </b>
             </div>
 
@@ -225,7 +224,17 @@ function Cart(props) {
 
     const offeredItems = (
       <div>
-      
+         <div className="cart-description">
+            <div className="fontweight2">
+              <b>
+               These are your current offers.
+              </b>
+            </div>
+
+            <div>
+              Feeling unconfident about your offer? Feel free to change your offer at anytime, for a 1$ fee.
+            </div>
+          </div>
 
         <div className="cart-items">
           {offeredArr.length === 0 ? noInvestments : offered}
