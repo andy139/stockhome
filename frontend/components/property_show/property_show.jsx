@@ -5,7 +5,8 @@ import Carousel from '../carousel/carousel';
 import ShowMisc from './show_misc';
 import Tabs from './tabs'
 import ShowMap from '../map/show_map'
-
+import "react-step-progress-bar/styles.css";
+import { ProgressBar, Step } from "react-step-progress-bar";
 
 
 class PropertyShow extends React.Component {
@@ -163,19 +164,12 @@ class PropertyShow extends React.Component {
 
          
 
-        return(
-            <div className="show-page-container2">
-         
-
-                {this.props.loading.detailLoading ? loadingScreen : showPage}
-                
-                
-
-        
-                
-            </div>
-         
-        )
+        return (
+          <div className="show-page-container2">
+     
+            {this.props.loading.detailLoading ? loadingScreen : showPage}
+          </div>
+        );
 
     }
 

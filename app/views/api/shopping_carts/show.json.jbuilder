@@ -1,3 +1,4 @@
-json.set! @property.id do
-    json.partial! 'cart_property', cart_property: @property
+json.set! @bid.property_id do
+    json.extract! @bid, :id, :user_id, :bid
 end
+

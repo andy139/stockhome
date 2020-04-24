@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import {connect} from 'react-redux';
 import { addProperty, submitBid } from '../../actions/cart_actions'
+import {withRouter} from 'react-router-dom';
 
 const mDTP = (dispatch) => {
 
@@ -43,6 +44,9 @@ class Bid extends React.Component {
             this.setState({bid: this.props.currSliderBid})
         }
 
+    }
+    componentDidMount(){
+        this.setState({bid: this.props.currSliderBid})
     }
 
 
@@ -104,7 +108,17 @@ class Bid extends React.Component {
                         </div>
                         <br/>
                         <div> 
-                            <div className="bid-submit" onClick={() => this.props.bid(this.props.id, this.state.bid) }>
+                            <div className="bid-submit" onClick={() => {
+                                this.props
+                                  .bid(this.props.id, this.state.bid)
+                                  .then(() =>
+                                    this.props.history.push(
+                                      `/make-offer/${this.props.id}`
+                                    )
+                                  );
+                             
+                                
+                                }}>
                                 Review Bid
                             </div>  
 
@@ -120,6 +134,6 @@ class Bid extends React.Component {
 }
 
 
-export default connect(mSTP,mDTP)(Bid);
+export default withRouter(connect(mSTP,mDTP)(Bid));
 
 

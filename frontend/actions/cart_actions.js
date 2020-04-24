@@ -8,6 +8,7 @@ export const RECEIVE_CART = "RECEIVE_CART";
 export const ADD_ITEM = "ADD_ITEM";
 export const DELETE_ITEM = "DELETE_ITEM";
 export const ADD_BID = "ADD_BID";
+export const RECEIVE_BID = "RECEIVE_BID";
 
 const receiveCart = properties => ({
     type: RECEIVE_CART,
@@ -34,20 +35,37 @@ const addBid = (bidData) => ({
     bidData,
 })
 
+const receiveBid = (bidData) => ({
+    type: RECEIVE_BID,
+    bidData,
+})
+
+
 
 export const submitBid = (propertyId, bid) => (dispatch) => {
     
-    CartAPIUtil.updateBid(propertyId, bid).then(bidData => dispatch(addBid(bidData)))
+    return CartAPIUtil.updateBid(propertyId, bid).then(bidData => {
+        dispatch(addBid(bidData))
+        return bidData;
+    })
 
+
+}
+
+export const fetchBid = (propertyId) => (dispatch) => {
+    CartAPIUtil.fetchBid(propertyId).then(bidData => dispatch(addBid(bidData)))
 
 }
 
 export const fetchCart = () => (dispatch, getState) => {
     dispatch(startLoadingProperties());
     CartAPIUtil.fetchCart()
-        .then(properties => dispatch(receiveCart(properties)))
-
-
+        .then(properties => { 
+            dispatch(receiveCart(properties))
+        
+        
+        })
+    
 }
 
 

@@ -48,6 +48,18 @@ export const updateBid = (propertyId, bid) => (
 
 )
 
+export const fetchBid = (propertyId) => (
+    $.ajax({
+
+        method: 'GET',
+        url: `api/shopping_carts/${propertyId}`,
+
+    })
+
+
+
+)
+
 
 
 

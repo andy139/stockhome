@@ -3,7 +3,7 @@ import Bid from  './bid'
 import HouseCalculator from './house_calculator'
 import {connect} from 'react-redux';
 import { createSave, deleteSave, fetchSaves } from '../../actions/save_actions'
-import  {fetchCart, addProperty, deleteProperty, addBid } from '../../actions/cart_actions';
+import  {fetchCart, addProperty, deleteProperty } from '../../actions/cart_actions';
 import {withRouter} from 'react-router-dom';
 const saveArray = (properties) => {
     return Object.keys(properties).map(key => properties[key])

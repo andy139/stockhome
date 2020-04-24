@@ -8,6 +8,16 @@ class Api::ShoppingCartsController < ApplicationController
   
     end
 
+    ## fetch bid
+
+    def show
+        property_id = params[:id].to_i
+        @bid = ShoppingCart.find_by(user_id:current_user.id, property_id: property_id)
+        render :show
+
+
+    end
+
     def create
 
         if !current_user 
