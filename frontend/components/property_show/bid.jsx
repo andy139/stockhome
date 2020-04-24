@@ -2,13 +2,16 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import {connect} from 'react-redux';
-import { addProperty, submitBid } from '../../actions/cart_actions'
+import { addProperty, submitBid } from '../../actions/cart_actions';
+import { openModal} from '../../actions/modal_actions'
 import {withRouter} from 'react-router-dom';
 
 const mDTP = (dispatch) => {
 
     return{
         bid: (id, bid) => dispatch(submitBid(id, bid)),
+
+        openModal: (type,data) => dispatch(openModal(type,data))
     }
 
 
@@ -17,6 +20,7 @@ const mDTP = (dispatch) => {
 const mSTP = (state) => {
     return {
         cart: state.ui.cart,
+        isLoggedIn: Object.keys(state.session).length !== 0,
     }
 
 
@@ -109,15 +113,16 @@ class Bid extends React.Component {
                         <br/>
                         <div> 
                             <div className="bid-submit" onClick={() => {
+                                this.props.isLoggedIn ?
                                 this.props
                                   .bid(this.props.id, this.state.bid)
                                   .then(() =>
                                     this.props.history.push(
                                       `/make-offer/${this.props.id}`
                                     )
-                                  );
+                                  ) : this.props.openModal("signupModal", null);
                              
-                                
+                            
                                 }}>
                                 Review Bid
                             </div>  
