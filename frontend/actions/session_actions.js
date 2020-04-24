@@ -1,6 +1,6 @@
 import * as APIUtil from '../util/session_api_util';
 import {fetchSaves} from './save_actions';
-import { fetchCart } from "./save_actions";
+import { fetchCart } from './cart_actions';
 
 
 
