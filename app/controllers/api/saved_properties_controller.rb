@@ -2,9 +2,13 @@ class Api::SavedPropertiesController < ApplicationController
 
     def index
 
-        #  
-        @saved_properties = current_user.saved_properties
-        render :index
+        if !current_user 
+            render :nothing => true, :status => 204
+        else
+            @saved_properties = current_user.saved_properties
+            render :index
+        end
+
 
     end
 

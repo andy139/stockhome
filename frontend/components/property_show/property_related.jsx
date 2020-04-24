@@ -62,7 +62,7 @@ class PropertyItem extends React.Component {
     }
 
     handleClick(event) {
-        debugger
+         
         event.stopPropagation();
         const propertyId = this.props.property.id;
     

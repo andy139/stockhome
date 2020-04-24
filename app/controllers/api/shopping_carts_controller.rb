@@ -1,10 +1,14 @@
 class Api::ShoppingCartsController < ApplicationController
      def index
 
+        if !current_user
+            render :nothing => true, :status => 204
+        else
+            @shopping_cart = current_user.cart_properties
+            render :index
+        end
+
   
-        @shopping_cart = current_user.cart_properties
-    
-        render :index
 
   
     end

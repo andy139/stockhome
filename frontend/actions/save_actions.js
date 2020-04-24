@@ -41,7 +41,7 @@ export const createSave = (propertyId) => (dispatch, getState) => {
 
     if (Object.keys(getState().session).length  === 0) {
 
-        debugger
+         
         dispatch(openModal("signupModal", null))
     } else {
         SaveAPIUtil.addSave(propertyId)

@@ -95,7 +95,7 @@ class PropertyShow extends React.Component {
             annualized_return, sqft, year_built, zipcode, lat, lng,
             neighborhood_rating, address, list_price, average_school_rating,
             bedrooms, bathrooms, open_house, total_return_5yrs, main_photo_url, photo_urls} = this.props.property
-            debugger
+             
         const panes = [
             {title: 'Summary', content: <ShowMap lat={lat} lng={lng}></ShowMap> },
             { title: 'Similar Listings', content: <div>'SIMILAR LISTINGS HERE'</div>},

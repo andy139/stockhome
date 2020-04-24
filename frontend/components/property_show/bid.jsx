@@ -38,9 +38,9 @@ class Bid extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        debugger
+         
         if (this.props.currSliderBid !== prevProps.currSliderBid){
-            debugger
+             
             this.setState({bid: this.props.currSliderBid})
         }
 
@@ -53,7 +53,7 @@ class Bid extends React.Component {
     
     update(field) {
 
-        debugger
+         
 
         this.setState({bid: field})
 

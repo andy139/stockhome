@@ -1,4 +1,5 @@
 import { RECEIVE_CART, ADD_ITEM, DELETE_ITEM } from '../actions/cart_actions';
+import { RECEIVE_CLEAR } from '../actions/session_actions';
 import {
     RECEIVE_CURRENT_USER,
     LOGOUT_CURRENT_USER
@@ -12,7 +13,7 @@ const cartReducer = (state = {}, action) => {
     let newState = Object.assign({}, state)
 
 
-    debugger
+     
     switch (action.type) {
         
         case RECEIVE_CART:
@@ -22,6 +23,8 @@ const cartReducer = (state = {}, action) => {
         case DELETE_ITEM:
             delete newState[action.property.property_id];
             return newState
+        case RECEIVE_CLEAR:
+            return {};
         default:
             return state
     }

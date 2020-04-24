@@ -42,14 +42,22 @@ const receiveBid = (bidData) => ({
 
 
 
-export const submitBid = (propertyId, bid, offered) => (dispatch) => {
+export const submitBid = (propertyId, bid, offered) => (dispatch, getState) => {
 
     if (!offered) offered = false;
+
+    let loggedIn = Boolean(getState().session.id);
+
+     if (!loggedIn) {
+       dispatch(openModal("signupModal", null));
+     } else {
+        return CartAPIUtil.updateBid(propertyId, bid, offered).then(bidData => {
+            dispatch(addBid(bidData))
+            return bidData;
+        });
+     }
+
     
-    return CartAPIUtil.updateBid(propertyId, bid, offered).then(bidData => {
-        dispatch(addBid(bidData))
-        return bidData;
-    })
 
 
 }

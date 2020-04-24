@@ -137,7 +137,7 @@ function Cart(props) {
     });
 
 
-    debugger
+     
 
 
     const noInvestments = (

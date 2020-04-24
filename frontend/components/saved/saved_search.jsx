@@ -70,7 +70,7 @@ class DropdownSearch extends React.Component {
     }
 
     handleApply(criteria) {
-        debugger
+         
         this.setState({ selected: criteria })
         this.props.savedSearch(criteria)
         this.closeMenu();

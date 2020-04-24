@@ -47,7 +47,7 @@ function SearchPage(props) {
     const [numPage, setPages] = useState(numPages)
 
     useEffect(() => {
-        debugger
+         
         // Update the document title using the browser API
         setPages(Math.ceil(props.propertyAmount / 20))
     });
@@ -109,7 +109,7 @@ function SearchPage(props) {
                         
                         }} className="page-nums-bolded">{page}</span> :<span onClick={() => {
 
-                            debugger
+                             
                             if (currPage !== page) {
                                 props.amountFilter(page)
                                 setPage(page)

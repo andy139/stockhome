@@ -53,7 +53,7 @@ class SearchMap extends React.Component {
          
         // this.MarkerManager.updateMarkers(this.props.properties);
         if (prevProps.filters !== this.props.filters) {
-            debugger
+             
             this.renderMap();
         }
     }

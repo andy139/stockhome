@@ -106,7 +106,7 @@ function Saved(props) {
             props.fetchSaves();
             mounted.current = true;
         } else {
-            debugger
+             
             setProperties(props.saved)
         }
         

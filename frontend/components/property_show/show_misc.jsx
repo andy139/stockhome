@@ -11,7 +11,7 @@ const saveArray = (properties) => {
 
 const mSTP = state => {
 
-    debugger
+     
 
     return {
 
@@ -79,7 +79,7 @@ class ShowMisc extends React.Component {
 
     handleDownPayment(event) {
         this.setState({currDownPayment: event.target.value});
-        debugger
+         
         let newReturn = this.props.props.total_return_5yrs * (event.target.value / 100)
         this.setState({ totalReturn: newReturn.toFixed(0) });
     }

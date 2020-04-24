@@ -217,7 +217,7 @@ class Navbar extends React.Component {
                     </a>
                     <a
                       href="https://angel.co/u/andy-tran-32"
- target="_blank"                      className="right-nav-misc limit_navbar hvr-overline-reveal"
+ target="_blank"                      className="right-nav-misc limit_navbar hvr-overline-reveal-buy"
                     >
                       <i className="fab fa-angellist"></i> AngelList
                     </a>
@@ -262,7 +262,7 @@ class Navbar extends React.Component {
         if (( this.props.location.pathname !== "/" ) && this.props.currentUser ) {
             return loggedInBuy()
         } else if (this.props.currentUser) {
-            debugger
+             
                 return loggedIn();
         } else {
             notLoggedIn();
