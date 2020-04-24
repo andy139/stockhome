@@ -1,13 +1,12 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faKey } from '@fortawesome/free-solid-svg-icons';
+
 import Carousel from '../carousel/carousel';
-import Submenu from '../submenu/submenu'
+
 import ShowMisc from './show_misc';
 import Tabs from './tabs'
 import ShowMap from '../map/show_map'
-import SearchFooter from '../search/search_footer'
-import Footer from '../footer/footer'
+import "react-step-progress-bar/styles.css";
+import { ProgressBar, Step } from "react-step-progress-bar";
 
 
 class PropertyShow extends React.Component {
@@ -26,6 +25,7 @@ class PropertyShow extends React.Component {
          
          
         this.props.fetchProperty(this.props.propertyId);
+        this.props.fetchCart();
         this.props.fetchSaves();
         window.scrollTo(0,0)
 
@@ -164,23 +164,12 @@ class PropertyShow extends React.Component {
 
          
 
-        return(
-            <div className="show-page-container2">
-         
-
-                {this.props.loading.detailLoading ? loadingScreen : showPage}
-                
-                
-
-                <SearchFooter />
-                <div className="footer3">
-                    <Footer/>
-
-                </div>
-                
-            </div>
-         
-        )
+        return (
+          <div className="show-page-container2">
+     
+            {this.props.loading.detailLoading ? loadingScreen : showPage}
+          </div>
+        );
 
     }
 

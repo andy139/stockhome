@@ -29,6 +29,7 @@
     "react-slider": "^1.0.3",
     "react-star-rating-component": "^1.4.1",
     "react-star-ratings": "^2.3.0",
+    "react-step-progress-bar": "^1.0.3",
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",

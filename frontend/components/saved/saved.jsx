@@ -1,11 +1,9 @@
 import React from 'react';
 import { useEffect, useState, useCallback, useRef} from 'react';
-import Submenu from '../submenu/submenu';
+
 import {connect} from 'react-redux';
 import { fetchSaves, createSave, deleteSave } from '../../actions/save_actions';
 import DropdownSearch from './saved_search';
-import Footer from '../footer/footer';
-import SearchFooter from '../search/search_footer';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import SaveTransition from './save_transition';
 
@@ -98,9 +96,14 @@ function Saved(props) {
     
 
     useEffect(() => {
-        props.fetchSaves();
+
+  
+        
+
+        setProperties(props.saved);
 
         if (!mounted.current) {
+            props.fetchSaves();
             mounted.current = true;
         } else {
             debugger
@@ -108,7 +111,7 @@ function Saved(props) {
         }
         
      
-    },[]);
+    },[props.saved]);
 
 
    
@@ -212,7 +215,7 @@ function Saved(props) {
 
     let saved = props.saved;
 
-    const savedList = saved.map((property,i) => {
+    const savedList = savedProperties.map((property,i) => {
 
         return (
           <div className="save-item" key={property.id}>
@@ -222,7 +225,7 @@ function Saved(props) {
               <label
                 onClick={() => props.history.push(`/property/${property.id}`)}
               >
-                <img className="saved-photo" src={property.photo_urls[0]}></img>
+                <img className="saved-photo" src={property.main_photo_url}></img>
               </label>
             </div>
 
@@ -331,10 +334,7 @@ function Saved(props) {
       <div className="full-saved-page">
         {props.loading.indexLoading ? loadingScreen : savesScreen}
 
-        <div id="footer-saved">
-          <SearchFooter />
-        </div>
-        <Footer />
+   
       </div>
     );
 

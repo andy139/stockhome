@@ -207,11 +207,7 @@ class PropertyIndex extends React.Component {
               {this.props.propertyAmount === 0 ? retry : null}
             </div>
 
-            <div id="footer-saved">
-              <SearchPage />
-              <SearchFooter />
-              <Footer />
-            </div>
+          
           </div>
         );
     }

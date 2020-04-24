@@ -11,6 +11,16 @@
   
 }
 
+.cart3 {
+    cursor: pointer;
+     padding-right: 10px;
+}
+.bolded3 {
+    transition: 0.75s;
+    cursor:pointer;
+    color: #3BD69A;
+    padding-right: 10px;
+}
 
 .main-show-container {
     width: 1380px;
@@ -82,7 +92,8 @@
     display: flex;
     flex-direction:column;
     justify-content: center;
-    font-size: 45px;
+    font-size:  2.5125em;
+    font-weight: 100;
     color: black;
 
 }
@@ -90,6 +101,7 @@
 .big-open-price div:first-child {
     color:#767676;
     font-size: 20px;
+
 }
 
 
@@ -199,6 +211,7 @@
     display: flex;
     width: 100%;
     text-decoration: none;
+    // height: 40px;
 
     border-radius: 4px;
     outline: 0px;
@@ -217,16 +230,17 @@
 
 .signup-input-bid {
     // background-color: #1c74b8;
-    font-size: 12px;
+    font-size: 18px;
     width: 100%;
     padding-left: 7px;
-    height: 31px;
+    height: 40px;
     border-radius: 4px;
     border: 1px solid #ACACAC;
     text-decoration: none;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     outline: none;
+    
 }
 
 .purchase-box-1 {
@@ -248,6 +262,17 @@
     justify-content: center;
 
 }
+
+
+.show-footer-2-full-length {
+    width: 100%;
+
+    display: flex;
+  
+    justify-content: center;
+
+}
+
 
 .stockhome-markets{
     width: 1380px;
@@ -309,3 +334,8 @@
 .retry-photo {
     
 }
+
+  .show-page-container2 {
+
+    
+  }

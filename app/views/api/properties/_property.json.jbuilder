@@ -9,6 +9,14 @@ if (property.photo.attached?)
     json.main_photo_url url_for(property.photo)
 end
 
+if (property.carts.empty?)
+    json.offered false
+    json.bid nil
+else
+    json.offered property.carts.where(user_id: current_user.id).last.offered 
+    json.bid property.carts.where(user_id: current_user.id).last.bid 
+end
+
 
 
 # json.photo_urls property.photos.map { |file| url_for(file) }

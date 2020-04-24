@@ -70,6 +70,7 @@ class DropdownSearch extends React.Component {
     }
 
     handleApply(criteria) {
+        debugger
         this.setState({ selected: criteria })
         this.props.savedSearch(criteria)
         this.closeMenu();
@@ -129,11 +130,11 @@ class DropdownSearch extends React.Component {
 
         let mappedCriteria = unique.map(counties => {
             return (
-                <p className="checkbox-items save-search-width ">
+                <div className="checkbox-items save-search-width ">
                     <div className={this.state.selected === counties ? "search-label-2-bolded" : "search-label-3"} onClick={() => this.handleApply(counties)}>
                         &nbsp; {counties}
                     </div>
-                </p>
+                </div>
 
             )
 

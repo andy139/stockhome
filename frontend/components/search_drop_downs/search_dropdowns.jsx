@@ -120,11 +120,11 @@ class DropdownLocation extends React.Component {
 
     let mappedCriteria = allCriteria.map(criteria => {
       return (
-        <p className="checkbox-items">
+        <div className="checkbox-items">
           <div className= {this.state.selected === criteria ? "search-label-2-bolded" : "search-label-2"} onClick={() => this.handleApply(criteria)}>
                 &nbsp; {criteria}
           </div>
-        </p>
+        </div>
 
       )
 
