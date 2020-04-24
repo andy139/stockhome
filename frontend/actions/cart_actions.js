@@ -42,9 +42,11 @@ const receiveBid = (bidData) => ({
 
 
 
-export const submitBid = (propertyId, bid) => (dispatch) => {
+export const submitBid = (propertyId, bid, offered) => (dispatch) => {
+
+    if (!offered) offered = false;
     
-    return CartAPIUtil.updateBid(propertyId, bid).then(bidData => {
+    return CartAPIUtil.updateBid(propertyId, bid, offered).then(bidData => {
         dispatch(addBid(bidData))
         return bidData;
     })

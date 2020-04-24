@@ -23,29 +23,29 @@ import Footer from './footer/footer';
 import Submenu from './submenu/submenu';
 import Cart from './cart/cart';
 import MakeOffer from './bid/make_offer';
+import SearchPage from './search/search_page';
 
 
 import {withRouter} from 'react-router-dom'
 const App = () => (
   <div className="app-height">
     <header>
-
-      <Modal></Modal>
-    </header>
-
-    <div className="content">
       <Route
-        exact path={[
+        exact
+        path={[
           "/saved-roofs",
           "/cart",
           "/investment-property-marketplace",
           "/property/:propertyId",
+          "/login",
+          "/signup",
           "/",
         ]}
         component={NavbarContainer}
       />
+    </header>
 
-
+    <div className="content">
       <Route
         path={[
           "/saved-roofs",
@@ -66,12 +66,20 @@ const App = () => (
           path="/investment-property-marketplace"
           component={PropertyIndexContainer}
         />
-        <Route path="/property/:propertyId" component={PropertyShowContainer}/>
+        <Route path="/property/:propertyId" component={PropertyShowContainer} />
         <Route path="/make-offer/:propertyId" component={MakeOffer} />
       </Switch>
+      <Modal></Modal>
     </div>
 
     <footer className="footer">
+      <div id="footer-saved">
+        <Route
+          path="/investment-property-marketplace"
+          component={SearchPage}
+        ></Route>
+      </div>
+
       <Route
         path={[
           "/saved-roofs",
@@ -88,6 +96,7 @@ const App = () => (
           "/investment-property-marketplace",
           "/property/:propertyId",
           "/cart",
+          "/make-offer/:propertyId",
         ]}
         component={Footer}
       />

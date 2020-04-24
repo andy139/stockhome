@@ -1,16 +1,17 @@
 import React from 'react';
 import {useState, useEffect, useCallback,useRef} from 'react';
 import {connect} from 'react-redux';
-import {withRouter, Link} from 'react-router-dom';
+import {withRouter} from 'react-router';
 import {selectProperty} from '../../reducers/selectors';
-import { addProperty, submitBid, fetchCart, fetchBid } from '../../actions/cart_actions'
+import { Link } from "react-router-dom";
+import { addProperty, submitBid, fetchCart, fetchBid} from '../../actions/cart_actions'
 import { fetchProperty} from '../../actions/property_actions';
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
+import { faDollarSign, faLock, faEnvelope} from "@fortawesome/free-solid-svg-icons";
 
-
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const mSTP = (state, { match}) => {
 
@@ -31,7 +32,7 @@ const mSTP = (state, { match}) => {
 const mDTP = (dispatch) => {
 
     return {
-        bid: (id, bid) => dispatch(submitBid(id, bid)),
+        bid: (id, bid, offered) => dispatch(submitBid(id, bid, offered)),
         fetchProperty: (id) => dispatch(fetchProperty(id)),
         fetchCart: () => dispatch(fetchCart()),
         fetchBid: (propertyId) => dispatch(fetchBid(propertyId)),
@@ -92,38 +93,42 @@ function MakeOffer(props) {
     const { rent, cap_rate, municipality, city, gross_yield, appreciation, cash_flow,
         annualized_return, sqft, year_built, zipcode, lat, lng,
         neighborhood_rating, address, list_price, average_school_rating,
-        bedrooms, bathrooms, open_house, total_return_5yrs, main_photo_url, photo_urls } = props.bidProperty
+        bedrooms, bathrooms, open_house, total_return_5yrs, main_photo_url, photo_urls,id } = props.bidProperty
 
    
     const buyNavbar = (
-        <div className="buy-navbar">
-            <div className="navbar-logo .u-text-align-center--palm-wide">
-                <Link to="/" className="nav-main-link">
-                    <img src="/assets/logo.png" className="logo-img" />
-                    <p className="logo-text">stockhome</p>
-                </Link>
-            </div>
-
-            <div className="listing-price-offer">
-
-                <div className="address-bid">
-                    <img className="saved-photo" src={main_photo_url}></img>
-                     &nbsp; {address}
-                </div>
-
-                <div className="address-bid">
-                    List Price  &nbsp;<span className="border-rightb font-bigger">${addCommas(list_price)}</span >  Your Offer Price &nbsp; <span className="font-bigger">${addCommas(currBid)}</span>
-                </div>
-               
-
-            </div>
-
-            <div className = "close-checkout">
-              Close Checkout <i class="fas fa-times"></i>
-
-            </div>
+      <div className="buy-navbar">
+        <div className="navbar-logo .u-text-align-center--palm-wide">
+          <Link to="/" className="nav-main-link">
+            <img src="/assets/logo.png" className="logo-img" />
+            <p className="logo-text">stockhome</p>
+          </Link>
         </div>
-    )
+
+        <div className="listing-price-offer">
+          <div className="address-bid">
+            <img className="saved-photo" src={main_photo_url}></img>
+            &nbsp; {address}
+          </div>
+
+          <div className="address-bid">
+            List Price &nbsp;
+            <span className="border-rightb font-bigger">
+              ${addCommas(list_price)}
+            </span>{" "}
+            Your Offer Price &nbsp;{" "}
+            <span className="font-bigger">${addCommas(currBid)}</span>
+          </div>
+        </div>
+
+        <div
+          className="close-checkout"
+          onClick={() => props.history.push("/cart")}
+        >
+          Close Checkout <i class="fas fa-times"></i>
+        </div>
+      </div>
+    );
 
 
     let phaseArr = [
@@ -155,9 +160,9 @@ function MakeOffer(props) {
         <div className="first-progress">
           {1 < phase ? phaseArr[1] : phase === 0 ? phaseArr[2] : phaseArr[0]}
           {phase === 1 ? (
-            <span className="progress-text">Contact Information</span>
+            <span className="progress-text">Investment Details</span>
           ) : (
-            <span className="progress-text-unbolded">Contact Information</span>
+            <span className="progress-text-unbolded">Investment Details</span>
           )}
         </div>
 
@@ -203,7 +208,7 @@ function MakeOffer(props) {
               <input
                 type="text"
                 value={bid}
-                placeholder={currBid}
+                placeholder={bid}
                 onChange={(e) => setBid(e.target.value)}
                 className="signup-input-bid"
               />
@@ -213,6 +218,7 @@ function MakeOffer(props) {
         <div
           className="next-progress"
           onClick={() => {
+            props.bid(id, bid)
             if (phase < 2) setPhase(phase + 1);
           }}
         >
@@ -221,23 +227,101 @@ function MakeOffer(props) {
       </div>
     ); 
 
-    const contactInfo = (
-        <div>
-            Contact info
+    const investmentInfo = (
+      <div className="prog-overview2">
+        <div className="number-prog">2</div>
+        <div className="prog-header">Investment Details</div>
 
-
-            
+        <div className="prog-container2">
+          <div className="background-img-bid">
+            {" "}
+            <img className="bid-photo2" src={main_photo_url}></img>
+          </div>
+     
+          <div className="bolded-price">{address}</div>
+          <br />
+          <div>
+            <ol>
+              <li>1. Listing price of property is {addCommas(list_price)}.</li>
+              <br />
+              <li>2. Your offer is {addCommas(bid)}.</li>
+              <br />
+              <li>
+                3. Questions about the property? Feel free to contact me through{" "}
+                <a href="www.linkedin.com/andy139" target="blank">
+                  LinkedIn
+                </a>.
+              </li>
+            </ol>
+          </div>
         </div>
+
+        <div className="buttonsbid">
+          <div
+            className="next-progress"
+            onClick={() => {
+              props.bid(id, bid);
+              if (phase > 0) setPhase(phase - 1);
+            }}
+          >
+            Back
+          </div>
+          <div
+            className="next-progress"
+            onClick={() => {
+              props.bid(id, bid);
+              if (phase < 2) setPhase(phase + 1);
+            }}
+          >
+            Next
+          </div>
+        </div>
+      </div>
     )
 
 
     const marketPlaceFee = (
-        <div>
-            Marketplace Fee
-        </div>
-    )
+      <div className="prog-overview2">
+        <div className="number-prog">3</div>
+        <div className="prog-header">Marketplace Fee</div>
 
-    let slides = [overView, contactInfo, marketPlaceFee];
+        <div className="prog-container2">
+          <div className="feeamount">
+            <div>Marketplace Fee Amount</div>
+            <div className="dollar-amounts">$1</div>
+          </div>
+          <div>
+            <div className="signup-form-container">
+              
+              
+            </div>
+            
+          </div>
+        </div>
+
+        <div className="buttonsbid">
+          <div
+            className="next-progress"
+            onClick={() => {
+              props.bid(id, bid, true);
+              if (phase > 0) setPhase(phase - 1);
+            }}
+          >
+            Back
+          </div>
+          <div
+            className="next-progress"
+            onClick={() => {
+              props.history.push("/cart");
+            }}
+          >
+            Next
+          </div>
+        </div>
+      </div>
+    );
+
+    let slides = [overView, investmentInfo, marketPlaceFee];
 
 
 
@@ -260,4 +344,4 @@ function MakeOffer(props) {
 
 }
 
-export default connect(mSTP,mDTP)(withRouter(MakeOffer));
+export default withRouter(connect(mSTP,mDTP)(MakeOffer));

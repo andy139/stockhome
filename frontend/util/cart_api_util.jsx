@@ -37,12 +37,13 @@ export const deleteItem = propertyId => (
 
 )
 
-export const updateBid = (propertyId, bid) => (
+export const updateBid = (propertyId, bid, offered) => (
+    
 
     $.ajax({
         method: 'PATCH',
         url: `api/shopping_carts/${propertyId}`,
-        data: { propertyId, bid }
+        data: { propertyId, bid, offered }
 
     })
 

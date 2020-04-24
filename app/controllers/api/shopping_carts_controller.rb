@@ -3,6 +3,7 @@ class Api::ShoppingCartsController < ApplicationController
 
   
         @shopping_cart = current_user.cart_properties
+    
         render :index
 
   
@@ -31,12 +32,12 @@ class Api::ShoppingCartsController < ApplicationController
                 bid_amount = nil
             end
 
-            @cart_property = ShoppingCart.new(user_id: current_user.id, property_id: property_id, bid: bid_amount)
+            @cart_property = ShoppingCart.new(user_id: current_user.id, property_id: property_id, bid: bid_amount, offered: false)
             if @cart_property.save
 
                 @property = @cart_property.property
                 @bid_amount = @cart_property
-                render :show
+                render :create
             else
                 render json: ["Could not save that property into cart"], status:422
             end
@@ -50,22 +51,32 @@ class Api::ShoppingCartsController < ApplicationController
         ## if cart time do exist
         property_id = params[:propertyId].to_i
         bid_amount = params[:bid].to_i
-        @cart_item = ShoppingCart.find_by(user_id:current_user.id, property_id: property_id)
-        if @cart_item.update_attributes(bid: bid_amount)
-            render :update
-        else
-            render json: @cart_item.errors.full_messages, status: 422
-        end
+    
 
-        ## If cart item dont exist
+                ## If cart item dont exist
+
+        @cart_item = ShoppingCart.find_by(user_id:current_user.id, property_id: property_id)       
+        
         if !@cart_item
-             @cart_item = ShoppingCart.new(user_id: current_user.id, property_id: property_id, bid: bid_amount)
+             @cart_item = ShoppingCart.new(user_id: current_user.id, property_id: property_id, bid: bid_amount, offered: true)
              if @cart_item.save
                 render :update
              else
                 render json: @cart_item.errors.full_messages, status: 422
              end
+            else
+                if @cart_item
+                    @cart_item.update_attributes(bid: bid_amount, offered: true)
+                    render :update
+                else
+                    render json: @cart_item.errors.full_messages, status: 422
+                end
         end
+
+        
+    
+
+
 
     end
 

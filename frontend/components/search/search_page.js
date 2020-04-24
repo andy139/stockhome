@@ -87,14 +87,8 @@ function SearchPage(props) {
     );
 
   
-
-    
-
-
-
-
-    return(
-        <div className="page-misc">
+    const pageBtn = ( 
+          <div className="page-misc">
 
             <span className="page-nums cursor"
                 onClick={() => handleBack(currPage)
@@ -136,6 +130,19 @@ function SearchPage(props) {
                 ><i class="fas fa-angle-right"></i></span>
             
         </div>
+    )
+    
+
+    if (!props.propertyAmount) return null;
+
+
+    return(
+        <div>
+            {props.propertyAmount < 20 ? null : pageBtn}
+
+        </div>
+
+        
 
     )
 

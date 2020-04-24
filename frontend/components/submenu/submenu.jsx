@@ -3,6 +3,7 @@ import {useState, useEffect, useCallback} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchSaves, createSave, deleteSave} from '../../actions/save_actions';
+import { fetchCart } from "../../actions/cart_actions";
 import { withRouter } from 'react-router-dom';
 
 import { closeModal, openModal } from "../../actions/modal_actions";
@@ -12,13 +13,15 @@ const saveArray = (properties) => {
     return Object.keys(properties).map(key => properties[key])
 }
 
+
 const mSTP = state => {
 
-    debugger
+      
 
     return {
        
         saved: saveArray(state.ui.saved),
+        cart: saveArray(state.ui.cart).filter(property => !property.offered),
         isLoggedIn: Object.keys(state.session).length !== 0,
 
     }
@@ -36,7 +39,8 @@ const mDTP = dispatch => {
         openModal: (type, data) => dispatch(openModal(type, data)),
         deleteSave: (propertyId) => dispatch(deleteSave(propertyId)),
         fetchSaves: () => dispatch(fetchSaves()),
-        createSave: (propertyId) => dispatch(createSave(propertyId))
+        createSave: (propertyId) => dispatch(createSave(propertyId)),
+        fetchCart: () => dispatch(fetchCart())
 
 
     }
@@ -74,6 +78,14 @@ function Submenu(props){
       [],
 
     )
+
+    useEffect(() => {
+      props.fetchSaves();
+      props.fetchCart();
+
+
+
+    }, [])
 
      
 
@@ -117,7 +129,7 @@ function Submenu(props){
                 className="hvr-underline-reveal text-decoration-bolded cart-bolded"
               >
                 <i className="fas fa-shopping-cart"></i> &nbsp;{" "}
-                {props.saved.length > 0 ? props.saved.length : null}
+                {props.cart.length > 0 ? props.cart.length : null}
               </div>
             ) : (
                 <div
@@ -125,7 +137,7 @@ function Submenu(props){
                   className="hvr-underline-reveal text-decoration saves-click"
                 >
                   <i className="fas fa-shopping-cart"></i> &nbsp;{" "}
-                  {props.saved.length > 0 ? props.saved.length : null}
+                  {props.cart.length > 0 ? props.cart.length : null}
                 </div>
               )}
 

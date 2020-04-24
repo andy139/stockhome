@@ -4,6 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  bid         :float
+#  offered     :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  property_id :integer          not null
