@@ -7,6 +7,7 @@ import Tabs from './tabs'
 import ShowMap from '../map/show_map'
 import "react-step-progress-bar/styles.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
+import Modal from '../modal/modal';
 
 
 class PropertyShow extends React.Component {
@@ -120,7 +121,7 @@ class PropertyShow extends React.Component {
                     <div className="carousel-container">
                         <div className="carousel-words-space">
                             <div id="subbox-ontop-of-carousel">
-                                <div className="topbox">{address}</div>
+                                <div className="topbox titletop">{address}</div>
                                 <div className="topbox">{city}, {municipality} {zipcode} </div>
                             </div>
                             
@@ -144,7 +145,7 @@ class PropertyShow extends React.Component {
                         </div>
 
                         <Carousel className="carousel" key={this.props.property.id} bedrooms={bedrooms} bathrooms={bathrooms}
-                            sqft={this.addCommas(sqft)} year_built={year_built}>
+                            sqft={this.addCommas(sqft)} year_built={year_built} >
 
                             {allImages}
 
@@ -166,6 +167,7 @@ class PropertyShow extends React.Component {
 
         return (
           <div className="show-page-container2">
+              <Modal/>
      
             {this.props.loading.detailLoading ? loadingScreen : showPage}
           </div>

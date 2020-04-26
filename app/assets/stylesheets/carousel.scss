@@ -46,6 +46,31 @@ z-index: 2;
 }
 }
 
+.modal-button {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    bottom: 99%;
+    width: 99%;
+    left: 4px;
+    font-size: 30px;
+    justify-content: flex-end;
+
+    z-index: 2;
+
+}
+.expand-box {
+    cursor: pointer;
+    padding: 5px;
+    background-color: white;
+    opacity: 0.3
+}
+
+.expand-box:hover {
+
+    opacity: 0.4
+}
+
 
 .carousel-button {
     display: flex;
@@ -102,12 +127,19 @@ z-index: 2;
     font-weight: 200;
 }
 
+.titletop {
+    font-size: 20px;
+    color: #004B87;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
+
 .transparent-text-property {
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
-    bottom: 22.5%;
+    bottom: 22.78%;
     width: 99%;
     color: white;
     height: 50px;

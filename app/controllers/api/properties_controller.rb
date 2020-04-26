@@ -32,7 +32,9 @@ class Api::PropertiesController < ApplicationController
 
         
 
-      
+        if (params[:price_range] || params[:rent_range] || params[:locations]) 
+            property = Property.all
+        end
 
         
         if (params[:price_range])
@@ -40,7 +42,7 @@ class Api::PropertiesController < ApplicationController
             price_range = params[:price_range]
             lower = price_range[0].to_i * 1000
             upper = price_range[1].to_i * 1000
-            property = Property.where('list_price BETWEEN ? AND ?', lower, upper)
+            property = property.where('list_price BETWEEN ? AND ?', lower, upper)
             @amount_of_properties = property.count
         end
 
@@ -49,7 +51,7 @@ class Api::PropertiesController < ApplicationController
             rent_range = params[:rent_range]
             lower = rent_range[0].to_i
             upper = rent_range[1].to_i
-            property = Property.where('rent BETWEEN ? AND ?', lower, upper)
+            property = property.where('rent BETWEEN ? AND ?', lower, upper)
             @amount_of_properties = property.count
 
         end
@@ -60,9 +62,9 @@ class Api::PropertiesController < ApplicationController
             locations = params[:locations]
 
             if (locations.empty?)
-                property = Property.all
+                property = property
             else
-                property = Property.where(municipality: locations) 
+                property = property.where(municipality: locations) 
             end
             @amount_of_properties = property.count
 

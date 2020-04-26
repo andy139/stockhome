@@ -31,7 +31,7 @@ export default function useTransition(width, children) {
       }
   
     // this effect hook will be triggered every time the "translate variable will change"
-    React.useEffect(() => {
+   useEffect(() => {
       // if the transition has not completed, continue with transition
       if ((translate < (index + 1) * width && action.currentAction === 'next') || (translate > (index - 1) * width && action.currentAction === 'prev')) {
         getNextTransition(
@@ -48,7 +48,7 @@ export default function useTransition(width, children) {
     }, [translate]);
 
     // this effect hook will be triggered every time the action object changes.
-    React.useEffect(() => {
+   useEffect(() => {
       // if we click next when we are at the end of our carousel.
 
 

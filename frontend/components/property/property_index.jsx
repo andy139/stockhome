@@ -50,55 +50,59 @@ class PropertyIndex extends React.Component {
 
         
     const itemHeader = (
-      <div className="title-item">
-        <div className="saved-pic-header">
-          <label>&nbsp;</label>
+      <div className="save-item-header">
+        <div className="saved-pic">
           <label></label>
-          <label>&nbsp;</label>
+          <label></label>
+          <label>
+            <img className="saved-photo" src="/assets/logo.png"></img>
+          </label>
+
+
         </div>
 
         <div className="save-address">
-          <div>Address</div>
+          Address
         </div>
 
-        <div className="save-space">
-          <div>Price</div>
+        <div className="saved-price-item">
+          Price
         </div>
 
-        <div className="save-space-2">
-          <div>Current</div>
-          <div>Rent</div>
+        <label className="save-space-2">Rent</label>
+
+        <label className="save-space-2">
+          Gross Yield
+          </label>
+
+        <label className="save-space-2">
+          Cap Rate
+        </label>
+
+        <label className="save-space-3">
+          5Y Total Return
+        </label>
+
+        <label className="save-space-4">
+          Annualized Return
+          </label>
+
+        <label className="save-space-2">Year Built</label>
+
+        <label className="save-space-2">Status</label>
+
+        <div className="item-save-heart-grid">
+          <span
+            className="fa-stack"
+            id="padding-save"
+            
+          >
+          
+            <i className="far fa-heart fa-stack-1x"></i>
+          </span>
         </div>
 
-        <div className="save-space-2">
-          <div>Gross</div>
-          <div>Yield</div>
-        </div>
 
-        <div className="save-space-2">
-          <div>Cap</div>
-          <div>Rate</div>
-        </div>
-
-        <div className="save-space-2">
-          <div>5Y Total</div>
-          <div>Return</div>
-        </div>
-
-        <div className="save-space-2">
-          <div>Annualized</div>
-
-          <div>Return</div>
-        </div>
-
-        <div className="save-space-2">
-          <div>Year</div>
-          <div>Built</div>
-        </div>
-
-        <div className="save-space-2">Status</div>
-
-        <div className="save-space-2">&nbsp;</div>
       </div>
     );
 

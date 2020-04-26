@@ -61,6 +61,8 @@ html {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    color: #767676;
+    font-weight: 300;
 
 }
 
@@ -81,12 +83,13 @@ html {
 .saved-pic {
     display: flex;
     justify-content: space-between;
-    width: 200px;
+    width: 225px;
     padding-right: 50px;
+    align-items: center;
 }
 
 .saved-price-item {
-    width: 100px;
+    width: 110px;
     padding-right: 20px;
     padding-left: 10px;
 
@@ -113,21 +116,37 @@ html {
 }
 
 .save-space-2 {
-    width:90px;
+    width:70px;
 }
 
 .save-space-3 {
-    width:90px;
-    
+    width:85px;
+    padding-right:15px;
+}
+
+.address-save-1 {
+    font-size: 1.6vh;
+    color: #004b87;
+}
+
+.address-save-2 {
+    font-size: 1.4vh;
+    color:#A3A2A2;
+    padding-top: 5px;
+
 }
 
 
 .save-space-4{
     width:90px;
-    padding-left: 30px;
+    padding-right: 15px;
+
     
 }
 
+#heart-saved-header {
+    color: white;
+}
 
 .save-item {
     padding-top: 20px;
@@ -136,14 +155,45 @@ html {
     padding-left: 30px;
 
     border-bottom: solid 1px #d3d3d3;
+    color: #767676;
     
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 1320px;
+    font-size: 1.6vh;
 
 
 }
+
+
+.save-item-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-top: solid 1px #d3d3d3;
+    border-bottom: solid 1px #d3d3d3;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1320px;
+    font-size: 1.6vh;
+    font-weight: 500;
+    color: #767676;
+
+
+}
+
+.cash-bottom {
+    padding-top: 5px;
+    font-size: 1.5vh;
+}
+
+// .save-item >* {
+//     padding: 5px;
+// }
 
 .save-item:hover {
     background-color: #f9f9f9;
@@ -154,6 +204,13 @@ html {
 
 .save-address{
     width: 135px;
+
+   
+}
+
+.save-address:hover {
+     text-decoration: underline;
+     cursor: pointer;
 }
 
 .address-saved {
@@ -183,7 +240,7 @@ html {
     border-bottom: solid 1px #d3d3d3;
     height: 60px;
     align-items: center;
-
+    font-size: 1.6 vh;
 }
 
 

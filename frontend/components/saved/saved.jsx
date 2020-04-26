@@ -204,6 +204,59 @@ function Saved(props) {
 
     )
 
+    const itemHeader2 = (
+
+      <div className="save-item-header">
+        <div className="saved-pic">
+          <label></label>
+          <label></label>
+          <label>
+            <img className="saved-photo" src="/assets/logo.png"></img>
+          </label>
+          
+       
+        </div>
+
+        <div className="save-address">
+            Address
+        </div>
+
+        <div className="saved-price-item">
+            Price
+        </div>
+
+        <label className="save-space-2">Rent</label>
+
+        <label className="save-space-2">
+          Gross Yield
+          </label>
+
+        <label className="save-space-2">
+          Cap Rate
+        </label>
+
+        <label className="save-space-3">
+          5Y Total Return
+        </label>
+
+        <label className="save-space-4">
+          Annualized Return
+          </label>
+
+        <label className="save-space-2">Year Built</label>
+
+        <label className="save-space-2">Status</label>
+
+        <label
+          className="save-space-2"
+          id="heart-saved-header"
+        
+        >
+          <i class="fas fa-heart"></i>
+        </label>
+      </div>
+    )
+
     const loadingScreen = (
         <div className="loading-screen-save">
 
@@ -229,19 +282,19 @@ function Saved(props) {
               </label>
             </div>
 
-            <div className="save-address">
-              <div>{property.address}</div>
-              <div>
-                {property.municipality}, {property.zipcode}
+            <div className="save-address" onClick={() => props.history.push(`/property/${property.id}`)}>
+              <div className="address-save-1">{property.address}</div>
+              <div className="address-save-2">
+                {property.municipality} Sweden,{property.zipcode}
               </div>
-              <div>Sweden</div>
+          
             </div>
 
             <div className="saved-price-item">
-              <div>$ {addCommas(property.list_price)}</div>
+              <div >$ {addCommas(property.list_price)}</div>
               <div>
                 {!property.open_house ? (
-                  <div>
+                  <div className="cash-bottom">
                     <i class="fas fa-money-bill-wave" id="green-dollar"></i>{" "}
                     Cash Only
                   </div>
@@ -249,7 +302,7 @@ function Saved(props) {
               </div>
             </div>
 
-            <label className="save-space-2">${property.rent}</label>
+            <label className="save-space-2">${addCommas(property.rent)}</label>
 
             <label className="save-space-2">
               {property.gross_yield.toFixed(1)}%
@@ -312,7 +365,7 @@ function Saved(props) {
           </div>
 
           <div className="favorites-container">
-            {itemHeader}
+            {itemHeader2}
 
             <ReactCSSTransitionGroup
               className="cafe-list"

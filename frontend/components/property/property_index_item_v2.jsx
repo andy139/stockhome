@@ -97,21 +97,21 @@ class PropertyItem2 extends React.Component {
           </label>
         </div>
 
-        <div className="save-address">
-          <div>{address}</div>
-          <div>
-            {municipality}, {zipcode}
+        <div className="save-address" onClick={() => this.props.history.push(`/property/${id}`)}>
+          <div className="address-save-1">{address}</div>
+          <div className="address-save-2">
+            {municipality} Sweden,{zipcode}
           </div>
-          <div>Sweden</div>
+
         </div>
 
         <div className="saved-price-item">
-          <div>$ {this.addCommas(list_price)}</div>
+          <div >$ {this.addCommas(list_price)}</div>
           <div>
-            {cash_only ? (
-              <div>
-                <i class="fas fa-money-bill-wave" id="green-dollar"></i> Cash
-                Only
+            {!open_house ? (
+              <div className="cash-bottom">
+                <i class="fas fa-money-bill-wave" id="green-dollar"></i>{" "}
+                    Cash Only
               </div>
             ) : null}
           </div>

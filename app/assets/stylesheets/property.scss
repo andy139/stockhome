@@ -106,8 +106,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    padding: 8px;
+    font-size: 1.3vh;
+    padding: 12px;
     border-radius: 4px;
     background-color: #FFCD00;
    position:relative;
@@ -252,9 +252,10 @@
 }
 
 .show-image-url {
+    display: flex;
     width: 100%;
     height: 100%;
-
+    border-radius: 3px;
 }
 
 .item-save-heart-grid {
@@ -283,7 +284,8 @@
 
 .exclusive-words {
    
-
+    font-size: 18px;
+    font-weight: 800;
 }
 
 .showmisc-right {
