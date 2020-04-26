@@ -71,6 +71,9 @@ function Cart(props) {
 
         if(!mounted.current){
             props.fetchCart();
+
+            if (props.location.state.prevPath.includes("/make-offer")) setHeader("offers")
+
             mounted.current = true;
 
         } else {
@@ -112,7 +115,7 @@ function Cart(props) {
             </div>
 
             <div className="item-price">
-              <span>${addCommas(property.bid)}</span>
+              <span className="price-pricing">${addCommas(property.bid)}</span>
               <span
                 className="offered"
                 onClick={() => {
@@ -243,6 +246,7 @@ function Cart(props) {
     );
 
 
+    debugger
     return (
       <div className="full-cart-page">
         <div className="cart-header">

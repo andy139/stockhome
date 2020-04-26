@@ -1,12 +1,13 @@
 import React from 'react';
 import {useState, useEffect, useCallback,useRef} from 'react';
+import { useHistory } from "react-router-dom";
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router';
+import { withRouter, browserHistory} from 'react-router';
 import {selectProperty} from '../../reducers/selectors';
 import { Link } from "react-router-dom";
 import { addProperty, submitBid, fetchCart, fetchBid} from '../../actions/cart_actions'
 import { fetchProperty} from '../../actions/property_actions';
-
+import { createHashHistory } from 'history'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDollarSign, faLock, faEnvelope} from "@fortawesome/free-solid-svg-icons";
@@ -54,18 +55,25 @@ function addCommas(nStr) {
     return x1 + x2;
 }
 
+function addCommasReg(nStr){
+  debugger
+  return parseInt(nStr.replace(/,/g, '')).toLocaleString();
+
+}
+
 
 
 function MakeOffer(props) {
 
-    const [phase, setPhase] = useState(0);
-    const [bid, setBid] = useState(0)
+      const [phase, setPhase] = useState(0);
+      const [bid, setBid] = useState(0)
 
 
-     const mounted = useRef();
+
+      const mounted = useRef();
 
      useEffect(() => {
-   
+  
 
        if (!mounted.current) {
          props.fetchProperty(props.propertyId);
@@ -74,9 +82,53 @@ function MakeOffer(props) {
          mounted.current = true;
        } else {
             let currBid = props.bids[props.propertyId].bid;
-            setBid(currBid);
+            setBid(addCommas(currBid));
        }
      }, [props.bids]);
+
+
+
+    function isNum(input = ''){
+
+      // check if theres letters
+
+
+
+      if (input.match(".*[a-zA-Z]+.*")) {
+        return false;
+      }
+
+
+      let num = parseFloat(input.replace(/,/g, ''));
+
+      if (isNaN(num)) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+
+
+
+
+     function update(bid) {
+
+       if (isNum(bid)) {
+         if (bid === "") {
+           setBid("")
+
+         } else {
+           const formatNumber = parseInt(bid.replace(/,/g, '')).toLocaleString();
+           if (parseFloat(formatNumber.replace(/,/g, '')) < 1757000233233) setBid(formatNumber)
+
+         }
+
+       } 
+
+
+
+     }
 
 
 
@@ -207,9 +259,9 @@ function MakeOffer(props) {
 
               <input
                 type="text"
-                value={bid}
+                value={addCommas(bid)}
                 placeholder={bid}
-                onChange={(e) => setBid(e.target.value)}
+                onChange={(e) => update(e.target.value)}
                 className="signup-input-bid"
               />
             </div>
@@ -218,7 +270,9 @@ function MakeOffer(props) {
         <div
           className="next-progress"
           onClick={() => {
-            props.bid(id, bid)
+            debugger
+            let formatNumber = parseInt((bid.replace(/,/g, '')).toLocaleString());
+            props.bid(id, formatNumber)
             if (phase < 2) setPhase(phase + 1);
           }}
         >
@@ -260,7 +314,6 @@ function MakeOffer(props) {
           <div
             className="next-progress"
             onClick={() => {
-              props.bid(id, bid);
               if (phase > 0) setPhase(phase - 1);
             }}
           >
@@ -269,7 +322,6 @@ function MakeOffer(props) {
           <div
             className="next-progress"
             onClick={() => {
-              props.bid(id, bid);
               if (phase < 2) setPhase(phase + 1);
             }}
           >
@@ -305,20 +357,16 @@ function MakeOffer(props) {
           <div
             className="next-progress"
             onClick={() => {
-              props.bid(id, bid, true);
               if (phase > 0) setPhase(phase - 1);
             }}
           >
             Back
           </div>
-          <div
-            className="next-progress"
-            onClick={() => {
-              props.history.push("/cart");
-            }}
-          >
+
+          <Link  className="next-progress no-underline" to={{pathname: '/cart', state: {prevPath: props.location.pathname}}} >
+
             Next
-          </div>
+          </Link>
         </div>
       </div>
     );

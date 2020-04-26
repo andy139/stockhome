@@ -8,6 +8,7 @@ import ShowMap from '../map/show_map'
 import "react-step-progress-bar/styles.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
 import Modal from '../modal/modal';
+import $ from 'jquery'
 
 
 class PropertyShow extends React.Component {
@@ -22,8 +23,8 @@ class PropertyShow extends React.Component {
     }
 
     componentDidMount(){
+       
 
-         
          
         this.props.fetchProperty(this.props.propertyId);
         this.props.fetchCart();

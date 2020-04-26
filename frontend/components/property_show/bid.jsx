@@ -33,6 +33,7 @@ class Bid extends React.Component {
 
         this.state = {
             bid :'',
+            error: '',
         }
 
 
@@ -50,22 +51,63 @@ class Bid extends React.Component {
 
     }
     componentDidMount(){
-        this.setState({bid: this.props.currSliderBid})
+
+        
+        this.setState({bid: this.addCommas(this.props.currSliderBid)})
     }
 
 
     
     update(field) {
 
-         
+        this.setState({ error: field })
 
-        this.setState({bid: field})
+        if (this.isNum(field)) {
+            if (field === "") {
+                this.setState({bid: ""})
+       
+            } else {
+                const formatNumber = parseInt(field.replace(/,/g, '')).toLocaleString();
+                // if (formatNumber < 1757000233233)  
+    
+        
+                if (parseFloat(formatNumber.replace(/,/g, '')) < 1757000233233) this.setState({ bid: formatNumber })
+
+
+               
+             
+            }
+          
+        } 
+
+       
 
     }
 
     addDecimals (num) {
         return (Math.round(num*100)/100).toFixed(2)
 
+    }
+
+
+    isNum(input = ''){
+
+        // check if theres letters
+
+
+       
+        if (input.match(".*[a-zA-Z]+.*")) {
+             return false;
+         } 
+
+
+        let num = parseFloat(input.replace(/,/g, ''));
+
+        if (isNaN(num)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
 
@@ -105,17 +147,24 @@ class Bid extends React.Component {
                             
                             <input type="text"
                                 value={this.state.bid}
-                                placeholder = {this.props.currSliderBid}
+                                placeholder = {this.addCommas(this.props.currSliderBid)}
                                 onChange={ e => this.update(e.target.value)}
                                 className="signup-input-bid"
+                                data-type="number"
                             />
                         </div>
-                        <br/>
+
+                        <div> 
+                        {!this.isNum(this.state.error) && this.state.error !== "" ? <div className="error-bid">Please enter a numerical amount!</div> : <div>
+                            <br/>
+                        
+                        </div>} </div>
+
                         <div> 
                             <div className="bid-submit" onClick={() => {
                                 this.props.isLoggedIn ?
                                 this.props
-                                  .bid(this.props.id, this.state.bid)
+                                    .bid(this.props.id, parseFloat(this.state.bid.replace(/,/g, '')))
                                   .then(() =>
                                     this.props.history.push(
                                       `/make-offer/${this.props.id}`

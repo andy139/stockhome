@@ -61,7 +61,7 @@ class PropertyIndex extends React.Component {
 
         </div>
 
-        <div className="save-address">
+        <div className="save-address-2">
           Address
         </div>
 

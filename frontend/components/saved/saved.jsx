@@ -217,7 +217,7 @@ function Saved(props) {
        
         </div>
 
-        <div className="save-address">
+        <div className="save-address-2">
             Address
         </div>
 
