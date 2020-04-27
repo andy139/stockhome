@@ -20,41 +20,6 @@
 * Users who are logged in can favorite properties and make offers on them.
  ![signup](/app/assets/images/signup.gif)
 
-  ```javascript
-
-  class SigninForm extends React.Component {
-    
-    constructor(props) {
-        super(props);
-
-
-        this.state = {
-            email:'',
-            password: '',
-            confirm_password: '',
-            lname: '',
-            fname: '',
-            phone_number: '',
-            interests:'',
-            referral: '',
-            fname_error: '',
-            lname_error: '',
-            email_error: '',
-            password_error: '',
-            confirm_password: '',
-
-        };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.renderSessionErrors = this.renderSessionErrors.bind(this);
-        this.clearErrorsOnClick = this.clearErrorsOnClick.bind(this);
-        this.setErrors = this.setErrors.bind(this)
-
-    };
-
-
-  }
-    
-  ```
 
 
 ### Dynamic Search
