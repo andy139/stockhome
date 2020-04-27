@@ -17,6 +17,25 @@ StockHome, a RoofStock clone, is an online marketplace that allows users to brow
 * User can bid and change bid on properties
 
 
+
+## User Auth
+
+
+## Dynamic Search
+
+
+## Google Maps API
+
+
+## Add Properties to Saves
+
+
+## Submit Offers on Properties
+
+
+
+
+
 ## Splash
  ![splash](/app/assets/images/splash.gif)
 
