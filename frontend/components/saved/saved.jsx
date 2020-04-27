@@ -236,7 +236,7 @@ function Saved(props) {
        
         </div>
 
-        <div className="save-address-2">
+        <div className="save-address">
             Address
         </div>
 
@@ -310,7 +310,7 @@ function Saved(props) {
             </div>
 
             <div className="saved-price-item">
-              <div >$ {addCommas(property.list_price)}</div>
+              <div className="price-item-2">${addCommas(property.list_price)}</div>
               <div>
                 {!property.open_house ? (
                   <div className="cash-bottom">
