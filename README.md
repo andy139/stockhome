@@ -27,6 +27,7 @@
 * Property search also allows user to sort by price, rent, gross yield, and real estate parameters.
 * Users will fetch properties from backend and have properties be stored on Redux Store.
 
+\newline
 
 ![search](/app/assets/images/search.gif)
 
