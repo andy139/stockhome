@@ -18,6 +18,8 @@
 * Users can create and sign up on platform
 * Error handling and validations upon sign up
 * Users who are logged in can favorite properties and make offers on them.
+
+
  ![signup](/app/assets/images/signup.gif)
 
   ```javascript
@@ -62,7 +64,9 @@
 * Property search also allows user to sort by price, rent, gross yield, and real estate parameters.
 * Users will fetch properties from backend and have properties be stored on Redux Store.
 
-\newline
+
+![search](/app/assets/images/search.gif)
+
 
 ```ruby
 
@@ -102,7 +106,6 @@ def index
   ```
 
 
-![search](/app/assets/images/search.gif)
 
 ### Google Maps API
 *  Google Maps that is populated with results from search query.
