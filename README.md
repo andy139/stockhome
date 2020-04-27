@@ -9,29 +9,28 @@
 * React & Redux
 * Google Maps API
 * Amazon Storage (AWS S3) for image hosting
+* ReactCSSTrasitions
 
 ## Features
-* User and Session Authentication
-* Filtered Property Search
-* Add properties to Shopping Cart
-* Google Maps
-* User can offer and change offers on properties
 
 
-## User Auth
+### User Authorization
+* User and Session Authentication utilizing BCrypt and hashing.
 
+### Dynamic Search
+ * Filtered property search which allows the user to query by price ranges, rent ranges, location, and other property parameters
 
-## Dynamic Search
+### Google Maps API
+ * Shopping Cart feature using CRUD model.
 
+### Add Properties to Saves
+*  Google Maps that is populated with results from search query
 
-## Google Maps API
+### Submit Offers on Properties
+*  User can offer and change offers on properties
 
-
-## Add Properties to Saves
-
-
-## Submit Offers on Properties
-
+### Modals
+* 
 
 
 
