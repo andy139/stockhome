@@ -57,21 +57,14 @@ function Saved(props) {
 
      
 
-
-
-
     const [savedProperties, setProperties] = useState(props.saved);
-
     const [timeAmount, setTime] = useState(null);
-
     const [deletedProperty, setDelete] = useState(null);
 
     const savedSearch = useCallback(
 
         (searchParams) => {
-
             let saved = props.saved;
-
             let searchedSave;
 
 
@@ -81,12 +74,9 @@ function Saved(props) {
                 searchedSave = saved.filter(property => {
                     return property.municipality === searchParams
                 })
-
             }
 
-
             setProperties(searchedSave);
-
 
         },
         [savedProperties],
@@ -95,16 +85,13 @@ function Saved(props) {
 
     )
 
-    const mounted = useRef();
-    
 
+
+    const mounted = useRef();
     useEffect(() => {
 
   
-        
-
         setProperties(props.saved);
-
         if (!mounted.current) {
             props.fetchSaves();
             mounted.current = true;
@@ -113,7 +100,7 @@ function Saved(props) {
             setProperties(props.saved)
         }
         
-     
+
     },[props.saved]);
 
 

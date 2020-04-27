@@ -90,14 +90,10 @@ function MakeOffer(props) {
 
     function isNum(input = ''){
 
-      // check if theres letters
-
-
 
       if (input.match(".*[a-zA-Z]+.*")) {
         return false;
       }
-
 
       let num = parseFloat(input.replace(/,/g, ''));
 
@@ -107,8 +103,6 @@ function MakeOffer(props) {
         return true;
       }
     }
-
-
 
 
 
@@ -125,7 +119,6 @@ function MakeOffer(props) {
          }
 
        } 
-
 
 
      }

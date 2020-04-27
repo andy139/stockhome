@@ -55,12 +55,9 @@ class Api::ShoppingCartsController < ApplicationController
 
     def update
 
-        ## if cart time do exist
         property_id = params[:propertyId].to_i
         bid_amount = params[:bid].to_i
     
-
-                ## If cart item dont exist
 
         @cart_item = ShoppingCart.find_by(user_id:current_user.id, property_id: property_id)       
         
