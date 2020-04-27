@@ -1,6 +1,6 @@
 # StockHome
 
-![StockHome](https://stockhome-app.herokuapp.com/#/) is an online marketplace inspired by RoofStock that allows users to browse, purchase, and bid on properties.
+## [StockHome](https://stockhome-app.herokuapp.com/#/) is an online marketplace inspired by RoofStock that allows users to browse, purchase, and bid on properties.
 
 ## Technologies
 
