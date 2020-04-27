@@ -109,6 +109,7 @@ def index
 
 ### Google Maps API
 *  Google Maps that is populated with results from search query.
+* Used Google Maps API fitBounds to adjust the size of the map for the User while browsing properties.
 
 ![maps](/app/assets/images/maps.gif)
 
@@ -228,7 +229,7 @@ function isNumber(input = ''){
         }
 
     };
-    
+
 ```
 
 
