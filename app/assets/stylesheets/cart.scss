@@ -21,6 +21,8 @@
     align-items: center;
 }
 
+
+
 .cart-subheader {
     display: flex;
     justify-content: left;
@@ -174,6 +176,8 @@
 
 .fontweight2 {
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
 }
 
 .item-price {
@@ -181,4 +185,65 @@
      font-size: 1.5vh;
     display: flex;
     justify-content: space-between;
+}
+
+.transition-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.checkbigger {
+    font-size: 25px;
+    padding: 10px;
+}
+.cart-transition {
+    font-size: 1.2vh;
+    padding: 10px;
+    display: flex;
+   align-items:center;
+   justify-content: space-between;
+    opacity: 0.8;
+    width: 250px;
+    background-color: green;
+    height: 40px;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    position: relative;
+    border-radius: 4px;
+    justify-content: center;
+
+
+    
+
+
+}
+
+
+.saved-transition {
+    font-size: 1.2vh;
+    padding: 10px;
+    display: flex;
+   align-items:center;
+   justify-content: space-between;
+    opacity: 0.8;
+    width: 250px;
+    background-color: green;
+    height: 40px;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    position: relative;
+    border-radius: 4px;
+    justify-content: center;
+    position:absolute;
+
+    left: 69%;
+
+    bottom: 79%;
+    z-index: 999999;
+    
+
+
 }

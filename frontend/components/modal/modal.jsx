@@ -61,27 +61,27 @@ function Modal(props){
 
     )
 
-    const carouselModal = (
-        <div className="login-modal" onClick={(e) => e.stopPropagation()}>
-            <div id="xmodal">  <span className="xmodal-click" onClick={() => props.closeModal()}><i class="fas fa-times"></i></span> </div>
+    // const carouselModal = (
+    //     <div className="login-modal" onClick={(e) => e.stopPropagation()}>
+    //         <div id="xmodal">  <span className="xmodal-click" onClick={() => props.closeModal()}><i class="fas fa-times"></i></span> </div>
 
-            <Carousel className="carousel" bedrooms={props.modal.data.bedrooms} bathrooms={props.modal.data.bathrooms}
-                sqft={props.modal.data.sqft} year_built={props.modal.data.year_built} children={props.modal.data.children} width={670} unit={'px'}>
-
-
-            </Carousel>
-
-        </div>
+    //         <Carousel className="carousel" bedrooms={props.modal.data.bedrooms} bathrooms={props.modal.data.bathrooms}
+    //             sqft={props.modal.data.sqft} year_built={props.modal.data.year_built} children={props.modal.data.children} width={670} unit={'px'}>
 
 
-    )
+    //         </Carousel>
+
+    //     </div>
+
+
+    // )
 
 
     let selectedModal = null;
 
     if(props.modal.modal === "signupModal") selectedModal = signupModal;
     if(props.modal.modal === "loginModal") selectedModal = loginModal;
-    if(props.modal.modal === "carouselModal") selectedModal = carouselModal;
+    // if(props.modal.modal === "carouselModal") selectedModal = carouselModal;
 
 
     return (

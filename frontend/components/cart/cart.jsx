@@ -60,20 +60,47 @@ function Cart(props) {
 
     const [header, setHeader] = useState("cart");
 
-    const [cart, setCart] = useState(props.cart)
+    const [cart, setCart] = useState(props.cart);
+    const [bidProp, setBidProp] = useState(null);
 
 
     const mounted = useRef();
 
     useEffect(() => {
 
+      
+
         setCart(props.cart);
+
+        if(props.location.state) {
+          setTimeout(() => {
+            setBidProp(props.location.state.bidProperty)
+
+
+          }, 10)
+
+          setTimeout(() => {
+            setBidProp(null)
+          }, 4000)
+
+
+        }
+      
 
         if(!mounted.current){
             props.fetchCart();
 
-            if (props.location.state.prevPath.includes("/make-offer")) setHeader("offers")
+            if (props.location.state) {
+              debugger
+              if (props.location.state.prevPath.includes("/make-offer")) {
+                
+                setHeader("offers")
+                // setBidProp(props.location.state.bidProperty)
+              }
 
+
+            }
+           
             mounted.current = true;
 
         } else {
@@ -94,7 +121,7 @@ function Cart(props) {
 
     )
 
-    let offeredArr = cart.filter(property => property.offered);
+    let offeredArr = cart.filter(property => property.offered).reverse();
 
 
     const offered = offeredArr.map((property, i) => {
@@ -225,13 +252,43 @@ function Cart(props) {
     );
 
 
+    const transTimer = {
+
+
+    }
+
+    const bidTrans = (
+
+      <div className="cart-transition">
+
+        <i className="fas fa-check checkbigger"></i>
+
+        <div className="transition-flex">
+          <div>{ bidProp ? bidProp.address : null} </div>
+          <br />
+          <div>Has been added to your offers!</div>
+        </div>
+      </div>
+
+    )
+
+
     const offeredItems = (
       <div>
          <div className="cart-description">
             <div className="fontweight2">
               <b>
-               These are your current offers.
+               These are your current offers. 
               </b>
+
+              <ReactCSSTransitionGroup transitionName="fade"
+                  transitionEnterTimeout={550}
+                  transitionLeaveTimeout={550}>
+                {bidProp ? bidTrans : null}
+
+              </ReactCSSTransitionGroup>
+             
+    
             </div>
 
             <div>
@@ -240,7 +297,13 @@ function Cart(props) {
           </div>
 
         <div className="cart-items">
-          {offeredArr.length === 0 ? noInvestments : offered}
+
+          <ReactCSSTransitionGroup transitionName="fade"
+            transitionEnterTimeout={550}
+            transitionLeaveTimeout={550}>
+            {offeredArr.length === 0 ? noInvestments : offered}
+          </ReactCSSTransitionGroup>
+         
         </div>
       </div>
     );
@@ -276,6 +339,7 @@ function Cart(props) {
             OFFERS ({offeredArr.length})
           </span>
         </div>
+        
 
         {header === "cart" ? cartItems : offeredItems}
         {/* {props.loading.indexLoading ? loadingScreen : cartItems} */}

@@ -363,7 +363,7 @@ function MakeOffer(props) {
             Back
           </div>
 
-          <Link  className="next-progress no-underline" to={{pathname: '/cart', state: {prevPath: props.location.pathname}}} >
+          <Link  className="next-progress no-underline" to={{pathname: '/cart', state: {prevPath: props.location.pathname, bidProperty: props.bidProperty }}} >
 
             Next
           </Link>

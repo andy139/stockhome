@@ -60,8 +60,11 @@ function Saved(props) {
 
 
 
-    const [savedProperties, setProperties] = useState(props.saved)
+    const [savedProperties, setProperties] = useState(props.saved);
 
+    const [timeAmount, setTime] = useState(null);
+
+    const [deletedProperty, setDelete] = useState(null);
 
     const savedSearch = useCallback(
 
@@ -204,6 +207,22 @@ function Saved(props) {
 
     )
 
+
+    const bidTrans = (
+
+      <div className="saved-transition">
+
+        <i className="fas fa-check checkbigger"></i>
+
+        <div className="transition-flex">
+          <div>{deletedProperty ? deletedProperty : null} </div>
+          <br />
+          <div>Removed from Saved Roofs</div>
+        </div>
+      </div>
+
+    )
+
     const itemHeader2 = (
 
       <div className="save-item-header">
@@ -327,7 +346,29 @@ function Saved(props) {
             <label
               className="save-space-2"
               id="heart-saved"
-              onClick={() => props.deleteSave(property.id)}
+              onClick={() => {props.deleteSave(property.id)
+                
+                setDelete(property.address)
+
+                timeAmount ? clearInterval(timeAmount) : null
+               
+
+                let time = setTimeout(() => {
+                  setDelete(null)
+                }, 4000)
+
+                setTime(time)
+
+                
+
+
+
+
+
+                
+             
+              
+              }}
             >
               <i class="fas fa-heart"></i>
             </label>
@@ -362,6 +403,13 @@ function Saved(props) {
 
           <div className="saved-search">
             <DropdownSearch saved={props.saved} savedSearch={savedSearch} />
+            <ReactCSSTransitionGroup
+              transitionName="fade"
+              transitionEnterTimeout={550}
+              transitionLeaveTimeout={550}>
+                {deletedProperty ? bidTrans : null}
+
+            </ReactCSSTransitionGroup>
           </div>
 
           <div className="favorites-container">
@@ -370,8 +418,8 @@ function Saved(props) {
             <ReactCSSTransitionGroup
               className="cafe-list"
               transitionName="fade"
-              transitionEnterTimeout={500}
-              transitionLeaveTimeout={300}
+              transitionEnterTimeout={550}
+              transitionLeaveTimeout={550}
             >
               {savedList}
             </ReactCSSTransitionGroup>

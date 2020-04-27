@@ -190,7 +190,7 @@ class ShowMisc extends React.Component {
               <Bid
                 price={list_price}
                 id={id}
-                currSliderBid={this.state.currSliderBid}
+                currSliderBid={this.addCommas(this.state.currSliderBid)}
               />
             </div>
 
