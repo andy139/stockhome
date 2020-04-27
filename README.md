@@ -20,7 +20,6 @@
 * Users who are logged in can favorite properties and make offers on them.
  ![signup](/app/assets/images/signup.gif)
 
-  **signupForm.jsx**
   ```javascript
 
   class SigninForm extends React.Component {
