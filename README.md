@@ -153,7 +153,7 @@ def index
 ```
 
 
-### Add Properties to Saves
+### Add and delete properties to saves
  * Users will be able to add and delete properties from there saved roofs profile.
  * Leveraged useState, useEffect, and useRef from React Hooks library to store data on local React state and also to devise life cycle methods similar to componentDidMount, componentDidUpdate.
  
@@ -181,7 +181,7 @@ def index
 
  ```
 
-### Submit Offers on Properties
+### Submit offers and make changes to offers on properties
 *  User can offer and change offers on platform, implemented via CRUD model.
 *  User will be sent out to checkout page with a custom progression bar where they can change offer, view finals details of offer, and be sent to there recently submitted offers page.
 * Offers will be validated on frontend using error handling logic and Regex, and also on backend using ActiveRecords validation method.
