@@ -20,6 +20,43 @@
 * Users who are logged in can favorite properties and make offers on them.
  ![signup](/app/assets/images/signup.gif)
 
+  **signupForm.jsx**
+  ```javascript
+
+  class SigninForm extends React.Component {
+    
+    constructor(props) {
+        super(props);
+
+
+        this.state = {
+            email:'',
+            password: '',
+            confirm_password: '',
+            lname: '',
+            fname: '',
+            phone_number: '',
+            interests:'',
+            referral: '',
+            fname_error: '',
+            lname_error: '',
+            email_error: '',
+            password_error: '',
+            confirm_password: '',
+
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.renderSessionErrors = this.renderSessionErrors.bind(this);
+        this.clearErrorsOnClick = this.clearErrorsOnClick.bind(this);
+        this.setErrors = this.setErrors.bind(this)
+
+    };
+
+
+  }
+    
+  ```
+
 
 ### Dynamic Search
 * Filtered property search which allows the user to query by price ranges, rent ranges, location, and other real estate property parameters.
@@ -47,7 +84,7 @@
 ![offer](/app/assets/images/offer.gif)
 
 ### Modals
-* Signup and login modal is dispatched when user tries to favorite or make an offer on property.
+* If user is not logged in user will be dispatched a signup model when trying to favorite a property
 
 
 ![modal](/app/assets/images/modal.gif)

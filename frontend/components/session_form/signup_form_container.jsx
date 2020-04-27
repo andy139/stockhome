@@ -18,8 +18,6 @@ class SigninForm extends React.Component {
         super(props);
 
 
-        
-      
         this.state = {
             email:'',
             password: '',
@@ -35,10 +33,6 @@ class SigninForm extends React.Component {
             password_error: '',
             confirm_password: '',
 
-
-
-
-
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderSessionErrors = this.renderSessionErrors.bind(this);
@@ -47,13 +41,6 @@ class SigninForm extends React.Component {
 
     };
 
-    
-    // componentWillReceiveProps(nextProps) {
-    //     // Any time props.email changes, update state.
-    //     if (nextProps.errors !== this.props.errors) {
-    //         this.setState( {fname_error: this.props.errors.includes("Fname can't be blank") ? "First name can't be blank" : null})
-    //     }
-    //   }
 
     
 
