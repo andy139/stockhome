@@ -118,7 +118,6 @@ def index
      renderMap() {
 
         let bounds = new google.maps.LatLngBounds();
-
         const mapOptions = {
             center: {
                 lat: 59.3293,
@@ -155,7 +154,7 @@ def index
 
 ### Add Properties to Saves
  * Users will be able to add and delete properties from there saved roofs profile.
- * Leveraged useState, useEffect, and useRef from React Hooks library to store data on local React state and also to devise life cycle methods similar to componentDidMount, componentDidUpdate
+ * Leveraged useState, useEffect, and useRef from React Hooks library to store data on local React state and also to devise life cycle methods similar to componentDidMount, componentDidUpdate.
  
 
  ![save](/app/assets/images/saved.gif)
@@ -163,24 +162,19 @@ def index
  ```javascript
 
  function Saved(props) {
-
     
     const [savedProperties, setProperties] = useState(props.saved);
-
     const mounted = useRef();
-    useEffect(() => {
 
-  
+    useEffect(() => {
         setProperties(props.saved);
         if (!mounted.current) {
             props.fetchSaves();
             mounted.current = true;
         } else {
              
-            setProperties(props.saved)
+            setProperties(props.saved);
         }
-        
-
     },[props.saved]);
 
 
@@ -211,7 +205,6 @@ function isNumber(input = ''){
         return true;
       }
     }
-
 ```
 
 
@@ -222,7 +215,6 @@ function isNumber(input = ''){
 ![modal](/app/assets/images/modal.gif)
 
 
-#### save_actions.js
 ```javascript
 
     export const createSave = (propertyId) => (dispatch, getState) => {
@@ -236,8 +228,7 @@ function isNumber(input = ''){
         }
 
     };
-
-
+    
 ```
 
 
