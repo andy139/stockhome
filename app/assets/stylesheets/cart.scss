@@ -198,8 +198,10 @@
     padding: 10px;
 }
 .cart-transition {
-    font-size: 1.2vh;
+    font-size: 16px;
     padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     display: flex;
    align-items:center;
    justify-content: space-between;
@@ -222,7 +224,9 @@
 
 
 .saved-transition {
-    font-size: 1.2vh;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-size: 16px;
     padding: 10px;
     display: flex;
    align-items:center;
