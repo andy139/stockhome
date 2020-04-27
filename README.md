@@ -15,8 +15,8 @@
 ## Features
 
 ### User Authorization
-* Users can create and sign up on platform
-* Error handling and validations upon sign up
+* Users can create and sign up on platform.
+* Error handling and validations upon sign up.
 * Users who are logged in can favorite properties and make offers on them.
 
 
