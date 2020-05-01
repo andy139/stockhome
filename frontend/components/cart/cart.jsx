@@ -176,7 +176,7 @@ function Cart(props) {
                 You do not have any investments yet
             </div>
             <div className="no-item" >
-                <img src="http://localhost:3000/assets/noresults.svg" onClick={() => props.history.push("/investment-property-marketplace")}></img>
+                <img src="assets/noresults.svg" onClick={() => props.history.push("/investment-property-marketplace")}></img>
             </div>
 
             <div className="browse-button" onClick={() => props.history.push("/investment-property-marketplace")}> 
@@ -257,6 +257,10 @@ function Cart(props) {
 
     }
 
+
+
+    
+
     const bidTrans = (
 
       <div className="cart-transition">
@@ -264,7 +268,7 @@ function Cart(props) {
         <i className="fas fa-check checkbigger"></i>
 
         <div className="transition-flex">
-          <div>{ bidProp ? bidProp.address : null} </div>
+        <div>{ bidProp ? bidProp.address : null}  </div>
           <br />
           <div>Has been added to your offers!</div>
         </div>
