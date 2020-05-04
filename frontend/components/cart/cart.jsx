@@ -72,26 +72,25 @@ function Cart(props) {
 
         setCart(props.cart);
 
-        if(props.location.state) {
-          setTimeout(() => {
-            setBidProp(props.location.state.bidProperty)
-
-
-          }, 10)
-
-          setTimeout(() => {
-            setBidProp(null)
-          }, 4000)
-
-
-        }
-      
 
         if(!mounted.current){
             props.fetchCart();
+            if (props.location.state) {
+              setTimeout(() => {
+                setBidProp(props.location.state.bidProperty)
+
+
+              }, 10)
+
+              setTimeout(() => {
+                setBidProp(null)
+              }, 4000)
+
+
+            }
+
 
             if (props.location.state) {
-              debugger
               if (props.location.state.prevPath.includes("/make-offer")) {
                 
                 setHeader("offers")
