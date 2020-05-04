@@ -42,9 +42,7 @@ function Modal(props){
     const signupModal = (
         <div className="signup-modal" onClick={(e) => e.stopPropagation()}>
             <div id="xmodal-2">  <span className="xmodal-click" onClick={() => props.closeModal()}><i class="fas fa-times"></i></span> </div>
-
             <Signup/>
-
         </div>
 
     )

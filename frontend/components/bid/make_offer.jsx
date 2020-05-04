@@ -120,7 +120,6 @@ function MakeOffer(props) {
 
        } 
 
-
      }
 
 
