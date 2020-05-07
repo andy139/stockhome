@@ -54,7 +54,7 @@ class Splashpage extends React.Component {
                             <div className="message-holder">
                                 <div className="message title-fix">COMPLETED TRANSACTIONS</div>
                                 <div className="message">More than $2 billion in completed SFR transactions in less than four years</div>
-                                <div className="message"> <a href="#"> Learn More </a></div>
+                               
                             </div>
                         </div>
                         
@@ -64,7 +64,7 @@ class Splashpage extends React.Component {
                             <div className="message-holder">
                                 <div className="message title-fix">STOCKHOME GUARANTEE</div>
                                 <div className="message">Unique 30-day money-back guarantee + guaranteed rent on vacant properties</div>
-                                <div className="message"> <a href="#"> Learn More </a></div>
+                               
                             </div>
 
                         </div>
@@ -74,7 +74,7 @@ class Splashpage extends React.Component {
                             <div className="message-holder">
                                 <div className="message title-fix">TECHNOLOGY ADVANTAGE</div>
                                 <p className="message">Make investment decisions using insights, proprietary data and technology</p>
-                                <div className="message"> <a href="#"> Learn More </a></div>
+                               
                             </div>
                           
                         </div>

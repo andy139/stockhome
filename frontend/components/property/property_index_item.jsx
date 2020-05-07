@@ -179,7 +179,7 @@ class PropertyItem extends React.Component {
                 <div className="property-address-box">
                   <div className="second-property-box-3">{address} </div>
                   <div className="second-property-box-3">
-                    {municipality}, Sweden {zipcode}
+                    {municipality}, {zipcode}
                   </div>
                 </div>
 
@@ -190,7 +190,7 @@ class PropertyItem extends React.Component {
                 <div className="property-address-box-100">
                   <div className="second-property-box-3">{address} </div>
                   <div className="second-property-box-3">
-                    {municipality}, Sweden {zipcode}
+                    {municipality}, {zipcode}
                   </div>
                 </div>
               </div>
