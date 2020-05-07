@@ -168,7 +168,7 @@ class Loginform extends React.Component {
               <div className="session-error">{this.props.errors[0]}</div>
               <input className="login-submit" type="submit" value="Login" />
             </form>
-            <div id="login-padding"><Link to="/">Forgot password?</Link></div>
+            {/* <div id="login-padding"><Link to="/">Forgot password?</Link></div> */}
 
             <br />
             <span>Don't have an account?</span> <span className="signup-modal-click" onClick={() => this.props.openModal("signupModal", null)}>Sign Up</span>
@@ -217,7 +217,7 @@ class Loginform extends React.Component {
             <div className="session-error">{this.props.errors[0]}</div>
             <input className="login-submit" type="submit" value="Login" />
           </form>
-          <div id="login-padding"><Link to="/">Forgot password?</Link></div>
+ 
 
           <br />
           <span>Don't have an account?</span> <Link to="/signup">Sign Up</Link>

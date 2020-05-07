@@ -227,7 +227,7 @@ class SigninForm extends React.Component {
 
                         <br />
 
-                        <div className="tos">By clicking Sign Up or registering, I agree to  <a href="#"> Stockhomes's Terms & Conditions </a> and I acknowledge that I understand the <a href="#">agency relationship</a>
+                        <div className="tos">By clicking Sign Up or registering, I agree to  <a className="underline2"> Stockhomes's Terms & Conditions </a> and I acknowledge that I understand the <a className="underline2">agency relationship</a>
                         </div>
                         <br />
                         <input className="login-submit" type="submit" value="Sign Up" />
@@ -375,7 +375,7 @@ class SigninForm extends React.Component {
 
                         <br />
 
-                        <div className="tos">By clicking Sign Up or registering, I agree to  <a href="#"> Stockhomes's Terms & Conditions </a> and I acknowledge that I understand the <a href="#">agency relationship</a>
+                        <div className="tos">By clicking Sign Up or registering, I agree to  <a className="underline2"> Stockhomes's Terms & Conditions </a> and I acknowledge that I understand the <a className="underline2">agency relationship</a>
                         </div>
                         <br />
                         <input className="login-submit" type="submit" value="Sign Up" />
