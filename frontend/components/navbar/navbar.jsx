@@ -41,7 +41,7 @@ class Navbar extends React.Component {
 
         const loggedIn = () => (
           <div id="fade-effect">
-            <div className="navbar-fullwidth-loggedin fixed-nav-bar">
+            <div className="navbar-fullwidth-loggedin fixed-nav-bar" id={this.props.location.pathname === "/" ? "box-shadow" : ""}>
               <div className="navbar-container-loggedin show_logo">
                 <div className="navbar-left">
                   <div className="navbar-logo .u-text-align-center--palm-wide">
@@ -106,7 +106,7 @@ class Navbar extends React.Component {
     
 
         const notLoggedIn = () => (
-          <div className="navbar-fullwidth-loggedout fixed-nav-bar">
+          <div className="navbar-fullwidth-loggedout fixed-nav-bar" id={this.props.location.pathname === "/" ? "box-shadow" : ""} >
             <div className="navbar-container-loggedout show_logo">
               <div className="navbar-left">
                 <div className="navbar-logo">
@@ -165,9 +165,69 @@ class Navbar extends React.Component {
         );
 
 
+      const notLoggedInBuy = () => (
+        <div className="navbar-fullwidth-loggedout fixed-nav-bar">
+          <div className="navbar-container-loggedout show_logo">
+            <div className="navbar-left">
+              <div className="navbar-logo">
+                <Link to="/" className="nav-main-link">
+                  <img src="/assets/logo.png" className="logo-img" />
+                  <p className="logo-text">stockhome</p>
+                </Link>
+              </div>
+
+              <div
+                className="left-nav-misc"
+
+              >
+                <Link
+                  to="/investment-property-marketplace"
+                  className="remove-decoration left-nav-misc hvr-overline-reveal"
+                >
+                  Buy
+                  </Link>
+                {/* <div className="left-nav-misc hvr-overline-reveal">Own</div>
+                                    <div className="left-nav-misc hvr-overline-reveal">Sell</div> */}
+              </div>
+            </div>
+
+            <div className="navbar-right">
+              <a
+                href="https://www.linkedin.com/in/andy139/"
+                target="_blank"
+                className="right-nav-misc limit_navbar hvr-overline-reveal"
+              >
+                <i className="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+              <a
+                href="https://www.github.com/andy139"
+                target="_blank"
+                className="right-nav-misc limit_navbar hvr-overline-reveal"
+              >
+                <i className="fab fa-github"></i> Github
+                </a>
+              <a href="https://angel.co/u/andy-tran-32" target="_blank" className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a>
+              <Link
+                className="nav-login-link hvr-overline-reveal"
+                to="/login"
+              >
+                Log In
+                </Link>
+              <div id="signup-fix">
+                {this.props.location.pathname === "/login" ||
+                  this.props.location.pathname === "/signup"
+                  ? signUpBolded()
+                  : signUpNotBolded()}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+
+
         
         const loggedInBuy = () => (
-          <div id="fade-effect">
+          <div>
             <div className="navbar-fullwidth-loggedin-buy fixed-nav-bar">
               <div className="navbar-container-loggedin show_logo">
                 <div className="navbar-left">

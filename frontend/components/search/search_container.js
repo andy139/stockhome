@@ -6,13 +6,28 @@ import {asArray} from '../../reducers/selectors';
 import Search from './search';
 
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+ 
+    let propertyAmount = state.entities.properties.amount_of_properties;
+    if (!state.entities.properties.amount_of_properties) {
+  
+        let propArr = []
+        Object.keys(state.entities.properties).length !== 0 ? propArr = state.entities.properties : propArr = []; 
+        propertyAmount = propArr.filter(property => Number.isInteger(property))[0]
+ 
+    }   
+
+
+
+    
+    return {
+    
     properties: asArray(state.entities),
     filters: state.entities.filters,
-    propertyAmount: state.entities.properties.amount_of_properties
+    propertyAmount: propertyAmount,
 
 
-})
+}}
 
 
 const mapDispatchToProps = dispatch => ({

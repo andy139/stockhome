@@ -18,7 +18,9 @@
     // background-color: white;
 
 }
-
+#box-shadow {
+      -webkit-box-shadow: 0 1rem 1.5rem rgba(21, 20, 29, 0.13) !important
+}
 
 .full-length-fix {
     width: 100%;
@@ -146,7 +148,7 @@
   .text-decoration {
     text-decoration: none;
     color:#A3A2A2;
-    height: 100%;
+    height: 93%;
     display: flex;
     justify-content: center;
     align-items: center;

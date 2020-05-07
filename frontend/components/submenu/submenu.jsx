@@ -93,8 +93,8 @@ function Submenu(props){
 
 
     return (
-      <div className="submenu-full-length">
-        <div className="submenu-container">
+      <div className="submenu-full-length" id="box-shadow">
+        <div className="submenu-container" >
           <div className="left-submenu">
             <Link
               to="/investment-property-marketplace"
