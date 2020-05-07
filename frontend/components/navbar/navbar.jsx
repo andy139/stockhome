@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
-
+import Dropdown from './clickable_dropdown';
 
 class Navbar extends React.Component {
     constructor(props){
@@ -82,6 +82,8 @@ class Navbar extends React.Component {
                       <i className="fab fa-github"></i> Github
                     </a>
                     <a href="https://angel.co/u/andy-tran-32"  target="_blank"className="right-nav-misc limit_navbar hvr-overline-reveal"><i className="fab fa-angellist"></i> AngelList</a>
+                    
+                    {/* <Dropdown currentUser = {this.props.currentUser} logout={this.props.logout}/> */}
 
                     <div className="dropdown">
                       <button className="dropbtn">
