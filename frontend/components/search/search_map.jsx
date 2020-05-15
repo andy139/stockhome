@@ -8,10 +8,12 @@ import { asArray } from '../../reducers/selectors';
 
 
 const mSTP = (state) => {
+    debugger
     return {
   
         filters: state.entities.filters,
         properties: asArray(state.entities),
+      
     }
 
 }

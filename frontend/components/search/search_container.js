@@ -9,13 +9,17 @@ import Search from './search';
 const mapStateToProps = state => {
  
     let propertyAmount = state.entities.properties.amount_of_properties;
-    if (!state.entities.properties.amount_of_properties) {
-  
-        let propArr = []
-        Object.keys(state.entities.properties).length !== 0 ? propArr = state.entities.properties : propArr = []; 
-        propertyAmount = propArr.filter(property => Number.isInteger(property))[0]
+    // if (state.entities.properties.amount_of_properties !== 0 || !state.entities.properties.amount_of_properties) {
+
+      
+    //     let propArr;
+    //     Object.keys(state.entities.properties).length !== 0 ? propArr = state.entities.properties : propArr = []; 
+
+    //     debugger
+    //     propertyAmount = propArr.filter(property => Number.isInteger(property))[0]
+        
  
-    }   
+    // }   
 
 
 

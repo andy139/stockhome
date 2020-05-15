@@ -1,4 +1,5 @@
 import { OPEN_MODAL, CLOSE_MODAL } from "../actions/modal_actions";
+import { RECEIVE_CURRENT_USER } from '../actions/session_actions'
 
 const initialState = {
     modal: "",
@@ -17,6 +18,9 @@ const modalReducer = (state = initialState, action) => {
                 data: action.data
             });
         case CLOSE_MODAL:
+            nextState = "";
+            return nextState;
+        case RECEIVE_CURRENT_USER:
             nextState = "";
             return nextState;
         default:

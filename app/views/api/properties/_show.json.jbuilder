@@ -12,11 +12,17 @@ end
 if(current_user)
 
     if (property.carts.empty?)
+     
         json.offered false
         json.bid nil
-    else
-        json.offered property.carts.where(user_id: current_user.id).last.offered 
-        json.bid property.carts.where(user_id: current_user.id).last.bid 
+   else
+        if (!json.offered property.carts.where(user_id: current_user.id).last)
+            json.offered false
+            json.bid nil
+        else
+            json.offered property.carts.where(user_id: current_user.id).last.offered 
+            json.bid property.carts.where(user_id: current_user.id).last.bid 
+        end
     end
 
 

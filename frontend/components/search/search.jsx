@@ -39,7 +39,7 @@ function Search(props){
     const [stateFilter, setFilter] = useState(null);
     const [toggle, setToggle] = useState(false);
 
-    const [mapToggle, setMapToggle] = useState(false);
+    const [mapToggle, setMapToggle] = useState(true);
 
 
 
@@ -148,7 +148,14 @@ function Search(props){
         <div className="searchbar-3">
           <div>
             <div>
-              Showing {props.filters.page_filter ? (20 * props.filters.page_filter - 19) : 1} - {props.filters.page_filter ? ((props.filters.page_filter * 20 - 20) + props.properties.length) : props.properties.length < 20 ? props.properties.length : 20} of {props.propertyAmount} properties
+              {props.propertyAmount === 0 ?
+                <div>
+                  Showing 0 - 0 of 0 properties
+                </div> : <div>
+                  Showing {props.filters.page_filter ? (20 * props.filters.page_filter - 19) : 1} - {props.filters.page_filter ? ((props.filters.page_filter * 20 - 20) + props.properties.length) : props.properties.length < 20 ? props.properties.length : 20} of {props.propertyAmount} properties
+                </div>
+              }
+              
              
             </div>
             <div className="desc-padding">

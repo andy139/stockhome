@@ -58,7 +58,6 @@ class Api::PropertiesController < ApplicationController
 
 
         if (params[:locations])
-           
             locations = params[:locations]
 
             if (locations.empty?)
