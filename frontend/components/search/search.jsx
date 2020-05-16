@@ -32,7 +32,6 @@ const descriptions = { "All": null ,
 
 
 
-
 function Search(props){
 
     const [button, setButton] = useState(null);
@@ -95,8 +94,13 @@ function Search(props){
     debugger
 
     
-     
- 
+  let { indexLoading } = props.loading;
+  const mapLoader = (
+    <div className="map-loader">
+      <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-1s-177px.gif"></img>
+    </div>
+  )
+
     return (
       <div className="search-box">
         <div className="search-1">
@@ -231,8 +235,8 @@ function Search(props){
         </div>
 
         {mapToggle ? (
-          <div className="searchmap-container">
-            <SearchMap/>
+          <div className="let-load">
+            { indexLoading ? mapLoader : <SearchMap /> } 
           </div>
         ) : null}
       </div>

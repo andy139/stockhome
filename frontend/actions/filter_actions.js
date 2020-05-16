@@ -45,6 +45,9 @@ export const updateSortFilter = (filter, value) => (dispatch, getState) => {
 // for ui screen
 export const updateFilter = (filter, value) => (dispatch, getState) => {
     dispatch(changeFilter(filter, value));
+
+    debugger
+
     dispatch(fetchProperties(getState().entities.filters));
 
 };

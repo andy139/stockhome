@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { updateSortFilter, updateFilter } from '../../actions/filter_actions';
 import { asArray } from '../../reducers/selectors';
-import {useState, useCallback, useEffect} from 'react';
+import {useState, useCallback, useEffect, useRef} from 'react';
 
 
 
@@ -43,14 +43,18 @@ function SearchPage(props) {
     // let pageNumArr = [1,2,3,4,5,6,7,8,9]
 
     const [currPage, setPage] = useState(1)
-
     const [numPage, setPages] = useState(numPages)
 
+
+    const mounted = useRef();
     useEffect(() => {
-         
-        // Update the document title using the browser API
+     
         setPages(Math.ceil(props.propertyAmount / 20))
-    });
+
+        setPage(props.filters.page_filter)
+        // Update the document title using the browser API
+   
+    }, [props.filters]);
      
 
     const handleBack = useCallback(

@@ -8,11 +8,7 @@ const defaultFilters = Object.freeze({
 const filtersReducer = (state = defaultFilters, action) => {
     
     switch (action.type) {
-        // case UPDATE_FILTER:
-        //     const newFilter ={
-        //         [action.filter] : action.value
-        //     };
-        //     return Object.assign({}, state, newFilter);
+     
 
         case UPDATE_FILTER:
 
@@ -23,13 +19,17 @@ const filtersReducer = (state = defaultFilters, action) => {
 
             if (action.filter === "primary_filter"){
                 return newFilter
-            }  else {
-
+            }  else if (action.filter === "page_filter") {
                 let newState = Object.assign({}, state, newFilter);
+                return newState;
+            } else {
+                let newState = Object.assign({}, state, newFilter);
+                newState.page_filter = null;
                 newState.primary_filter = 0;
-                 
                 return newState;
             }
+
+
         case SORT_FILTER:
 
             const sortFilter = {

@@ -54,6 +54,8 @@ class Api::PropertiesController < ApplicationController
             property = property.where('rent BETWEEN ? AND ?', lower, upper)
             @amount_of_properties = property.count
 
+      
+
         end
 
 
@@ -72,9 +74,10 @@ class Api::PropertiesController < ApplicationController
         end
 
 
-        if (params[:page_filter])
+        if (params[:page_filter] != "" && params[:page_filter])
             page = (params[:page_filter].to_i - 1) * 20
             property = property.limit(20).offset(page)
+         
         
         else
             property = property.limit(20)

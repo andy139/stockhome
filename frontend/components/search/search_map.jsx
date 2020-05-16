@@ -13,6 +13,7 @@ const mSTP = (state) => {
   
         filters: state.entities.filters,
         properties: asArray(state.entities),
+        loading: state.ui.loading,
       
     }
 
@@ -54,8 +55,13 @@ class SearchMap extends React.Component {
     componentDidUpdate(prevProps) {
          
         // this.MarkerManager.updateMarkers(this.props.properties);
-        if (prevProps.filters !== this.props.filters) {
+        // if (prevProps.filters !== this.props.filters) {
              
+        //     this.renderMap();
+        // }
+
+        if (prevProps.properties !== this.props.properties) {
+
             this.renderMap();
         }
     }
@@ -74,6 +80,7 @@ class SearchMap extends React.Component {
         }
 
         let locations = this.props.properties
+        debugger
         this.map = new google.maps.Map(this.mapNode, mapOptions)
 
         if(locations.length > 0){
@@ -95,21 +102,31 @@ class SearchMap extends React.Component {
        
     }
 
-   
+
     
 
     render() {
-         
+
+        
+        let {indexLoading} = this.props.loading
+
+        const mapLoader = (
+            <div className="map-loader">
+                <img src="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/Pulse-1s-177px.gif"></img>
+            </div>
+        )
+
+
+      
         return (
-  
-                <div id="search-map-container" ref={map => this.mapNode = map}> // this ref gives us access to the map dom node
 
-                </div>
+               <div>
+                   
+                    <div id="search-map-container" ref={map => this.mapNode = map}>
+                       
+                    </div>
+               </div>
 
-    
-       
-
-           
         )
       }
 

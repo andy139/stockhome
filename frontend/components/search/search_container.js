@@ -10,15 +10,12 @@ const mapStateToProps = state => {
  
     let propertyAmount = state.entities.properties.amount_of_properties;
     // if (state.entities.properties.amount_of_properties !== 0 || !state.entities.properties.amount_of_properties) {
-
-      
     //     let propArr;
     //     Object.keys(state.entities.properties).length !== 0 ? propArr = state.entities.properties : propArr = []; 
 
     //     debugger
     //     propertyAmount = propArr.filter(property => Number.isInteger(property))[0]
         
- 
     // }   
 
 
@@ -29,6 +26,7 @@ const mapStateToProps = state => {
     properties: asArray(state.entities),
     filters: state.entities.filters,
     propertyAmount: propertyAmount,
+    loading: state.ui.loading,
 
 
 }}
