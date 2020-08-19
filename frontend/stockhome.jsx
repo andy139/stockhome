@@ -33,12 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.store = store;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
-  
-    // window.testUser = {email: "andy@gmail.com", password: "LOLOLOL", fname:"andy", lname: "tran"}
-    // window.login = login;
-    // window.signup = signup;
-    // window.logout = logout;
-    // window.clearErrors = clearErrors;
 
     window.fetchProperties = fetchProperties
     window.fetchProperty = fetchProperty

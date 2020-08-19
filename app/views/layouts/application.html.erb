@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Stockhome</title>
-    <script>
-      function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
 
-      window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          var i;
-          for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-            }
+<head>
+  <title>Stockhome</title>
+  <meta property="og:title" content="Stockhome" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stockhome-app.herokuapp.com/#/" />
+  <meta property="og:image" content="https://stockhome-app-seeds.s3-us-west-1.amazonaws.com/screenshot-stockhome-app-herokuapp-com-1597815769405+(1).png"/>
+  <meta property="og:image:width" content="300" />
+  <meta property="og:image:height" content="300" />
+  <script>
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function (event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
           }
         }
       }
-      
-    </script>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= favicon_link_tag 'logo.png' %>
+    }
 
-   
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ__a4fVU_-8AXvfaTyOU_S7vU3l27byk" %>
-    <%= stylesheet_link_tag 'application', media: 'all' %> <%= csrf_meta_tags %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+  </script>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= favicon_link_tag 'logo.png' %>
 
-  <body>
-     
-    <%= yield %>
-  </body>
+
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBQ__a4fVU_-8AXvfaTyOU_S7vU3l27byk" %>
+  <%= stylesheet_link_tag 'application', media: 'all' %> <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application' %>
+</head>
+
+<body>
+
+  <%= yield %>
+</body>
+
 </html>
