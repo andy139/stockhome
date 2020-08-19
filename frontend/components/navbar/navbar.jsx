@@ -9,19 +9,9 @@ class Navbar extends React.Component {
     
     }
 
-    //this.props.logout
-    //this.props.currentUser =>has attributes .fname, etc 
-
-
 
     render(){
-
-       
-
-
-
         const signUpNotBolded = () => (
-
 
             <div className="nav-signup-link">
                 <Link className="signup-text-blue" to="/signup">Sign Up</Link>

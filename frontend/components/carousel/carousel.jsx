@@ -10,12 +10,6 @@ import { connect } from 'react-redux';
 
 const mSTP = (state, { match }) => {
 
-
-
-
-
-
-
   return {
 
   };
@@ -35,8 +29,6 @@ const mDTP = dispatch => {
 
 
 function Carousel({ children, width, unit, bedrooms, bathrooms, sqft, year_built, openModal }) {
-  // here we extracted the carousel functionality into its own hook
-
 
   const {
     translate,
